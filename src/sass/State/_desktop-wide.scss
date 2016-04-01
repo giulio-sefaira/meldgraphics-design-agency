@@ -1,5 +1,3 @@
-$desktop-wide-min-width: $desktop-wide + ($padding-edge * 2);
-
 @include breakpoint($desktop-wide-min-width) {
 
   @include layout($wide-layout);
@@ -36,6 +34,7 @@ $desktop-wide-min-width: $desktop-wide + ($padding-edge * 2);
 
       @include element('lang-item') {
         margin: 0;
+        padding: 0;
       }
 
     }

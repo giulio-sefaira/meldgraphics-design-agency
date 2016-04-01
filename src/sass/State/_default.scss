@@ -3,9 +3,6 @@
 	@include transition-property(background-color);
 }
 
-$desktop-min-width: $desktop + ($padding-edge * 2);
-$desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1;
-
 .wrapper {
 	@include breakpoint($desktop-min-width $desktop-max-width) {
 		@include container($desktop);

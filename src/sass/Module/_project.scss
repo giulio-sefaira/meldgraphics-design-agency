@@ -34,7 +34,6 @@
 }
 
 .fa-long-arrow-right {
+  @include size(24px, 11px);
   display: inline-block;
-  width: 24px;
-  height: 11px;
 }

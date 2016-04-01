@@ -1,0 +1,85 @@
+@include breakpoint($mobile-min-width $tablet-max-width) {
+
+  @include layout($tablet-layout);
+
+  body {
+
+    @include block('nav') {
+
+      li {
+        display: block;
+        width: 100%;
+      }
+
+      @include element('list') {
+        display: block;
+        margin: 0;
+        padding-left: 30px;
+        @include break;
+      }
+
+      @include element('item') {
+        text-transform: uppercase;
+        @include fontsize(16);
+        padding: 25px 0 0 5px;
+        border-bottom: solid 1px $nav-border;
+        text-align: left;
+        background-color: $color-dark;
+        color: $nav-bg;
+        margin: 0;
+
+        @include modifier('active') {
+          color: $color-blue;
+        }
+
+        &:hover {
+          border-color: $nav-bg;
+        }
+      }
+
+      @include element('lang-list') {
+        @include break;
+        float: right;
+        margin: 15px;
+      }
+
+      @include element('lang-item') {
+        padding: 0;
+        border: none;
+        text-align: center;
+
+        @include modifier('active') {
+          background-color: $color-blue;
+        }
+      }
+
+      @include element('container') {
+        float: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: $color-dark;
+        width: 310px;
+
+        @include modifier('expanded') {
+          margin-right: 0;
+        }
+
+        @include modifier('collapsed') {
+          margin-right: -310px;
+        }
+      }
+
+      @include element('control') {
+        display: block;
+      }
+
+      @include element('close') {
+        display: block;
+      }
+
+    }
+
+  }
+}
