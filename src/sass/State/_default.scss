@@ -1,0 +1,129 @@
+%transition-background-color {
+	@include hover(.2s);
+	@include transition-property(background-color);
+}
+
+$desktop-min-width: $desktop + ($padding-edge * 2);
+$desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1;
+
+.wrapper {
+	@include breakpoint($desktop-min-width $desktop-max-width) {
+		@include container($desktop);
+	}
+}
+
+@include block('header') {
+	@include hover(.2s);
+	@include transition-property(opacity);
+
+	&:hover {
+		@include opacity(1);
+	}
+}
+
+#make-order {
+	@extend %transition-background-color;
+
+	&:hover {
+		background-color: $project-view-hover;
+	}
+}
+
+@include block('projects') {
+
+	@include element('view-all') {
+		@extend %transition-background-color;
+
+		&:hover {
+			background-color: $project-view-hover;
+		}
+	}
+
+}
+
+@include block('project') {
+
+	@include element('view') {
+		@extend %transition-background-color;
+
+		&:hover {
+			background-color: $project-view-hover;
+		}
+	}
+
+}
+
+@include block('contact') {
+
+	@include element('go-top') {
+		@include hover(.2s);
+		@include transition-property(background-color, color);
+
+		&:hover {
+			background-color: $project-view-hover;
+			color: $button-blue;
+		}
+	}
+
+}
+
+@include block('phones') {
+
+	@include element('item') {
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+@include block('nav') {
+
+	@include element('item') {
+
+		@include hover(.2s);
+		@include transition-property(color, background-color, border-color);
+
+		@include modifier('active') {
+			color: $color-blue;
+		}
+
+		&:hover {
+			color: $color-blue;
+		}
+
+	}
+
+	@include element('control') {
+		@include hover(.2s);
+		@include transition-property(opacity);
+
+		&:hover {
+			@include opacity(.8);
+		}
+	}
+
+	@include element('close') {
+		@include hover(.2s);
+		@include transition-property(opacity, background-color);
+
+		&:hover {
+			@include opacity(1);
+			background-color: $color-black;
+		}
+	}
+
+	@include element('lang-item') {
+
+		@include modifier('active') {
+			color: $nav-bg;
+			background-color: $nav-item;
+		}
+
+		&:hover {
+			color: $nav-bg;
+			background-color: $color-blue;
+		}
+	}
+
+}

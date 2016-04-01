@@ -1,0 +1,7 @@
+@include block('color') {
+
+  @include modifier('blue') {
+    color: $color-blue;
+  }
+
+}

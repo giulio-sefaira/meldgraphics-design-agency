@@ -1,0 +1,79 @@
+@include block('nav') {
+	height: 90px;
+	position: relative;
+	padding-top: 30px;
+	@include box-sizing(border-box);
+	
+	li {
+		list-style-type: none;
+		display: inline-block;
+		text-decoration: none;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	@include element('close') {
+		@include size(45px, 45px);
+		@include opacity(.6);
+		float: right;
+		margin: 5px;
+		display: none;
+	}
+
+	@include element('control') {
+		display: block;
+		@include size(45px, 45px);
+		float: right;
+		margin-top: -16px;
+		display: none;
+	}
+
+	@include element('container') {
+		float: right;
+	}
+
+	@include element('control') {
+		display: none;
+	}
+
+	@include element('logo') {
+		float: left;
+		@include size(149px, 149px);
+		margin: -15px 0 -100px percentage(70px / $desktop);
+	}
+
+	@include element('list') {
+		display: inline;
+		margin-right: percentage(14px / $desktop);
+	}
+
+	@include element('lang-list') {
+		display: inline;
+		margin-right: percentage(21px / $desktop);
+		@include fontsize(0);
+	}
+
+	@include element('item') {
+		line-height: 37px;
+		height: 35px;
+		text-align: center;
+		display: block;
+		margin: 0 rem-calc(12);
+		padding: 0 rem-calc(12);
+		@include fontsize(18);
+	}
+
+	@include element('lang-item') {
+
+		@extend .nav__item;
+
+		width: 37px;
+		@include fontsize(16);
+		text-transform: uppercase;
+		padding: 0;
+		margin: 0;
+	}
+
+}

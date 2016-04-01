@@ -1,0 +1,274 @@
+$desktop-wide-min-width: $desktop-wide + ($padding-edge * 2);
+
+@include breakpoint($desktop-wide-min-width) {
+
+  @include layout($wide-layout);
+  $figure-size: 414px;
+  $desktop-container: $desktop-wide - $column-wide - $padding;
+  $step: 365px;
+
+  body {
+    .wrapper {
+      @include container($desktop-wide);
+    }
+
+    @include block('nav') {
+
+      @include element('logo') {
+        float: left;
+        @include size(149px, 149px);
+        margin: -15px 0 -100px percentage(152px / $desktop-wide);
+      }
+
+      @include element('list') {
+        margin-right: percentage(42px / $desktop-wide);
+      }
+
+      @include element('lang-list') {
+        margin-right: percentage(21px / $desktop-wide);
+      }
+
+      @include element('item') {
+        margin: 0 24px;
+        padding: 0 24px;
+        @include fontsize(18);
+      }
+
+      @include element('lang-item') {
+        margin: 0;
+      }
+
+    }
+
+    @include block('header') {
+
+      @include element('underline') {
+        @include size(percentage(220px / $desktop-wide), 4px);
+      }
+    }
+
+    @include block('about-us') {
+
+      @include element('title') {
+        margin-bottom: 50px;
+        padding-top: 103px;
+      }
+    }
+
+    @include block('article') {
+      @include span(12);
+      @include center-block;
+      float: none;
+
+      @include element('title') {
+        @include span(4.5 of 12 wide);
+        @include fontsize(42);
+      }
+
+      @include element('quote') {
+        @include span(4.5 of 12 wide);
+        @include fontsize(24);
+      }
+
+      @include element('content') {
+        padding-top: 15px;
+      }
+
+      @include element('column-1') {
+        @include span(4.5 of 12 wide at 1);
+      }
+
+      @include element('column-2') {
+        @include span(3 of 12 wider at 6);
+      }
+
+      @include element('sidebar') {
+        @include span(3 of 12 at 10);
+      }
+
+      @include element('cite') {
+        @include fontsize(20);
+        line-height: 1.3;
+        margin-bottom: 42px;
+        padding-left: 0;
+      }
+
+      @include element('brain-title') {
+        @include fontsize(42);
+      }
+
+      p {
+        @include fontsize(22);
+      }
+    }
+
+    @include block('love-it') {
+      @include size(100%,  510px);
+
+      @include element('inner') {
+        @include fontsize(60);
+      }
+    }
+
+    @include block('services') {
+
+      @include element('triangles') {
+        @include post(percentage(-26px / $desktop-wide));
+      }
+
+      @include element('squares') {
+        @include post(percentage(-26px / $desktop-wide));
+      }
+
+      @include element('square') {
+        margin-right: percentage(($figure-size / 2) / $desktop-wide);
+      }
+
+      @include element('triangle') {
+        @include size(percentage($figure-size / $desktop-wide), ($figure-size / 2));
+      }
+
+      @include element('square') {
+        @include size(percentage($figure-size / $desktop-wide), $figure-size);
+        margin-top: -($figure-size / 2);
+      }
+
+      @include element('feature') {
+        width: percentage(($desktop-wide / 6) / $desktop-wide);
+      }
+
+      @include element('panel-bottom') {
+        height: rem-calc(650);
+        @include background-size(100% auto);
+      }
+
+    }
+
+    @include block('advantages') {
+      @include span(12);
+      @include center-block;
+      float: none;
+      margin-top: 80px;
+
+      @include element('item') {
+        @include fontsize(22);
+
+        &:nth-child(1),
+        &:nth-child(3) {
+          width: percentage(400px / ($desktop-wide - $column-wide*2));
+        }
+
+        &:nth-child(2) {
+          margin: 0 percentage(250px / ($desktop-wide - $column-wide*2));
+          width: percentage(350px / ($desktop-wide - $column-wide*2));
+        }
+      }
+    }
+
+    @include block('process') {
+
+      @include element('description') {
+        margin-top: 60px;
+        @include container($desktop-wide);
+        @include fontsize(22);
+      }
+
+      @include element('steps') {
+        @include span(10.5);
+        @include center-block;
+        float: none;
+        margin-bottom: 30px;
+      }
+
+      @include element('step') {
+        @include fontsize(19);
+        width: percentage($step / $desktop-container);
+
+        &:nth-child(2),
+        &:nth-child(5) {
+          margin-left: -(percentage(($step / 4) / $desktop-container));
+        }
+
+        &:nth-child(3) {
+          margin: 515px (percentage(($step / 8) / $desktop-container)) 0;
+        }
+
+        &:nth-child(5) {
+          width: percentage(($step / 1.2) / $desktop-container);
+        }
+      }
+
+      @include element('step-title') {
+        @include fontsize(19);
+      }
+
+      @include element('step-description') {
+        @include fontsize(19);
+      }
+    }
+
+    @include block('projects') {
+
+      @include element('list') {
+        margin-top: 120px;
+      }
+
+      @include element('item') {
+        height: 380px;
+      }
+
+      @include element('view-all-container') {
+        @include break;
+        padding-top: 1px;
+      }
+
+      @include element('view-all') {
+        width: percentage(325px / $desktop-wide);
+        @include center-block;
+        float: none;
+        margin-top: 120px;
+        margin-bottom: 120px;
+        @include fontsize(24);
+      }
+    }
+
+    @include block('project') {
+
+      @include element('view') {
+        @include fontsize(28);
+        padding: 20px;
+      }
+
+      @include element('title') {
+        @include fontsize(28);
+        padding: 20px 15px;
+      }
+
+      @include element('description') {
+        height: 75px;
+      }
+    }
+
+    @include block('contact') {
+
+      @include element('title') {
+        @include span(3 at 2 wide);
+      }
+    }
+
+    @include block('phones') {
+      @include span(2 at 6 wide);
+    }
+
+    @include block('emails') {
+      @include span(3 at 9);
+      text-align: center;
+    }
+
+    @include block('social-icons') {
+
+      @include span(2 at 13.5);
+    }
+  }
+
+}

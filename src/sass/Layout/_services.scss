@@ -1,0 +1,65 @@
+$figure-size: 274px;
+
+@include block('services') {
+	overflow: hidden;
+
+	@include element('triangles') {
+		@include post(percentage(-$padding-edge / $desktop));
+		position: relative;
+		z-index: 333;
+	}
+
+	@include element('squares') {
+		@include post(percentage(-$padding-edge / $desktop));
+		position: relative;
+	}
+
+	@include element('square') {
+		margin-right: percentage(($figure-size / 2) / $desktop);
+		margin-top: -($figure-size / 2);
+	}
+	
+	@include element('triangle') {
+		@include size(percentage($figure-size / $desktop), ($figure-size / 2));
+		display: inline-block;
+		float: right;
+	}
+
+	@include element('square') {
+		float: right;
+		@include size(percentage($figure-size / $desktop), $figure-size);
+	}
+
+	@include element('title') {
+		@include break;
+		@extend .about-us__title;
+	}
+
+	@include element('features') {
+		@include fontsize(0);
+		margin-bottom: 110px;
+	}
+
+	@include element('feature') {
+		width: percentage(($desktop / 6) / $desktop);
+		display: inline-block;
+		text-align: center;
+	}
+
+	@include element('feature-image') {
+		@include size(143px, 150px);
+		@include center-block;
+	}
+
+	@include element('feature-title') {
+		text-transform: uppercase;
+		@include fontsize(20);
+		font-weight: $semi-bold;
+		padding-top: 20px;
+	}
+
+	@include element('panel-bottom') {
+		height: rem-calc(480);
+	}
+
+}

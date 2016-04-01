@@ -1,0 +1,8 @@
+@include block('emails') {
+  @include span(4 at 9);
+  margin-top: 70px;
+
+  @include element('item') {
+    @extend .phones__item;
+  }
+}

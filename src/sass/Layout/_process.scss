@@ -1,0 +1,66 @@
+$desktop-container: $desktop - $column - $padding;
+$step: 240px;
+
+@include block('process') {
+
+	@include element('title') {
+		@include break;
+		@extend .about-us__title;
+	}
+
+	@include element('description') {
+		@include span(10 at 4);
+		@include center-block;
+		float: none;
+		margin-top: 30px;
+		margin-bottom: 80px;
+		text-align: center;
+	}
+
+	@include element('steps') {
+		@include span(14);
+		@include center-block;
+		float: none;
+		margin-bottom: 50px;
+	}
+
+	@include element('step') {
+		text-align: center;
+		@include fontsize(17);
+		display: inline-block;
+		width: percentage($step / $desktop-container);
+		vertical-align: top;
+
+		&:nth-child(1),
+		&:nth-child(5) {
+			margin-top: 245px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(5) {
+			margin-left: -(percentage(($step / 4) / $desktop-container));
+		}
+
+		&:nth-child(3) {
+			margin: 460px (percentage(($step / 8) / $desktop-container)) 0;
+		}
+
+		&:nth-child(5) {
+			width: percentage(($step / 1.2) / $desktop-container);
+		}
+
+	}
+
+	@include element('step-title') {
+		text-transform: uppercase;
+		font-weight: normal;
+		@include fontsize(17);
+		margin-top: 12px;
+	}
+
+	@include element('step-description') {
+		@include fontsize(17);
+		margin: 10px 0;
+	}
+
+}

@@ -1,0 +1,21 @@
+@include block('about-us') {
+
+	@include element('title') {
+		@include span(14 wider);
+		@include center-block;
+		float: none;
+		border-bottom: 1px solid $section-line;
+		text-align: center;
+		@include fontsize(60);
+		font-weight: $extra-bold;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+		padding-top: 80px;
+	}
+
+	@include element('panel-bottom') {
+		@include size(100%, 150px);
+		margin-top: -113px;
+	}
+
+}

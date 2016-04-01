@@ -1,0 +1,48 @@
+@include block('projects') {
+	
+	@include element('title') {
+		@extend .process__title;
+	}
+
+	@include element('list') {
+		margin-top: 70px;
+	}
+	
+	@include element('item') {
+		height: 255px;
+
+		&:nth-child(1) {
+			@include span(4 at 2 wider);
+		}
+
+		&:nth-child(2) {
+			@include span(4 at 7 wider);
+		}
+
+		&:nth-child(3) {
+			@include span(4 at 12 wider);
+		}
+	}
+
+	@include element('view-all') {
+		@include span(4 at 7 wider);
+		@include break;
+		text-align: center;
+		height: 72px;
+		line-height: 72px;
+		@include fontsize(25);
+		margin-top: 90px;
+		margin-bottom: 90px;
+		cursor: pointer;
+	}
+
+}
+
+#make-order {
+	@include size(100%, 100px);
+	text-align: center;
+	@include fontsize(24);
+	line-height: 100px;
+	display: block;
+	cursor: pointer;
+}

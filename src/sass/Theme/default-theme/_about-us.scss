@@ -1,0 +1,31 @@
+@include block('about-us') {
+
+  @include element('title') {
+    color: $section-header;
+  }
+
+  @include element('panel-bottom') {
+    background-color: $article-panel;
+  }
+
+}
+
+@include block('article') {
+
+  p {
+    color: $article-content;
+  }
+
+  @include element('title') {
+    color: $article-header;
+  }
+
+  @include element('quote') {
+    color: $article-content;
+  }
+
+  @include element('brain-title') {
+    color: $article-cite;
+  }
+
+}

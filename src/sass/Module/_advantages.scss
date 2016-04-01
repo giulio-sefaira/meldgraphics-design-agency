@@ -1,0 +1,32 @@
+@include block('advantages') {
+  @include break;
+  @include span(14 wider);
+  @include center-block;
+  margin-top: 50px;
+  margin-bottom: 110px;
+  float: none;
+
+  @include element('item') {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    @include fontsize(20);
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      width: percentage(350px / ($desktop - $column*2));
+    }
+
+    &:nth-child(2) {
+      margin: 0 percentage(50px / ($desktop - $column*2));
+      width: percentage(300px / ($desktop - $column*2));
+    }
+
+  }
+
+  @include element('title') {
+    text-transform: uppercase;
+    font-weight: $semi-bold;
+  }
+
+}

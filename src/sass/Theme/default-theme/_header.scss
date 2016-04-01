@@ -1,0 +1,47 @@
+@include block('header') {
+  background-color: $header-bg;
+
+  @include element('title') {
+    color: $header-text;
+  }
+
+  @include element('underline') {
+    background-color: $header-line;
+  }
+
+  @include element('slogan') {
+    color: $header-text;
+  }
+
+  @include element('go-next') {
+    background: url(../img/go-next.png);
+  }
+
+  @include element('panel-bottom') {
+    background-color: $header-border;
+  }
+}
+
+@include block('nav') {
+  background-color: $nav-bg;
+
+  @include element('close') {
+    background: url(../img/nav-close.png) center center no-repeat $color-dark;
+  }
+
+  @include element('control') {
+    background: url(../img/nav-control.png) center center no-repeat;
+  }
+
+  @include element('logo') {
+    background: url(../img/logo-desktop.png) center center no-repeat;
+    @include background-size(100%, auto);
+    @include image-2x('../img/retina/logo-desktop.png', 100%, auto);
+  }
+
+  @include element('item') {
+    background-color: $nav-bg;
+    color: $nav-item;
+  }
+
+}

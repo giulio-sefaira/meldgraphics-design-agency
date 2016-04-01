@@ -1,0 +1,22 @@
+@include block('love-it') {
+	@include size(100%, 340px);
+	@include box-sizing('border-box');
+	background: url(../img/love-it-bg.jpg) left center repeat-x $love-it-bg;
+	@include background-size(auto 100%);
+
+	@include element('inner') {
+		text-align: center;
+		text-transform: uppercase;
+		@include fontsize(40);
+		color: $love-it-text;
+		font-weight: $semi-bold;
+		background: url(../img/love-it.png) left center no-repeat;
+		@include background-size(auto 100%);
+		@include size(100%, 100%);
+		position: relative;
+	}
+
+	@include element('title') {
+		@include center-both;
+	}
+}

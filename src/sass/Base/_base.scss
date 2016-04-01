@@ -1,0 +1,27 @@
+@include global-reset;
+
+html {
+  font-size: $rem-base;
+}
+
+body {
+	font-family: $proxima;
+	font-weight: $light;
+	line-height: 1.25;
+	background-color: $body-bg;
+}
+
+p, div {
+	@include fontsize(20);
+	font-family: $proxima;
+	font-weight: $light;
+	line-height: 1.25;
+}
+
+p {
+	margin: 20px 0;
+}
+
+hr {
+	margin: 0;
+}

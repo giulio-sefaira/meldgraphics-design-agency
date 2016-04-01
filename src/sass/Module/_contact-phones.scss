@@ -1,0 +1,11 @@
+@include block('phones') {
+  @include span(3 at 6 wider);
+  margin-top: 25px;
+
+  @include element('item') {
+    text-decoration: none;
+    @include fontsize(25);
+    margin-top: 15px;
+    display: block;
+  }
+}

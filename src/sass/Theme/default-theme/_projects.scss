@@ -1,0 +1,61 @@
+@include block('projects') {
+
+  @include element('item') {
+
+    &:nth-child(1) {
+
+      .project__thumb {
+        background: url(../img/thumb-1.jpg) center center no-repeat;
+        @include background-size(auto 100%);
+      }
+    }
+
+    &:nth-child(2) {
+
+      .project__thumb {
+        background: url(../img/thumb-2.jpg) center center no-repeat;
+        @include background-size(auto 100%);
+      }
+    }
+
+    &:nth-child(3) {
+
+      .project__thumb {
+        background: url(../img/thumb-3.jpg) center center no-repeat;
+        @include background-size(auto 100%);
+      }
+    }
+  }
+
+  @include element('view-all') {
+    background-color: $color-blue;
+    color: $button-text;
+  }
+
+}
+
+@include block('project') {
+
+  @include element('title') {
+    background-color: rgba($project-title, .7);
+  }
+
+  @include element('view') {
+    background-color: $color-blue;
+    color: $button-text;
+  }
+
+  @include element('description') {
+    color: $button-text;
+  }
+
+}
+
+#make-order {
+  color: $button-text;
+  background-color: $button-blue;
+}
+
+.fa-long-arrow-right {
+  background: url(../img/view-all.png) right center no-repeat;
+}

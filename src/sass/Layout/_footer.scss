@@ -1,0 +1,33 @@
+@include block('contact') {
+
+  @include element('title') {
+    margin-top: 25px;
+    padding-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-right: 1px solid $section-line;
+    @include fontsize(40);
+    font-weight: $extra-bold;
+    text-transform: uppercase;
+    @include span(3 at 2 wider);
+  }
+
+  @include element('underline') {
+    border: none;
+    @include size(100%, 1px);
+    margin: 0;
+  }
+
+  @include element('go-top') {
+    text-align: center;
+    @include size(100%, 105px);
+    text-decoration: none;
+    display: block;
+    padding-top: 56px;
+    @include box-sizing('border-box');
+    @include fontsize(18);
+    font-weight: normal;
+    font-family: $merriweather;
+  }
+
+}

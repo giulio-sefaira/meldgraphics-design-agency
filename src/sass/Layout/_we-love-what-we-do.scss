@@ -1,0 +1,17 @@
+@include block('love-it') {
+	@include size(100%, 340px);
+	@include box-sizing('border-box');
+
+	@include element('inner') {
+		text-align: center;
+		text-transform: uppercase;
+		@include fontsize(40);
+		font-weight: $semi-bold;
+		@include size(100%, 100%);
+		position: relative;
+	}
+
+	@include element('title') {
+		@include center-both;
+	}
+}

@@ -1,0 +1,71 @@
+@include block('article') {
+	@include span(14 wider);
+	@include center-block;
+	float: none;
+	padding-left: percentage($padding / $desktop);
+	@include box-sizing('border-box');
+
+	@include element('title') {
+		@include span(8 of 14);
+		font-weight: $semi-bold;
+		@include fontsize(40);
+		text-transform: uppercase;
+		line-height: 1;
+		letter-spacing: .015em;
+		margin-top: 35px;
+		margin-bottom: 20px;
+	}
+
+	@include element('quote') {
+		@include span(7 of 14);
+		@include break;
+		font-family: $merriweather;
+		font-weight: normal;
+		@include fontsize(22);
+	}
+
+	@include element('content') {
+		@include break;
+		padding-top: 10px;
+	}
+
+	@include element('column-1') {
+		@include span(6 of 14 at 1);
+		padding-right: rem-calc(29);
+		@include box-sizing('border-box');
+	}
+
+	@include element('cite') {
+		margin-top: 20px;
+		font-family: $merriweather;
+		font-style: italic;
+		font-weight: $light;
+		padding-left: rem-calc(29);
+		@include fontsize(18);
+		@include box-sizing('border-box');
+	}
+
+	@include element('column-2') {
+		@include span(4 of 14 at 7);
+	}
+
+	@include element('sidebar') {
+		@include span(4 of 14 at 11);
+	}
+
+	@include element('brain') {
+		text-align: center;
+		margin: auto;
+
+		img {
+			@include size(100%, auto);
+			max-width: 100%;
+		}
+	}
+
+	@include element('brain-title') {
+		text-transform: uppercase;
+		@include fontsize(40);
+	}
+
+}

@@ -1,0 +1,32 @@
+// Grid settings
+$susy: (
+  columns: 16,
+  gutters: $padding/$column,
+  math: fluid,
+  output: isolate,
+  gutter-position: after
+);
+
+$wide-layout: (
+  columns: 16,
+  gutters: $padding/$column-wide,
+  math: fluid,
+  output: isolate,
+  gutter-position: after
+);
+
+$tablet-layout: (
+  columns: 8,
+  gutters: $padding/$column-tablet,
+  math: fluid,
+  output: isolate,
+  gutter-position: after
+);
+
+$mobile-layout: (
+  columns: 4,
+  gutters: $padding-mobile/$column-mobile,
+  math: fluid,
+  output: isolate,
+  gutter-position: after
+);

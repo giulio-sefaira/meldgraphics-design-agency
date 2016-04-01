@@ -1,0 +1,51 @@
+@include block('header') {
+	padding-bottom: 3px;
+
+	@include element('title') {
+		line-height: .9;
+		@include fontsize(92);
+		font-weight: $extra-bold;
+		text-transform: uppercase;
+		letter-spacing: .027em;
+		padding-top: 220px;
+		margin-bottom: 95px;
+		text-align: center;
+	}
+
+	@include element('subtitle') {
+		@include fontsize(90);
+		display: block;
+		font-weight: $semi-bold;
+		letter-spacing: .035em;
+	}
+
+	@include element('underline') {
+		@include break;
+		@include size(percentage(220px / $desktop), 4px);
+		border: none;
+		@include center-block;
+		margin-bottom: 90px;
+	}
+
+	@include element('slogan') {
+		text-align: center;
+		@include fontsize(30);
+
+	}
+
+	@include element('go-next') {
+		@include size(118px, 52px);
+		@include center-block;
+		margin-top: 115px;
+		margin-bottom: 105px;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		@include opacity(.5);
+	}
+
+	@include element('panel-bottom') {
+		@include size(100%, 1px);
+		border: none;
+	}
+}

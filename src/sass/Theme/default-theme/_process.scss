@@ -1,0 +1,19 @@
+@include block('process') {
+
+  @include element('description') {
+    color: $process-text;
+  }
+
+  @include element('steps') {
+    background: url(../img/steps.png) center center no-repeat;
+  }
+
+  @include element('step-title') {
+    color: $color-dark;
+  }
+
+  @include element('step-description') {
+    color: $process-step;
+  }
+
+}

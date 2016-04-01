@@ -1,0 +1,49 @@
+@include block('services') {
+
+  @include element('triangle') {
+
+    &:nth-child(1) {
+      background: url(../img/figure-4.png) center center no-repeat;
+      @include background-size(100% auto);
+    }
+
+    &:nth-child(3) {
+      background: url(../img/figure-2.png) center center no-repeat;
+      @include background-size(100% auto);
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      background: url(../img/figure-1.png) center center no-repeat;
+      @include background-size(100% auto);
+    }
+
+  }
+
+  @include element('square') {
+    background: url(../img/figure-5.png) center center no-repeat;
+    @include background-size(100% auto);
+  }
+
+  @include element('feature-image') {
+    background-position: center bottom;
+  }
+
+  @include element('feature-title') {
+    color: $color-dark;
+  }
+
+  @include element('panel-bottom') {
+    background: url(../img/table.jpg) left center no-repeat;
+    @include background-size(auto 100%);
+  }
+
+}
+
+@include block('advantages') {
+
+  @include element('item') {
+    color: $article-content;
+  }
+
+}

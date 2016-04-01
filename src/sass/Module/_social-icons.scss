@@ -1,0 +1,16 @@
+@include block('social-icons') {
+  @include span(3 at 13);
+  margin-top: 68px;
+
+  @include element('item') {
+    display: inline-block;
+    width: 23%;
+
+    a {
+      display: block;
+      @include size(100%, 47px);
+    }
+
+  }
+
+}

@@ -1,0 +1,55 @@
+@include block('contact') {
+  background-color: $color-dark;
+
+  @include element('title') {
+    color: $contact-text;
+  }
+
+  @include element('underline') {
+    background-color: $section-line;
+  }
+
+  @include element('go-top') {
+    color: $contact-text;
+    background: url(../img/go-top.png) center 26px no-repeat;
+  }
+
+}
+
+@include block('phones') {
+
+  @include element('item') {
+    color: $contact-text;
+  }
+}
+
+@include block('social-icons') {
+
+  @include element('item') {
+
+    &:nth-child(1) {
+      a {
+        background: url(../img/social-icon-1.png) center center no-repeat;
+      }
+    }
+
+    &:nth-child(2) {
+      a {
+        background: url(../img/social-icon-2.png) center center no-repeat;
+      }
+    }
+
+    &:nth-child(3) {
+      a {
+        background: url(../img/social-icon-3.png) center center no-repeat;
+      }
+    }
+
+    &:nth-child(4) {
+      a {
+        background: url(../img/social-icon-4.png) center center no-repeat;
+      }
+    }
+  }
+
+}

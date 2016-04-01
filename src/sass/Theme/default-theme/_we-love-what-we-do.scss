@@ -1,0 +1,12 @@
+@include block('love-it') {
+
+  background: url(../img/love-it-bg.jpg) left center repeat-x $love-it-bg;
+  @include background-size(auto 100%);
+
+  @include element('inner') {
+    color: $love-it-text;
+    background: url(../img/love-it.png) left center no-repeat;
+    @include background-size(auto 100%);
+  }
+
+}

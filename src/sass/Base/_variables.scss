@@ -1,0 +1,43 @@
+$rem-base: 16px !default;
+
+
+// Text boldness
+$extra-bold:			800;
+$light:						300;
+$semi-bold:				700;
+
+
+// Fonts
+$proxima:					'Proxima Nova';
+$proxima-black:		'Proxima Nova black';
+$merriweather:		'Merriweather', serif;
+
+
+// Colors
+$body-bg:							#fff;
+
+$color-blue:					#81cfd3;
+$color-blue-light:		#b5eae8;
+$color-grey:					#3a3a4b;
+$color-grey-light:    #5a5a64;
+$color-dark:					#292933;
+$color-black:         #000;
+
+
+// Grid
+$column: 58px;
+$column-wide: 98px;
+$column-tablet: 72px;
+$column-mobile: 65px;
+
+$padding: 20px;
+$padding-mobile: 10px;
+$padding-edge: 26px;
+$padding-edge-mobile: 15px;
+
+
+// Screen resolutions
+$desktop-wide:		1868px; // 1920px
+$desktop:					1228px; // 1280px
+$tablet:					716px; // 768px
+$mobile:					290px; // 320px

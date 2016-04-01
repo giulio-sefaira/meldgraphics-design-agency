@@ -1,0 +1,40 @@
+@include block('project') {
+  position: relative;
+  @include size(100%, 100%);
+
+  @include element('thumb') {
+    @include size(100%, 100%);
+  }
+
+  @include element('title') {
+    @include size(percentage(193px / 332px), 100%);
+    float: left;
+    padding: 12px 15px;
+    @include box-sizing('border-box');
+    font-weight: normal;
+  }
+
+  @include element('view') {
+    @include size(percentage(139px / 332px), 100%);
+    float: left;
+    text-decoration: none;
+    @include fontsize(19);
+    padding: 13px 10px;
+    @include box-sizing('border-box');
+
+    .fa-long-arrow-right {
+       width: 21px;
+     }
+  }
+
+  @include element('description') {
+    @include cssowl-absolute-inside(100%, 50px, bottom, center);
+  }
+
+}
+
+.fa-long-arrow-right {
+  display: inline-block;
+  width: 24px;
+  height: 11px;
+}
