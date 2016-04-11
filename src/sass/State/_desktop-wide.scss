@@ -1,3 +1,4 @@
+// from 1920px
 @include breakpoint($desktop-wide-min-width) {
 
   @include layout($wide-layout);
@@ -210,6 +211,8 @@
 
       @include element('list') {
         margin-top: 120px;
+        @include pre(-1%);
+        @include post(1%);
       }
 
       @include element('item') {

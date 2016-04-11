@@ -1,3 +1,4 @@
+// from 200px to 768px
 @include breakpoint($mobile-min-width $tablet-max-width) {
 
   @include layout($tablet-layout);
@@ -59,15 +60,36 @@
         right: 0;
         top: 0;
         bottom: 0;
+        z-index: 333;
         background-color: $color-dark;
         width: 310px;
 
         @include modifier('expanded') {
           margin-right: 0;
+          
+          &-add {
+            @include transition-property(margin-right);
+            @include transition-duration(0.3s);
+            @include transition-timing-function(ease-in);
+          }
+          
+          &-add-active {
+            margin-right: 0;
+          }
         }
 
         @include modifier('collapsed') {
           margin-right: -310px;
+          
+          &-add {
+            @include transition-property(margin-right);
+            @include transition-duration(0.3s);
+            @include transition-timing-function(ease-in);
+          }
+          
+          &-add-active {
+            margin-right: -310px;
+          }
         }
       }
 

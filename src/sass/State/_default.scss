@@ -4,18 +4,23 @@
 }
 
 .wrapper {
+  
+  // from 769px to 1919px
 	@include breakpoint($desktop-min-width $desktop-max-width) {
-		@include container($desktop);
+		min-width: $tablet;
 	}
 }
 
 @include block('header') {
-	@include hover(.2s);
-	@include transition-property(opacity);
+  
+  @include element('go-next') {
+    @include hover(.2s);
+    @include transition-property(opacity);
 
-	&:hover {
-		@include opacity(1);
-	}
+    &:hover {
+      @include opacity(1);
+    }  
+  }
 }
 
 #make-order {
@@ -24,6 +29,22 @@
 	&:hover {
 		background-color: $project-view-hover;
 	}
+}
+
+@include block('services') {
+  
+  @include element('panel-top') {
+    
+    // from 200px to 1919px
+    @include breakpoint($desktop-min-width $desktop-max-width) {
+      @include container($desktop);
+    }
+    
+    // from 200px to 1279px
+    @include breakpoint($desktop-min-width $desktop-middle-width) {
+      @include container($tablet);
+    }
+  }
 }
 
 @include block('projects') {

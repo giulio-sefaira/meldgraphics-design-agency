@@ -13,6 +13,7 @@
   }
 
   @include element('underline') {
+    clear: both;
     border: none;
     @include size(100%, 1px);
     margin: 0;

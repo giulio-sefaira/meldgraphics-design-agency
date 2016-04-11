@@ -4,58 +4,13 @@ $mobile-container: $mobile - $column-mobile - $padding-mobile;
 $step-size: 91px;
 $view-all-height: 56px;
 
-@include breakpoint($mobile-min-width $mobile-max-width) {
-
+// from 200px to 767px
+@include breakpoint($mobile-min-width $tablet-max-width - 1) {
+  
   @include layout($mobile-layout);
 
   body {
-
-    .wrapper {
-      @include container($mobile);
-    }
-
-    @include block('nav') {
-      height: 50px;
-
-      @include element('logo') {
-        @include size(73px, 73px);
-        margin-left: 2px;
-      }
-
-      @include element('control') {
-        background-image: url(../img/nav-control-mobile.png);
-      }
-
-      @include element('close') {
-        background-image: url(../img/nav-close-mobile.png);
-        margin: 2px 5px -14px;
-        position: relative;
-      }
-
-      @include element('container') {
-        width: 260px;
-
-        @include modifier('collapsed') {
-          margin-right: -260px;
-        }
-      }
-
-      @include element('control') {
-        margin-top: -26px;
-        margin-right: -10px;
-      }
-
-      @include element('item') {
-        @include fontsize(14);
-        padding-top: 30px;
-      }
-
-      @include element('lang-item') {
-        padding: 0;
-      }
-
-    }
-
+    
     @include block('header') {
 
       @include element('title') {
@@ -86,7 +41,131 @@ $view-all-height: 56px;
         margin-bottom: 30px;
       }
     }
+    
+    @include block('about-us') {
+      
+      @include element('title') {
+        width: auto;
+        float: none;
+        @include squish($padding-mobile/$column-mobile);
+      }
+    }
+    
+    @include block('services') {
+      
+      @include element('panel-top') {
+        @include container($mobile);
+      }
+      
+      @include element('triangles') {
+        @include post(percentage(-$padding-edge-mobile / $mobile));
+      }
 
+      @include element('squares') {
+        @include post(percentage(-$padding-edge-mobile / $mobile));
+      }
+
+      @include element('square') {
+        margin-right: percentage(($figure-size / 2) / $mobile);
+        margin-top: -($figure-size / 2);
+      }
+
+      @include element('triangle') {
+        @include size(percentage($figure-size / $mobile), ($figure-size / 2));
+      }
+
+      @include element('square') {
+        @include size(percentage($figure-size / $mobile), $figure-size);
+      }
+    }
+    
+    @include block('project') {
+      
+      @include element('thumb') {
+        width: 99.8%
+      }
+      
+      @include element('view') {
+        padding-right: 0;
+        padding-left: 0;
+        text-align: center;
+      }
+    }
+    
+    @include block('contact') {
+      text-align: center;
+      
+      @include element('wrapper') {
+        @include container($mobile); 
+      }
+
+      @include element('title') {
+        @include break;
+        @include fontsize(30);
+        margin: 0;
+        width: 100%;
+        border: none;
+        padding-top: 38px;
+        padding-bottom: 16px;
+      }
+
+      @include element('go-top') {
+        @include fontsize(12);
+        background-image: url(../img/go-top-mobile.png);
+        background-position: center 14px;
+        height: 60px;
+        padding-top: 30px;
+      }
+    }
+
+    @include block('social-icons') {
+      @include break;
+      @include span(3);
+      @include center-block;
+      margin-top: 0;
+      margin-bottom: 20px;
+      float: none;
+
+      @include element('list') {
+        margin-left: -3%;
+      }
+
+      @include element('item') {
+        @include fontsize(19);
+      }
+    }
+
+    @include block('phones') {
+      @include break;
+      @include span(3 at 2);
+      margin-top: 0;
+      text-align: left;
+
+      @include element('item') {
+        @include fontsize(19);
+        margin-top: 5px;
+      }
+    }
+
+    @include block('emails') {
+      @include break;
+      margin: 20px 0 33px;
+      width: 100%;
+
+      @include element('item') {
+        @include fontsize(19);
+      }
+    }
+  }
+}
+
+// from 200px to 550px
+@include breakpoint($mobile-min-width $tablet-middle-width) {
+  
+  @include layout($mobile-layout);
+  
+  body {
+    
     @include block('about-us') {
 
       @include element('title') {
@@ -95,11 +174,18 @@ $view-all-height: 56px;
         border-bottom-color: $color-grey-lighter;
         padding-bottom: 6px;
         padding-top: 38px;
+        width: auto;
+        float: none;
+        @include squish($padding-mobile/$column-mobile);
       }
 
       @include element('panel-bottom') {
         @include size(100%, 65px);
         margin-top: -57px;
+      }
+      
+      .wrapper {
+        @extend %clearfix;
       }
     }
 
@@ -157,6 +243,7 @@ $view-all-height: 56px;
         @include fontsize(12);
         padding: 0;
         line-height: 1.8;
+        margin-top: 20px;
       }
 
       @include element('brain') {
@@ -179,34 +266,9 @@ $view-all-height: 56px;
         @include fontsize(20);
       }
     }
-
+    
     @include block('services') {
-
-      @include element('title') {
-        padding-top: 28px;
-      }
-
-      @include element('triangles') {
-        @include post(percentage(-$padding-edge-mobile / $mobile));
-      }
-
-      @include element('squares') {
-        @include post(percentage(-$padding-edge-mobile / $mobile));
-      }
-
-      @include element('square') {
-        margin-right: percentage(($figure-size / 2) / $mobile);
-        margin-top: -($figure-size / 2);
-      }
-
-      @include element('triangle') {
-        @include size(percentage($figure-size / $mobile), ($figure-size / 2));
-      }
-
-      @include element('square') {
-        @include size(percentage($figure-size / $mobile), $figure-size);
-      }
-
+      
       @include element('features') {
         margin: 0;
       }
@@ -215,15 +277,16 @@ $view-all-height: 56px;
         @include break;
         width: 100%;
         margin-top: 10px;
+        margin-bottom: 0;
       }
-
+      
       @include element('panel-bottom') {
         @include background-size(130%, auto);
         background-position: center center;
         height: rem-calc(250);
       }
     }
-
+    
     @include block('advantages') {
       margin: 0;
       width: 100%;
@@ -252,9 +315,13 @@ $view-all-height: 56px;
         margin: 8px 0 23px;
       }
     }
-
+    
     @include block('process') {
 
+      @include element('wrapper') {
+        @include container($mobile);
+      }
+      
       @include element('description') {
         @include break;
         @include fontsize(14);
@@ -359,9 +426,13 @@ $view-all-height: 56px;
         margin-left: percentage(134px / $mobile);
       }
     }
-
+    
     @include block('projects') {
 
+      @include element('wrapper') {
+        @include container($mobile);
+      }
+      
       @include element('title') {
         margin-bottom: 0;
       }
@@ -372,12 +443,13 @@ $view-all-height: 56px;
       }
 
       @include element('item') {
-
+        
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
-          @include size(100%, 222px);
+          @include size(100%, auto);
           margin: 35px 0 0 0;
+          padding: 0;
         }
       }
 
@@ -403,12 +475,12 @@ $view-all-height: 56px;
 
       @include element('title') {
         @include fontsize(16);
-        padding-top: 14px;
+        padding: 14px 27px 0 27px;
       }
 
       @include element('view') {
         @include fontsize(16);
-        padding-top: 14px;
+        padding: 14px 0 0 0;
         text-align: center;
 
         .fa-long-arrow-right {
@@ -419,6 +491,68 @@ $view-all-height: 56px;
 
       @include element('thumb') {
         @include background-size(100%, 100%);
+      }
+    }
+  }
+}
+
+// from 200px to 320px
+@include breakpoint($mobile-min-width $mobile-max-width) {
+
+  @include layout($mobile-layout);
+
+  body {
+
+    .wrapper {
+      @include container($mobile);
+    }
+
+    @include block('nav') {
+      height: 50px;
+
+      @include element('logo') {
+        @include size(73px, 73px);
+        margin-left: 2px;
+      }
+
+      @include element('control') {
+        background-image: url(../img/nav-control-mobile.png);
+      }
+
+      @include element('close') {
+        background-image: url(../img/nav-close-mobile.png);
+        margin: 2px 5px -14px;
+        position: relative;
+      }
+
+      @include element('container') {
+        width: 260px;
+
+        @include modifier('collapsed') {
+          margin-right: -260px;
+        }
+      }
+
+      @include element('control') {
+        margin-top: -26px;
+        background-position: right center;
+      }
+
+      @include element('item') {
+        @include fontsize(14);
+        padding-top: 30px;
+      }
+
+      @include element('lang-item') {
+        padding: 0;
+      }
+
+    }
+
+    @include block('services') {
+
+      @include element('title') {
+        padding-top: 28px;
       }
     }
 
@@ -432,67 +566,5 @@ $view-all-height: 56px;
         background: url(../img/view-all-mobile-large.png) center center no-repeat;
       }
     }
-
-    @include block('contact') {
-      text-align: center;
-
-      @include element('title') {
-        @include break;
-        @include fontsize(30);
-        margin: 0;
-        width: 100%;
-        border: none;
-        padding-top: 38px;
-        padding-bottom: 16px;
-      }
-
-      @include element('go-top') {
-        @include fontsize(12);
-        background-image: url(../img/go-top-mobile.png);
-        background-position: center 14px;
-        height: 60px;
-        padding-top: 30px;
-      }
-    }
-
-    @include block('social-icons') {
-      @include break;
-      @include span(3);
-      @include center-block;
-      margin-top: 0;
-      margin-bottom: 20px;
-      float: none;
-
-      @include element('list') {
-        margin-left: -3%;
-      }
-
-      @include element('item') {
-        @include fontsize(19);
-      }
-    }
-
-    @include block('phones') {
-      @include break;
-      @include span(3 at 2);
-      margin-top: 0;
-      text-align: left;
-
-      @include element('item') {
-        @include fontsize(19);
-        margin-top: 5px;
-      }
-    }
-
-    @include block('emails') {
-      @include break;
-      margin: 20px 0 33px;
-      width: 100%;
-
-      @include element('item') {
-        @include fontsize(19);
-      }
-    }
-
   }
 }

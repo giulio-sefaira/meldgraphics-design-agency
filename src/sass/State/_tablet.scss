@@ -1,27 +1,218 @@
-@include breakpoint($tablet-min-width $tablet-max-width) {
+$figure-size: 162px;
+$tablet-container: $tablet - $column-tablet - $padding;
+$step: 160px;
 
+// from 321px to 1279px
+@include breakpoint($tablet-min-width $desktop-middle-width) {
+  
   @include layout($tablet-layout);
-  $figure-size: 162px;
-  $tablet-container: $tablet - $column-tablet - $padding;
-  $step: 160px;
-
+  
   body {
+    
+    @include block('services') {
+    
+      @include element('triangles') {
+        @include post(percentage(-$padding-edge / $tablet));
+      }
 
-    .wrapper {
-      @include container($tablet);
-    }
+      @include element('squares') {
+        @include post(percentage(-$padding-edge / $tablet));
+      }
 
-    @include block('nav') {
+      @include element('square') {
+        margin-right: percentage(($figure-size / 2) / $tablet);
+        margin-top: -($figure-size / 2);
+      }
 
-      height: 70px;
+      @include element('triangle') {
+        @include size(percentage($figure-size / $tablet), ($figure-size / 2));
+      }
 
-      @include element('logo') {
-        @include size(120px, 120px);
-        margin-left: percentage(40px / $tablet);
-        margin-top: -21px;
+      @include element('square') {
+        @include size(percentage($figure-size / $tablet), $figure-size);
+      }
+      
+      @include element('feature') {
+        width: percentage(($tablet / 3) / $tablet);
+        margin-bottom: 155px;
+      }
+
+      @include element('features') {
         @include break;
+        margin-bottom: 0;
+      }
+      
+      @include element('panel-bottom') {
+        background-position: center center;
+      }
+    } 
+    
+    @include block('projects') {
+      
+      @include element('item') {
+        @include break;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          @include size(percentage(493px / $tablet), 380px);
+          padding: 25px 0 20px;
+          margin: auto;
+          float: none;
+        }
+      }
+      
+      @include element('view-all') {
+        width: percentage(332px / $tablet);
+        @include fontsize(22);
+        margin: 25px auto 45px;
+        float: none;
+        display: block;
+      }
+      
+      @include element('wrapper') {
+        @include container($tablet);
       }
     }
+    
+    @include block('project') {
+
+      @include element('description') {
+        height: 60px;
+      }
+
+      @include element('view') {
+        padding: 19px 27px;
+        text-align: center;
+      }
+
+      @include element('title') {
+        padding: 19px 27px;
+      }
+    }
+    
+    @include block('contact') {
+
+      @include element('title') {
+        @include fontsize(30);
+        @include span(2 at 1 wide);
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+      
+      @include element('wrapper') {
+        @include container($tablet);
+      }
+    }
+
+    @include block('phones') {
+      @include span(3 at 3.7);
+      margin-top: 30px;
+
+      @include element('item') {
+        @include fontsize(20);
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    @include block('emails') {
+      @include span(3 at 3.7);
+      margin-top: 95px;
+
+      @include element('item') {
+        @include fontsize(20);
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    @include block('social-icons') {
+      @include span(2.5 at 6.5);
+    }
+  }
+}
+
+// from 768px to 1090px
+@include breakpoint($tablet-max-width $desktop-interim-width) {
+  
+  body {
+    
+    @include block('nav') {
+    
+      @include element('item') {
+        margin: 0;
+        padding: 0 rem-calc(10);
+      }
+      
+      @include element('lang-item') {
+        padding: 0;
+      }
+    }
+    
+    @include block('article') {
+      
+      @include element('title') {
+        @include span(6);
+      }
+      
+      @include element('quote') {
+        @include span(5);
+      }
+      
+      @include element('cite') {
+        @include fontsize(16);
+        margin-bottom: 30px;
+      }
+      
+      @include element('brain-title') {
+        @include fontsize(35);
+      }
+      
+      p {
+        @include fontsize(17);
+      }
+    }
+    
+    @include block('love-it') {
+      
+      @include element('inner') {
+        @include fontsize(34);
+      }
+    }
+    
+    @include block('about-us') {
+      
+      @include element('panel-bottom') {
+        margin-top: -85px;
+      }
+    }
+    
+    @include block('advantages') {
+      
+      @include element('item') {
+        
+        &:nth-child(2) {
+          margin: 0 percentage(50px / ($desktop));
+        }
+      }
+    }
+    
+    @include block('process') {
+      
+      @include element('steps') {
+        background-image: url(../img/steps-768.png);
+          
+      }
+    }
+  }
+}
+
+// from 768px
+@include breakpoint($tablet-max-width) {
+  @include layout($tablet-layout);
+  
+  body {
 
     @include block('header') {
 
@@ -51,6 +242,33 @@
       @include element('go-next') {
         margin-top: 135px;
         margin-bottom: 128px;
+      }
+    }
+    
+  }
+  
+}
+
+// from 321px to 768px
+@include breakpoint($tablet-min-width $tablet-max-width) {
+
+  @include layout($tablet-layout);
+
+  body {
+    
+    .wrapper {
+      @include container($tablet); 
+    }
+    
+    @include block('nav') {
+
+      height: 70px;
+
+      @include element('logo') {
+        @include size(120px, 120px);
+        margin-left: percentage(40px / $tablet);
+        margin-top: -21px;
+        @include break;
       }
     }
 
@@ -137,37 +355,6 @@
     }
 
     @include block('services') {
-
-      @include element('triangles') {
-        @include post(percentage(-$padding-edge / $tablet));
-      }
-
-      @include element('squares') {
-        @include post(percentage(-$padding-edge / $tablet));
-      }
-
-      @include element('square') {
-        margin-right: percentage(($figure-size / 2) / $tablet);
-        margin-top: -($figure-size / 2);
-      }
-
-      @include element('triangle') {
-        @include size(percentage($figure-size / $tablet), ($figure-size / 2));
-      }
-
-      @include element('square') {
-        @include size(percentage($figure-size / $tablet), $figure-size);
-      }
-
-      @include element('feature') {
-        width: percentage(($tablet / 3) / $tablet);
-        margin-bottom: 155px;
-      }
-
-      @include element('features') {
-        @include break;
-        margin-bottom: 0;
-      }
 
       @include element('panel-bottom') {
         @include background-size(120% auto);
@@ -272,84 +459,6 @@
 
       @include element('list') {
         @include break;
-      }
-
-      @include element('item') {
-        @include break;
-
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3) {
-          @include size(percentage(493px / $tablet), 380px);
-          padding: 25px 0 20px;
-          margin: auto;
-          float: none;
-        }
-      }
-
-      @include element('view-all') {
-        width: percentage(332px / $tablet);
-        @include fontsize(22);
-        margin: 25px auto 45px;
-        float: none;
-        display: block;
-      }
-    }
-
-    @include block('project') {
-
-      @include element('description') {
-        height: 60px;
-      }
-
-      @include element('view') {
-        padding: 19px 27px;
-        text-align: center;
-      }
-
-      @include element('title') {
-        padding: 19px 27px;
-      }
-    }
-
-    @include block('contact') {
-
-      @include element('title') {
-        @include fontsize(30);
-        @include span(2 at 1 wide);
-        padding-top: 32px;
-        padding-bottom: 32px;
-      }
-    }
-
-    @include block('phones') {
-      @include span(3 at 3.7);
-      margin-top: 30px;
-
-      @include element('item') {
-        @include fontsize(20);
-        margin-top: 0;
-        margin-bottom: 8px;
-      }
-    }
-
-    @include block('emails') {
-      @include span(3 at 3.7);
-      margin-top: 95px;
-
-      @include element('item') {
-        @include fontsize(20);
-        margin-top: 0;
-        margin-bottom: 8px;
-      }
-    }
-
-    @include block('social-icons') {
-      @include span(2.5 at 6.5);
-
-      @include element('item') {
-
-
       }
     }
 

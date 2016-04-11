@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="meldgraphics">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,15 +12,15 @@
         <link rel="stylesheet" href="/css/main.css">
 
     </head>
-    <body>
+    <body ng-controller="meldgraphicsCtrl as main">
 
         <nav class="nav">
             <div class="wrapper">
                 <a href="/" class="nav__logo">
                 </a>
-                <a href="/" class="nav__control"></a>
-                <div class="nav__container nav__container--collapsed">
-                    <a href="/" class="nav__close"></a>
+                <a ng-click="main.toggleNav()" class="nav__control"></a>
+                <div class="nav__container" ng-class="main.showNav ? 'nav__container--expanded' : 'nav__container--collapsed'">
+                    <a class="nav__close" ng-click="main.toggleNav()"></a>
                     <ul class="nav__list">
                         <li><a class="nav__item nav__item--active" href="/">about us</a></li>
                         <li><a class="nav__item" href="/">services</a></li>
@@ -82,7 +82,7 @@
             </div>
         </section>
         <section id="our-services" class="services">
-            <div class="wrapper">
+            <div class="wrapper services__panel-top">
                 <ul class="services__triangles">
                     <li class="services__triangle"></li>
                     <li class="services__triangle"></li>
@@ -92,6 +92,8 @@
                 <ul class="services__squares">
                     <li class="services__square"></li>
                 </ul>
+            </div>
+            <div class="wrapper">
                 <header class="services__title">Our services.</header>
                 <ul class="services__advantages advantages">
                     <li class="services__advantage advantages__item">
@@ -151,6 +153,8 @@
         <section id="how-we-work" class="process">
             <div class="wrapper">
                 <header class="process__title">How we work.</header>
+            </div>
+            <div class="wrapper process__wrapper">
                 <div class="process__description">Client satisfaction is our marketing strategy.&nbsp;<br>We partner with our clients to build their brands over time,&nbsp;<br>building on success and always learning and responding as circumstances change.</div>
                 <ul class="process__steps">
                     <li class="process__step">
@@ -194,10 +198,12 @@
         <section id="projects" class="projects">
             <div class="wrapper">
                 <header class="projects__title">Projects.</header>
+            </div>
+            <div class="wrapper projects__wrapper">
                 <ul class="projects__list">
                     <li class="projects__item">
                         <figure class="project">
-                            <div class="project__thumb"></div>
+                            <img src="img/thumb-1.jpg" class="project__thumb" title="" alt="">
                             <figcaption class="project__description">
                                 <span class="project__title">Life Lines</span>
                                 <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
@@ -206,7 +212,7 @@
                     </li>
                     <li class="projects__item">
                         <figure class="project">
-                            <div class="project__thumb"></div>
+                            <img src="img/thumb-2.jpg" class="project__thumb" title="" alt="">
                             <figcaption class="project__description">
                                 <span class="project__title">Horizon Advisor</span>
                                 <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
@@ -215,7 +221,7 @@
                     </li>
                     <li class="projects__item">
                         <figure class="project">
-                            <div class="project__thumb"></div>
+                            <img src="img/thumb-3.jpg" class="project__thumb" title="" alt="">
                             <figcaption class="project__description">
                                 <span class="project__title">VegFit</span>
                                 <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
@@ -230,7 +236,7 @@
         </section>
         <a id="make-order">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
         <footer class="contact">
-            <div class="wrapper">
+            <div class="wrapper contact__wrapper">
                 <header class="contact__title">Contact.</header>
                 <aside class="contact__phones phones">
                     <ul class="phones__list">
@@ -258,7 +264,7 @@
             </a>
         </footer>
 
-        
+        <script src="/js/vendor.js"></script>
 
         <script src="/js/main.js"></script>
 

@@ -1,4 +1,5 @@
 @include block('projects') {
+  @extend %clearfix;
 	
 	@include element('title') {
 		@extend .process__title;
@@ -9,7 +10,6 @@
 	}
 	
 	@include element('item') {
-		height: 255px;
 
 		&:nth-child(1) {
 			@include span(4 at 2 wider);

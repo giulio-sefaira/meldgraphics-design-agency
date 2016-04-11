@@ -20,14 +20,15 @@
 		float: right;
 		margin: 5px;
 		display: none;
+        cursor: pointer;
 	}
 
 	@include element('control') {
-		display: block;
 		@include size(45px, 45px);
 		float: right;
 		margin-top: -16px;
 		display: none;
+        cursor: pointer;
 	}
 
 	@include element('container') {

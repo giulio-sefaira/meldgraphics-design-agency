@@ -32,13 +32,16 @@ $mobile-layout: (
 );
 
 // Breakpoints
-$desktop-wide-min-width: $desktop-wide + ($padding-edge * 2);
+$desktop-wide-min-width: $desktop-wide + ($padding-edge * 2); // 1920px
 
-$desktop-min-width: $desktop + ($padding-edge * 2);
-$desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1;
+$desktop-min-width: $tablet + ($padding-edge * 2) + 1; // 769px
+$desktop-middle-width: $desktop + ($padding-edge * 2) - 1; // 1279px
+$desktop-interim-width: 1090px;
+$desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1; // 1919px
 
-$tablet-min-width: $tablet + ($padding-edge * 2);
-$tablet-max-width: $desktop + ($padding-edge * 2) - 1;
+$tablet-min-width: $mobile + ($padding-edge-mobile * 2) + 1; // 321px
+$tablet-middle-width: 550px;
+$tablet-max-width: $tablet + ($padding-edge * 2); // 768px
 
-$mobile-min-width: $mobile + ($padding-edge-mobile * 2);
-$mobile-max-width: $tablet + ($padding-edge * 2) - 1;
+$mobile-min-width: 200px;
+$mobile-max-width: $mobile + ($padding-edge-mobile * 2); // 320px
