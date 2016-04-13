@@ -9,13 +9,22 @@ body {
 	font-weight: $light;
 	line-height: 1.25;
 	background-color: $body-bg;
+  padding-top: $nav-height-desktop;
 }
 
-p, div {
+p, 
+div {
 	@include fontsize(20);
 	font-family: $proxima;
 	font-weight: $light;
 	line-height: 1.25;
+}
+
+a,
+button,
+input,
+textarea {
+  outline: none;
 }
 
 p {

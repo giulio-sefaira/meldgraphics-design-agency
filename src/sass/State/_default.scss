@@ -31,6 +31,81 @@
 	}
 }
 
+@include block('document') {
+  margin-right: 0;
+  
+  @include modifier('moved') {
+    transform: translate3d(-$nav-offset, 0, 0);
+    
+    @include breakpoint($mobile-min-width $mobile-max-width) {
+      transform: translate3d(-$nav-offset-mobile, 0, 0);
+    }
+    
+    &-add {
+      @include transition-property(transform);
+      @include transition-duration(0.3s);
+      @include transition-timing-function(ease-in);
+    }
+
+    &-add-active {
+      transform: translate3d(-$nav-offset, 0, 0);
+      
+      @include breakpoint($mobile-min-width $mobile-max-width) {
+        transform: translate3d(-$nav-offset-mobile, 0, 0);
+      }
+    }
+    
+    &-remove {
+      @include transition-property(transform);
+      @include transition-duration(0.3s);
+      @include transition-timing-function(ease-in);
+    }
+    
+    &-remove-active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @include modifier('nav-grey') {
+    
+    .nav {
+      background-color: $color-dark;
+      height: 75px; 
+      padding-top: 20px;
+      
+      @include breakpoint($tablet-min-width $tablet-max-width) {
+        height: $nav-height-tablet;
+        padding-top: 30px;
+      }
+      
+      @include breakpoint($mobile-min-width $mobile-max-width) {
+        height: $nav-height-mobile;
+        padding-top: 30px;
+      }
+    }
+
+    .nav__item {
+      background-color: $color-dark;
+      color: $body-bg;
+
+      &.nav__item--active {
+        color: $color-blue;
+      }
+    }
+
+    .nav__lang-item--active {
+      background-color: $color-blue;
+    }
+    
+    .nav__logo {
+      
+      @include breakpoint($desktop-min-width) {
+        margin-top: -20px; 
+      }
+    }
+  }
+}
+
 @include block('services') {
   
   @include element('panel-top') {
@@ -96,11 +171,21 @@
 }
 
 @include block('nav') {
-
+  @include transition-property(background-color, height, padding-top);
+  @include transition-duration(.2s);
+  @include transition-timing-function(ease-in);
+  
+  @include element('logo') {
+    @include transition-property(margin-top);
+    @include transition-duration(.2s);
+    @include transition-timing-function(ease-in);
+  }
+  
 	@include element('item') {
 
 		@include hover(.2s);
 		@include transition-property(color, background-color, border-color);
+    @include transition-timing-function(ease-in);
 
 		@include modifier('active') {
 			color: $color-blue;

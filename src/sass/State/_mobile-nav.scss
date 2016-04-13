@@ -37,7 +37,44 @@
           border-color: $nav-bg;
         }
       }
+      
+      @include modifier('moved') {
+        transform: translate3d(-$nav-offset, 0, 0);
+    
+        @include breakpoint($mobile-min-width $mobile-max-width) {
+          transform: translate3d(-$nav-offset-mobile, 0, 0);
+        }
 
+        &-add {
+          @include transition-property(transform);
+          @include transition-duration(0.3s);
+          @include transition-timing-function(ease-in);
+        }
+
+        &-add-active {
+          transform: translate3d(-$nav-offset, 0, 0);
+    
+          @include breakpoint($mobile-min-width $mobile-max-width) {
+            transform: translate3d(-$nav-offset-mobile, 0, 0);
+          }
+        }
+
+        &-remove {
+          @include transition-property(transform);
+          @include transition-duration(0.3s);
+          @include transition-timing-function(ease-in);
+        }
+
+        &-remove-active {
+          transform: translate3d(0, 0, 0);
+    
+          @include breakpoint($mobile-min-width $mobile-max-width) {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+      }
+      
       @include element('lang-list') {
         @include break;
         float: right;
@@ -57,40 +94,12 @@
       @include element('container') {
         float: none;
         position: fixed;
-        right: 0;
+        right: -$nav-offset;
         top: 0;
-        bottom: 0;
         z-index: 333;
         background-color: $color-dark;
-        width: 310px;
-
-        @include modifier('expanded') {
-          margin-right: 0;
-          
-          &-add {
-            @include transition-property(margin-right);
-            @include transition-duration(0.3s);
-            @include transition-timing-function(ease-in);
-          }
-          
-          &-add-active {
-            margin-right: 0;
-          }
-        }
-
-        @include modifier('collapsed') {
-          margin-right: -310px;
-          
-          &-add {
-            @include transition-property(margin-right);
-            @include transition-duration(0.3s);
-            @include transition-timing-function(ease-in);
-          }
-          
-          &-add-active {
-            margin-right: -310px;
-          }
-        }
+        width: $nav-offset;
+        height: 100000px;        
       }
 
       @include element('control') {
@@ -102,6 +111,17 @@
       }
 
     }
-
+    
+    &.document--nav-grey {
+      
+      .nav__control {
+        background-image: url(../img/nav-control-scroll.png);
+        
+        @include breakpoint($mobile-min-width $mobile-max-width) {
+          background-image: url(../img/nav-control-mobile-scroll.png);
+        }
+      }
+    }
+    
   }
 }

@@ -1,5 +1,7 @@
 @include block('header') {
 	padding-bottom: 3px;
+  position: relative;
+  overflow: hidden;
 
 	@include element('title') {
 		line-height: .9;
@@ -11,6 +13,52 @@
 		margin-bottom: 95px;
 		text-align: center;
 	}
+  
+  @include element('wrapper') {
+    position: relative;
+    z-index: 222;
+  }
+  
+  @include element('video-wrap') {
+    position:absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    
+    &:before {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      z-index: 111;
+      content: " ";
+      display: block;
+//      @include opacity(.7);
+      background: url(../img/header-bg.png) repeat;
+    }
+  }
+  
+  @include element('video-box') {
+    position: absolute;
+    top:0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  @include element('video') {
+    display: inline-block;
+    transform: translateX(-50%);
+    width: 100%;
+    
+    @include breakpoint($mobile-min-width 1660px) {
+      height: 100%; 
+      width: auto;
+    }
+  }
 
 	@include element('subtitle') {
 		@include fontsize(90);

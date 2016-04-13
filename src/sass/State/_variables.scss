@@ -45,3 +45,6 @@ $tablet-max-width: $tablet + ($padding-edge * 2); // 768px
 
 $mobile-min-width: 200px;
 $mobile-max-width: $mobile + ($padding-edge-mobile * 2); // 320px
+
+$nav-offset: 310px;
+$nav-offset-mobile: 260px;

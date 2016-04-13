@@ -21,6 +21,7 @@
 
   @include element('go-top') {
     text-align: center;
+    cursor: pointer;
     @include size(100%, 105px);
     text-decoration: none;
     display: block;

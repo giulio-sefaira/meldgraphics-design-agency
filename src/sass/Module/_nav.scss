@@ -1,8 +1,13 @@
 @include block('nav') {
-	height: 90px;
+	height: $nav-height-desktop;
 	position: relative;
 	padding-top: 30px;
 	@include box-sizing(border-box);
+  position: fixed;
+  z-index: 555;
+  top: 0;
+  left: 0;
+  right: 0;
 	
 	li {
 		list-style-type: none;
@@ -28,7 +33,7 @@
 		float: right;
 		margin-top: -16px;
 		display: none;
-        cursor: pointer;
+    cursor: pointer;
 	}
 
 	@include element('container') {
@@ -60,6 +65,7 @@
 		margin: 0 rem-calc(12);
 		padding: 0 rem-calc(12);
 		@include fontsize(18);
+    cursor: pointer;
 	}
 
 	@include element('lang-item') {

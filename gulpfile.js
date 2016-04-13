@@ -30,7 +30,6 @@ gulp.task('scripts', function() {
       '**/*.ts'
     ]))
     .pipe(ts(tsProject))
-    .dts
     .pipe(concat('main.js'))
     // .pipe(uglify())
     // .pipe(rename({suffix: '.min'}))

@@ -1,5 +1,0 @@
-.wrapper {
-	@include breakpoint($desktop) {
-		@include container($desktop);
-	}
-}

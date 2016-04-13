@@ -8,6 +8,7 @@ $step: 160px;
   @include layout($tablet-layout);
   
   body {
+    padding-top: $nav-height-tablet;
     
     @include block('services') {
     
@@ -208,8 +209,8 @@ $step: 160px;
   }
 }
 
-// from 768px
-@include breakpoint($tablet-max-width) {
+// from 768px to 1227px
+@include breakpoint($tablet-max-width $desktop-middle-width) {
   @include layout($tablet-layout);
   
   body {

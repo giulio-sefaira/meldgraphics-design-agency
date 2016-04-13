@@ -12,21 +12,20 @@
         <link rel="stylesheet" href="/css/main.css">
 
     </head>
-    <body ng-controller="meldgraphicsCtrl as main">
-
-        <nav class="nav">
+    <body ng-controller="meldgraphicsCtrl as main" scroll>
+        <nav class="nav" ng-class="{'nav--moved' : main.showNav}">
             <div class="wrapper">
                 <a href="/" class="nav__logo">
                 </a>
                 <a ng-click="main.toggleNav()" class="nav__control"></a>
-                <div class="nav__container" ng-class="main.showNav ? 'nav__container--expanded' : 'nav__container--collapsed'">
+                <div class="nav__container">
                     <a class="nav__close" ng-click="main.toggleNav()"></a>
                     <ul class="nav__list">
-                        <li><a class="nav__item nav__item--active" href="/">about us</a></li>
-                        <li><a class="nav__item" href="/">services</a></li>
-                        <li><a class="nav__item" href="/">process</a></li>
-                        <li><a class="nav__item" href="/">projects</a></li>
-                        <li><a class="nav__item" href="/">contact</a></li>
+                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.about-us'}" ng-click="main.scrollToSection('.about-us')">about us</a></li>
+                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">services</a></li>
+                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">process</a></li>
+                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">projects</a></li>
+                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.contact'}" ng-click="main.scrollToSection('.contact')">contact</a></li>
                     </ul>
                     <ul class="nav__lang-list">
                         <li><a class="nav__lang-item nav__lang-item--active" href="/">ru</a></li>
@@ -35,235 +34,40 @@
                 </div>
             </div>
         </nav>
-        <header class="header">
-            <div class="wrapper">
-                <h1 class="header__title">Meldgraphics<span class="header__subtitle">Design Agency</span></h1>
-                <hr class="header__underline">
-                <div class="header__slogan">We design and develop<br>graphical products and brands</div>
-                <button class="header__go-next"></button>
-            </div>
-            <hr class="header__panel-bottom">
-        </header>
-        <section id="who-we-are" class="about-us">
-            <div class="wrapper">
-                <header class="about-us__title">Who we are.</header>
-                <article class="article">
-                    <header class="article__title">We offer functional solutions.</header>
-                    <blockquote class="article__quote">
-                        Our passion is creating handsome graphic designs & smart user interface
-                    </blockquote>
-                    <section class="article__content">
-                        <div class="article__column-1">
-                            <p>Meldgraphics is a Vilnius-based design agency that imagine and build clever products. We're a small team of designers, developers and strategists with a passion for solving problems. Our capabilities include new product design and development, as well as improvements to existing products. We have experience for effective and original solutions. Meldgraphics provides services in high quality branding, web design, app development and online marketing.  </p>
-                            <p>Our chameleon logo demonstrates ability to find common language with any client. Everyone knows how these interesting animals can change their color adapting to the environment, the same way our team adapts to every new client, trying to establish deep understanding of its objectives, business and ambitions. </p>
-                        </div>
-                        <div class="article__column-2">
-                            <p>We take great care to listen our clients and cooperate with them to define requirements, conduct research, quickly prototype and validate ideas. This allows us to focus on what is the best for each individual client and work until we deliver the optimum solution. We believe that strong brands are built through combination of outstandingly brilliant creativity and intelligent brand strategy. We working across creative boundaries, mixing experience with curiosly to solve problems. Everything we create is executed with precision and love. This is what makes us unique. If you are a client with open mind, we will move mountains to work with you.</p>
-                        </div>
-                        <aside class="article__sidebar">
-                            <blockquote class="article__cite">
-                                Meldgraphics agency has no fear and always happy to collaborates even with the most demanding clients. We want to guarantee the highest quality in our work because the only discipline that really matters to us is - excellence.
-                            </blockquote>
-                            <figure class="article__brain">
-                                <img src="img/brain.png" alt="Brain">
-                                <figcaption class="article__brain-title">We have<br><span class="color--blue">ideas for<br> everyone</span></figcaption>
-                            </figure>
-                        </aside>
-                    </section>
-                </article>
-            </div>
-            <div class="about-us__panel-bottom"></div>
-        </section>
-        <section id="we-love-what-we-do" class="love-it">
-            <div class="love-it__inner">
-                <header class="love-it__title">
-                    We love what we do!
-                </header>
-            </div>
-        </section>
-        <section id="our-services" class="services">
-            <div class="wrapper services__panel-top">
-                <ul class="services__triangles">
-                    <li class="services__triangle"></li>
-                    <li class="services__triangle"></li>
-                    <li class="services__triangle"></li>
-                    <li class="services__triangle"></li>
-                </ul>
-                <ul class="services__squares">
-                    <li class="services__square"></li>
-                </ul>
-            </div>
-            <div class="wrapper">
-                <header class="services__title">Our services.</header>
-                <ul class="services__advantages advantages">
-                    <li class="services__advantage advantages__item">
-                        <header class="advantages__title">UX/UI DESIGN & DEVELOPMENT</header>
-                        <p class="advantages__content">We believe that functional needs and emotional response demand equal consideration. Front/back-end experts employ cutting edge technologies to bring our solutions to life.</p>
-                    </li>
-                    <li class="services__advantage advantages__item">
-                        <header class="advantages__title">PRINT & ILLUSTRATION</header>
-                        <p class="advantages__content">Graphic design, typography, illustrations and colour theory are part of our DNA. We are able to turn our hand to any creative brand or print service.</p>
-                    </li>
-                    <li class="services__advantage advantages__item">
-                        <header class="advantages__title">BRANDING & STRATEGY</header>
-                        <p class="advantages__content">Branding should be an expression of your company's position. Using strategy and thoughtful design, we work closely with our clients to build a brand that is identifiable online and offline. </p>
-                    </li>
-                </ul>
-                <ul class="services__features">
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-1.png" title="" alt="" />
-                            <figcaption class="services__feature-title">UX/UI DESIGN</figcaption>
-                        </figure>
-                    </li>
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-2.png" title="" alt="" />
-                            <figcaption class="services__feature-title">STRATEGY</figcaption>
-                        </figure>
-                    </li>
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-3.png" title="" alt="" />
-                            <figcaption class="services__feature-title">DEVELOPMENT</figcaption>
-                        </figure>
-                    </li>
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-4.png" title="" alt="" />
-                            <figcaption class="services__feature-title">BRANDING</figcaption>
-                        </figure>
-                    </li>
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-5.png" title="" alt="" />
-                            <figcaption class="services__feature-title">PRINT DESIGN</figcaption>
-                        </figure>
-                    </li>
-                    <li class="services__feature">
-                        <figure>
-                            <img class="feature-image" src="img/feature-image-6.png" title="" alt="" />
-                            <figcaption class="services__feature-title">ILLUSTRATION</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div>
-            <div class="services__panel-bottom"></div>
-        </section>
-        <section id="how-we-work" class="process">
-            <div class="wrapper">
-                <header class="process__title">How we work.</header>
-            </div>
-            <div class="wrapper process__wrapper">
-                <div class="process__description">Client satisfaction is our marketing strategy.&nbsp;<br>We partner with our clients to build their brands over time,&nbsp;<br>building on success and always learning and responding as circumstances change.</div>
-                <ul class="process__steps">
-                    <li class="process__step">
-                        <img src="img/step-1.png" alt="">
-                        <div class="process__step-details">
-                            <header class="process__step-title">INTERVIEW</header>
-                            <p class="process__step-description">We discuss what you need. We give you our proposal with clear timeframes and cost.</p>
-                        </div>
-                    </li>
-                    <li class="process__step">
-                        <img src="img/step-2.png" alt="">
-                        <div class="process__step-details">
-                            <header class="process__step-title">PLANNING</header>
-                            <p class="process__step-description">We start with conversation to understand your needs.</p>
-                        </div>
-                    </li>
-                    <li class="process__step">
-                        <img src="img/step-3.png" alt="">
-                        <div class="process__step-details">
-                            <header class="process__step-title">DESIGN</header>
-                            <p class="process__step-description">We design sketch, templates and interactive prototypes.</p>
-                        </div>
-                    </li>
-                    <li class="process__step">
-                        <img src="img/step-4.png" alt="">
-                        <div class="process__step-details">
-                            <header class="process__step-title">DEVELOP</header>
-                            <p class="process__step-description">We'll work on the project whilst showing your various prototypes.</p>
-                        </div>
-                    </li>
-                    <li class="process__step">
-                        <img src="img/step-5.png" alt="">
-                        <div class="process__step-details">
-                            <header class="process__step-title">LAUNCH</header>
-                            <p class="process__step-description">We launch your project. Time to show the world your new look.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section id="projects" class="projects">
-            <div class="wrapper">
-                <header class="projects__title">Projects.</header>
-            </div>
-            <div class="wrapper projects__wrapper">
-                <ul class="projects__list">
-                    <li class="projects__item">
-                        <figure class="project">
-                            <img src="img/thumb-1.jpg" class="project__thumb" title="" alt="">
-                            <figcaption class="project__description">
-                                <span class="project__title">Life Lines</span>
-                                <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="projects__item">
-                        <figure class="project">
-                            <img src="img/thumb-2.jpg" class="project__thumb" title="" alt="">
-                            <figcaption class="project__description">
-                                <span class="project__title">Horizon Advisor</span>
-                                <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="projects__item">
-                        <figure class="project">
-                            <img src="img/thumb-3.jpg" class="project__thumb" title="" alt="">
-                            <figcaption class="project__description">
-                                <span class="project__title">VegFit</span>
-                                <a href="" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-                <div class="projects__view-all-container">
-                    <a class="projects__view-all">View all <i class="fa fa-long-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-        <a id="make-order">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
-        <footer class="contact">
-            <div class="wrapper contact__wrapper">
-                <header class="contact__title">Contact.</header>
-                <aside class="contact__phones phones">
-                    <ul class="phones__list">
-                        <li><a class="phones__item" href="tel:+37067621123">+370&nbsp;&nbsp;676 21&nbsp;&nbsp;123</a></li>
-                        <li><a class="phones__item" href="tel:+37064749437">+370 647 49 437</a></li>
-                    </ul>
-                </aside>
-                <aside class="contact__emails emails">
-                    <ul class="emails__list">
-                        <li><a class="emails__item" href="mailto:info@meldgraphics.com">info@meldgraphics.com</a></li>
-                    </ul>
-                </aside>
-                <aside class="contact__social-icons social-icons">
-                    <ul class="social-icons__list">
-                        <li class="social-icons__item"><a href=""></a></li>
-                        <li class="social-icons__item"><a href=""></a></li>
-                        <li class="social-icons__item"><a href=""></a></li>
-                        <li class="social-icons__item"><a href=""></a></li>
-                    </ul>
-                </aside>
-            </div>
-            <hr class="contact__underline">
-            <a href="" class="contact__go-top">
-                <span>Go to top</span>
-            </a>
-        </footer>
+        <div id="wrap-all" ng-class="main.showNav ? 'document--moved' : ''">
 
+            <ng-view></ng-view>
+
+            <a ng-href="#contact" id="make-order">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
+            <footer class="contact">
+                <div class="wrapper contact__wrapper">
+                    <header class="contact__title">Contact.</header>
+                    <aside class="contact__phones phones">
+                        <ul class="phones__list">
+                            <li><a class="phones__item" href="tel:+37067621123">+370&nbsp;&nbsp;676 21&nbsp;&nbsp;123</a></li>
+                            <li><a class="phones__item" href="tel:+37064749437">+370 647 49 437</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="contact__emails emails">
+                        <ul class="emails__list">
+                            <li><a class="emails__item" href="mailto:info@meldgraphics.com">info@meldgraphics.com</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="contact__social-icons social-icons">
+                        <ul class="social-icons__list">
+                              <li class="social-icons__item"><a href=""></a></li>
+                            <li class="social-icons__item"><a href=""></a></li>
+                            <li class="social-icons__item"><a href=""></a></li>
+                            <li class="social-icons__item"><a href=""></a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <hr class="contact__underline">
+                <a ng-click="main.scrollTop()" class="contact__go-top">
+                    <span>Go to top</span>
+                </a>
+            </footer>
+        </div>
         <script src="/js/vendor.js"></script>
 
         <script src="/js/main.js"></script>

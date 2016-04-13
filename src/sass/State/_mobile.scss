@@ -502,17 +502,19 @@ $view-all-height: 56px;
   @include layout($mobile-layout);
 
   body {
+    padding-top: $nav-height-mobile;
 
     .wrapper {
       @include container($mobile);
     }
 
     @include block('nav') {
-      height: 50px;
+      height: $nav-height-mobile;
 
       @include element('logo') {
         @include size(73px, 73px);
         margin-left: 2px;
+        margin-top: -17px;
       }
 
       @include element('control') {
@@ -526,16 +528,12 @@ $view-all-height: 56px;
       }
 
       @include element('container') {
-        width: 260px;
-
-        @include modifier('collapsed') {
-          margin-right: -260px;
-        }
+        width: $nav-offset-mobile;
+        right: -$nav-offset-mobile;
       }
 
       @include element('control') {
         margin-top: -26px;
-        background-position: right center;
       }
 
       @include element('item') {
