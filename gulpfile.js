@@ -27,10 +27,11 @@ gulp.task('scripts', function() {
                    config.libraryTypeScriptDefinitions])
     .pipe(order([
       'app/app.ts',
+      'app/controllers/meldgraphicsCtrl.ts',
       '**/*.ts'
     ]))
+    .pipe(concat('main.ts'))
     .pipe(ts(tsProject))
-    .pipe(concat('main.js'))
     // .pipe(uglify())
     // .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(config.tsOutputPath))

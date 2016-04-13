@@ -3,6 +3,7 @@ $figure-size: 68px;
 $mobile-container: $mobile - $column-mobile - $padding-mobile;
 $step-size: 91px;
 $view-all-height: 56px;
+$categories-item-height: 30px;
 
 // from 200px to 767px
 @include breakpoint($mobile-min-width $tablet-max-width - 1) {
@@ -154,6 +155,74 @@ $view-all-height: 56px;
 
       @include element('item') {
         @include fontsize(19);
+      }
+    }
+
+    @include block('categories') {
+      @include squish($padding-mobile/$column-mobile);
+      width: auto;
+    }
+  }
+}
+
+@include breakpoint($mobile-min-width $tablet-interim-width - 1) {
+
+  body {
+
+    @include block('portfolio') {
+      padding-top: 37px;
+
+      .project__title {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .projects__list {
+        @include squish($padding-mobile/$column-mobile);
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      .projects__item:nth-child(n) {
+        margin-top: 0;
+        margin-bottom: 35px;
+      }
+    }
+
+    @include block('categories') {
+      float: none;
+      margin-top: 27px;
+      margin-bottom: 0;
+
+      @include element('list') {
+        margin: 0;
+      }
+
+      @include element('item-wrap') {
+        clear: both;
+        display: block;
+      }
+
+      @include element('item') {
+        @include radius(2px);
+        height: $categories-item-height;
+        line-height: $categories-item-height + 4;
+        @include fontsize(14);
+        padding: 0 8px;
+        margin: 1px 0 0 0;
+        display: block;
+        @include hover(.2s);
+        @include transition-property(color, background-color);
+
+        &:hover {
+          background-color: $color-blue;
+          color: $body-bg;
+        }
+
+        @include modifier('active') {
+          background-color: $color-blue;
+          color: $body-bg;
+        }
       }
     }
   }
@@ -444,9 +513,9 @@ $view-all-height: 56px;
 
       @include element('item') {
         
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3) {
+        &:nth-child(3n + 1),
+        &:nth-child(3n + 2),
+        &:nth-child(3n) {
           @include size(100%, auto);
           margin: 35px 0 0 0;
           padding: 0;
@@ -491,6 +560,13 @@ $view-all-height: 56px;
 
       @include element('thumb') {
         @include background-size(100%, 100%);
+      }
+    }
+
+    @include block('portfolio') {
+
+      .projects__list {
+        margin-bottom: 0;
       }
     }
   }

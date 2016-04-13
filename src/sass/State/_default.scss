@@ -65,45 +65,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  
-  @include modifier('nav-grey') {
-    
-    .nav {
-      background-color: $color-dark;
-      height: 75px; 
-      padding-top: 20px;
-      
-      @include breakpoint($tablet-min-width $tablet-max-width) {
-        height: $nav-height-tablet;
-        padding-top: 30px;
-      }
-      
-      @include breakpoint($mobile-min-width $mobile-max-width) {
-        height: $nav-height-mobile;
-        padding-top: 30px;
-      }
-    }
-
-    .nav__item {
-      background-color: $color-dark;
-      color: $body-bg;
-
-      &.nav__item--active {
-        color: $color-blue;
-      }
-    }
-
-    .nav__lang-item--active {
-      background-color: $color-blue;
-    }
-    
-    .nav__logo {
-      
-      @include breakpoint($desktop-min-width) {
-        margin-top: -20px; 
-      }
-    }
-  }
 }
 
 @include block('services') {
@@ -180,7 +141,43 @@
     @include transition-duration(.2s);
     @include transition-timing-function(ease-in);
   }
-  
+
+  @include modifier('grey') {
+    background-color: $color-dark;
+    height: 75px;
+    padding-top: 20px;
+
+    @include breakpoint($tablet-min-width $tablet-max-width) {
+      height: $nav-height-tablet;
+      padding-top: 30px;
+    }
+
+    @include breakpoint($mobile-min-width $mobile-max-width) {
+      height: $nav-height-mobile;
+      padding-top: 30px;
+    }
+
+    .nav__item {
+      background-color: $color-dark;
+      color: $body-bg;
+
+      &.nav__item--active {
+        color: $color-blue;
+      }
+    }
+
+    .nav__lang-item--active {
+      background-color: $color-blue;
+    }
+
+    .nav__logo {
+
+      @include breakpoint($desktop-min-width) {
+        margin-top: -20px;
+      }
+    }
+  }
+
 	@include element('item') {
 
 		@include hover(.2s);

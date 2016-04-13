@@ -48,14 +48,3 @@ module app.meldgraphics {
       .controller('meldgraphicsCtrl',
                    meldgraphicsCtrl);
 }
-
-module app.landingPage {
-  class landingPageCtrl extends app.meldgraphics.meldgraphicsCtrl {
-
-  }
-
-  angular
-    .module('meldgraphics')
-    .controller('landingPageCtrl',
-      landingPageCtrl);
-}

@@ -72,7 +72,17 @@
             transform: translate3d(0, 0, 0);
           }
         }
+      }
 
+      @include modifier('grey') {
+
+        .nav__control {
+          background-image: url(../img/nav-control-scroll.png);
+
+          @include breakpoint($mobile-min-width $mobile-max-width) {
+            background-image: url(../img/nav-control-mobile-scroll.png);
+          }
+        }
       }
       
       @include element('lang-list') {
@@ -109,19 +119,6 @@
       @include element('close') {
         display: block;
       }
-
     }
-    
-    &.document--nav-grey {
-      
-      .nav__control {
-        background-image: url(../img/nav-control-scroll.png);
-        
-        @include breakpoint($mobile-min-width $mobile-max-width) {
-          background-image: url(../img/nav-control-mobile-scroll.png);
-        }
-      }
-    }
-    
   }
 }

@@ -40,6 +40,7 @@ $desktop-interim-width: 1090px;
 $desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1; // 1919px
 
 $tablet-min-width: $mobile + ($padding-edge-mobile * 2) + 1; // 321px
+$tablet-interim-width: 650px;
 $tablet-middle-width: 550px;
 $tablet-max-width: $tablet + ($padding-edge * 2); // 768px
 

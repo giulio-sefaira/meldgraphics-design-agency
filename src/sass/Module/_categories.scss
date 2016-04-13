@@ -1,0 +1,33 @@
+@include block('categories') {
+  @include span(14 at 2 wider);
+  margin-bottom: 40px;
+  margin-top: 59px;
+
+  @include element('list') {
+    @include pre(-1%);
+    @include post(1%);
+  }
+  
+  @include element('item-wrap') {
+    display: inline-block;
+  }
+
+  @include element('item') {
+    text-decoration: none;
+    @include fontsize(18);
+    color: $color-dark;
+    @include hover(.2s);
+    @include transition-property(color);
+    text-transform: uppercase;
+    margin-right: rem-calc(30);
+
+    @include modifier('active') {
+      color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+    }
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}

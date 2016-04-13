@@ -1,0 +1,7 @@
+@include block('portfolio') {
+  padding-top: 45px;
+
+  .projects__item {
+    margin-bottom: 50px;
+  }
+}

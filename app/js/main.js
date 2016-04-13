@@ -26,7 +26,6 @@ var app;
             .otherwise('/');
     }
 })(app || (app = {}));
-
 var app;
 (function (app) {
     var meldgraphics;
@@ -60,6 +59,21 @@ var app;
             .controller('meldgraphicsCtrl', meldgraphicsCtrl);
     })(meldgraphics = app.meldgraphics || (app.meldgraphics = {}));
 })(app || (app = {}));
+// Collapse angular into ng
+var ng = angular;
+var app;
+(function (app) {
+    var contact;
+    (function (contact) {
+        class contactCtrl {
+            constructor() {
+            }
+        }
+        angular
+            .module('meldgraphics')
+            .controller('contactCtrl', contactCtrl);
+    })(contact = app.contact || (app.contact = {}));
+})(app || (app = {}));
 var app;
 (function (app) {
     var landingPage;
@@ -71,34 +85,71 @@ var app;
             .controller('landingPageCtrl', landingPageCtrl);
     })(landingPage = app.landingPage || (app.landingPage = {}));
 })(app || (app = {}));
-
+var app;
+(function (app) {
+    var portfolio;
+    (function (portfolio) {
+        class portfolioCtrl {
+            constructor() {
+            }
+        }
+        angular
+            .module('meldgraphics')
+            .controller('portfolioCtrl', portfolioCtrl);
+    })(portfolio = app.portfolio || (app.portfolio = {}));
+})(app || (app = {}));
+var app;
+(function (app) {
+    var sendMessage;
+    (function (sendMessage) {
+        class sendMessageCtrl {
+            constructor() {
+            }
+        }
+        angular
+            .module('meldgraphics')
+            .controller('sendMessageCtrl', sendMessageCtrl);
+    })(sendMessage = app.sendMessage || (app.sendMessage = {}));
+})(app || (app = {}));
 var app;
 (function (app) {
     var scroll;
     (function (scroll) {
         angular
             .module('meldgraphics')
-            .directive('scroll', function ($window) {
+            .directive('scroll', function ($window, $location) {
             return function (scope, element, attrs) {
                 var nav = element[0].querySelector('.nav');
                 var navBottom = nav.getBoundingClientRect().bottom;
                 var aboutUs, aboutUsTop;
+                var url = $location.path();
+                scope.navGrey = ($location.path() != '/') ? true : false;
                 scope.$on('$viewContentLoaded', function () {
                     aboutUs = element[0].querySelector('.about-us');
                     aboutUsTop = aboutUs.getBoundingClientRect().top;
+                    url = $location.path();
+                    scope.navGrey = (url != '/') ? true : false;
                 });
-                angular.element($window).bind("scroll", function () {
+                function setNavColor() {
                     aboutUsTop = aboutUs.getBoundingClientRect().top;
-                    if (aboutUsTop < navBottom) {
-                        element.addClass('document--nav-grey');
-                    }
-                    else {
-                        element.removeClass('document--nav-grey');
-                    }
-                });
+                    scope.$apply(function () {
+                        scope.navGrey = (aboutUsTop < navBottom) ? true : false;
+                    });
+                }
+                if (url === '/') {
+                    angular.element($window).bind("scroll", function () {
+                        setNavColor();
+                    });
+                    angular.element($window).bind("resize", function () {
+                        setNavColor();
+                    });
+                }
             };
         });
     })(scroll = app.scroll || (app.scroll = {}));
 })(app || (app = {}));
-
-
+/// <reference path="angularjs/angular.d.ts" />
+/// <reference path="jquery/jquery.d.ts" />
+/// <reference path="angularjs/angular-animate.d.ts" />
+/// <reference path="angular-scroll/angular-scroll.d.ts" />
+/// <reference path="angularjs/angular-route.d.ts" />

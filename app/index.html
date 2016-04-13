@@ -13,7 +13,7 @@
 
     </head>
     <body ng-controller="meldgraphicsCtrl as main" scroll>
-        <nav class="nav" ng-class="{'nav--moved' : main.showNav}">
+        <nav class="nav" ng-class="{'nav--moved' : main.showNav, 'nav--grey' : navGrey}">
             <div class="wrapper">
                 <a href="/" class="nav__logo">
                 </a>
@@ -21,11 +21,11 @@
                 <div class="nav__container">
                     <a class="nav__close" ng-click="main.toggleNav()"></a>
                     <ul class="nav__list">
-                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.about-us'}" ng-click="main.scrollToSection('.about-us')">about us</a></li>
-                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">services</a></li>
-                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">process</a></li>
-                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">projects</a></li>
-                        <li><a class="nav__item" ng-class="{'nav__item--active': main.activeSectionClass == '.contact'}" ng-click="main.scrollToSection('.contact')">contact</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.about-us'}" ng-click="main.scrollToSection('.about-us')">about us</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">services</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">process</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">projects</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.contact'}" ng-click="main.scrollToSection('.contact')">contact</a></li>
                     </ul>
                     <ul class="nav__lang-list">
                         <li><a class="nav__lang-item nav__lang-item--active" href="/">ru</a></li>
