@@ -20,6 +20,7 @@
     @include transition-property(color);
     text-transform: uppercase;
     margin-right: rem-calc(30);
+    cursor: pointer;
 
     @include modifier('active') {
       color: $color-blue;

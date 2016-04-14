@@ -36,7 +36,7 @@
         </nav>
         <div id="wrap-all" ng-class="main.showNav ? 'document--moved' : ''">
 
-            <ng-view></ng-view>
+            <div ng-view class="{{ vm.pageClass }}" autoscroll="true"></div>
 
             <a ng-href="#contact" id="make-order">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
             <footer class="contact">

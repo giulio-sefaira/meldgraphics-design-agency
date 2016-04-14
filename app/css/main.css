@@ -2532,7 +2532,8 @@ hr {
     -o-transition-property: color;
     transition-property: color;
     text-transform: uppercase;
-    margin-right: 1.875em; }
+    margin-right: 1.875em;
+    cursor: pointer; }
     .categories__item--active {
       color: #81cfd3;
       border-bottom: 1px solid #81cfd3; }

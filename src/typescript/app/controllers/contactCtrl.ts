@@ -1,12 +1,12 @@
 module app.contact {
 
   interface contactModel {
-
+    pageClass: string
   }
 
   class contactCtrl implements contactModel {
 
-    constructor() {
+    constructor(public pageClass: string = 'contact') {
 
     }
 

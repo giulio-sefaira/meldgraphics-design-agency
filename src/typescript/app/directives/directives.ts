@@ -26,7 +26,7 @@ module app.scroll {
             });
           }
 
-          if (url === '/') {
+          if (url == '/') {
             angular.element($window).bind("scroll", function() {
               setNavColor();
             });

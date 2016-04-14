@@ -7,7 +7,7 @@ module app.meldgraphics {
     scrollOffset: number;
     activeSectionClass: string;
     toggleNav(): void;
-    scrollTop(): void;
+    scrollTop(duration: string): void;
     scrollToSection(elementSelector: string): void
   }
   
@@ -31,8 +31,8 @@ module app.meldgraphics {
           this.showNav = !this.showNav;
       }
       
-      scrollTop(): void {      
-        this.$document.scrollTop(this.scrollTopValue, this.scrollDurationValue);
+      scrollTop(duration: string = this.scrollDurationValue): void {
+        this.$document.scrollTop(this.scrollTopValue, duration);
       }
       
       scrollToSection(elementSelector: string): void {

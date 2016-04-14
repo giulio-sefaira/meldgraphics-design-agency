@@ -2,7 +2,8 @@ var app;
 (function (app) {
     var main = angular.module('meldgraphics', ['ngAnimate',
         'duScroll',
-        'ngRoute']);
+        'ngRoute',
+        'common.services']);
     main.config(routeConfig);
     routeConfig.$inject = ['$routeProvider'];
     function routeConfig($routeProvider) {
@@ -42,8 +43,8 @@ var app;
             toggleNav() {
                 this.showNav = !this.showNav;
             }
-            scrollTop() {
-                this.$document.scrollTop(this.scrollTopValue, this.scrollDurationValue);
+            scrollTop(duration = this.scrollDurationValue) {
+                this.$document.scrollTop(this.scrollTopValue, duration);
             }
             scrollToSection(elementSelector) {
                 var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
@@ -66,7 +67,8 @@ var app;
     var contact;
     (function (contact) {
         class contactCtrl {
-            constructor() {
+            constructor(pageClass = 'contact') {
+                this.pageClass = pageClass;
             }
         }
         angular
@@ -90,9 +92,15 @@ var app;
     var portfolio;
     (function (portfolio) {
         class portfolioCtrl {
-            constructor() {
+            constructor(dataAccessService, pageClass = 'portfolio', projectFilter = '', projectsList) {
+                this.dataAccessService = dataAccessService;
+                this.pageClass = pageClass;
+                this.projectFilter = projectFilter;
+                this.projectsList = projectsList;
+                this.projectsList = dataAccessService.getPortfolioResource();
             }
         }
+        portfolioCtrl.$inject = ['dataAccessService'];
         angular
             .module('meldgraphics')
             .controller('portfolioCtrl', portfolioCtrl);
@@ -103,7 +111,8 @@ var app;
     var sendMessage;
     (function (sendMessage) {
         class sendMessageCtrl {
-            constructor() {
+            constructor(pageClass = 'sendMessage') {
+                this.pageClass = pageClass;
             }
         }
         angular
@@ -136,7 +145,7 @@ var app;
                         scope.navGrey = (aboutUsTop < navBottom) ? true : false;
                     });
                 }
-                if (url === '/') {
+                if (url == '/') {
                     angular.element($window).bind("scroll", function () {
                         setNavColor();
                     });
@@ -148,8 +157,88 @@ var app;
         });
     })(scroll = app.scroll || (app.scroll = {}));
 })(app || (app = {}));
+var app;
+(function (app) {
+    var common;
+    (function (common) {
+        angular.module('common.services', ['ngResource']);
+    })(common = app.common || (app.common = {}));
+})(app || (app = {}));
+var app;
+(function (app) {
+    var common;
+    (function (common) {
+        class DataAccessService {
+            constructor($resource) {
+                this.$resource = $resource;
+            }
+            getPortfolioResource() {
+                return [{
+                        title: 'Life Lines',
+                        imageUrl: 'img/thumb-1.jpg',
+                        url: 'http://google.ru',
+                        type: 'branding'
+                    },
+                    {
+                        title: 'Horizon Advisor',
+                        imageUrl: 'img/thumb-2.jpg',
+                        url: 'http://yandex.ru',
+                        type: 'design ui/ux'
+                    },
+                    {
+                        title: 'VegFit',
+                        imageUrl: 'img/thumb-3.jpg',
+                        url: 'http://fb.com',
+                        type: 'print design & illustration'
+                    },
+                    {
+                        title: 'Life Lines',
+                        imageUrl: 'img/thumb-1.jpg',
+                        url: 'http://google.ru',
+                        type: 'print design & illustration'
+                    },
+                    {
+                        title: 'Horizon Advisor',
+                        imageUrl: 'img/thumb-2.jpg',
+                        url: 'http://yandex.ru',
+                        type: 'design ui/ux'
+                    },
+                    {
+                        title: 'VegFit',
+                        imageUrl: 'img/thumb-3.jpg',
+                        url: 'http://fb.com',
+                        type: 'branding'
+                    },
+                    {
+                        title: 'Life Lines',
+                        imageUrl: 'img/thumb-1.jpg',
+                        url: 'http://google.ru',
+                        type: 'branding'
+                    },
+                    {
+                        title: 'Horizon Advisor',
+                        imageUrl: 'img/thumb-2.jpg',
+                        url: 'http://yandex.ru',
+                        type: 'print design & illustration'
+                    },
+                    {
+                        title: 'VegFit',
+                        imageUrl: 'img/thumb-3.jpg',
+                        url: 'http://fb.com',
+                        type: 'design ui/ux'
+                    }];
+            }
+        }
+        DataAccessService.$inject = ['$resource'];
+        common.DataAccessService = DataAccessService;
+        angular
+            .module('common.services')
+            .service('dataAccessService', DataAccessService);
+    })(common = app.common || (app.common = {}));
+})(app || (app = {}));
 /// <reference path="angularjs/angular.d.ts" />
 /// <reference path="jquery/jquery.d.ts" />
 /// <reference path="angularjs/angular-animate.d.ts" />
 /// <reference path="angular-scroll/angular-scroll.d.ts" />
 /// <reference path="angularjs/angular-route.d.ts" />
+/// <reference path="angularjs/angular-resource.d.ts" />

@@ -1,12 +1,12 @@
 module app.sendMessage {
 
   interface sendMessageModel {
-
+    pageClass: string
   }
 
   class sendMessageCtrl implements sendMessageModel {
 
-    constructor() {
+    constructor(public pageClass: string = 'sendMessage') {
 
     }
 

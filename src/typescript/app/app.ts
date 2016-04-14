@@ -2,7 +2,8 @@ module app {
   var main = angular.module('meldgraphics',
                               ['ngAnimate',
                                'duScroll',
-                               'ngRoute']);
+                               'ngRoute',
+                               'common.services']);
 
   main.config(routeConfig);
 
