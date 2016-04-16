@@ -10,10 +10,6 @@ module app.meldgraphics {
     scrollTop(duration: string): void;
     scrollToSection(elementSelector: string): void
   }
-  
-  interface meldgraphicsDocument extends ng.IDocument {
-    
-  }
 
   export class meldgraphicsCtrl implements meldgraphicsModel {
 

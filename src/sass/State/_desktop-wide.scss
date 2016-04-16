@@ -1,3 +1,5 @@
+$submit-button-height:  90px;
+
 // from 1920px
 @include breakpoint($desktop-wide-min-width) {
 
@@ -294,6 +296,52 @@
         @include fontsize(20);
         margin-right: rem-calc(25);
       }
+    }
+
+    @include block('contact') {
+      padding-top: 156px;
+
+      @include element('title') {
+        @include fontsize(80);
+        width: 100%;
+        font-weight: $extra-bold;
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      @include element('description') {
+        @include fontsize(27);
+        margin-top: 65px;
+        margin-bottom: 97px;
+      }
+
+      @include element('submit') {
+        height: $submit-button-height;
+        line-height: $submit-button-height;
+        font-weight: $semi-bold;
+      }
+    }
+
+    @include block('talk-to-us') {
+
+      @include element('title') {
+        @include span(12 at 3);
+        @include fontsize(37);
+        font-weight: $semi-bold;
+      }
+
+      @include element('description') {
+        @include fontsize(22);
+        @include span(10 at 3);
+      }
+    }
+
+    @include block('info') {
+      @include span(4.3 at 3);
+    }
+
+    @include block('detail') {
+      @include span(5 at 10 wider);
     }
   }
 
