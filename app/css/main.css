@@ -577,7 +577,7 @@ hr {
     text-transform: uppercase;
     font-size: 16px;
     font-size: 1rem;
-    padding: 25px 0 0 5px;
+    padding: 25px 0 0 5px !important;
     border-bottom: solid 1px #59595f;
     text-align: left;
     background-color: #292933;
@@ -762,7 +762,93 @@ hr {
       width: 29.32961%;
       float: left;
       margin-left: 70.67039%;
-      margin-right: -100%; } }
+      margin-right: -100%; }
+    body .contact {
+      padding-top: 50px; }
+      body .contact__description {
+        clear: both;
+        font-size: 20px;
+        font-size: 1.25rem;
+        margin-top: 0;
+        margin-bottom: 48px;
+        padding-top: 25px; }
+    body .talk-to-us {
+      padding-bottom: 45px; }
+      body .talk-to-us__title {
+        width: 87.15084%;
+        float: left;
+        margin-left: 6.42458%;
+        margin-right: -100%;
+        font-size: 30px;
+        font-size: 1.875rem;
+        margin-top: 30px; }
+      body .talk-to-us__description {
+        width: 87.15084%;
+        float: left;
+        margin-left: 6.42458%;
+        margin-right: -100%; }
+      body .talk-to-us__submit {
+        font-size: 22px;
+        font-size: 1.375rem;
+        height: 82px;
+        line-height: 82px; }
+    body .detail {
+      width: 55.02793%;
+      float: left;
+      margin-left: 6.42458%;
+      margin-right: -100%; }
+      body .detail__title {
+        font-size: 20px;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-indent: 15px;
+        padding-top: 15px;
+        padding-bottom: 0px; }
+      body .detail__add-brief {
+        margin-top: 30px; }
+    body .info {
+      width: 67.87709%;
+      float: left;
+      margin-left: 6.42458%;
+      margin-right: -100%;
+      clear: both; }
+      body .info__title, body .detail__title {
+        text-indent: 15px;
+        padding-top: 10px;
+        font-size: 20px;
+        font-size: 1.25rem; }
+      body .info__subtitle {
+        font-size: 20px;
+        font-size: 1.25rem; }
+      body .info__field, body .info__textarea, body .select-field__placeholder {
+        margin-right: 0;
+        margin-bottom: 32px;
+        width: 100%;
+        font-size: 18px;
+        font-size: 1.125rem; }
+    body .select-field {
+      margin-right: 0;
+      width: 100%; }
+      body .select-field__item {
+        font-size: 18px;
+        font-size: 1.125rem; }
+    body .dropdown-choose-list {
+      padding-top: 45px;
+      padding-bottom: 0; }
+      body .dropdown-choose-list__title, body .upload-file-field__title {
+        font-size: 18px;
+        font-size: 1.125rem;
+        margin-right: 0;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+    body .upload-file-field {
+      margin-top: 45px;
+      display: block; }
+    body .checkbox__label {
+      font-size: 18px;
+      font-size: 1.125rem; } }
 
 @media (min-width: 650px) and (max-width: 1279px) {
   body .portfolio {
@@ -1485,7 +1571,7 @@ hr {
       body .nav__item, body .nav__lang-item {
         font-size: 14px;
         font-size: 0.875rem;
-        padding-top: 30px; }
+        padding-top: 30px !important; }
       body .nav__lang-item {
         padding: 0; }
     body .services__title {

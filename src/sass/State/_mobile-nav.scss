@@ -22,7 +22,7 @@
       @include element('item') {
         text-transform: uppercase;
         @include fontsize(16);
-        padding: 25px 0 0 5px;
+        padding: 25px 0 0 5px !important;
         border-bottom: solid 1px $nav-border;
         text-align: left;
         background-color: $color-dark;

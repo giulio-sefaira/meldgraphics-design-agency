@@ -165,6 +165,7 @@ $categories-item-height: 30px;
   }
 }
 
+// from 200px to 645px
 @include breakpoint($mobile-min-width $tablet-interim-width - 1) {
 
   body {
@@ -569,6 +570,10 @@ $categories-item-height: 30px;
         margin-bottom: 0;
       }
     }
+
+    @include block('contact') {
+
+    }
   }
 }
 
@@ -614,7 +619,7 @@ $categories-item-height: 30px;
 
       @include element('item') {
         @include fontsize(14);
-        padding-top: 30px;
+        padding-top: 30px !important;
       }
 
       @include element('lang-item') {
