@@ -7,7 +7,7 @@
       color: $color-blue;
       
       .checkbox__icon {
-        
+
         &:after {
           @include opacity(1);
         }
@@ -22,6 +22,9 @@
   @include element('label') {
     color: $talk-to-us-border;
     @include fontsize(20);
+
+    @include hover(.15s);
+    @include transition-property(color);
   }
 
   @include element('icon') {
@@ -29,6 +32,12 @@
     position: relative;
     float: left;
     margin-right: 17px;
+
+    &:after,
+    &:before {
+      @include hover(.15s);
+      @include transition-property(opacity);
+    }
 
     &:after {
       @include size(100%, 100%);

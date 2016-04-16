@@ -646,7 +646,7 @@ hr {
     float: right;
     margin: 15px; }
   body .nav__lang-item {
-    padding: 0;
+    padding: 0 !important;
     border: none;
     text-align: center; }
     body .nav__lang-item--active {
@@ -1698,7 +1698,7 @@ hr {
         font-size: 0.875rem;
         padding-top: 30px !important; }
       body .nav__lang-item {
-        padding: 0; }
+        padding: 0 !important; }
     body .services__title {
       padding-top: 28px; }
     body #make-order {
@@ -2599,7 +2599,15 @@ hr {
 .checkbox__label {
   color: #a1a1a1;
   font-size: 20px;
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  -webkit-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color; }
 
 .checkbox__icon {
   width: 22px;
@@ -2607,6 +2615,15 @@ hr {
   position: relative;
   float: left;
   margin-right: 17px; }
+  .checkbox__icon:after, .checkbox__icon:before {
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity; }
   .checkbox__icon:after {
     width: 100%;
     height: 100%;
@@ -2970,7 +2987,8 @@ hr {
     resize: none;
     display: block;
     padding-top: 12px;
-    line-height: 1.3; }
+    line-height: 1.3;
+    color: #a1a1a1; }
     .info__textarea:focus {
       padding-top: 11px;
       line-height: 1.3; }
@@ -2996,7 +3014,8 @@ hr {
   .select-field__placeholder {
     cursor: pointer;
     margin-right: 0;
-    width: 100%; }
+    width: 100%;
+    color: #a1a1a1; }
     .select-field__placeholder--active .select-field__arrow {
       margin-top: 22px;
       margin-right: 7px;

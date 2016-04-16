@@ -11,6 +11,7 @@ $option-height: 34px;
     cursor: pointer;
     margin-right: 0;
     width: 100%;
+    color: $talk-to-us-border;
 
     @include modifier('active') {
 
@@ -25,8 +26,6 @@ $option-height: 34px;
       }
     }
   }
-
-
 
   @include element('arrow') {
     float: right;

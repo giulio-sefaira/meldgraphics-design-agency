@@ -750,7 +750,7 @@ $submit-button-height: 70px;
       }
 
       @include element('lang-item') {
-        padding: 0;
+        padding: 0 !important;
       }
 
     }
