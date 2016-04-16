@@ -249,7 +249,7 @@
       }
     }
 
-    @include block('contact') {
+    @include block('footer') {
 
       @include element('title') {
         @include span(3 at 2 wide);

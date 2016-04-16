@@ -6,10 +6,10 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "angularjs/angular.d.ts": {
-      "commit": "0e139d5d4681b71d53a30408efcc64b79eed6354"
+      "commit": "94d8775a947f626269b06ccadd6f5e61839389d0"
     },
     "jquery/jquery.d.ts": {
-      "commit": "0e139d5d4681b71d53a30408efcc64b79eed6354"
+      "commit": "94d8775a947f626269b06ccadd6f5e61839389d0"
     },
     "angularjs/angular-animate.d.ts": {
       "commit": "8d44da84eb10cdcd2f7ea133f289caef817cb2b9"
@@ -22,6 +22,12 @@
     },
     "angularjs/angular-resource.d.ts": {
       "commit": "0e139d5d4681b71d53a30408efcc64b79eed6354"
+    },
+    "angular-file-upload/angular-file-upload.d.ts": {
+      "commit": "94d8775a947f626269b06ccadd6f5e61839389d0"
+    },
+    "ng-file-upload/ng-file-upload.d.ts": {
+      "commit": "94d8775a947f626269b06ccadd6f5e61839389d0"
     }
   }
 }

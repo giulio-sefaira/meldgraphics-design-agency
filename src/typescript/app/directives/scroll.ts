@@ -9,14 +9,14 @@ module app.scroll {
           var navBottom = nav.getBoundingClientRect().bottom;
           var aboutUs,
               aboutUsTop;
-          var url = $location.path();
+          scope.url = $location.path();
           scope.navGrey = ($location.path() != '/') ? true : false;
 
           scope.$on('$viewContentLoaded', function(){
             aboutUs = element[0].querySelector('.about-us');
             aboutUsTop = aboutUs.getBoundingClientRect().top;
-            url = $location.path();
-            scope.navGrey = (url != '/') ? true : false;
+            scope.url = $location.path();
+            scope.navGrey = (scope.url != '/') ? true : false;
           });
 
           function setNavColor() {
@@ -26,7 +26,7 @@ module app.scroll {
             });
           }
 
-          if (url == '/') {
+          if (scope.url == '/') {
             angular.element($window).bind("scroll", function() {
               setNavColor();
             });

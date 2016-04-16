@@ -1,0 +1,9 @@
+@include block('file-type-list') {
+  float: right;
+  @include fontsize(12);
+  text-transform: uppercase;
+
+  @include element('item') {
+    display: inline-block;
+  }
+}

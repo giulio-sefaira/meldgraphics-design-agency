@@ -28,7 +28,7 @@
                         <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">services</a></li>
                         <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">process</a></li>
                         <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">projects</a></li>
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.contact'}" ng-click="main.scrollToSection('.contact')">contact</a></li>
+                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': main.activeSectionClass == '.footer'}" ng-click="main.scrollToSection('.footer')">contact</a></li>
                     </ul>
                     <ul class="nav__lang-list">
                         <li><a class="nav__lang-item nav__lang-item--active" href="/">ru</a></li>
@@ -41,22 +41,22 @@
 
             <div ng-view class="{{ vm.pageClass }}" autoscroll="true"></div>
 
-            <a ng-href="#contact" id="make-order">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
-            <footer class="contact">
-                <div class="wrapper contact__wrapper">
-                    <header class="contact__title">Contact.</header>
-                    <aside class="contact__phones phones">
+            <a ng-href="#contact" id="make-order" ng-if="url != '/contact'">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
+            <footer class="footer">
+                <div class="wrapper footer__wrapper">
+                    <header class="footer__title">Contact.</header>
+                    <aside class="footer__phones phones">
                         <ul class="phones__list">
                             <li><a class="phones__item" href="tel:+37067621123">+370&nbsp;&nbsp;676 21&nbsp;&nbsp;123</a></li>
                             <li><a class="phones__item" href="tel:+37064749437">+370 647 49 437</a></li>
                         </ul>
                     </aside>
-                    <aside class="contact__emails emails">
+                    <aside class="footer__emails emails">
                         <ul class="emails__list">
                             <li><a class="emails__item" href="mailto:info@meldgraphics.com">info@meldgraphics.com</a></li>
                         </ul>
                     </aside>
-                    <aside class="contact__social-icons social-icons">
+                    <aside class="footer__social-icons social-icons">
                         <ul class="social-icons__list">
                               <li class="social-icons__item"><a href=""></a></li>
                             <li class="social-icons__item"><a href=""></a></li>
@@ -65,8 +65,8 @@
                         </ul>
                     </aside>
                 </div>
-                <hr class="contact__underline">
-                <a ng-click="main.scrollTop()" class="contact__go-top">
+                <hr class="footer__underline">
+                <a ng-click="main.scrollTop()" class="footer__go-top">
                     <span>Go to top</span>
                 </a>
             </footer>

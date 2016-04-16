@@ -93,7 +93,7 @@ $categories-item-height: 30px;
       }
     }
     
-    @include block('contact') {
+    @include block('footer') {
       text-align: center;
       
       @include element('wrapper') {

@@ -13,6 +13,10 @@ $proxima-black:		'Proxima Nova black';
 $merriweather:		'Merriweather', serif;
 
 
+// Form elements
+$field-height:          50px;
+$submit-button-height:  70px;
+
 // Colors
 $body-bg:							#fff;
 
@@ -24,25 +28,29 @@ $color-grey-lighter:  #d9d9d9;
 $color-dark:					#292933;
 $color-black:         #000;
 
+$talk-to-us-bg:       #f4f4f4;
+$talk-to-us-border:   #a1a1a1;
+$upload-file-color:   #7e7e7e;
+
 
 // Grid
-$column: 58px;
-$column-wide: 98px;
-$column-tablet: 72px;
-$column-mobile: 65px;
+$column:              58px;
+$column-wide:         98px;
+$column-tablet:       72px;
+$column-mobile:       65px;
 
-$padding: 20px;
-$padding-mobile: 10px;
-$padding-edge: 26px;
+$padding:             20px;
+$padding-mobile:      10px;
+$padding-edge:        26px;
 $padding-edge-mobile: 15px;
 
 // navigation heights during different resolutions
-$nav-height-desktop: 90px;
-$nav-height-tablet: 70px;
-$nav-height-mobile: 50px;
+$nav-height-desktop:  90px;
+$nav-height-tablet:   70px;
+$nav-height-mobile:   50px;
 
 // Screen resolutions
-$desktop-wide:		1868px; // 1920px
-$desktop:					1228px; // 1280px
-$tablet:					716px; // 768px
-$mobile:					290px; // 320px
+$desktop-wide:		    1868px; // 1920px
+$desktop:					    1228px; // 1280px
+$tablet:					    716px; // 768px
+$mobile:					    290px; // 320px

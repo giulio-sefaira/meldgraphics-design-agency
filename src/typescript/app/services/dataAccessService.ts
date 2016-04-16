@@ -1,7 +1,13 @@
 module app.common {
 
   interface IdataAccessService {
-
+    getProjectBudgetResource(): any;
+    getDesignDevelopmentOptions(): any;
+    getPrintIllustrationOptions(): any;
+    getUploadFileTypes(): any;
+    getBrandingStrategyOptions(): any;
+    getProjectDeadlineOptions(): any;
+    getPortfolioResource(): any;
   }
 
   interface IResource extends ng.resource.IResource<any> {
@@ -15,7 +21,70 @@ module app.common {
     constructor(private $resource: ng.resource.IResourceService) {
 
     }
+
+    getProjectBudgetResource(): any {
+      return [
+        100,
+        500,
+        1000,
+        5000,
+        10000
+      ];
+    }
     
+    getDesignDevelopmentOptions(): any {
+      return [
+        {
+          title: 'Ui/Ux Design',
+          options: ['Website design', 'Application design']
+        },
+        {
+          title: 'Development',
+          options: ['Front-end development', 'Mobile development', 'Technical planning', 'Content management']
+        }
+      ];
+    }
+
+    getPrintIllustrationOptions(): any {
+      return [
+        {
+          title: 'Print Design',
+          options: ['Outdoor advertising', 'Polygraphy', 'Magazines and books', 'Packaging']
+        },
+        {
+          title: 'Illustration',
+          options: ['Sketches', 'Book illustration']
+        }
+      ];
+    }
+
+    getUploadFileTypes(): any {
+      return ['pdf', 'zip', 'doc', 'jpg'];
+    }
+
+    getBrandingStrategyOptions(): any {
+      return [
+        {
+          title: 'Branding',
+          options: ['Naming', 'Logo development', 'Corporate identity']
+        },
+        {
+          title: 'Strategy',
+          options: ['Research facility', 'Content strategy', 'Market research', 'Business analysis']
+        }
+      ];
+    }
+
+    getProjectDeadlineOptions(): any {
+      return [
+        'Can you make it yesterday?',
+        'In a week',
+        'in a month',
+        '2-3 months',
+        'I have more time'
+      ];
+    }
+
     getPortfolioResource(): any {
       return [{
         title: 'Life Lines',

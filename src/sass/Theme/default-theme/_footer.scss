@@ -1,4 +1,4 @@
-@include block('contact') {
+@include block('footer') {
   background-color: $color-dark;
 
   @include element('title') {

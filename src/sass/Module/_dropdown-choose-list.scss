@@ -1,0 +1,70 @@
+@include block('dropdown-choose-list') {
+  padding-top: 32px;
+  padding-bottom: 58px;
+
+  @include element('title') {
+    @include span(5.1 of 6);
+    height: $field-height;
+    line-height: $field-height;
+    background-color: $talk-to-us-border;
+    color: $body-bg;
+    padding: 0 14px;
+    @include fontsize(22);
+    position: relative;
+    @include radius(5px);
+    cursor: pointer;
+
+    @include modifier('active') {
+
+      .dropdown-choose-list__sign {
+        height: 2px;
+      }
+    }
+  }
+
+  @include element('sign') {
+    @include size(18px, 18px);
+    float: right;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    @include translateY(-50%);
+    background: url(../img/expand-icon.png) center center no-repeat;
+
+    @include hover(.3s);
+    @include transition-property(height);
+  }
+
+  @include element('list') {
+    padding-left: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include break;
+    @include box-sizing('border-box');
+    overflow: hidden;
+    max-height: 0;
+
+    @include hover(.5s);
+    @include transition-property(max-height, padding-top);
+
+    @include modifier('expanded') {
+      padding-top: 25px;
+      max-height: 500px;
+    }
+  }
+
+  @include element('sublist') {
+    margin-top: 22px;
+  }
+
+  @include element('item') {
+    font-weight: $extra-bold;
+    padding-top: 10px;
+  }
+
+  @include element('subitem') {
+    font-weight: $light;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+}

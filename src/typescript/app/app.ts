@@ -3,7 +3,8 @@ module app {
                               ['ngAnimate',
                                'duScroll',
                                'ngRoute',
-                               'common.services']);
+                               'common.services',
+                               'angularFileUpload']);
 
   main.config(routeConfig);
 
@@ -12,22 +13,22 @@ module app {
     $routeProvider
       .when('/',
         {
-          templateUrl: '/views/landingPage.html',
+          templateUrl: '/templates/views/landingPage.html',
           controller: 'landingPageCtrl as vm'
         })
       .when('/portfolio',
         {
-          templateUrl: '/views/portfolio.html',
+          templateUrl: '/templates/views/portfolio.html',
           controller: 'portfolioCtrl as vm'
         })
       .when('/contact',
         {
-          templateUrl: '/views/contact.html',
+          templateUrl: '/templates/views/contact.html',
           controller: 'contactCtrl as vm'
         })
       .when('/contact/sendMessage',
         {
-          templateUrl: '/views/sendMessage.html',
+          templateUrl: '/templates/views/sendMessage.html',
           controller: 'sendMessageCtrl as vm'
         })
       .otherwise('/');

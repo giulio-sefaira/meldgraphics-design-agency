@@ -1,0 +1,13 @@
+@include block('detail') {
+  @include span(5 at 10);
+  @include break;
+
+  @include element('title') {
+    @extend .info__title;
+    padding-bottom: 30px;
+  }
+
+  @include element('add-brief') {
+    margin-top: 60px;
+  }
+}

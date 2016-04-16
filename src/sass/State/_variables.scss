@@ -1,3 +1,11 @@
+// Components states
+%field-active-state {
+  border-width: 2px;
+  border-color: $color-blue;
+  text-indent: -1px;
+  line-height: $field-height - 2;
+}
+
 // Grid settings
 $susy: (
   columns: 16,

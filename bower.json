@@ -12,6 +12,7 @@
     "angular-animate": "^1.5.3",
     "angular-scroll": "^1.0.0",
     "angular-route": "^1.5.3",
-    "angular-resource": "^1.5.3"
+    "angular-resource": "^1.5.3",
+    "angular-file-upload": "^2.2.0"
   }
 }

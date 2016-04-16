@@ -1,0 +1,12 @@
+<select name="{{ name }}" id="{{ name }}" ng-model="selectValue" ng-show="false">
+  <option value="" selected="selected">....</option>
+  <option value="{{ item }}" ng-repeat="item in list">{{ item }}</option>
+</select>
+<span class="select-field__placeholder" ng-class="{'select-field__placeholder--active' : showList}" ng-click="openList()">
+  {{ (!selectValue) ? placeholder : selectValue }}
+  <i class="select-field__arrow"></i>
+</span>
+<ul ng-class="{'select-field__list--opened' : showList}" class="select-field__list">
+  <li class="select-field__item" ng-click="selectOption('')">....</li>
+  <li ng-repeat="item in list" class="select-field__item" ng-click="selectOption(item)">{{ item }}</li>
+</ul>

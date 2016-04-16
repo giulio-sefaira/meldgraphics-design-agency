@@ -92,7 +92,7 @@ $step: 160px;
       }
     }
     
-    @include block('contact') {
+    @include block('footer') {
 
       @include element('title') {
         @include fontsize(30);

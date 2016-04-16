@@ -1,0 +1,56 @@
+@include block('checkbox') {
+
+  @include element('field') {
+    display: none;
+
+    &:checked + .checkbox__label {
+      color: $color-blue;
+      
+      .checkbox__icon {
+        
+        &:after {
+          @include opacity(1);
+        }
+
+        &:before {
+          @include opacity(0);
+        }
+      }
+    }
+  }
+
+  @include element('label') {
+    color: $talk-to-us-border;
+    @include fontsize(20);
+  }
+
+  @include element('icon') {
+    @include size(22px, 19px);
+    position: relative;
+    float: left;
+    margin-right: 17px;
+
+    &:after {
+      @include size(100%, 100%);
+      background: url(../img/checkbox-checked.png) center center no-repeat;
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include opacity(0);
+    }
+
+    &:before {
+      @include size(100%, 100%);
+      display: block;
+      content: " ";
+      background: url(../img/checkbox.png) center center no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 111;
+      @include opacity(1);
+    }
+  }
+}

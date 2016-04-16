@@ -1,6 +1,6 @@
 module app.meldgraphics {
   
-  interface meldgraphicsModel {
+  export interface meldgraphicsModel {
     showNav: boolean;
     scrollTopValue: number;
     scrollDurationValue: number;

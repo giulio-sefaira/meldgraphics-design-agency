@@ -45,6 +45,7 @@
 }
 
 #make-order {
+	@include break;
 	@include size(100%, 100px);
 	text-align: center;
 	@include fontsize(24);

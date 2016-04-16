@@ -110,7 +110,7 @@
 
 }
 
-@include block('contact') {
+@include block('footer') {
 
 	@include element('go-top') {
 		@include hover(.2s);

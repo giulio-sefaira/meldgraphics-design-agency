@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <header class="contact__title">Talk to us!</header>
+  <div class="contact__description">Tell about your business, project <br>or idea and we wil get back to you</div>
+</div>
+<section class="talk-to-us">
+  <h2 class="talk-to-us__title">What can we do for you?</h2>
+  <p class="talk-to-us__description">Please fill in as much information as possible so we can create correct estimate. You can fill the form and/or attach     prepared brief. Feel free to tell us about your project and how we can help bringing it to life.</p>
+  <form action="/" class="talk-to-us__contact-form">
+    <aside class="detail">
+      <h3 class="detail__title">How we can help you</h3>
+      <div dropdown-choose-list class="detail__dropdown-choose-list dropdown-choose-list" data-title="Branding / Strategy" data-list="vm.brandingStrategyOptions"></div>
+      <div dropdown-choose-list class="detail__dropdown-choose-list dropdown-choose-list" data-title="Ui/Ux Design / Development" data-list="vm.designDevelopmentOptions"></div>
+      <div dropdown-choose-list class="detail__dropdown-choose-list dropdown-choose-list" data-title="Print design / Illustration" data-list="vm.printIllustrationOptions"></div>
+      <div class="detail__add-brief">
+        <h3 class="detail__title">You can add your brief</h3>
+        <upload-file-field class="detail__upload-file-field upload-file-field" data-name="uploadFilesTypes" data-file-types="vm.uploadFileTypes"></upload-file-field>
+      </div>
+    </aside>
+    <aside class="info">
+      <h3 class="info__title">Your info</h3>
+      <p>
+        <label for="" class="info__subtitle">How do we call you?</label>
+        <input type="text" class="info__field" placeholder="Your name" value="">
+      </p>
+      <p>
+        <label for="" class="info__subtitle">How can we contact you? <span class="info__required">(required)</span></label>
+        <input type="email" class="info__field" placeholder="Your email">
+      </p>
+      <p>
+        <label for="" class="info__subtitle">How do you call your project?</label>
+        <input type="text" class="info__field" placeholder="Project name">
+      </p>
+      <p>
+        <label for="" class="info__subtitle">How much money do you want to spend?</label>
+        <span select-field data-list="vm.projectBudgetValues" data-name="projectBudgetValues" data-placeholder="Project budget..." class="info__select select-field"></span>
+      </p>
+      <p>
+        <label for="" class="info__subtitle">When it has to be done?</label>
+        <span select-field data-list="vm.projectDeadlineOptions" data-name="projectDeadlineOptions" data-placeholder="Project deadline..." class="info__select select-field"></span>
+      </p>
+      <p>
+        <label for="" class="info__subtitle">What do you want to acomplish?</label>
+        <textarea name="" id="" cols="30" rows="10" class="info__textarea">Describe your project...</textarea>
+      </p>
+      <p>
+        <button type="submit" class="talk-to-us__submit">Submit</button>
+      </p>
+    </aside>
+  </form>
+</section>
