@@ -4,6 +4,7 @@ $mobile-container: $mobile - $column-mobile - $padding-mobile;
 $step-size: 91px;
 $view-all-height: 56px;
 $categories-item-height: 30px;
+$submit-button-height: 70px;
 
 // from 200px to 767px
 @include breakpoint($mobile-min-width $tablet-max-width - 1) {
@@ -573,6 +574,132 @@ $categories-item-height: 30px;
 
     @include block('contact') {
 
+      @include element('description') {
+        @include fontsize(16);
+        margin-bottom: 12px;
+      }
+    }
+
+    @include block('talk-to-us') {
+      padding-bottom: 35px;
+
+      @include element('title') {
+        @include fontsize(18);
+        @include span(4);
+        @include center-block;
+        float: none;
+        width: auto;
+        @include squish(percentage(15px / $mobile-max-width));
+        margin-top: 28px;
+      }
+
+      @include element('description') {
+        @include fontsize(14);
+        @include span(4);
+        @include center-block;
+        float: none;
+        width: auto;
+        @include squish(percentage(15px / $mobile-max-width));
+        line-height: 1.5;
+      }
+
+      @include element('submit') {
+        margin-right: 0;
+        width: 100%;
+        height: $submit-button-height;
+        line-height: $submit-button-height;
+        @include fontsize(20);
+        margin-top: 7px;
+      }
+    }
+
+    @include block('detail') {
+      @include span(4);
+      @include center-block;
+      float: none;
+      width: auto;
+      @include squish(percentage(15px / $mobile-max-width));
+
+      @include element('title') {
+        @include fontsize(18);
+        padding-top: 5px;
+        padding-bottom: 15px;
+      }
+
+      @include element('add-brief') {
+        margin-top: 0;
+      }
+    }
+
+    @include block('info') {
+      @include span(4);
+      @include center-block;
+      float: none;
+      width: auto;
+      @include squish(percentage(15px / $mobile-max-width));
+
+      @include element('title') {
+        @include fontsize(18);
+        padding-top: 8px;
+        padding-bottom: 5px;
+      }
+
+      @include element('subtitle') {
+        @include fontsize(15);
+        margin-left: 6px;
+      }
+
+      @include element('field') {
+        @include fontsize(16);
+        margin-right: 0;
+        margin-bottom: 28px;
+        width: 100%;
+      }
+    }
+
+    @include block('dropdown-choose-list') {
+      padding-top: 0;
+      padding-bottom: 35px;
+
+      @include element('title') {
+        margin-right: 0;
+        display: block;
+        float: none;
+        width: auto;
+        @include fontsize(16);
+      }
+
+      @include element('sign') {
+        @include size(15px, 16px);
+        @include background-size(100%, 100%);
+        right: 13px;
+      }
+
+      @include element('list') {
+        padding-left: 27px;
+      }
+    }
+
+    @include block('file-type-list') {
+      @include fontsize(10);
+    }
+
+    @include block('checkbox') {
+
+      @include element('label') {
+        @include fontsize(16);
+      }
+    }
+
+    @include block('select-field') {
+      margin-right: 0;
+      margin-bottom: 28px;
+      width: 100%;
+
+      @include element('item') {
+        @include fontsize(16);
+        padding-right: 20px;
+      }
     }
   }
 }

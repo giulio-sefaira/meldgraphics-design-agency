@@ -205,6 +205,7 @@ $submit-button-height: 82px;
 
     @include block('select-field') {
       margin-right: 0;
+      margin-bottom: 32px;
       width: 100%;
 
       @include element('item') {
