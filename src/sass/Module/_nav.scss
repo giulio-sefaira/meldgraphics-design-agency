@@ -48,7 +48,6 @@
 
 	@include element('list') {
 		display: inline;
-		margin-right: percentage(14px / $desktop);
 	}
 
 	@include element('lang-list') {

@@ -30,8 +30,7 @@ module app.contact {
         this.brandingStrategyOptions = dataAccessService.getBrandingStrategyOptions();
         this.projectDeadlineOptions = dataAccessService.getProjectDeadlineOptions();
     }
-
-
+    
   }
 
   angular

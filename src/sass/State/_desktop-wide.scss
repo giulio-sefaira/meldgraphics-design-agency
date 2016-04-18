@@ -22,7 +22,10 @@ $submit-button-height:  90px;
       }
 
       @include element('list') {
-        margin-right: percentage(42px / $desktop-wide);
+
+        :last-child .nav__item {
+          margin-right: 66px;
+        }
       }
 
       @include element('lang-list') {

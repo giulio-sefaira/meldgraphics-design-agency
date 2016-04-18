@@ -37,7 +37,18 @@
             Meldgraphics agency has no fear and always happy to collaborates even with the most demanding clients. We want to guarantee the highest quality in our work because the only discipline that really matters to us is - excellence.
           </blockquote>
           <figure class="article__brain">
-            <img src="img/brain.png" alt="Brain">
+
+            <img src="img/retina/brain_320.png" ng-if="vm.resolution == 'mobile' && !brainAnimateionRun" alt="Brain">
+            <img src="img/retina/brain_768.png" ng-if="vm.resolution == 'tablet' && !vm.retina && !brainAnimateionRun" alt="Brain">
+            <img src="img/retina/brain_768_retina.png" ng-if="vm.resolution == 'tablet' && vm.retina && !brainAnimateionRun" alt="Brain">
+            <img src="img/retina/brain_1280.png" ng-if="vm.resolution == 'desktop' && !vm.retina && !brainAnimateionRun" alt="Brain">
+            <img src="img/retina/brain_1280_retina.png" ng-if="vm.resolution == 'desktop' && vm.retina && !brainAnimateionRun" alt="Brain">
+
+            <img src="img/icons/brain_320.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'mobile' && brainAnimateionRun" alt="Brain">
+            <img src="img/icons/brain_768.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'tablet' && !vm.retina && brainAnimateionRun" alt="Brain">
+            <img src="img/icons/brain_768_retina.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'tablet' && vm.retina && brainAnimateionRun" alt="Brain">
+            <img src="img/icons/brain_1280.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'desktop' && !vm.retina && brainAnimateionRun" alt="Brain">
+            <img src="img/icons/brain_1280_retina.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'desktop' && vm.retina && brainAnimateionRun" alt="Brain">
             <figcaption class="article__brain-title">We have<br><span class="color--blue">ideas for<br> everyone</span></figcaption>
           </figure>
         </aside>
@@ -84,37 +95,43 @@
     <ul class="services__features">
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-1.png" title="" alt="" />
+          <img class="feature-image feature-image--1" src="img/icons/services/1.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--1" src="img/icons/servicesRetina/1.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">UX/UI DESIGN</figcaption>
         </figure>
       </li>
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-2.png" title="" alt="" />
+          <img class="feature-image feature-image--2" src="img/icons/services/2.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--2" src="img/icons/servicesRetina/2.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">STRATEGY</figcaption>
         </figure>
       </li>
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-3.png" title="" alt="" />
+          <img class="feature-image feature-image--3" src="img/icons/services/3.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--3" src="img/icons/servicesRetina/3.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">DEVELOPMENT</figcaption>
         </figure>
       </li>
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-4.png" title="" alt="" />
+          <img class="feature-image feature-image--4" src="img/icons/services/4.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--4" src="img/icons/servicesRetina/4.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">BRANDING</figcaption>
         </figure>
       </li>
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-5.png" title="" alt="" />
+          <img class="feature-image feature-image--5" src="img/icons/services/5.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--5" src="img/icons/servicesRetina/5.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">PRINT DESIGN</figcaption>
         </figure>
       </li>
       <li class="services__feature">
         <figure>
-          <img class="feature-image" src="img/feature-image-6.png" title="" alt="" />
+          <img class="feature-image feature-image--6" src="img/icons/services/6.gif" ng-if="!vm.retina"  title="" alt="" />
+          <img class="feature-image feature-image--6" src="img/icons/servicesRetina/6.gif" ng-if="vm.retina" title="" alt="" />
           <figcaption class="services__feature-title">ILLUSTRATION</figcaption>
         </figure>
       </li>

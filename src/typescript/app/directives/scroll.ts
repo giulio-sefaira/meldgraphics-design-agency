@@ -2,39 +2,81 @@ module app.scroll {
 
   angular
       .module('meldgraphics')
-      .directive('scroll', function ($window, $location) {
+      .directive('scroll', function ($window, $location, $rootScope) {
         return function(scope, element, attrs) {
-        
-          var nav = element[0].querySelector('.nav');
-          var navBottom = nav.getBoundingClientRect().bottom;
-          var aboutUs,
-              aboutUsTop;
-          scope.url = $location.path();
-          scope.navGrey = ($location.path() != '/') ? true : false;
 
-          scope.$on('$viewContentLoaded', function(){
-            aboutUs = element[0].querySelector('.about-us');
-            aboutUsTop = aboutUs.getBoundingClientRect().top;
+            var nav = element[0].querySelector('.nav');
+            var navBottom = nav.getBoundingClientRect().bottom;
+            var windowHeight = $window.innerHeight;
+            var aboutUs,
+                aboutUsTop,
+                services,
+                servicesTop,
+                process,
+                processTop,
+                projects,
+                projectsTop,
+                footer,
+                footerTop,
+                brain,
+                brainTop;
+
+            scope.brainAnimateionRun = false;
             scope.url = $location.path();
-            scope.navGrey = (scope.url != '/') ? true : false;
-          });
+            scope.navGrey = ($location.path() != '/') ? true : false;
 
-          function setNavColor() {
-            aboutUsTop = aboutUs.getBoundingClientRect().top;
-            scope.$apply(function () {
-              scope.navGrey = (aboutUsTop < navBottom) ? true : false;
+            scope.$on('$viewContentLoaded', function(){
+              aboutUs = element[0].querySelector('.about-us');
+              services = element[0].querySelector('.services');
+              process = element[0].querySelector('.process');
+              projects = element[0].querySelector('.projects');
+              footer = element[0].querySelector('.footer');
+              brain = element[0].querySelector('.article__brain');
+              scope.url = $location.path();
+              scope.navGrey = (scope.url != '/') ? true : false;
             });
-          }
 
-          if (scope.url == '/') {
+            scope.setActiveMenuItem = function() {
+              $rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
+                (projectsTop < navBottom) ? '.projects' :
+                (processTop < navBottom) ? '.process' :
+                (servicesTop < navBottom) ? '.services' :
+                (aboutUsTop < navBottom) ? '.about-us' : '';
+              scope.activeSectionClass = $rootScope.activeSectionClass;
+            };
+
+            scope.animateElements = () => {
+              brainTop = brain.getBoundingClientRect().top;
+              if ((brainTop < (windowHeight - windowHeight * 0.3)) && !scope.brainAnimateionRun) {
+                scope.brainAnimateionRun = true;
+              }
+            }
+
+            scope.setActiveMenuItem();
+
+            scope.activeSectionClass = $rootScope.activeSectionClass;
+
+            scope.setNavColor = function() {
+              aboutUsTop = aboutUs.getBoundingClientRect().top;
+              servicesTop = services.getBoundingClientRect().top;
+              processTop = process.getBoundingClientRect().top;
+              projectsTop = projects.getBoundingClientRect().top;
+              footerTop = footer.getBoundingClientRect().top;
+              scope.$apply(function () {
+                scope.navGrey = (aboutUsTop < navBottom) ? true : false;
+              });
+            }
+
             angular.element($window).bind("scroll", function() {
-              setNavColor();
+              scope.setNavColor();
+              scope.setActiveMenuItem();
+              scope.animateElements();
             });
 
             angular.element($window).bind("resize", function() {
-              setNavColor();
+              scope.setNavColor();
+              scope.setActiveMenuItem();
             });
-          }
 
         };
       });
