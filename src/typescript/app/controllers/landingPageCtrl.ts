@@ -11,10 +11,11 @@ module app.landingPage {
 
    class landingPageCtrl extends app.meldgraphics.meldgraphicsCtrl {
 
-    static $inject = ['$window', '$document', '$rootScope'];
+    static $inject = ['$window', '$document', '$rootScope', '$timeout'];
     constructor(private $window: IWindowService,
                 private $document: ng.IDocumentService,
                 private $rootScope: ng.IRootScopeService,
+                private $timeout: ng.ITimeoutService,
                 options: landingPageModel) {
       super(options);
 

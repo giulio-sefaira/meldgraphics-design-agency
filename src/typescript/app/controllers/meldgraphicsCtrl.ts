@@ -12,14 +12,23 @@ module app.meldgraphics {
 
   export class meldgraphicsCtrl implements meldgraphicsModel {
 
-      static $inject = ['$document', '$rootScope'];
+      static $inject = ['$window','$document', '$rootScope', '$timeout'];
       constructor(
+        private $window: ng.IWindowService,
         private $document: ng.IDocumentService,
         private $rootScope: ng.IRootScopeService,
+        private $timeout: ng.ITimeoutService,
         public showNav: boolean = false,
         public scrollTopValue: number = 0,
         public scrollDurationValue: number = 2000,
         public scrollOffset: number = 70) {
+
+        angular.element(this.$window).bind("resize", () => {
+
+          if (this.$window.innerWidth > 768) this.showNav = false;
+          
+        });
+
       }
 
       toggleNav(): void {
@@ -31,10 +40,12 @@ module app.meldgraphics {
       }
       
       scrollToSection(elementSelector: string): void {
-        var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
-        var targetElement = this.$document[0].querySelector(elementSelector);
-        this.$document.scrollToElement(targetElement, scrollOffset, this.scrollDurationValue / 2);
-        this.$rootScope.activeSectionClass = elementSelector;
+        this.$timeout(() => {
+          var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
+          var targetElement = this.$document[0].querySelector(elementSelector);
+          this.$document.scrollToElement(targetElement, scrollOffset, this.scrollDurationValue / 2);
+          this.$rootScope.activeSectionClass = elementSelector;
+        }, 10);
       }
   }
   

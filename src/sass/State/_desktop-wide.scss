@@ -225,6 +225,7 @@ $submit-button-height:  90px;
       @include element('view-all-container') {
         @include break;
         padding-top: 1px;
+        margin: 0;
       }
 
       @include element('view-all') {

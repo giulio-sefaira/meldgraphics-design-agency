@@ -524,6 +524,10 @@ $submit-button-height: 70px;
         }
       }
 
+      @include element('view-all-container') {
+        margin: 0;
+      }
+
       @include element('view-all') {
         @include size(100%, $view-all-height);
         margin: 45px 0;

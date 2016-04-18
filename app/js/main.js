@@ -1,8 +1,3 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var app;
 (function (app) {
     var main = angular.module('meldgraphics', ['ngAnimate',
@@ -37,35 +32,37 @@ var app;
 (function (app) {
     var meldgraphics;
     (function (meldgraphics) {
-        var meldgraphicsCtrl = (function () {
-            function meldgraphicsCtrl($document, $rootScope, showNav, scrollTopValue, scrollDurationValue, scrollOffset) {
-                if (showNav === void 0) { showNav = false; }
-                if (scrollTopValue === void 0) { scrollTopValue = 0; }
-                if (scrollDurationValue === void 0) { scrollDurationValue = 2000; }
-                if (scrollOffset === void 0) { scrollOffset = 70; }
+        class meldgraphicsCtrl {
+            constructor($window, $document, $rootScope, $timeout, showNav = false, scrollTopValue = 0, scrollDurationValue = 2000, scrollOffset = 70) {
+                this.$window = $window;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
+                this.$timeout = $timeout;
                 this.showNav = showNav;
                 this.scrollTopValue = scrollTopValue;
                 this.scrollDurationValue = scrollDurationValue;
                 this.scrollOffset = scrollOffset;
+                angular.element(this.$window).bind("resize", () => {
+                    if (this.$window.innerWidth > 768)
+                        this.showNav = false;
+                });
             }
-            meldgraphicsCtrl.prototype.toggleNav = function () {
+            toggleNav() {
                 this.showNav = !this.showNav;
-            };
-            meldgraphicsCtrl.prototype.scrollTop = function (duration) {
-                if (duration === void 0) { duration = this.scrollDurationValue; }
+            }
+            scrollTop(duration = this.scrollDurationValue) {
                 this.$document.scrollTop(this.scrollTopValue, duration);
-            };
-            meldgraphicsCtrl.prototype.scrollToSection = function (elementSelector) {
-                var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
-                var targetElement = this.$document[0].querySelector(elementSelector);
-                this.$document.scrollToElement(targetElement, scrollOffset, this.scrollDurationValue / 2);
-                this.$rootScope.activeSectionClass = elementSelector;
-            };
-            meldgraphicsCtrl.$inject = ['$document', '$rootScope'];
-            return meldgraphicsCtrl;
-        }());
+            }
+            scrollToSection(elementSelector) {
+                this.$timeout(() => {
+                    var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
+                    var targetElement = this.$document[0].querySelector(elementSelector);
+                    this.$document.scrollToElement(targetElement, scrollOffset, this.scrollDurationValue / 2);
+                    this.$rootScope.activeSectionClass = elementSelector;
+                }, 10);
+            }
+        }
+        meldgraphicsCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout'];
         meldgraphics.meldgraphicsCtrl = meldgraphicsCtrl;
         angular
             .module('meldgraphics')
@@ -78,9 +75,8 @@ var app;
 (function (app) {
     var contact;
     (function (contact) {
-        var contactCtrl = (function () {
-            function contactCtrl(dataAccessService, pageClass, projectBudgetValues, designDevelopmentOptions, printIllustrationOptions, uploadFileTypes, brandingStrategyOptions, projectDeadlineOptions) {
-                if (pageClass === void 0) { pageClass = 'contact'; }
+        class contactCtrl {
+            constructor(dataAccessService, pageClass = 'contact', projectBudgetValues, designDevelopmentOptions, printIllustrationOptions, uploadFileTypes, brandingStrategyOptions, projectDeadlineOptions) {
                 this.dataAccessService = dataAccessService;
                 this.pageClass = pageClass;
                 this.projectBudgetValues = projectBudgetValues;
@@ -96,9 +92,8 @@ var app;
                 this.brandingStrategyOptions = dataAccessService.getBrandingStrategyOptions();
                 this.projectDeadlineOptions = dataAccessService.getProjectDeadlineOptions();
             }
-            contactCtrl.$inject = ['dataAccessService'];
-            return contactCtrl;
-        }());
+        }
+        contactCtrl.$inject = ['dataAccessService'];
         angular
             .module('meldgraphics')
             .controller('contactCtrl', contactCtrl);
@@ -108,36 +103,32 @@ var app;
 (function (app) {
     var landingPage;
     (function (landingPage) {
-        var landingPageCtrl = (function (_super) {
-            __extends(landingPageCtrl, _super);
-            function landingPageCtrl($window, $document, $rootScope, options) {
-                var _this = this;
-                _super.call(this, options);
+        class landingPageCtrl extends app.meldgraphics.meldgraphicsCtrl {
+            constructor($window, $document, $rootScope, $timeout, options) {
+                super(options);
                 this.$window = $window;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
+                this.$timeout = $timeout;
                 this.retina = (this.$window.devicePixelRatio > 1) ? true : false;
                 this.resolution = 'desktop';
                 this.cashValue = this.disableCashing();
                 this.defineResolution();
-                angular.element(this.$window).bind("resize", function () {
-                    _this.defineResolution();
+                angular.element(this.$window).bind("resize", () => {
+                    this.defineResolution();
                 });
             }
-            landingPageCtrl.prototype.disableCashing = function (min, max) {
-                if (min === void 0) { min = 0; }
-                if (max === void 0) { max = 1000000; }
+            disableCashing(min = 0, max = 1000000) {
                 return Math.round(Math.random() * (max - min) + min);
-            };
-            landingPageCtrl.prototype.defineResolution = function () {
+            }
+            defineResolution() {
                 this.resolution = (this.$window.innerWidth <= 768) ? 'tablet' : 'desktop';
                 if (this.$window.innerWidth <= 320) {
                     this.resolution = 'mobile';
                 }
-            };
-            landingPageCtrl.$inject = ['$window', '$document', '$rootScope'];
-            return landingPageCtrl;
-        }(app.meldgraphics.meldgraphicsCtrl));
+            }
+        }
+        landingPageCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout'];
         angular
             .module('meldgraphics')
             .controller('landingPageCtrl', landingPageCtrl);
@@ -147,19 +138,16 @@ var app;
 (function (app) {
     var portfolio;
     (function (portfolio) {
-        var portfolioCtrl = (function () {
-            function portfolioCtrl(dataAccessService, pageClass, projectFilter, projectsList) {
-                if (pageClass === void 0) { pageClass = 'portfolio'; }
-                if (projectFilter === void 0) { projectFilter = ''; }
+        class portfolioCtrl {
+            constructor(dataAccessService, pageClass = 'portfolio', projectFilter = '', projectsList) {
                 this.dataAccessService = dataAccessService;
                 this.pageClass = pageClass;
                 this.projectFilter = projectFilter;
                 this.projectsList = projectsList;
                 this.projectsList = dataAccessService.getPortfolioResource();
             }
-            portfolioCtrl.$inject = ['dataAccessService'];
-            return portfolioCtrl;
-        }());
+        }
+        portfolioCtrl.$inject = ['dataAccessService'];
         angular
             .module('meldgraphics')
             .controller('portfolioCtrl', portfolioCtrl);
@@ -169,13 +157,11 @@ var app;
 (function (app) {
     var sendMessage;
     (function (sendMessage) {
-        var sendMessageCtrl = (function () {
-            function sendMessageCtrl(pageClass) {
-                if (pageClass === void 0) { pageClass = 'sendMessage'; }
+        class sendMessageCtrl {
+            constructor(pageClass = 'sendMessage') {
                 this.pageClass = pageClass;
             }
-            return sendMessageCtrl;
-        }());
+        }
         angular
             .module('meldgraphics')
             .controller('sendMessageCtrl', sendMessageCtrl);
@@ -244,7 +230,7 @@ var app;
                                     (aboutUsTop < navBottom) ? '.about-us' : '';
                     scope.activeSectionClass = $rootScope.activeSectionClass;
                 };
-                scope.animateElements = function () {
+                scope.animateElements = () => {
                     brainTop = brain.getBoundingClientRect().top;
                     if ((brainTop < (windowHeight - windowHeight * 0.3)) && !scope.brainAnimateionRun) {
                         scope.brainAnimateionRun = true;
@@ -334,7 +320,7 @@ var app;
                     scope.uploader.onAfterAddingFile = function (item) {
                         scope.selectedFileType = item.file.name.match(/\.(.+)$/)[1];
                         var isExcepted = false;
-                        scope.fileTypes.forEach(function (value) {
+                        scope.fileTypes.forEach((value) => {
                             if (scope.selectedFileType == value) {
                                 isExcepted = true;
                                 return;
@@ -361,11 +347,11 @@ var app;
 (function (app) {
     var common;
     (function (common) {
-        var DataAccessService = (function () {
-            function DataAccessService($resource) {
+        class DataAccessService {
+            constructor($resource) {
                 this.$resource = $resource;
             }
-            DataAccessService.prototype.getProjectBudgetResource = function () {
+            getProjectBudgetResource() {
                 return [
                     100,
                     500,
@@ -373,8 +359,8 @@ var app;
                     5000,
                     10000
                 ];
-            };
-            DataAccessService.prototype.getDesignDevelopmentOptions = function () {
+            }
+            getDesignDevelopmentOptions() {
                 return [
                     {
                         title: 'Ui/Ux Design',
@@ -385,8 +371,8 @@ var app;
                         options: ['Front-end development', 'Mobile development', 'Technical planning', 'Content management']
                     }
                 ];
-            };
-            DataAccessService.prototype.getPrintIllustrationOptions = function () {
+            }
+            getPrintIllustrationOptions() {
                 return [
                     {
                         title: 'Print Design',
@@ -397,11 +383,11 @@ var app;
                         options: ['Sketches', 'Book illustration']
                     }
                 ];
-            };
-            DataAccessService.prototype.getUploadFileTypes = function () {
+            }
+            getUploadFileTypes() {
                 return ['pdf', 'zip', 'doc', 'jpg'];
-            };
-            DataAccessService.prototype.getBrandingStrategyOptions = function () {
+            }
+            getBrandingStrategyOptions() {
                 return [
                     {
                         title: 'Branding',
@@ -412,8 +398,8 @@ var app;
                         options: ['Research facility', 'Content strategy', 'Market research', 'Business analysis']
                     }
                 ];
-            };
-            DataAccessService.prototype.getProjectDeadlineOptions = function () {
+            }
+            getProjectDeadlineOptions() {
                 return [
                     'Can you make it yesterday?',
                     'In a week',
@@ -421,8 +407,8 @@ var app;
                     '2-3 months',
                     'I have more time'
                 ];
-            };
-            DataAccessService.prototype.getPortfolioResource = function () {
+            }
+            getPortfolioResource() {
                 return [{
                         title: 'Life Lines',
                         imageUrl: 'img/thumb-1.jpg',
@@ -477,10 +463,9 @@ var app;
                         url: 'http://fb.com',
                         type: 'design ui/ux'
                     }];
-            };
-            DataAccessService.$inject = ['$resource'];
-            return DataAccessService;
-        }());
+            }
+        }
+        DataAccessService.$inject = ['$resource'];
         common.DataAccessService = DataAccessService;
         angular
             .module('common.services')
@@ -495,4 +480,3 @@ var app;
 /// <reference path="angularjs/angular-resource.d.ts" />
 /// <reference path="angular-file-upload/angular-file-upload.d.ts" />
 /// <reference path="ng-file-upload/ng-file-upload.d.ts" />
-/// <reference path="es6-shim/es6-shim.d.ts" />
