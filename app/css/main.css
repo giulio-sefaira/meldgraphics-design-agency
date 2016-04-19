@@ -3274,3 +3274,26 @@ body .triangles__item {
       margin-left: 80px; }
     .triangles__item:nth-child(4) {
       margin-left: 80px; }
+
+.front-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/downloading-icon.gif) center center no-repeat #fff;
+  z-index: 888; }
+  .front-layer.ng-hide-add {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity; }
+  .front-layer.ng-hide-add-active {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0; }

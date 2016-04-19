@@ -25,6 +25,7 @@ module app.scroll {
 
             scope.brainAnimateionRun = false;
             scope.trianglesAnimationRun = false;
+            scope.frontLayer = true;
             scope.url = $location.path();
             scope.navGrey = ($location.path() != '/') ? true : false;
 
@@ -36,6 +37,7 @@ module app.scroll {
               footer = element[0].querySelector('.footer');
               brain = element[0].querySelector('.article__brain');
               triangles = element[0].querySelector('.triangles');
+              scope.frontLayer = false;
               scope.url = $location.path();
               scope.navGrey = (scope.url != '/') ? true : false;
             });

@@ -236,6 +236,7 @@ var app;
                 var aboutUs, aboutUsTop, services, servicesTop, process, processTop, projects, projectsTop, footer, footerTop, brain, brainTop, triangles, trianglesTop;
                 scope.brainAnimateionRun = false;
                 scope.trianglesAnimationRun = false;
+                scope.frontLayer = true;
                 scope.url = $location.path();
                 scope.navGrey = ($location.path() != '/') ? true : false;
                 scope.$on('$viewContentLoaded', function () {
@@ -246,6 +247,7 @@ var app;
                     footer = element[0].querySelector('.footer');
                     brain = element[0].querySelector('.article__brain');
                     triangles = element[0].querySelector('.triangles');
+                    scope.frontLayer = false;
                     scope.url = $location.path();
                     scope.navGrey = (scope.url != '/') ? true : false;
                 });
