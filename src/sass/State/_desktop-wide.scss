@@ -4,7 +4,7 @@ $submit-button-height:  90px;
 @include breakpoint($desktop-wide-min-width) {
 
   @include layout($wide-layout);
-  $figure-size: 414px;
+  $figure-size: 294px;
   $desktop-container: $desktop-wide - $column-wide - $padding;
   $step: 365px;
 
@@ -117,25 +117,8 @@ $submit-button-height:  90px;
 
     @include block('services') {
 
-      @include element('triangles') {
-        @include post(percentage(-26px / $desktop-wide));
-      }
-
-      @include element('squares') {
-        @include post(percentage(-26px / $desktop-wide));
-      }
-
-      @include element('square') {
-        margin-right: percentage(($figure-size / 2) / $desktop-wide);
-      }
-
-      @include element('triangle') {
-        @include size(percentage($figure-size / $desktop-wide), ($figure-size / 2));
-      }
-
-      @include element('square') {
-        @include size(percentage($figure-size / $desktop-wide), $figure-size);
-        margin-top: -($figure-size / 2);
+      @include element('panel-top') {
+        margin-bottom: 63px;
       }
 
       @include element('feature') {
@@ -146,7 +129,32 @@ $submit-button-height:  90px;
         height: rem-calc(650);
         @include background-size(100% auto);
       }
+    }
 
+    @include block('triangles') {
+      margin-top: -148px;
+
+      @include element('item') {
+        @include size($figure-size, $figure-size);
+
+        &:nth-child(1) {
+          margin-right: 34px;
+        }
+
+        &:nth-child(2) {
+          margin-top: 207px;
+          margin-right: -86px;
+        }
+
+        &:nth-child(3) {
+          margin-right: -86px;
+          margin-left: 121px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 121px;
+        }
+      }
     }
 
     @include block('advantages') {

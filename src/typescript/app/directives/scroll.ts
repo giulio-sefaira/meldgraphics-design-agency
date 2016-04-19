@@ -19,9 +19,12 @@ module app.scroll {
                 footer,
                 footerTop,
                 brain,
-                brainTop;
+                brainTop,
+                triangles,
+                trianglesTop;
 
             scope.brainAnimateionRun = false;
+            scope.trianglesAnimationRun = false;
             scope.url = $location.path();
             scope.navGrey = ($location.path() != '/') ? true : false;
 
@@ -32,6 +35,7 @@ module app.scroll {
               projects = element[0].querySelector('.projects');
               footer = element[0].querySelector('.footer');
               brain = element[0].querySelector('.article__brain');
+              triangles = element[0].querySelector('.triangles');
               scope.url = $location.path();
               scope.navGrey = (scope.url != '/') ? true : false;
             });
@@ -47,8 +51,11 @@ module app.scroll {
 
             scope.animateElements = () => {
               brainTop = brain.getBoundingClientRect().top;
-              if ((brainTop < (windowHeight - windowHeight * 0.3)) && !scope.brainAnimateionRun) {
+              if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
                 scope.brainAnimateionRun = true;
+              }
+              if ((trianglesTop < (windowHeight - windowHeight * 0.15)) && !scope.trianglesAnimationRun) {
+                scope.trianglesAnimationRun = true;
               }
             }
 
@@ -62,6 +69,7 @@ module app.scroll {
               processTop = process.getBoundingClientRect().top;
               projectsTop = projects.getBoundingClientRect().top;
               footerTop = footer.getBoundingClientRect().top;
+              trianglesTop = triangles.getBoundingClientRect().top;
               scope.$apply(function () {
                 scope.navGrey = (aboutUsTop < navBottom) ? true : false;
               });

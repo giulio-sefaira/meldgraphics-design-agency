@@ -67,6 +67,24 @@
   }
 }
 
+body {
+
+  @include block('triangles') {
+
+    @include element('item') {
+      @include transition-property(transform, opacity);
+      @include transition-duration(0.5s);
+      @include transition-timing-function(ease-in);
+
+      @include modifier('start') {
+        @include opacity(0.5);
+        @include rotateZ(0deg);
+        @include scale(0.5);
+      }
+    }
+  }
+}
+
 @include block('services') {
   
   @include element('panel-top') {
@@ -92,10 +110,6 @@
 			background-color: $project-view-hover;
 		}
 	}
-
-  @include element('item') {
-
-  }
 }
 
 @include block('project') {
@@ -107,7 +121,6 @@
 			background-color: $project-view-hover;
 		}
 	}
-
 }
 
 @include block('footer') {
@@ -121,7 +134,6 @@
 			color: $button-blue;
 		}
 	}
-
 }
 
 @include block('phones') {

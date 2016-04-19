@@ -1,0 +1,29 @@
+$figure-size: 195px;
+
+@include block('triangles') {
+  margin-right: 16px;
+  position: relative;
+  z-index: 333;
+  margin-top: -98px;
+
+  @include element('item') {
+    @include size($figure-size, $figure-size);
+    @include rotateZ(45deg);
+    display: inline-block;
+    float: right;
+
+    &:nth-child(2) {
+      margin-top: 137px;
+      margin-right: -58px;
+    }
+
+    &:nth-child(3) {
+      margin-right: -57px;
+      margin-left: 80px;
+    }
+
+    &:nth-child(4) {
+      margin-left: 80px;
+    }
+  }
+}

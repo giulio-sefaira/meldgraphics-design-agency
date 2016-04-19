@@ -1,5 +1,5 @@
 $make-order-height: 80px;
-$figure-size: 68px;
+$figure-size: 50px;
 $mobile-container: $mobile - $column-mobile - $padding-mobile;
 $step-size: 91px;
 $view-all-height: 56px;
@@ -52,32 +52,38 @@ $submit-button-height: 70px;
         @include squish($padding-mobile/$column-mobile);
       }
     }
-    
+
+    @include block('triangles') {
+      margin-top: -25px;
+
+      @include element('item') {
+        @include size($figure-size, $figure-size);
+
+        &:nth-child(1) {
+          margin-right: -5px;
+        }
+
+        &:nth-child(2) {
+          margin-top: 35px;
+          margin-right: -15px;
+        }
+
+        &:nth-child(3) {
+          margin-right: -15px;
+          margin-left: 20px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 20px;
+        }
+      }
+    }
+
     @include block('services') {
       
       @include element('panel-top') {
         @include container($mobile);
-      }
-      
-      @include element('triangles') {
-        @include post(percentage(-$padding-edge-mobile / $mobile));
-      }
-
-      @include element('squares') {
-        @include post(percentage(-$padding-edge-mobile / $mobile));
-      }
-
-      @include element('square') {
-        margin-right: percentage(($figure-size / 2) / $mobile);
-        margin-top: -($figure-size / 2);
-      }
-
-      @include element('triangle') {
-        @include size(percentage($figure-size / $mobile), ($figure-size / 2));
-      }
-
-      @include element('square') {
-        @include size(percentage($figure-size / $mobile), $figure-size);
+        margin-bottom: 10px;
       }
     }
     

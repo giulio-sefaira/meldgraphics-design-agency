@@ -1,4 +1,4 @@
-$figure-size: 162px;
+$figure-size: 115px;
 $tablet-container: $tablet - $column-tablet - $padding;
 $step: 160px;
 $submit-button-height: 82px;
@@ -10,28 +10,37 @@ $submit-button-height: 82px;
   
   body {
     padding-top: $nav-height-tablet;
-    
+
+    @include block('triangles') {
+      margin-top: -58px;
+
+      @include element('item') {
+        @include size($figure-size, $figure-size);
+
+        &:nth-child(1) {
+          margin-right: -3px;
+        }
+
+        &:nth-child(2) {
+          margin-top: 81px;
+          margin-right: -34px;
+        }
+
+        &:nth-child(3) {
+          margin-right: -34px;
+          margin-left: 47px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 47px;
+        }
+      }
+    }
+
     @include block('services') {
-    
-      @include element('triangles') {
-        @include post(percentage(-$padding-edge / $tablet));
-      }
 
-      @include element('squares') {
-        @include post(percentage(-$padding-edge / $tablet));
-      }
-
-      @include element('square') {
-        margin-right: percentage(($figure-size / 2) / $tablet);
-        margin-top: -($figure-size / 2);
-      }
-
-      @include element('triangle') {
-        @include size(percentage($figure-size / $tablet), ($figure-size / 2));
-      }
-
-      @include element('square') {
-        @include size(percentage($figure-size / $tablet), $figure-size);
+      @include element('panel-top') {
+        margin-bottom: 10px;
       }
       
       @include element('feature') {

@@ -1,33 +1,8 @@
-$figure-size: 274px;
-
 @include block('services') {
 	overflow: hidden;
 
-	@include element('triangles') {
-		@include post(percentage(-$padding-edge / $desktop));
-		position: relative;
-		z-index: 333;
-	}
-
-	@include element('squares') {
-		@include post(percentage(-$padding-edge / $desktop));
-		position: relative;
-	}
-
-	@include element('square') {
-		margin-right: percentage(($figure-size / 2) / $desktop);
-		margin-top: -($figure-size / 2);
-	}
-	
-	@include element('triangle') {
-		@include size(percentage($figure-size / $desktop), ($figure-size / 2));
-		display: inline-block;
-		float: right;
-	}
-
-	@include element('square') {
-		float: right;
-		@include size(percentage($figure-size / $desktop), $figure-size);
+	@include element('panel-top') {
+		margin-bottom: 25px;
 	}
 
 	@include element('title') {
