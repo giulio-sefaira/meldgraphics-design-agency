@@ -4,7 +4,6 @@
     background-color: $color-blue;
     color: $button-text;
   }
-
 }
 
 @include block('project') {
@@ -21,7 +20,6 @@
   @include element('description') {
     color: $button-text;
   }
-
 }
 
 #make-order {

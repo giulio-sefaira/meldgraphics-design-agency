@@ -1,0 +1,6 @@
+@include block('categories') {
+
+  @include element('item') {
+    color: $color-dark;
+  }
+}

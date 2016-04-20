@@ -1,8 +1,11 @@
 @import "variables";
 @import "animations";
 @import "colors";
+
+// from 200px to 768px
 @import "mobile-nav";
-@import "tablet";
-@import "mobile";
-@import "default";
-@import "desktop-wide";
+
+@import "tablet"; // Tablet 768px
+@import "mobile"; // Mobile 320px
+@import "default"; // Desktop 1280px
+@import "desktop-wide"; // Desktop 1920px

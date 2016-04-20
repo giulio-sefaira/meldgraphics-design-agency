@@ -1,0 +1,12 @@
+@include breakpoint($tablet-max-width + 1 $desktop-max-width) {
+
+  body {
+
+    @include block('categories') {
+      @include span(7.2);
+      margin-right: auto;
+      margin-left: auto;
+      float: none;
+    }
+  }
+}

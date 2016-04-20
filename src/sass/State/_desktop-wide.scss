@@ -1,12 +1,12 @@
 $submit-button-height:  90px;
+$figure-size: 294px;
+$desktop-container: $desktop-wide - $column-wide - $padding;
+$step: 365px;
 
 // from 1920px
 @include breakpoint($desktop-wide-min-width) {
 
   @include layout($wide-layout);
-  $figure-size: 294px;
-  $desktop-container: $desktop-wide - $column-wide - $padding;
-  $step: 365px;
 
   body {
     .wrapper {
@@ -42,7 +42,6 @@ $submit-button-height:  90px;
         margin: 0;
         padding: 0;
       }
-
     }
 
     @include block('header') {
@@ -356,5 +355,4 @@ $submit-button-height:  90px;
       @include span(5 at 10 wider);
     }
   }
-
 }

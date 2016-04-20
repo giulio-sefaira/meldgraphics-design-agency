@@ -7,7 +7,6 @@
 
   @include element('description') {
     @include fontsize(25);
-    color: $color-dark;
     text-align: center;
     margin-top: 33px;
     margin-bottom: 72px;

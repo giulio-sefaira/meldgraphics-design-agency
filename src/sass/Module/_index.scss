@@ -1,18 +1,23 @@
+// Base elements
 @import "checkbox";
-@import 'nav';
-@import 'article';
-@import "advantages";
-@import "social-icons";
-@import "contact-phones";
-@import "contact-emails";
-@import "project";
-@import "categories";
-@import "info";
-@import "detail";
 @import "select-field";
 @import "dropdown-choose-list";
 @import "upload-file-field";
 @import "file-type-list";
 @import "file-list";
-@import "triangles";
+
+// Common elements
+@import 'nav';
 @import "front-layer";
+@import "social-icons";
+@import "contact-phones";
+@import "contact-emails";
+
+// Specific elements on the pages
+@import 'article';
+@import "advantages";
+@import "project";
+@import "categories";
+@import "info";
+@import "detail";
+@import "triangles";

@@ -1,5 +1,4 @@
 @include block('talk-to-us') {
-  background-color: $talk-to-us-bg;
   font-weight: $semi-bold;
   padding-bottom: 132px;
   @extend %clearfix;
@@ -7,25 +6,20 @@
   @include element('title') {
     @include span(14 at 2);
     text-transform: uppercase;
-    color: $color-dark;
     @include fontsize(35);
     margin-top: 85px;
-
   }
 
   @include element('description') {
     @include span(14 at 2);
     @include fontsize(20);
     @include break;
-    color: $color-dark;
   }
 
   @include element('submit') {
     @include span(5 of 7);
     height: $submit-button-height;
     line-height: $submit-button-height;
-    background-color: $color-blue;
-    color: $body-bg;
     text-transform: uppercase;
     text-align: center;
     @include fontsize(25);
@@ -34,14 +28,5 @@
     margin-top: 12px;
     cursor: pointer;
     @include radius(5px);
-
-    @include transition-property(background-color);
-    @include transition-duration(0.2s);
-    @include transition-timing-function(ease-in);
-
-    &:hover {
-      background-color: $color-black;
-    }
   }
-
 }

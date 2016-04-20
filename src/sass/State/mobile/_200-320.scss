@@ -1,0 +1,69 @@
+@include breakpoint($mobile-min-width $mobile-max-width) {
+
+  @include layout($mobile-layout);
+
+  body {
+    padding-top: $nav-height-mobile;
+
+    .wrapper {
+      @include container($mobile);
+    }
+
+    @include block('nav') {
+      height: $nav-height-mobile;
+
+      @include element('logo') {
+        @include size(73px, 73px);
+        margin-left: 2px;
+        margin-top: -17px;
+      }
+
+      @include element('control') {
+        background-image: url(../img/nav-control-mobile.png);
+      }
+
+      @include element('close') {
+        background-image: url(../img/nav-close-mobile.png);
+        margin: 2px 5px -14px;
+        position: relative;
+      }
+
+      @include element('container') {
+        width: $nav-offset-mobile;
+        right: -$nav-offset-mobile;
+      }
+
+      @include element('control') {
+        margin-top: -26px;
+      }
+
+      @include element('item') {
+        @include fontsize(14);
+        padding-top: 30px !important;
+      }
+
+      @include element('lang-item') {
+        padding: 0 !important;
+      }
+
+    }
+
+    @include block('services') {
+
+      @include element('title') {
+        padding-top: 28px;
+      }
+    }
+
+    #make-order {
+      height: $make-order-height;
+      line-height: $make-order-height;
+      @include fontsize(19);
+
+      .fa-long-arrow-right {
+        @include size(19px, 9px);
+        background: url(../img/view-all-mobile-large.png) center center no-repeat;
+      }
+    }
+  }
+}

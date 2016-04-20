@@ -1,0 +1,243 @@
+@include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+
+  @include layout($tablet-layout);
+
+  body {
+    padding-top: $nav-height-tablet;
+
+    @include block('triangles') {
+      margin-top: -58px;
+
+      @include element('item') {
+        @include size($figure-size, $figure-size);
+
+        &:nth-child(1) {
+          margin-right: -3px;
+        }
+
+        &:nth-child(2) {
+          margin-top: 81px;
+          margin-right: -34px;
+        }
+
+        &:nth-child(3) {
+          margin-right: -34px;
+          margin-left: 47px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 47px;
+        }
+      }
+    }
+
+    @include block('services') {
+
+      @include element('panel-top') {
+        margin-bottom: 10px;
+      }
+
+      @include element('feature') {
+        width: percentage(($tablet / 3) / $tablet);
+        margin-bottom: 155px;
+      }
+
+      @include element('features') {
+        @include break;
+        margin-bottom: 0;
+      }
+
+      @include element('panel-bottom') {
+        background-position: center center;
+      }
+    }
+
+    @include block('projects') {
+
+      @include element('item') {
+        @include break;
+
+        &:nth-child(3n + 1),
+        &:nth-child(3n + 2),
+        &:nth-child(3n) {
+          @include size(percentage(493px / $tablet), auto);
+          padding: 25px 0 20px;
+          margin: auto;
+          float: none;
+        }
+      }
+
+      @include element('view-all') {
+        width: percentage(332px / $tablet);
+        @include fontsize(22);
+        margin: 25px auto 45px;
+        float: none;
+        display: block;
+      }
+
+      @include element('wrapper') {
+        @include container($tablet);
+      }
+    }
+
+    @include block('project') {
+
+      @include element('description') {
+        height: 60px;
+      }
+
+      @include element('view') {
+        padding: 19px 27px;
+        text-align: center;
+      }
+
+      @include element('title') {
+        padding: 19px 27px;
+      }
+    }
+
+    @include block('footer') {
+
+      @include element('title') {
+        @include fontsize(30);
+        @include span(2 at 1 wide);
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+
+      @include element('wrapper') {
+        @include container($tablet);
+      }
+    }
+
+    @include block('phones') {
+      @include span(3 at 3.7);
+      margin-top: 30px;
+
+      @include element('item') {
+        @include fontsize(20);
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    @include block('emails') {
+      @include span(3 at 3.7);
+      margin-top: 95px;
+
+      @include element('item') {
+        @include fontsize(20);
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    @include block('social-icons') {
+      @include span(2.5 at 6.5);
+    }
+
+    @include block('contact') {
+      padding-top: 50px;
+
+      @include element('description') {
+        @include break;
+        @include fontsize(20);
+        margin-top: 0;
+        margin-bottom: 48px;
+        padding-top: 25px;
+      }
+    }
+
+    @include block('talk-to-us') {
+      padding-bottom: 45px;
+
+      @include element('title') {
+        @include span(7 at 1.5);
+        @include fontsize(30);
+        margin-top: 30px;
+      }
+
+      @include element('description') {
+        @include span(7 at 1.5);
+      }
+
+      @include element('submit') {
+        @include fontsize(22);
+        height: $submit-button-height;
+        line-height: $submit-button-height;
+      }
+    }
+
+    @include block('detail') {
+      @include span(4.5 at 1.5);
+
+      @include element('title') {
+        @include fontsize(20);
+        font-weight: $semi-bold;
+        text-indent: 15px;
+        padding-top: 15px;
+        padding-bottom: 0px;
+      }
+
+      @include element('add-brief') {
+        margin-top: 30px;
+      }
+    }
+
+    @include block('info') {
+      @include span(5.5 at 1.5);
+      @include break;
+
+      @include element('title') {
+        text-indent: 15px;
+        padding-top: 10px;
+        @include fontsize(20);
+      }
+
+      @include element('subtitle') {
+        @include fontsize(20);
+      }
+
+      @include element('field') {
+        margin-right: 0;
+        margin-bottom: 32px;
+        width: 100%;
+        @include fontsize(18);
+      }
+    }
+
+    @include block('select-field') {
+      margin-right: 0;
+      margin-bottom: 32px;
+      width: 100%;
+
+      @include element('item') {
+        @include fontsize(18);
+      }
+    }
+
+    @include block('dropdown-choose-list') {
+      padding-top: 45px;
+      padding-bottom: 0;
+
+      @include element('title') {
+        @include fontsize(18);
+        margin-right: 0;
+        width: 100%;
+        @include box-sizing('border-box');
+      }
+    }
+
+    @include block('upload-file-field') {
+      margin-top: 45px;
+      display: block;
+    }
+
+    @include block('checkbox') {
+
+      @include element('label') {
+        @include fontsize(18);
+      }
+    }
+  }
+}

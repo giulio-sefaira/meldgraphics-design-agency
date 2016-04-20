@@ -1,0 +1,31 @@
+@include block('contact') {
+
+  @include element('description') {
+    color: $color-dark;
+  }
+}
+
+@include block('info') {
+
+  @include element('title') {
+    color: $color-dark;
+  }
+
+  @include element('required') {
+    @extend .color--blue;
+  }
+
+  @include element('subtitle') {
+    color: $color-dark;
+  }
+
+  @include element('field') {
+    background-color: $body-bg;
+    border-color: $talk-to-us-border;
+    color: darken($talk-to-us-border, 30%);
+  }
+
+  @include element('textarea') {
+    color: $talk-to-us-border;
+  }
+}

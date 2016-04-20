@@ -1,11 +1,15 @@
+// Landing page
 @import "header";
 @import "about-us";
 @import "we-love-what-we-do";
 @import "services";
 @import "process";
 @import "projects";
+
+// Common part
 @import "footer";
 
+// Pages
 @import "portfolio";
 @import "contact";
 @import "talk-to-us";

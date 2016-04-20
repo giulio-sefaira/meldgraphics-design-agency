@@ -4,7 +4,6 @@
 
   @include element('remove') {
     @include size(32px, 31px);
-    background: url(../img/file-remove-icon.png) center center no-repeat;
     margin-right: 18px;
     display: inline-block;
     vertical-align: middle;
@@ -28,7 +27,6 @@
 
   @include element('title') {
     @include fontsize(14);
-    color: $upload-file-color;
     display: block;
   }
 

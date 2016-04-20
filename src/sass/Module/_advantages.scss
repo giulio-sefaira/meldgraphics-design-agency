@@ -21,12 +21,10 @@
       margin: 0 percentage(50px / ($desktop - $column*2));
       width: percentage(300px / ($desktop - $column*2));
     }
-
   }
 
   @include element('title') {
     text-transform: uppercase;
     font-weight: $semi-bold;
   }
-
 }

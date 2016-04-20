@@ -15,7 +15,6 @@ $step: 240px;
 		margin-top: 30px;
 		margin-bottom: 80px;
 		text-align: center;
-		color: $process-text;
 	}
 
 	@include element('steps') {
@@ -50,21 +49,17 @@ $step: 240px;
 		&:nth-child(5) {
 			width: percentage(($step / 1.2) / $desktop-container);
 		}
-
 	}
 
 	@include element('step-title') {
 		text-transform: uppercase;
 		font-weight: normal;
-		color: $color-dark;
 		@include fontsize(17);
 		margin-top: 12px;
 	}
 
 	@include element('step-description') {
-		color: $process-step;
 		@include fontsize(17);
 		margin: 10px 0;
 	}
-
 }

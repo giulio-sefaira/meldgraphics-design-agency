@@ -1,0 +1,62 @@
+@include breakpoint($mobile-min-width $tablet-interim-width - 1) {
+
+  body {
+
+    @include block('portfolio') {
+      padding-top: 37px;
+
+      .project__title {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .projects__list {
+        @include squish($padding-mobile/$column-mobile);
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      .projects__item:nth-child(n) {
+        margin-top: 0;
+        margin-bottom: 35px;
+      }
+    }
+
+    @include block('categories') {
+      float: none;
+      margin-top: 27px;
+      margin-bottom: 0;
+
+      @include element('list') {
+        margin: 0;
+      }
+
+      @include element('item-wrap') {
+        clear: both;
+        display: block;
+      }
+
+      @include element('item') {
+        @include radius(2px);
+        height: $categories-item-height;
+        line-height: $categories-item-height + 4;
+        @include fontsize(14);
+        padding: 0 8px;
+        margin: 1px 0 0 0;
+        display: block;
+        @include hover(.2s);
+        @include transition-property(color, background-color);
+
+        &:hover {
+          background-color: $color-blue;
+          color: $body-bg;
+        }
+
+        @include modifier('active') {
+          background-color: $color-blue;
+          color: $body-bg;
+        }
+      }
+    }
+  }
+}

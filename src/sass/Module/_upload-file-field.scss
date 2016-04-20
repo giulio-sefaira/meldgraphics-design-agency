@@ -4,7 +4,6 @@
     @extend .dropdown-choose-list__title;
     position: relative;
     font-weight: $light;
-
   }
 
   @include element('input') {

@@ -1,0 +1,475 @@
+@include breakpoint($mobile-min-width $tablet-min-width) {
+
+  @include layout($mobile-layout);
+
+  body {
+
+    @include block('about-us') {
+
+      @include element('title') {
+        @include span(4);
+        @include fontsize(28);
+        border-bottom-color: $color-grey-lighter;
+        padding-bottom: 6px;
+        padding-top: 38px;
+        width: auto;
+        float: none;
+        @include squish($padding-mobile/$column-mobile);
+      }
+
+      @include element('panel-bottom') {
+        @include size(100%, 65px);
+        margin-top: -57px;
+      }
+
+      .wrapper {
+        @extend %clearfix;
+      }
+    }
+
+    @include block('article') {
+      @include span(4);
+      @include pad(percentage(13px / $mobile));
+
+      @include element('content') {
+        padding-top: 3px;
+      }
+
+      @include element('title') {
+        @include fontsize(22);
+        width: 100%;
+        margin-top: 13px;
+      }
+
+      @include element('quote') {
+        @include fontsize(16);
+        width: 100%;
+        line-height: 1.4;
+      }
+
+      @include element('column-1') {
+        @include break;
+        padding: 0;
+        width: 100%;
+      }
+
+      @include element('column-2') {
+        @include break;
+        padding: 0;
+        width: 100%;
+        margin: 0;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      p {
+        @include fontsize(14);
+        line-height: 1.5;
+      }
+
+      @include element('sidebar') {
+        @include pad(percentage(24px / $mobile));
+        @include break;
+        @include box-sizing('border-box');
+        width: 100%;
+        margin: 0;
+      }
+
+      @include element('cite') {
+        @include fontsize(12);
+        padding: 0;
+        line-height: 1.8;
+        margin-top: 20px;
+      }
+
+      @include element('brain') {
+        margin-top: 18px;
+
+        img {
+          @include size(147px, auto);
+        }
+      }
+
+      @include element('brain-title') {
+        @include fontsize(20);
+      }
+    }
+
+    @include block('love-it') {
+      height: 120px;
+
+      @include element('inner') {
+        @include fontsize(20);
+      }
+    }
+
+    @include block('services') {
+
+      @include element('features') {
+        margin: 0;
+      }
+
+      @include element('feature') {
+        @include break;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+
+      @include element('panel-bottom') {
+        @include background-size(130%, auto);
+        background-position: center center;
+        height: rem-calc(250);
+      }
+    }
+
+    @include block('advantages') {
+      margin: 0;
+      width: 100%;
+
+      @include element('item') {
+        @include break;
+        @include pad(percentage(32px / $mobile));
+        @include box-sizing('border-box');
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      @include element('title') {
+        @include fontsize(14);
+        margin-top: 12px;
+      }
+
+      @include element('content') {
+        @include fontsize(14);
+        line-height: 1.5;
+        margin: 8px 0 23px;
+      }
+    }
+
+    @include block('process') {
+
+      @include element('wrapper') {
+        @include container($mobile);
+      }
+
+      @include element('description') {
+        @include break;
+        @include fontsize(14);
+        margin: 0;
+        width: 100%;
+        line-height: 1.5;
+
+        br {
+          display: none;
+        }
+      }
+
+      @include element('steps') {
+        background: none;
+        margin: 0 0 6px 0;
+      }
+
+      @include element('step') {
+        @include break;
+        text-align: left;
+
+        img {
+          @include size(39px, auto);
+          margin-left: percentage(134px / $mobile);
+          display: block;
+        }
+
+        &:before {
+          content: " ";
+          float: left;
+          background: url(../img/step-number-bg.png) center center no-repeat;
+          text-align: center;
+          @include size($step-size, $step-size);
+          line-height: $step-size;
+          @include fontsize(19);
+          color: $color-blue;
+          font-family: $proxima;
+          font-weight: $extra-bold;
+          margin-top: 20px;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5){
+          margin: 28px 0 0 0;
+          width: 100%;
+        }
+
+        &:nth-child(1) {
+
+          &:before {
+            content: "1";
+          }
+        }
+
+        &:nth-child(2) {
+
+          &:before {
+            content: "2";
+          }
+        }
+
+        &:nth-child(3) {
+
+          &:before {
+            content: "3";
+          }
+
+          img {
+            width: 56px;
+          }
+        }
+
+        &:nth-child(4) {
+
+          &:before {
+            content: "4";
+          }
+        }
+
+        &:nth-child(5) {
+
+          &:before {
+            content: "5";
+          }
+        }
+      }
+
+      @include element('step-title') {
+        @include fontsize(14);
+      }
+
+      @include element('step-description') {
+        @include fontsize(12);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      @include element('step-details') {
+        margin-left: percentage(134px / $mobile);
+      }
+    }
+
+    @include block('projects') {
+
+      @include element('wrapper') {
+        @include container($mobile);
+      }
+
+      @include element('title') {
+        margin-bottom: 0;
+      }
+
+      @include element('list') {
+        @include break;
+        margin: 0;
+      }
+
+      @include element('item') {
+
+        &:nth-child(3n + 1),
+        &:nth-child(3n + 2),
+        &:nth-child(3n) {
+          @include size(100%, auto);
+          margin: 35px 0 0 0;
+          padding: 0;
+        }
+      }
+
+      @include element('view-all-container') {
+        margin: 0;
+      }
+
+      @include element('view-all') {
+        @include size(100%, $view-all-height);
+        margin: 45px 0;
+        line-height: $view-all-height;
+        @include fontsize(19);
+
+        .fa-long-arrow-right {
+          @include size(19px, 9px);
+          background: url(../img/view-all-mobile-large.png) center center no-repeat;
+        }
+      }
+
+    }
+
+    @include block('project') {
+
+      @include element('description') {
+        height: 45px;
+      }
+
+      @include element('title') {
+        @include fontsize(16);
+        padding: 14px 27px 0 27px;
+      }
+
+      @include element('view') {
+        @include fontsize(16);
+        padding: 14px 0 0 0;
+        text-align: center;
+
+        .fa-long-arrow-right {
+          @include size(12px, 7px);
+          background: url(../img/view-all-mobile.png) center center no-repeat;
+        }
+      }
+
+      @include element('thumb') {
+        @include background-size(100%, 100%);
+      }
+    }
+
+    @include block('portfolio') {
+
+      .projects__list {
+        margin-bottom: 0;
+      }
+    }
+
+    @include block('contact') {
+
+      @include element('description') {
+        @include fontsize(16);
+        margin-bottom: 12px;
+      }
+    }
+
+    @include block('talk-to-us') {
+      padding-bottom: 35px;
+
+      @include element('title') {
+        @include fontsize(18);
+        @include span(4);
+        @include center-block;
+        float: none;
+        width: auto;
+        @include squish(percentage(15px / $mobile-max-width));
+        margin-top: 28px;
+      }
+
+      @include element('description') {
+        @include fontsize(14);
+        @include span(4);
+        @include center-block;
+        float: none;
+        width: auto;
+        @include squish(percentage(15px / $mobile-max-width));
+        line-height: 1.5;
+      }
+
+      @include element('submit') {
+        margin-right: 0;
+        @include size(100%, $submit-button-height);
+        line-height: $submit-button-height;
+        @include fontsize(20);
+        margin-top: 7px;
+      }
+    }
+
+    @include block('detail') {
+      @include span(4);
+      @include center-block;
+      float: none;
+      width: auto;
+      @include squish(percentage(15px / $mobile-max-width));
+
+      @include element('title') {
+        @include fontsize(18);
+        padding-top: 5px;
+        padding-bottom: 15px;
+      }
+
+      @include element('add-brief') {
+        margin-top: 0;
+      }
+    }
+
+    @include block('info') {
+      @include span(4);
+      @include center-block;
+      float: none;
+      width: auto;
+      @include squish(percentage(15px / $mobile-max-width));
+
+      @include element('title') {
+        @include fontsize(18);
+        padding-top: 8px;
+        padding-bottom: 5px;
+      }
+
+      @include element('subtitle') {
+        @include fontsize(15);
+        margin-left: 6px;
+      }
+
+      @include element('field') {
+        @include fontsize(16);
+        margin-right: 0;
+        margin-bottom: 28px;
+        width: 100%;
+      }
+    }
+
+    @include block('dropdown-choose-list') {
+      padding-top: 0;
+      padding-bottom: 35px;
+
+      @include element('title') {
+        margin-right: 0;
+        display: block;
+        float: none;
+        width: auto;
+        @include fontsize(16);
+      }
+
+      @include element('sign') {
+        @include size(15px, 16px);
+        @include background-size(100%, 100%);
+        right: 13px;
+      }
+
+      @include element('list') {
+        padding-left: 27px;
+      }
+    }
+
+    @include block('file-type-list') {
+      @include fontsize(10);
+    }
+
+    @include block('checkbox') {
+
+      @include element('label') {
+        @include fontsize(16);
+      }
+    }
+
+    @include block('select-field') {
+      margin-right: 0;
+      margin-bottom: 28px;
+      width: 100%;
+
+      @include element('item') {
+        @include fontsize(16);
+        padding-right: 20px;
+      }
+    }
+  }
+}

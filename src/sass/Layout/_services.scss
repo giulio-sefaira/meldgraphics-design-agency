@@ -37,30 +37,3 @@
 		height: rem-calc(480);
 	}
 }
-
-@include block('feature-image') {
-
-	@include modifier('1') {
-		@include size(140px, auto);
-	}
-
-	@include modifier('2') {
-		@include size(150px, auto);
-	}
-
-	@include modifier('3') {
-		@include size(90px, auto);
-	}
-
-	@include modifier('4') {
-		@include size(150px, auto);
-	}
-
-	@include modifier('5') {
-		@include size(150px, auto);
-	}
-
-	@include modifier('6') {
-		@include size(145px, auto);
-	}
-}

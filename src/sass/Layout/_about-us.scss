@@ -4,7 +4,7 @@
 		@include span(14 wider);
 		@include center-block;
 		float: none;
-		border-bottom: 1px solid $section-line;
+		border-bottom: 1px solid;
 		text-align: center;
 		@include fontsize(60);
 		font-weight: $extra-bold;
@@ -17,5 +17,4 @@
 		@include size(100%, 150px);
 		margin-top: -113px;
 	}
-
 }

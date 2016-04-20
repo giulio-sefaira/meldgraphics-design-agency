@@ -1,0 +1,37 @@
+@include breakpoint($tablet-max-width $desktop-max-width) {
+  @include layout($tablet-layout);
+
+  body {
+
+    @include block('header') {
+
+      @include element('title') {
+        @include span(6 wider at 2);
+        @include fontsize(69);
+        letter-spacing: 0.045em;
+        padding-top: 188px;
+        margin-bottom: 110px;
+      }
+
+      @include element('subtitle') {
+        @include fontsize(67);
+        letter-spacing: 0.058em;
+        margin-top: 34px;
+      }
+
+      @include element('underline') {
+        @include size(percentage(180px / $tablet), 4px);
+        margin-bottom: 110px;
+      }
+
+      @include element('slogan') {
+        @include fontsize(29);
+      }
+
+      @include element('go-next') {
+        margin-top: 135px;
+        margin-bottom: 128px;
+      }
+    }
+  }
+}

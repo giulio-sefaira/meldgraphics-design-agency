@@ -1,9 +1,17 @@
+$nav-offset: 310px;
+$nav-offset-mobile: 260px;
+
 // Components states
 %field-active-state {
   border-width: 2px;
   border-color: $color-blue;
   text-indent: -1px;
   line-height: $field-height - 2;
+}
+
+%transition-background-color {
+  @include hover(.2s);
+  @include transition-property(background-color);
 }
 
 // Grid settings
@@ -40,20 +48,14 @@ $mobile-layout: (
 );
 
 // Breakpoints
-$desktop-wide-min-width: $desktop-wide + ($padding-edge * 2); // 1920px
+$desktop-wide-min-width:  $desktop-wide + ($padding-edge * 2);  // 1920px
 
-$desktop-min-width: $tablet + ($padding-edge * 2) + 1; // 769px
-$desktop-middle-width: $desktop + ($padding-edge * 2) - 1; // 1279px
-$desktop-interim-width: 1090px;
-$desktop-max-width: $desktop-wide + ($padding-edge * 2) - 1; // 1919px
+$desktop-max-width:       $desktop + ($padding-edge * 2) - 1;   // 1279px
+$desktop-min-width:       1090px;                               // 1090px
 
-$tablet-min-width: $mobile + ($padding-edge-mobile * 2) + 1; // 321px
-$tablet-interim-width: 650px;
-$tablet-middle-width: 550px;
-$tablet-max-width: $tablet + ($padding-edge * 2); // 768px
+$tablet-max-width:        $tablet + ($padding-edge * 2);        // 768px
+$tablet-interim-width:    650px;                                // 650px
+$tablet-min-width:        550px;                                // 550px
 
-$mobile-min-width: 200px;
-$mobile-max-width: $mobile + ($padding-edge-mobile * 2); // 320px
-
-$nav-offset: 310px;
-$nav-offset-mobile: 260px;
+$mobile-max-width:        $mobile + ($padding-edge-mobile * 2); // 320px
+$mobile-min-width:        200px;                                // 200px

@@ -13,6 +13,14 @@
     color: $header-text;
   }
 
+  @include element('video-wrap') {
+
+    &:before {
+      //background: url(../img/header-bg.png) repeat;
+      background: url(http://instinctools.eu/wp-content/themes/instinctools/images/header.png) repeat;
+    }
+  }
+
   @include element('go-next') {
     background: url(../img/go-next.png);
   }
@@ -43,5 +51,4 @@
     background-color: $nav-bg;
     color: $nav-item;
   }
-
 }

@@ -2,29 +2,10 @@
 
   @include element('field') {
     display: none;
-
-    &:checked + .checkbox__label {
-      color: $color-blue;
-      
-      .checkbox__icon {
-
-        &:after {
-          @include opacity(1);
-        }
-
-        &:before {
-          @include opacity(0);
-        }
-      }
-    }
   }
 
   @include element('label') {
-    color: $talk-to-us-border;
     @include fontsize(20);
-
-    @include hover(.15s);
-    @include transition-property(color);
   }
 
   @include element('icon') {
@@ -35,29 +16,19 @@
 
     &:after,
     &:before {
-      @include hover(.15s);
-      @include transition-property(opacity);
-    }
-
-    &:after {
       @include size(100%, 100%);
-      background: url(../img/checkbox-checked.png) center center no-repeat;
       display: block;
       content: " ";
       position: absolute;
       top: 0;
       left: 0;
+    }
+
+    &:after {
       @include opacity(0);
     }
 
     &:before {
-      @include size(100%, 100%);
-      display: block;
-      content: " ";
-      background: url(../img/checkbox.png) center center no-repeat;
-      position: absolute;
-      top: 0;
-      left: 0;
       z-index: 111;
       @include opacity(1);
     }

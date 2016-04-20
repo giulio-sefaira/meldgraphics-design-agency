@@ -1,0 +1,62 @@
+@include block('checkbox') {
+
+  @include element('label') {
+    color: $talk-to-us-border;
+  }
+
+  @include element('icon') {
+
+    &:after {
+      background: url(../img/checkbox-checked.png) center center no-repeat;
+    }
+
+    &:before {
+      background: url(../img/checkbox.png) center center no-repeat;
+    }
+  }
+}
+
+@include block('dropdown-choose-list') {
+
+  @include element('title') {
+    background-color: $talk-to-us-border;
+    color: $body-bg;
+  }
+
+  @include element('sign') {
+    background: url(../img/expand-icon.png) center center no-repeat;
+  }
+}
+
+@include block('file-list') {
+
+  @include element('remove') {
+    background: url(../img/file-remove-icon.png) center center no-repeat;
+  }
+
+  @include element('title') {
+    color: $upload-file-color;
+  }
+}
+
+@include block('select-field') {
+
+  @include element('placeholder') {
+    color: $talk-to-us-border;
+  }
+
+  @include element('arrow') {
+    background: url(../img/select-field.png) center center no-repeat;
+  }
+
+  @include element('list') {
+    background-color: $body-bg;
+    border-color: $talk-to-us-border;
+    @include box-shadow(rgba($color-black, 0.2) 0px 9px 15px);
+  }
+
+  @include element('item') {
+    color: $talk-to-us-border;
+    background-color: $body-bg;
+  }
+}

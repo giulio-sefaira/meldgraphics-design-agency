@@ -1,0 +1,164 @@
+@include breakpoint($mobile-min-width $tablet-max-width - 1) {
+
+  @include layout($mobile-layout);
+
+  body {
+
+    @include block('header') {
+
+      @include element('title') {
+        @include fontsize(32);
+        padding-top: 100px;
+        margin-bottom: 41px;
+      }
+
+      @include element('subtitle') {
+        @include fontsize(31);
+        padding-top: 16px;
+        letter-spacing: .045em;
+      }
+
+      @include element('underline') {
+        @include size(percentage(85px / $mobile), 2px);
+        margin-bottom: 41px;
+      }
+
+      @include element('slogan') {
+        @include fontsize(18);
+      }
+
+      @include element('go-next') {
+        background: url(../img/go-next-mobile.png) center center no-repeat;
+        @include size(70px, 42px);
+        margin-top: 56px;
+        margin-bottom: 30px;
+      }
+    }
+
+    @include block('about-us') {
+
+      @include element('title') {
+        width: auto;
+        float: none;
+        @include squish($padding-mobile/$column-mobile);
+      }
+    }
+
+    @include block('triangles') {
+      margin-top: -25px;
+
+      @include element('item') {
+        @include size($figure-size, $figure-size);
+
+        &:nth-child(1) {
+          margin-right: -5px;
+        }
+
+        &:nth-child(2) {
+          margin-top: 35px;
+          margin-right: -15px;
+        }
+
+        &:nth-child(3) {
+          margin-right: -15px;
+          margin-left: 20px;
+        }
+
+        &:nth-child(4) {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    @include block('services') {
+
+      @include element('panel-top') {
+        @include container($mobile);
+        margin-bottom: 10px;
+      }
+    }
+
+    @include block('project') {
+
+      @include element('thumb') {
+        width: 99.8%
+      }
+
+      @include element('view') {
+        padding-right: 0;
+        padding-left: 0;
+        text-align: center;
+      }
+    }
+
+    @include block('footer') {
+      text-align: center;
+
+      @include element('wrapper') {
+        @include container($mobile);
+      }
+
+      @include element('title') {
+        @include break;
+        @include fontsize(30);
+        margin: 0;
+        width: 100%;
+        border: none;
+        padding-top: 38px;
+        padding-bottom: 16px;
+      }
+
+      @include element('go-top') {
+        @include fontsize(12);
+        background-image: url(../img/go-top-mobile.png);
+        background-position: center 14px;
+        height: 60px;
+        padding-top: 30px;
+      }
+    }
+
+    @include block('social-icons') {
+      @include break;
+      @include span(3);
+      @include center-block;
+      margin-top: 0;
+      margin-bottom: 20px;
+      float: none;
+
+      @include element('list') {
+        margin-left: -3%;
+      }
+
+      @include element('item') {
+        @include fontsize(19);
+      }
+    }
+
+    @include block('phones') {
+      @include break;
+      @include span(3 at 2);
+      margin-top: 0;
+      text-align: left;
+
+      @include element('item') {
+        @include fontsize(19);
+        margin-top: 5px;
+      }
+    }
+
+    @include block('emails') {
+      @include break;
+      margin: 20px 0 33px;
+      width: 100%;
+
+      @include element('item') {
+        @include fontsize(19);
+      }
+    }
+
+    @include block('categories') {
+      @include squish($padding-mobile/$column-mobile);
+      width: auto;
+    }
+  }
+}

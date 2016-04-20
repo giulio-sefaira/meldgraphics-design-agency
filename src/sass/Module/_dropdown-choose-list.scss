@@ -6,20 +6,11 @@
     @include span(5.1 of 6);
     height: $field-height;
     line-height: $field-height;
-    background-color: $talk-to-us-border;
-    color: $body-bg;
     padding: 0 14px;
     @include fontsize(22);
     position: relative;
     @include radius(5px);
     cursor: pointer;
-
-    @include modifier('active') {
-
-      .dropdown-choose-list__sign {
-        height: 2px;
-      }
-    }
   }
 
   @include element('sign') {
@@ -29,10 +20,6 @@
     right: 20px;
     top: 50%;
     @include translateY(-50%);
-    background: url(../img/expand-icon.png) center center no-repeat;
-
-    @include hover(.3s);
-    @include transition-property(height);
   }
 
   @include element('list') {
@@ -43,14 +30,6 @@
     @include box-sizing('border-box');
     overflow: hidden;
     max-height: 0;
-
-    @include hover(.5s);
-    @include transition-property(max-height, padding-top);
-
-    @include modifier('expanded') {
-      padding-top: 25px;
-      max-height: 500px;
-    }
   }
 
   @include element('sublist') {

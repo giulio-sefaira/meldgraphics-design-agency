@@ -5,7 +5,7 @@
     padding-top: 25px;
     margin-bottom: 25px;
     padding-bottom: 25px;
-    border-right: 1px solid $section-line;
+    border-right: 1px solid;
     @include fontsize(40);
     font-weight: $extra-bold;
     text-transform: uppercase;
@@ -13,7 +13,7 @@
   }
 
   @include element('underline') {
-    clear: both;
+    @include break;
     border: none;
     @include size(100%, 1px);
     margin: 0;
@@ -31,5 +31,4 @@
     font-weight: normal;
     font-family: $merriweather;
   }
-
 }

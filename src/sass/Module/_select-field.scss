@@ -1,4 +1,5 @@
 $option-height: 34px;
+$select-field-bottom-offset: 58px;
 
 @include block('select-field') {
   height: $field-height;
@@ -11,36 +12,17 @@ $option-height: 34px;
     cursor: pointer;
     margin-right: 0;
     width: 100%;
-    color: $talk-to-us-border;
-
-    @include modifier('active') {
-
-      &.select-field__placeholder {
-        @extend %field-active-state;
-      }
-
-      .select-field__arrow {
-        margin-top: 22px;
-        margin-right: 7px;
-        @include rotateX(180deg);
-      }
-    }
   }
 
   @include element('arrow') {
     float: right;
     @include size(16px, 8px);
     margin: 23px 8px 0;
-    background: url(../img/select-field.png) center center no-repeat;
     @include rotateX(0deg);
-
-    @include hover(.5s);
-    @include transition-property(transform);
   }
 
   @include element('list') {
-    background-color: $body-bg;
-    border: 0px solid $talk-to-us-border;
+    border: 0px solid;
     @include radius(5px);
     @include box-sizing('border-box');
     position: absolute;
@@ -51,35 +33,13 @@ $option-height: 34px;
     max-height: 0;
     overflow: hidden;
     padding: 0;
-    @include box-shadow(rgba($color-black, 0.2) 0px 9px 15px);
-
-    @include hover(.5s);
-    @include transition-property(max-height, padding-bottom, padding-top);
-    @include transition-timing-function(linear);
-
-    &.select-field__list--opened-remove-active {
-      border-width: 1px;
-    }
-
-    @include modifier('opened') {
-      max-height: 500px;
-      padding-bottom: 14px;
-      padding-top: 6px;
-      border-width: 1px;
-    }
   }
 
   @include element('item') {
     padding: 0 37px;
     height: $option-height;
     line-height: $option-height;
-    color: $talk-to-us-border;
     @include fontsize(22);
     cursor: pointer;
-    background-color: $body-bg;
-
-    &:hover {
-      background-color: $talk-to-us-bg;
-    }
   }
 }

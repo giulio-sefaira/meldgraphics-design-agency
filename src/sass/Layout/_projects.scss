@@ -1,3 +1,5 @@
+$view-all-height: 72px;
+
 @include block('projects') {
   @extend %clearfix;
 	
@@ -29,16 +31,16 @@
 	}
 
 	@include element('view-all-container') {
-		margin-left: -1%;
-		margin-right: 1%;
+		@include pre(-1%);
+		@include post(1%);
 	}
 
 	@include element('view-all') {
 		@include span(4 at 7 wider);
 		@include break;
 		text-align: center;
-		height: 72px;
-		line-height: 72px;
+		height: $view-all-height;
+		line-height: $view-all-height;
 		@include fontsize(25);
 		margin-top: 90px;
 		margin-bottom: 90px;
@@ -46,7 +48,6 @@
 		text-decoration: none;
 
 	}
-
 }
 
 #make-order {

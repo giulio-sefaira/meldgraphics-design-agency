@@ -48,7 +48,6 @@ $step: 240px;
 		&:nth-child(5) {
 			width: percentage(($step / 1.2) / $desktop-container);
 		}
-
 	}
 
 	@include element('step-title') {
@@ -62,5 +61,4 @@ $step: 240px;
 		@include fontsize(17);
 		margin: 10px 0;
 	}
-
 }

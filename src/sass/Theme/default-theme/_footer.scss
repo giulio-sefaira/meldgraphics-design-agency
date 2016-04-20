@@ -3,6 +3,7 @@
 
   @include element('title') {
     color: $contact-text;
+    border-color: $section-line;
   }
 
   @include element('underline') {
@@ -13,7 +14,6 @@
     color: $contact-text;
     background: url(../img/go-top.png) center 26px no-repeat;
   }
-
 }
 
 @include block('phones') {
@@ -51,5 +51,8 @@
       }
     }
   }
+}
 
+@include block('front-layer') {
+  background: url(../img/downloading-icon.gif) center center no-repeat $body-bg;
 }

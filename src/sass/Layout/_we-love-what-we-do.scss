@@ -13,9 +13,5 @@
 
 	@include element('title') {
 		@include center-both;
-
-		&.animated-element.fadeInUp {
-			@include translate3d(-50%,0,0);
-		}
 	}
 }

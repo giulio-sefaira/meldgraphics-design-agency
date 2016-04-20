@@ -1,25 +1,71 @@
-%transition-background-color {
-	@include hover(.2s);
-	@include transition-property(background-color);
-}
-
 .wrapper {
   
   // from 769px to 1919px
-	@include breakpoint($desktop-min-width $desktop-max-width) {
+	@include breakpoint($tablet-max-width + 1 $desktop-wide-min-width - 1) {
 		min-width: $tablet;
 	}
 }
 
-@include block('header') {
-  
-  @include element('go-next') {
-    @include hover(.2s);
-    @include transition-property(opacity);
+@include block('checkbox') {
 
-    &:hover {
-      @include opacity(1);
-    }  
+  @include element('field') {
+
+    &:checked + .checkbox__label {
+      color: $color-blue;
+
+      .checkbox__icon {
+
+        &:after {
+          @include opacity(1);
+        }
+
+        &:before {
+          @include opacity(0);
+        }
+      }
+    }
+  }
+
+  @include element('label') {
+    @include hover(.15s);
+    @include transition-property(color);
+  }
+
+  @include element('icon') {
+
+    &:after,
+    &:before {
+      @include hover(.15s);
+      @include transition-property(opacity);
+    }
+  }
+}
+
+@include block('dropdown-choose-list') {
+
+  @include element('title') {
+
+    @include modifier('active') {
+
+      .dropdown-choose-list__sign {
+        height: 2px;
+      }
+    }
+  }
+
+  @include element('sign') {
+    @include hover(.3s);
+    @include transition-property(height);
+  }
+
+  @include element('list') {
+    @include hover(.5s);
+    @include transition-property(max-height, padding-top);
+
+    @include modifier('expanded') {
+      padding-top: 25px;
+      max-height: 500px;
+    }
   }
 }
 
@@ -33,14 +79,14 @@
 
 @include block('document') {
   margin-right: 0;
-  
+
   @include modifier('moved') {
     transform: translate3d(-$nav-offset, 0, 0);
-    
+
     @include breakpoint($mobile-min-width $mobile-max-width) {
       transform: translate3d(-$nav-offset-mobile, 0, 0);
     }
-    
+
     &-add {
       @include transition-property(transform);
       @include transition-duration(0.3s);
@@ -49,18 +95,18 @@
 
     &-add-active {
       transform: translate3d(-$nav-offset, 0, 0);
-      
+
       @include breakpoint($mobile-min-width $mobile-max-width) {
         transform: translate3d(-$nav-offset-mobile, 0, 0);
       }
     }
-    
+
     &-remove {
       @include transition-property(transform);
       @include transition-duration(0.3s);
       @include transition-timing-function(ease-in);
     }
-    
+
     &-remove-active {
       transform: translate3d(0, 0, 0);
     }
@@ -83,6 +129,25 @@ body {
       }
     }
   }
+
+  @include block('header') {
+
+    @include element('video') {
+
+      @include breakpoint($mobile-min-width 1660px) {
+        @include size(auto, 100%);
+      }
+    }
+
+    @include element('go-next') {
+      @include hover(.2s);
+      @include transition-property(opacity);
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
+  }
 }
 
 @include block('services') {
@@ -90,14 +155,70 @@ body {
   @include element('panel-top') {
     
     // from 200px to 1919px
-    @include breakpoint($desktop-min-width $desktop-max-width) {
+    @include breakpoint($tablet-max-width + 1 $desktop-wide-min-width - 1) {
       @include container($desktop);
     }
     
     // from 200px to 1279px
-    @include breakpoint($desktop-min-width $desktop-middle-width) {
+    @include breakpoint($tablet-max-width + 1 $desktop-max-width) {
       @include container($tablet);
     }
+  }
+}
+
+@include block('talk-to-us') {
+
+  @include element('submit') {
+    @extend %transition-background-color;
+    @include transition-timing-function(ease-in);
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+}
+
+@include block('categories') {
+
+  @include element('item') {
+    @include hover(.2s);
+    @include transition-property(color);
+
+    @include modifier('active') {
+      color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+    }
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}
+
+@include block('feature-image') {
+
+  @include modifier('1') {
+    @include size(140px, auto);
+  }
+
+  @include modifier('2') {
+    @include size(150px, auto);
+  }
+
+  @include modifier('3') {
+    @include size(90px, auto);
+  }
+
+  @include modifier('4') {
+    @include size(150px, auto);
+  }
+
+  @include modifier('5') {
+    @include size(150px, auto);
+  }
+
+  @include modifier('6') {
+    @include size(145px, auto);
   }
 }
 
@@ -162,7 +283,7 @@ body {
     height: 75px;
     padding-top: 20px;
 
-    @include breakpoint($tablet-min-width $tablet-max-width) {
+    @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
       height: $nav-height-tablet;
       padding-top: 30px;
     }
@@ -187,7 +308,7 @@ body {
 
     .nav__logo {
 
-      @include breakpoint($desktop-min-width) {
+      @include breakpoint($tablet-max-width + 1) {
         margin-top: -20px;
       }
     }
@@ -240,4 +361,86 @@ body {
 			background-color: $color-blue;
 		}
 	}
+}
+
+@include block('front-layer') {
+
+  &.ng-hide-add {
+    @include opacity(1);
+
+    @include hover(.5s);
+    @include transition-property(opacity);
+  }
+
+  &.ng-hide-add-active {
+    @include opacity(0);
+  }
+}
+
+@include block('info') {
+
+  @include element('field') {
+    @include hover(.3s);
+    @include transition-property(border-color);
+
+    &:focus {
+      @extend %field-active-state;
+    }
+  }
+
+  @include element('textarea') {
+
+    &:focus {
+      padding-top: 11px;
+      line-height: 1.3;
+    }
+  }
+}
+
+@include block('select-field') {
+
+  @include element('placeholder') {
+
+    @include modifier('active') {
+
+      &.select-field__placeholder {
+        @extend %field-active-state;
+      }
+
+      .select-field__arrow {
+        margin-top: 22px;
+        margin-right: 7px;
+        @include rotateX(180deg);
+      }
+    }
+  }
+
+  @include element('arrow') {
+    @include hover(.5s);
+    @include transition-property(transform);
+  }
+
+  @include element('list') {
+    @include hover(.5s);
+    @include transition-property(max-height, padding-bottom, padding-top);
+    @include transition-timing-function(linear);
+
+    &.select-field__list--opened-remove-active {
+      border-width: 1px;
+    }
+
+    @include modifier('opened') {
+      max-height: 500px;
+      padding-bottom: 14px;
+      padding-top: 6px;
+      border-width: 1px;
+    }
+  }
+
+  @include element('item') {
+
+    &:hover {
+      background-color: $talk-to-us-bg;
+    }
+  }
 }

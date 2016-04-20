@@ -1,0 +1,73 @@
+@include breakpoint($tablet-max-width $desktop-min-width) {
+
+  body {
+
+    @include block('nav') {
+
+      @include element('item') {
+        margin: 0;
+        padding: 0 rem-calc(10);
+      }
+
+      @include element('lang-item') {
+        padding: 0;
+      }
+    }
+
+    @include block('article') {
+
+      @include element('title') {
+        @include span(6);
+      }
+
+      @include element('quote') {
+        @include span(5);
+      }
+
+      @include element('cite') {
+        @include fontsize(16);
+        margin-bottom: 30px;
+      }
+
+      @include element('brain-title') {
+        @include fontsize(35);
+      }
+
+      p {
+        @include fontsize(17);
+      }
+    }
+
+    @include block('love-it') {
+
+      @include element('inner') {
+        @include fontsize(34);
+      }
+    }
+
+    @include block('about-us') {
+
+      @include element('panel-bottom') {
+        margin-top: -85px;
+      }
+    }
+
+    @include block('advantages') {
+
+      @include element('item') {
+
+        &:nth-child(2) {
+          margin: 0 percentage(50px / ($desktop));
+        }
+      }
+    }
+
+    @include block('process') {
+
+      @include element('steps') {
+        background-image: url(../img/steps-768.png);
+
+      }
+    }
+  }
+}

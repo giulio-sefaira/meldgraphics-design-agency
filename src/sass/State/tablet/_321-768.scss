@@ -1,0 +1,217 @@
+@include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+
+  @include layout($tablet-layout);
+
+  body {
+
+    .wrapper {
+      @include container($tablet);
+    }
+
+    @include block('nav') {
+
+      height: 70px;
+
+      @include element('logo') {
+        @include size(120px, 120px);
+        margin-left: percentage(40px / $tablet);
+        margin-top: -21px;
+        @include break;
+      }
+    }
+
+    @include block('about-us') {
+
+      @include element('title') {
+        @include fontsize(50);
+        @include span(8);
+      }
+
+      @include element('panel-bottom') {
+        @include size(100%, 80px);
+        margin-top: -74px;
+      }
+    }
+
+    @include block('article') {
+      @include break;
+      @include span(6.5 wider);
+      @include center-block;
+      float: none;
+      padding-left: 0;
+
+      @include element('title') {
+        @include span(8);
+        @include fontsize(35);
+        letter-spacing: normal;
+
+      }
+
+      @include element('quote') {
+        @include span(8);
+        @include fontsize(20);
+        margin-bottom: 25px;
+      }
+
+      @include element('column-1') {
+        @include span(8);
+      }
+
+      p {
+        @include fontsize(16);
+        margin: 0 0 36px;
+      }
+
+      @include element('cite') {
+        margin-bottom: 42px;
+        margin-top: 0;
+        padding-left: 0;
+      }
+
+      @include element('column-2') {
+        @include span(8);
+      }
+
+      @include element('sidebar') {
+        @include break;
+        @include span(4 at 3);
+      }
+
+      @include element('brain') {
+        width: 83%;
+      }
+
+      @include element('brain-title') {
+        @include fontsize(30);
+        font-weight: $semi-bold;
+        line-height: 1.1;
+      }
+    }
+
+    @include block('love-it') {
+      @include size(100%, 290px);
+      border-top: solid 1px $color-grey-light;
+      border-bottom: solid 1px $color-grey-light;
+
+      @include element('inner') {
+        @include fontsize(35);
+      }
+
+      @include element('title') {
+        width: 100%;
+      }
+    }
+
+    @include block('services') {
+
+      @include element('panel-bottom') {
+        @include background-size(120% auto);
+        background-position: center center;
+        height: rem-calc(300);
+      }
+    }
+
+    @include block('advantages') {
+      @include span(8);
+      margin-top: 22px;
+      margin-bottom: 95px;
+
+      @include element('content') {
+        @include fontsize(16);
+        padding: 0 10px;
+        margin: 10px 0;
+        line-height: 1.5;
+      }
+
+      @include element('item') {
+        @include fontsize(16);
+
+        &:nth-child(1),
+        &:nth-child(3) {
+          width: percentage(240px / $tablet);
+        }
+
+        &:nth-child(1) {
+
+          .advantages__content {
+            padding: 0 20px;
+          }
+        }
+
+        &:nth-child(2) {
+          margin: 0 percentage(16px / $tablet);
+          width: percentage(190px / $tablet);
+        }
+      }
+    }
+
+    @include block('process') {
+
+      @include element('description') {
+        @include break;
+        @include span(8);
+        @include fontsize(18);
+      }
+
+      @include element('steps') {
+        @include span(8);
+        margin-bottom: 0;
+        background-image: url(../img/steps-768.png);
+      }
+
+      @include element('step') {
+        width: percentage($step / $tablet-container);
+
+        img {
+          @include size(61px, auto);
+          margin: auto;
+        }
+
+        &:nth-child(1),
+        &:nth-child(5) {
+          margin-top: 210px;
+        }
+
+        &:nth-child(2),
+        &:nth-child(5) {
+          margin-left: -(percentage(($step / 2) / $tablet-container));
+        }
+
+        &:nth-child(3) {
+          margin: 370px (-1) * (percentage(($step / 12) / $tablet-container)) 0;
+
+          img {
+            @include size(94px, auto);
+          }
+        }
+
+        &:nth-child(5) {
+          width: percentage(($step / 1.2) / $tablet-container);
+        }
+      }
+
+      @include element('step-title') {
+        @include fontsize(16);
+      }
+
+      @include element('step-description') {
+        @include fontsize(16);
+      }
+    }
+
+    @include block('projects') {
+
+      @include element('title') {
+        padding-top: 65px;
+      }
+
+      @include element('list') {
+        @include break;
+      }
+    }
+
+    #make-order {
+      @include fontsize(22);
+    }
+  }
+}

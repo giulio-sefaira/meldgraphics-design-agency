@@ -2,12 +2,12 @@
 
   @include element('title') {
     color: $section-header;
+    border-color: $section-line;
   }
 
   @include element('panel-bottom') {
     background-color: $article-panel;
   }
-
 }
 
 @include block('article') {
@@ -27,5 +27,4 @@
   @include element('brain-title') {
     color: $article-cite;
   }
-
 }
