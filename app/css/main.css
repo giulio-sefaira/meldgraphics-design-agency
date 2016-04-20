@@ -10029,7 +10029,7 @@ body .triangles__item {
       z-index: 111;
       content: " ";
       display: block;
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiaJhz4T8QMIAwI4iAASYGJAAQYABrEQvm3e6P7gAAAABJRU5ErkJggg==) repeat; }
+      background: url(http://instinctools.eu/wp-content/themes/instinctools/images/header.png) repeat; }
   .header__video-box {
     position: absolute;
     top: 0;

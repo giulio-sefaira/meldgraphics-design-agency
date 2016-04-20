@@ -562,3 +562,4 @@ var app;
 /// <reference path="angularjs/angular-resource.d.ts" />
 /// <reference path="angular-file-upload/angular-file-upload.d.ts" />
 /// <reference path="ng-file-upload/ng-file-upload.d.ts" />
+/// <reference path="../node_modules/immutable/dist/immutable.d.ts" />
