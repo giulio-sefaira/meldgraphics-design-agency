@@ -11,22 +11,25 @@ module app.uploadFileField {
           fileTypes: '=',
           name: '@'
         },
-        link: function(scope, element, attrs) {
+        link: (scope, element, attrs) => {
 
           scope.uploader = new FileUploader();
-          scope.formatBytes = function(bytes,decimals) {
+          scope.formatBytes = (bytes, decimals) => {
             if(bytes == 0) return '0 Byte';
-            var k = 1000;
-            var dm = decimals + 1 || 3;
-            var sizes = ['bytes', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb', 'zb', 'yb'];
-            var i = Math.floor(Math.log(bytes) / Math.log(k));
+            let k = 1000;
+            let dm = decimals + 1 || 3;
+            let sizes = ['bytes', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb', 'zb', 'yb'];
+            let i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
           }
-          scope.uploader.onAfterAddingFile = function(item) {
-            scope.selectedFileType = item.file.name.match(/\.(.+)$/)[1];
-            var isExcepted = false;
-            scope.fileTypes.forEach((value) => {
-              if (scope.selectedFileType == value) {
+
+          scope.selectedFileType = item => item.file.name.match(/\.(.+)$/)[1];
+
+          scope.uploader.onAfterAddingFile = item => {
+            let selectedFileType = scope.selectedFileType(item);
+            let isExcepted = false;
+            scope.fileTypes.forEach(value => {
+              if (selectedFileType == value) {
                 isExcepted = true;
                 return;
               }

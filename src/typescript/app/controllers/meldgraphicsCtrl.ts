@@ -24,15 +24,13 @@ module app.meldgraphics {
         public scrollOffset: number = 70) {
 
         angular.element(this.$window).bind("resize", () => {
-
           if (this.$window.innerWidth > 768) this.showNav = false;
-          
         });
 
       }
 
       toggleNav(): void {
-          this.showNav = !this.showNav;
+        this.showNav = !this.showNav;
       }
       
       scrollTop(duration: string = this.scrollDurationValue): void {
@@ -41,8 +39,8 @@ module app.meldgraphics {
       
       scrollToSection(elementSelector: string): void {
         this.$timeout(() => {
-          var scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
-          var targetElement = this.$document[0].querySelector(elementSelector);
+          let scrollOffset = this.$document[0].querySelector('.nav').offsetHeight - 10;
+          let targetElement = this.$document[0].querySelector(elementSelector);
           this.$document.scrollToElement(targetElement, scrollOffset, this.scrollDurationValue / 2);
           this.$rootScope.activeSectionClass = elementSelector;
         }, 10);

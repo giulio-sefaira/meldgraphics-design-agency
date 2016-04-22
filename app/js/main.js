@@ -127,7 +127,7 @@ var app;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
                 this.$timeout = $timeout;
-                this.retina = (this.$window.devicePixelRatio > 1) ? true : false;
+                this.retina = (this.$window.devicePixelRatio > 1);
                 this.resolution = 'desktop';
                 this.cashValue = this.disableCashing();
                 this.defineResolution();
@@ -218,7 +218,7 @@ var app;
                             break;
                         }
                     }
-                    function runAnimation() {
+                    var runAnimation = function () {
                         if (scope.compareElement == 'parent') {
                             comparePoint = elementParent.getBoundingClientRect().top;
                         }
@@ -231,7 +231,7 @@ var app;
                                 element.removeClass(scope.animation + "--before");
                             }, scope.animationDelay || 0);
                         }
-                    }
+                    };
                     angular.element($window).bind("scroll", function () {
                         runAnimation();
                     });
@@ -256,11 +256,9 @@ var app;
                     list: "="
                 },
                 link: function (scope, element, attrs) {
-                    scope.camelize = function (str) {
-                        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
-                            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
-                        }).replace(/\s+/g, '');
-                    };
+                    scope.camelize = function (str) { return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
+                        return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+                    }).replace(/\s+/g, ''); };
                     scope.showList = false;
                     scope.openList = function () {
                         scope.showList = !scope.showList;
@@ -286,7 +284,7 @@ var app;
                 scope.trianglesAnimationRun = false;
                 scope.frontLayer = true;
                 scope.url = $location.path();
-                scope.navGrey = ($location.path() != '/') ? true : false;
+                scope.navGrey = (scope.url != '/');
                 scope.$on('$viewContentLoaded', function () {
                     aboutUs = element[0].querySelector('.about-us');
                     services = element[0].querySelector('.services');
@@ -297,7 +295,7 @@ var app;
                     triangles = element[0].querySelector('.triangles');
                     scope.frontLayer = false;
                     scope.url = $location.path();
-                    scope.navGrey = (scope.url != '/') ? true : false;
+                    scope.navGrey = (scope.url != '/');
                 });
                 scope.setActiveMenuItem = function () {
                     $rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
@@ -326,7 +324,7 @@ var app;
                     footerTop = footer.getBoundingClientRect().top;
                     trianglesTop = triangles.getBoundingClientRect().top;
                     scope.$apply(function () {
-                        scope.navGrey = (aboutUsTop < navBottom) ? true : false;
+                        scope.navGrey = (aboutUsTop < navBottom);
                     });
                 };
                 angular.element($window).bind("scroll", function () {
@@ -379,6 +377,7 @@ var app;
         angular
             .module('meldgraphics')
             .directive('uploadFileField', function (FileUploader) {
+            var _this = this;
             return {
                 restrict: 'E',
                 templateUrl: '/templates/directives/uploadFileField.html',
@@ -398,11 +397,12 @@ var app;
                         var i = Math.floor(Math.log(bytes) / Math.log(k));
                         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
                     };
+                    scope.selectedFileType = function (item) { return item.file.name.match(/\.(.+)$/)[1]; };
                     scope.uploader.onAfterAddingFile = function (item) {
-                        scope.selectedFileType = item.file.name.match(/\.(.+)$/)[1];
+                        var selectedFileType = scope.selectedFileType(item);
                         var isExcepted = false;
                         scope.fileTypes.forEach(function (value) {
-                            if (scope.selectedFileType == value) {
+                            if (selectedFileType == value) {
                                 isExcepted = true;
                                 return;
                             }
@@ -410,7 +410,7 @@ var app;
                         if (isExcepted)
                             return;
                         item.remove();
-                        this.value = '';
+                        _this.value = '';
                     };
                 }
             };

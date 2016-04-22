@@ -2,7 +2,7 @@ module app.selectField {
 
   angular
     .module('meldgraphics')
-    .directive('selectField', function () {
+    .directive('selectField', () => {
       return {
         restrict: 'A',
         templateUrl: '/templates/directives/selectField.html',
@@ -12,14 +12,14 @@ module app.selectField {
           name: '@',
           placeholder: '@'
         },
-        link: function(scope, element, attrs) {
+        link: (scope, element, attrs) => {
           scope.showList = false;
 
-          scope.openList = function() {
+          scope.openList = () => {
             scope.showList = !scope.showList;
           }
 
-          scope.selectOption = function(item) {
+          scope.selectOption = item => {
             scope.selectValue = item;
             scope.showList = false;
           }

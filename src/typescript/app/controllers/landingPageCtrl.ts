@@ -19,7 +19,7 @@ module app.landingPage {
                 options: landingPageModel) {
       super(options);
 
-      this.retina = (this.$window.devicePixelRatio > 1) ? true : false;
+      this.retina = (this.$window.devicePixelRatio > 1);
       this.resolution = 'desktop';
       this.cashValue = this.disableCashing();
 

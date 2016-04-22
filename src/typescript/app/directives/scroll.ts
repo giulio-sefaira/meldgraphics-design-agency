@@ -2,13 +2,13 @@ module app.scroll {
 
   angular
       .module('meldgraphics')
-      .directive('scroll', function ($window, $location, $rootScope) {
-        return function(scope, element, attrs) {
+      .directive('scroll', ($window, $location, $rootScope) => {
+        return (scope, element, attrs) => {
 
-            var nav = element[0].querySelector('.nav');
-            var navBottom = nav.getBoundingClientRect().bottom;
-            var windowHeight = $window.innerHeight;
-            var aboutUs,
+            let nav = element[0].querySelector('.nav');
+            let navBottom = nav.getBoundingClientRect().bottom;
+            let windowHeight = $window.innerHeight;
+            let aboutUs,
                 aboutUsTop,
                 services,
                 servicesTop,
@@ -27,9 +27,9 @@ module app.scroll {
             scope.trianglesAnimationRun = false;
             scope.frontLayer = true;
             scope.url = $location.path();
-            scope.navGrey = ($location.path() != '/') ? true : false;
+            scope.navGrey = (scope.url != '/');
 
-            scope.$on('$viewContentLoaded', function(){
+            scope.$on('$viewContentLoaded', () => {
               aboutUs = element[0].querySelector('.about-us');
               services = element[0].querySelector('.services');
               process = element[0].querySelector('.process');
@@ -39,10 +39,10 @@ module app.scroll {
               triangles = element[0].querySelector('.triangles');
               scope.frontLayer = false;
               scope.url = $location.path();
-              scope.navGrey = (scope.url != '/') ? true : false;
+              scope.navGrey = (scope.url != '/');
             });
 
-            scope.setActiveMenuItem = function() {
+            scope.setActiveMenuItem = () => {
               $rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
                 (projectsTop < navBottom) ? '.projects' :
                 (processTop < navBottom) ? '.process' :
@@ -65,25 +65,25 @@ module app.scroll {
 
             scope.activeSectionClass = $rootScope.activeSectionClass;
 
-            scope.setNavColor = function() {
+            scope.setNavColor = () => {
               aboutUsTop = aboutUs.getBoundingClientRect().top;
               servicesTop = services.getBoundingClientRect().top;
               processTop = process.getBoundingClientRect().top;
               projectsTop = projects.getBoundingClientRect().top;
               footerTop = footer.getBoundingClientRect().top;
               trianglesTop = triangles.getBoundingClientRect().top;
-              scope.$apply(function () {
-                scope.navGrey = (aboutUsTop < navBottom) ? true : false;
+              scope.$apply(() => {
+                scope.navGrey = (aboutUsTop < navBottom);
               });
             }
 
-            angular.element($window).bind("scroll", function() {
+            angular.element($window).bind("scroll", () => {
               scope.setNavColor();
               scope.setActiveMenuItem();
               scope.animateElements();
             });
 
-            angular.element($window).bind("resize", function() {
+            angular.element($window).bind("resize", () => {
               scope.setNavColor();
               scope.setActiveMenuItem();
             });

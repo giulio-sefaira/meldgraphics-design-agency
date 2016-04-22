@@ -8,7 +8,7 @@
 <ul class="file-list">
   <li class="file-list__item" ng-repeat="item in uploader.queue">
     <button class="file-list__remove" ng-click="item.remove()"></button>
-    <img class="file-list__type-img" ng-src="img/file-types/{{ selectedFileType }}.png" ng-if="selectedFileType == fileType" alt="{{ fileType }}" ng-repeat="fileType in fileTypes">
+    <img class="file-list__type-img" ng-src="img/file-types/{{ selectedFileType(item) }}.png" ng-if="selectedFileType(item) == fileType" alt="{{ fileType }}" ng-repeat="fileType in fileTypes">
     <ul class="file-list__characteristics">
       <li class="file-list__title">{{ item.file.name }}</li>
       <li class="file-list__size">{{ formatBytes(item.file.size, 1) }}</li>

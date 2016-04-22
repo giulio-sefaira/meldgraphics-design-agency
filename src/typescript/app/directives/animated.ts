@@ -2,7 +2,7 @@ module app.animatedElement {
 
   angular
     .module('meldgraphics')
-    .directive('animated', function ($window, $timeout) {
+    .directive('animated', ($window, $timeout) => {
       return {
         restrict: 'C',
         scope: {
@@ -10,12 +10,12 @@ module app.animatedElement {
           animationDelay: '@',
           compareElement: '@'
         },
-        link: function(scope, element, attrs) {
+        link: (scope, element, attrs) => {
           element.addClass(`${scope.animation}--before`);
-          var restrictLine = $window.innerHeight - $window.innerHeight * 0.12;
-          var previousElement = element[0].previousSibling;
-          var elementParent = element[0].parentNode;
-          var comparePoint;
+          let restrictLine = $window.innerHeight - $window.innerHeight * 0.12;
+          let previousElement = element[0].previousSibling;
+          let elementParent = element[0].parentNode;
+          let comparePoint;
           while (previousElement.nodeType == 3) {
             previousElement = previousElement.previousSibling;
             if (!previousElement) {
@@ -23,7 +23,7 @@ module app.animatedElement {
             }
           }
 
-          function runAnimation() {
+          let runAnimation = () => {
             if (scope.compareElement == 'parent') {
               comparePoint = elementParent.getBoundingClientRect().top;
             } else {
@@ -38,7 +38,7 @@ module app.animatedElement {
             }
           }
 
-          angular.element($window).bind("scroll", function() {
+          angular.element($window).bind("scroll", () => {
             runAnimation();
           });
         }

@@ -18,11 +18,11 @@ module app.portfolio {
         this.projectsList = dataAccessService.getPortfolioResource();
     }
 
-
   }
 
   angular
     .module('meldgraphics')
     .controller('portfolioCtrl',
       portfolioCtrl);
+
 }

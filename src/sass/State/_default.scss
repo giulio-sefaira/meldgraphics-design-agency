@@ -41,34 +41,6 @@
   }
 }
 
-@include block('dropdown-choose-list') {
-
-  @include element('title') {
-
-    @include modifier('active') {
-
-      .dropdown-choose-list__sign {
-        height: 2px;
-      }
-    }
-  }
-
-  @include element('sign') {
-    @include hover(.3s);
-    @include transition-property(height);
-  }
-
-  @include element('list') {
-    @include hover(.5s);
-    @include transition-property(max-height, padding-top);
-
-    @include modifier('expanded') {
-      padding-top: 25px;
-      max-height: 500px;
-    }
-  }
-}
-
 #make-order {
 	@extend %transition-background-color;
 
@@ -114,6 +86,82 @@
 }
 
 body {
+
+  @include block('select-field') {
+
+    @include element('placeholder') {
+
+      @include modifier('active') {
+
+        &.select-field__placeholder {
+          @extend %field-active-state;
+        }
+
+        .select-field__arrow {
+          margin-top: 22px;
+          margin-right: 7px;
+          @include rotateX(180deg);
+        }
+      }
+    }
+
+    @include element('arrow') {
+      @include hover(.5s);
+      @include transition-property(transform);
+    }
+
+    @include element('list') {
+      @include hover(.5s);
+      @include transition-property(max-height, padding-bottom, padding-top);
+      @include transition-timing-function(linear);
+
+      &.select-field__list--opened-remove-active {
+        border-width: 1px;
+      }
+
+      @include modifier('opened') {
+        max-height: 500px;
+        padding-bottom: 14px;
+        padding-top: 6px;
+        border-width: 1px;
+      }
+    }
+
+    @include element('item') {
+
+      &:hover {
+        background-color: $talk-to-us-bg;
+      }
+    }
+  }
+
+  @include block('dropdown-choose-list') {
+
+    @include element('title') {
+
+      @include modifier('active') {
+
+        .dropdown-choose-list__sign {
+          height: 2px;
+        }
+      }
+    }
+
+    @include element('sign') {
+      @include hover(.3s);
+      @include transition-property(height);
+    }
+
+    @include element('list') {
+      @include hover(.5s);
+      @include transition-property(max-height, padding-top);
+
+      @include modifier('expanded') {
+        padding-top: 25px;
+        max-height: 500px;
+      }
+    }
+  }
 
   @include block('triangles') {
 
@@ -393,54 +441,6 @@ body {
     &:focus {
       padding-top: 11px;
       line-height: 1.3;
-    }
-  }
-}
-
-@include block('select-field') {
-
-  @include element('placeholder') {
-
-    @include modifier('active') {
-
-      &.select-field__placeholder {
-        @extend %field-active-state;
-      }
-
-      .select-field__arrow {
-        margin-top: 22px;
-        margin-right: 7px;
-        @include rotateX(180deg);
-      }
-    }
-  }
-
-  @include element('arrow') {
-    @include hover(.5s);
-    @include transition-property(transform);
-  }
-
-  @include element('list') {
-    @include hover(.5s);
-    @include transition-property(max-height, padding-bottom, padding-top);
-    @include transition-timing-function(linear);
-
-    &.select-field__list--opened-remove-active {
-      border-width: 1px;
-    }
-
-    @include modifier('opened') {
-      max-height: 500px;
-      padding-bottom: 14px;
-      padding-top: 6px;
-      border-width: 1px;
-    }
-  }
-
-  @include element('item') {
-
-    &:hover {
-      background-color: $talk-to-us-bg;
     }
   }
 }
