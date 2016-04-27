@@ -1,12 +1,26 @@
 {
-  "name": "Meldgraphics",
+  "name": "meldgraphics",
   "version": "1.0.0",
   "description": "We design and develop graphical products and brands",
   "main": "index.js",
   "scripts": {
+    "meldgraphics": "npm install -g gulp-cli bower tsd typescript parallelshell copyfiles && npm install && bower install && tsd install",
+    "start": "parallelshell \"gulp browser-sync\" \"gulp watch\"",
+    "serve": "gulp browser-sync",
+    "build-dev": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && gulp dev:scripts dev:styles dev:html && gulp base64",
+    "build-prod": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && gulp prod:scripts prod:styles prod:html && gulp base64",
+    "production": "npm run build-prod && npm run serve",
+    "development": "npm run build-dev && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssavitski/meldgraphics-design-agency.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ssavitski/meldgraphics-design-agency/issues"
+  },
+  "author": "Siarhei Savitski",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.11.1",
@@ -14,6 +28,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-base64": "^0.1.3",
     "gulp-changed": "^1.3.0",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-image-optimization": "^0.1.3",
@@ -27,6 +42,7 @@
     "gulp-util": "^3.0.7",
     "gulp-wiredep": "0.0.0",
     "imagemin-pngquant": "^4.2.0",
+    "parallelshell": "^2.0.0",
     "wiredep": "^3.0.0"
   }
 }

@@ -47,12 +47,12 @@ Mixins available:
 /* CENTERING BLOCKS ELEMENTS, HORIZONTAL, VERTICAL, BOTH */
 /* CLEARFIX */
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300&subset=latin,cyrillic-ext);
-body .about-us .wrapper, .projects, .projects__list, .talk-to-us, .article__content {
+.projects, .projects__list, .talk-to-us, .article__content {
   *zoom: 1; }
-  body .about-us .wrapper:before, .projects:before, .projects__list:before, .talk-to-us:before, .article__content:before, body .about-us .wrapper:after, .projects:after, .projects__list:after, .talk-to-us:after, .article__content:after {
+  .projects:before, .projects__list:before, .talk-to-us:before, .article__content:before, .projects:after, .projects__list:after, .talk-to-us:after, .article__content:after {
     content: " ";
     display: table; }
-  body .about-us .wrapper:after, .projects:after, .projects__list:after, .talk-to-us:after, .article__content:after {
+  .projects:after, .projects__list:after, .talk-to-us:after, .article__content:after {
     clear: both; }
 
 /* DIV OUTLINE */
@@ -9172,6 +9172,8 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     width: 100%;
     height: 65px;
     margin-top: -57px; }
+  body .about-us .wrapper {
+    clear: both; }
   body .article {
     width: 100%;
     float: left;

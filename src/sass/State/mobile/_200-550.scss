@@ -23,7 +23,7 @@
       }
 
       .wrapper {
-        @extend %clearfix;
+        @include break;
       }
     }
 
