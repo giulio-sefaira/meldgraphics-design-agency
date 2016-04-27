@@ -9,6 +9,7 @@ module app.selectField {
         replace: false,
         scope: {
           list: '=',
+          selected: '=',
           name: '@',
           placeholder: '@'
         },
@@ -17,9 +18,10 @@ module app.selectField {
 
           scope.openList = () => {
             scope.showList = !scope.showList;
-          }
+          };
 
           scope.selectOption = item => {
+            scope.selected = item;
             scope.selectValue = item;
             scope.showList = false;
           }

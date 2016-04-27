@@ -89,9 +89,12 @@ var app;
     var contact;
     (function (contact) {
         var contactCtrl = (function () {
-            function contactCtrl(dataAccessService, pageClass, projectBudgetValues, designDevelopmentOptions, printIllustrationOptions, uploadFileTypes, brandingStrategyOptions, projectDeadlineOptions) {
+            function contactCtrl(dataAccessService, $scope, $http, $q, pageClass, projectBudgetValues, designDevelopmentOptions, printIllustrationOptions, uploadFileTypes, brandingStrategyOptions, projectDeadlineOptions) {
                 if (pageClass === void 0) { pageClass = 'contact'; }
                 this.dataAccessService = dataAccessService;
+                this.$scope = $scope;
+                this.$http = $http;
+                this.$q = $q;
                 this.pageClass = pageClass;
                 this.projectBudgetValues = projectBudgetValues;
                 this.designDevelopmentOptions = designDevelopmentOptions;
@@ -105,8 +108,57 @@ var app;
                 this.uploadFileTypes = dataAccessService.getUploadFileTypes();
                 this.brandingStrategyOptions = dataAccessService.getBrandingStrategyOptions();
                 this.projectDeadlineOptions = dataAccessService.getProjectDeadlineOptions();
+                this.$http = $http;
+                this.$q = $q;
+                this.formData = {};
             }
-            contactCtrl.$inject = ['dataAccessService'];
+            contactCtrl.prototype.submitForm = function (form, $event) {
+                $event.preventDefault();
+                this.sendData(this.formData).then(function (data) {
+                    console.log('Success data', data);
+                }, function () {
+                    console.log('Error');
+                });
+            };
+            contactCtrl.prototype.sendData = function (formData) {
+                var _this = this;
+                var self = this;
+                return self.$q(function (resolve, reject) {
+                    _this.sendFiles(formData.files).then(function (uploadFiles) {
+                        var sendData = angular.copy(formData);
+                        sendData.files = uploadFiles;
+                        self.$http.post('/handler.php', sendData)
+                            .success(function (data) {
+                            resolve(data);
+                        })
+                            .error(function (data, status) {
+                            reject(data, status);
+                        });
+                    }, function (error) {
+                        reject(error);
+                    });
+                });
+            };
+            contactCtrl.prototype.sendFiles = function (files) {
+                var self = this;
+                return self.$q(function (resolve, reject) {
+                    var formData = new FormData();
+                    angular.forEach(files, function (value, key) {
+                        formData.append('upload' + key, value._file);
+                    });
+                    self.$http.post('/handler.php', formData, {
+                        transformRequest: angular.identity,
+                        headers: { 'Content-Type': undefined }
+                    })
+                        .success(function (data) {
+                        resolve(data);
+                    })
+                        .error(function (data, status) {
+                        reject(data, status);
+                    });
+                });
+            };
+            contactCtrl.$inject = ['dataAccessService', '$scope', '$http', '$q'];
             return contactCtrl;
         }());
         angular
@@ -252,13 +304,15 @@ var app;
                 templateUrl: '/templates/directives/dropdownChooseList.html',
                 replace: false,
                 scope: {
-                    title: "@",
-                    list: "="
+                    title: '@',
+                    list: '=',
+                    checked: '='
                 },
                 link: function (scope, element, attrs) {
                     scope.camelize = function (str) { return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
                         return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
                     }).replace(/\s+/g, ''); };
+                    scope.checked = {};
                     scope.showList = false;
                     scope.openList = function () {
                         scope.showList = !scope.showList;
@@ -353,6 +407,7 @@ var app;
                 replace: false,
                 scope: {
                     list: '=',
+                    selected: '=',
                     name: '@',
                     placeholder: '@'
                 },
@@ -362,6 +417,7 @@ var app;
                         scope.showList = !scope.showList;
                     };
                     scope.selectOption = function (item) {
+                        scope.selected = item;
                         scope.selectValue = item;
                         scope.showList = false;
                     };
@@ -376,7 +432,7 @@ var app;
     (function (uploadFileField) {
         angular
             .module('meldgraphics')
-            .directive('uploadFileField', function (FileUploader) {
+            .directive('uploadFileField', function (FileUploader, $http) {
             var _this = this;
             return {
                 restrict: 'E',
@@ -384,10 +440,12 @@ var app;
                 replace: false,
                 scope: {
                     fileTypes: '=',
-                    name: '@'
+                    name: '@',
+                    selectFiles: '='
                 },
                 link: function (scope, element, attrs) {
                     scope.uploader = new FileUploader();
+                    scope.selectFiles = scope.uploader.queue;
                     scope.formatBytes = function (bytes, decimals) {
                         if (bytes == 0)
                             return '0 Byte';
@@ -399,6 +457,7 @@ var app;
                     };
                     scope.selectedFileType = function (item) { return item.file.name.match(/\.(.+)$/)[1]; };
                     scope.uploader.onAfterAddingFile = function (item) {
+                        console.log('scope.uploader.queue', scope.uploader.queue);
                         var selectedFileType = scope.selectedFileType(item);
                         var isExcepted = false;
                         scope.fileTypes.forEach(function (value) {

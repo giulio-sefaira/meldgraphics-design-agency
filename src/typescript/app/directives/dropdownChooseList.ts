@@ -8,13 +8,16 @@ module app.dropdownChooseList {
         templateUrl: '/templates/directives/dropdownChooseList.html',
         replace: false,
         scope: {
-          title: "@",
-          list: "="
+          title: '@',
+          list: '=',
+          checked: '=',
         },
         link: (scope, element, attrs) => {
           scope.camelize = str => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) =>
               index == 0 ? letter.toLowerCase() : letter.toUpperCase()
             ).replace(/\s+/g, '');
+
+          scope.checked = {};
 
           scope.showList = false;
 
