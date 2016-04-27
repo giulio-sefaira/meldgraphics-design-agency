@@ -85,6 +85,39 @@ module app.common {
       ];
     }
 
+    getFeatures(): any {
+      return [{
+        name: '2',
+        title: 'UX/UI Design',
+        description: ['Website design', 'Application design']
+      },
+      {
+        name: '5',
+        title: 'Strategy',
+        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis']
+      },
+      {
+        name: '6',
+        title: 'Development',
+        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment']
+      },
+      {
+        name: '3',
+        title: 'Branding',
+        description: ['Naming', 'Logo Development', 'Corporate Identity']
+      },
+      {
+        name: '1',
+        title: 'Print Design',
+        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging']
+      },
+      {
+        name: '4',
+        title: 'Illustration',
+        description: ['Sketches', 'Book Illustration']
+      }];
+    }
+
     getPortfolioResource(): any {
       return [{
         title: 'Life Lines',

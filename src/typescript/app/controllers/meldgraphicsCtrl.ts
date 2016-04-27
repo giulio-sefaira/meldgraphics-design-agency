@@ -5,6 +5,7 @@ module app.meldgraphics {
     scrollTopValue: number;
     scrollDurationValue: number;
     scrollOffset: number;
+    features: any;
     toggleNav(): void;
     scrollTop(duration: string): void;
     scrollToSection(elementSelector: string): void
@@ -12,13 +13,15 @@ module app.meldgraphics {
 
   export class meldgraphicsCtrl implements meldgraphicsModel {
 
-      static $inject = ['$window','$document', '$rootScope', '$timeout'];
+      static $inject = ['$window','$document', '$rootScope', '$timeout', 'dataAccessService'];
       constructor(
         private $window: ng.IWindowService,
         private $document: ng.IDocumentService,
         private $rootScope: ng.IRootScopeService,
         private $timeout: ng.ITimeoutService,
+        private dataAccessService: app.common.DataAccessService,
         public showNav: boolean = false,
+        public features: any,
         public scrollTopValue: number = 0,
         public scrollDurationValue: number = 2000,
         public scrollOffset: number = 70) {
@@ -26,6 +29,8 @@ module app.meldgraphics {
         angular.element(this.$window).bind("resize", () => {
           if (this.$window.innerWidth > 768) this.showNav = false;
         });
+
+        this.features = dataAccessService.getFeatures();
 
       }
 

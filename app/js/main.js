@@ -38,7 +38,7 @@ var app;
     var meldgraphics;
     (function (meldgraphics) {
         var meldgraphicsCtrl = (function () {
-            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, showNav, scrollTopValue, scrollDurationValue, scrollOffset) {
+            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, dataAccessService, showNav, features, scrollTopValue, scrollDurationValue, scrollOffset) {
                 var _this = this;
                 if (showNav === void 0) { showNav = false; }
                 if (scrollTopValue === void 0) { scrollTopValue = 0; }
@@ -48,7 +48,9 @@ var app;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
                 this.$timeout = $timeout;
+                this.dataAccessService = dataAccessService;
                 this.showNav = showNav;
+                this.features = features;
                 this.scrollTopValue = scrollTopValue;
                 this.scrollDurationValue = scrollDurationValue;
                 this.scrollOffset = scrollOffset;
@@ -56,6 +58,7 @@ var app;
                     if (_this.$window.innerWidth > 768)
                         _this.showNav = false;
                 });
+                this.features = dataAccessService.getFeatures();
             }
             meldgraphicsCtrl.prototype.toggleNav = function () {
                 this.showNav = !this.showNav;
@@ -73,7 +76,7 @@ var app;
                     _this.$rootScope.activeSectionClass = elementSelector;
                 }, 10);
             };
-            meldgraphicsCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout'];
+            meldgraphicsCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout', 'dataAccessService'];
             return meldgraphicsCtrl;
         }());
         meldgraphics.meldgraphicsCtrl = meldgraphicsCtrl;
@@ -283,6 +286,36 @@ var app;
             .module('meldgraphics')
             .directive('dropdownChooseList', dropdownChooseList.factory());
     })(dropdownChooseList = app.dropdownChooseList || (app.dropdownChooseList = {}));
+})(app || (app = {}));
+var app;
+(function (app) {
+    var feature;
+    (function (feature_1) {
+        var feature = (function () {
+            function feature() {
+                this.restrict = 'E';
+                this.templateUrl = '/templates/directives/feature.html';
+                this.replace = false;
+                this.scope = {
+                    name: '=',
+                    title: '@',
+                    description: '@',
+                    retina: '='
+                };
+                this.link = function (scope, element, attrs, ctrl) {
+                };
+            }
+            feature.factory = function () {
+                var directive = function () { return new app.uploadFileField(); };
+                directive.$inject = [];
+                return directive;
+            };
+            return feature;
+        }());
+        angular
+            .module('meldgraphics')
+            .directive('feature', feature.factory());
+    })(feature = app.feature || (app.feature = {}));
 })(app || (app = {}));
 var app;
 (function (app) {
@@ -530,6 +563,38 @@ var app;
                     '2-3 months',
                     'I have more time'
                 ];
+            };
+            DataAccessService.prototype.getFeatures = function () {
+                return [{
+                        name: '2',
+                        title: 'UX/UI Design',
+                        description: ['Website design', 'Application design']
+                    },
+                    {
+                        name: '5',
+                        title: 'Strategy',
+                        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis']
+                    },
+                    {
+                        name: '6',
+                        title: 'Development',
+                        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment']
+                    },
+                    {
+                        name: '3',
+                        title: 'Branding',
+                        description: ['Naming', 'Logo Development', 'Corporate Identity']
+                    },
+                    {
+                        name: '1',
+                        title: 'Print Design',
+                        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging']
+                    },
+                    {
+                        name: '4',
+                        title: 'Illustration',
+                        description: ['Sketches', 'Book Illustration']
+                    }];
             };
             DataAccessService.prototype.getPortfolioResource = function () {
                 return [{
