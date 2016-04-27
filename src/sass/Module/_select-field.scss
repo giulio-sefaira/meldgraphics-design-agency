@@ -10,8 +10,8 @@ $select-field-bottom-offset: 58px;
   @include element('placeholder') {
     @extend .info__field;
     cursor: pointer;
-    margin-right: 0;
-    width: 100%;
+    margin-right: 0 !important;
+    width: 100% !important;
   }
 
   @include element('arrow') {

@@ -1,27 +1,37 @@
 module app.dropdownChooseList {
 
+  class dropdownChooseList implements ng.IDirective {
+    restrict = 'A';
+    templateUrl = '/templates/directives/dropdownChooseList.html';
+    replace = false;
+    scope = {
+      title: "@",
+      list: "="
+    };
+
+    constructor() { }
+
+    link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+      scope.camelize = str => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) =>
+          index == 0 ? letter.toLowerCase() : letter.toUpperCase()
+      ).replace(/\s+/g, '');
+
+      scope.showList = false;
+
+      scope.openList = () => {
+        scope.showList = !scope.showList;
+      }
+    }
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new dropdownChooseList();
+      return directive;
+    }
+
+  }
+
   angular
     .module('meldgraphics')
-    .directive('dropdownChooseList', () => {
-      return {
-        restrict: 'A',
-        templateUrl: '/templates/directives/dropdownChooseList.html',
-        replace: false,
-        scope: {
-          title: "@",
-          list: "="
-        },
-        link: (scope, element, attrs) => {
-          scope.camelize = str => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) =>
-              index == 0 ? letter.toLowerCase() : letter.toUpperCase()
-            ).replace(/\s+/g, '');
+    .directive('dropdownChooseList', dropdownChooseList.factory());
 
-          scope.showList = false;
-
-          scope.openList = () => {
-            scope.showList = !scope.showList;
-          }
-        }
-      }
-    });
 }

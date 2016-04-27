@@ -196,19 +196,20 @@ var app;
 (function (app) {
     var animatedElement;
     (function (animatedElement) {
-        angular
-            .module('meldgraphics')
-            .directive('animated', function ($window, $timeout) {
-            return {
-                restrict: 'C',
-                scope: {
+        var animated = (function () {
+            function animated($window, $timeout) {
+                var _this = this;
+                this.$window = $window;
+                this.$timeout = $timeout;
+                this.restrict = 'C';
+                this.scope = {
                     animation: '@',
                     animationDelay: '@',
                     compareElement: '@'
-                },
-                link: function (scope, element, attrs) {
+                };
+                this.link = function (scope, element, attrs, ctrl) {
                     element.addClass(scope.animation + "--before");
-                    var restrictLine = $window.innerHeight - $window.innerHeight * 0.12;
+                    var restrictLine = _this.$window.innerHeight - _this.$window.innerHeight * 0.12;
                     var previousElement = element[0].previousSibling;
                     var elementParent = element[0].parentNode;
                     var comparePoint;
@@ -226,36 +227,43 @@ var app;
                             comparePoint = (!previousElement) ? elementParent.getBoundingClientRect().top : previousElement.getBoundingClientRect().bottom;
                         }
                         if (comparePoint < restrictLine) {
-                            $timeout(function () {
+                            _this.$timeout(function () {
                                 element.addClass(scope.animation);
                                 element.removeClass(scope.animation + "--before");
                             }, scope.animationDelay || 0);
                         }
                     };
-                    angular.element($window).bind("scroll", function () {
+                    angular.element(_this.$window).bind("scroll", function () {
                         runAnimation();
                     });
-                }
+                };
+            }
+            animated.factory = function () {
+                var directive = function ($window, $timeout) { return new animated($window, $timeout); };
+                directive.$inject = ['$window', '$timeout'];
+                return directive;
             };
-        });
+            return animated;
+        }());
+        angular
+            .module('meldgraphics')
+            .directive('animated', animated.factory());
     })(animatedElement = app.animatedElement || (app.animatedElement = {}));
 })(app || (app = {}));
 var app;
 (function (app) {
     var dropdownChooseList;
-    (function (dropdownChooseList) {
-        angular
-            .module('meldgraphics')
-            .directive('dropdownChooseList', function () {
-            return {
-                restrict: 'A',
-                templateUrl: '/templates/directives/dropdownChooseList.html',
-                replace: false,
-                scope: {
+    (function (dropdownChooseList_1) {
+        var dropdownChooseList = (function () {
+            function dropdownChooseList() {
+                this.restrict = 'A';
+                this.templateUrl = '/templates/directives/dropdownChooseList.html';
+                this.replace = false;
+                this.scope = {
                     title: "@",
                     list: "="
-                },
-                link: function (scope, element, attrs) {
+                };
+                this.link = function (scope, element, attrs, ctrl) {
                     scope.camelize = function (str) { return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
                         return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
                     }).replace(/\s+/g, ''); };
@@ -263,100 +271,119 @@ var app;
                     scope.openList = function () {
                         scope.showList = !scope.showList;
                     };
-                }
+                };
+            }
+            dropdownChooseList.factory = function () {
+                var directive = function () { return new dropdownChooseList(); };
+                return directive;
             };
-        });
+            return dropdownChooseList;
+        }());
+        angular
+            .module('meldgraphics')
+            .directive('dropdownChooseList', dropdownChooseList.factory());
     })(dropdownChooseList = app.dropdownChooseList || (app.dropdownChooseList = {}));
 })(app || (app = {}));
 var app;
 (function (app) {
     var scroll;
-    (function (scroll) {
-        angular
-            .module('meldgraphics')
-            .directive('scroll', function ($window, $location, $rootScope) {
-            return function (scope, element, attrs) {
-                var nav = element[0].querySelector('.nav');
-                var navBottom = nav.getBoundingClientRect().bottom;
-                var windowHeight = $window.innerHeight;
-                var aboutUs, aboutUsTop, services, servicesTop, process, processTop, projects, projectsTop, footer, footerTop, brain, brainTop, triangles, trianglesTop;
-                scope.brainAnimateionRun = false;
-                scope.trianglesAnimationRun = false;
-                scope.frontLayer = true;
-                scope.url = $location.path();
-                scope.navGrey = (scope.url != '/');
-                scope.$on('$viewContentLoaded', function () {
-                    aboutUs = element[0].querySelector('.about-us');
-                    services = element[0].querySelector('.services');
-                    process = element[0].querySelector('.process');
-                    projects = element[0].querySelector('.projects');
-                    footer = element[0].querySelector('.footer');
-                    brain = element[0].querySelector('.article__brain');
-                    triangles = element[0].querySelector('.triangles');
-                    scope.frontLayer = false;
-                    scope.url = $location.path();
+    (function (scroll_1) {
+        var scroll = (function () {
+            function scroll($window, $location, $rootScope) {
+                var _this = this;
+                this.$window = $window;
+                this.$location = $location;
+                this.$rootScope = $rootScope;
+                this.link = function (scope, element, attrs, ctrl) {
+                    var nav = element[0].querySelector('.nav');
+                    var navBottom = nav.getBoundingClientRect().bottom;
+                    var windowHeight = _this.$window.innerHeight;
+                    var aboutUs, aboutUsTop, services, servicesTop, process, processTop, projects, projectsTop, footer, footerTop, brain, brainTop, triangles, trianglesTop;
+                    scope.brainAnimateionRun = false;
+                    scope.trianglesAnimationRun = false;
+                    scope.frontLayer = true;
+                    scope.url = _this.$location.path();
                     scope.navGrey = (scope.url != '/');
-                });
-                scope.setActiveMenuItem = function () {
-                    $rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
-                        (projectsTop < navBottom) ? '.projects' :
-                            (processTop < navBottom) ? '.process' :
-                                (servicesTop < navBottom) ? '.services' :
-                                    (aboutUsTop < navBottom) ? '.about-us' : '';
-                    scope.activeSectionClass = $rootScope.activeSectionClass;
-                };
-                scope.animateElements = function () {
-                    brainTop = brain.getBoundingClientRect().top;
-                    if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
-                        scope.brainAnimateionRun = true;
-                    }
-                    if ((trianglesTop < (windowHeight - windowHeight * 0.15)) && !scope.trianglesAnimationRun) {
-                        scope.trianglesAnimationRun = true;
-                    }
-                };
-                scope.setActiveMenuItem();
-                scope.activeSectionClass = $rootScope.activeSectionClass;
-                scope.setNavColor = function () {
-                    aboutUsTop = aboutUs.getBoundingClientRect().top;
-                    servicesTop = services.getBoundingClientRect().top;
-                    processTop = process.getBoundingClientRect().top;
-                    projectsTop = projects.getBoundingClientRect().top;
-                    footerTop = footer.getBoundingClientRect().top;
-                    trianglesTop = triangles.getBoundingClientRect().top;
-                    scope.$apply(function () {
-                        scope.navGrey = (aboutUsTop < navBottom);
+                    scope.$on('$viewContentLoaded', function () {
+                        aboutUs = element[0].querySelector('.about-us');
+                        services = element[0].querySelector('.services');
+                        process = element[0].querySelector('.process');
+                        projects = element[0].querySelector('.projects');
+                        footer = element[0].querySelector('.footer');
+                        brain = element[0].querySelector('.article__brain');
+                        triangles = element[0].querySelector('.triangles');
+                        scope.frontLayer = false;
+                        scope.url = _this.$location.path();
+                        scope.navGrey = (scope.url != '/');
+                    });
+                    scope.setActiveMenuItem = function () {
+                        _this.$rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
+                            (projectsTop < navBottom) ? '.projects' :
+                                (processTop < navBottom) ? '.process' :
+                                    (servicesTop < navBottom) ? '.services' :
+                                        (aboutUsTop < navBottom) ? '.about-us' : '';
+                        scope.activeSectionClass = _this.$rootScope.activeSectionClass;
+                    };
+                    scope.animateElements = function () {
+                        brainTop = brain.getBoundingClientRect().top;
+                        if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
+                            scope.brainAnimateionRun = true;
+                        }
+                        if ((trianglesTop < (windowHeight - windowHeight * 0.15)) && !scope.trianglesAnimationRun) {
+                            scope.trianglesAnimationRun = true;
+                        }
+                    };
+                    scope.setActiveMenuItem();
+                    scope.activeSectionClass = _this.$rootScope.activeSectionClass;
+                    scope.setNavColor = function () {
+                        aboutUsTop = aboutUs.getBoundingClientRect().top;
+                        servicesTop = services.getBoundingClientRect().top;
+                        processTop = process.getBoundingClientRect().top;
+                        projectsTop = projects.getBoundingClientRect().top;
+                        footerTop = footer.getBoundingClientRect().top;
+                        trianglesTop = triangles.getBoundingClientRect().top;
+                        scope.$apply(function () {
+                            scope.navGrey = (aboutUsTop < navBottom);
+                        });
+                    };
+                    angular.element(_this.$window).bind("scroll", function () {
+                        scope.setNavColor();
+                        scope.setActiveMenuItem();
+                        scope.animateElements();
+                    });
+                    angular.element(_this.$window).bind("resize", function () {
+                        scope.setNavColor();
+                        scope.setActiveMenuItem();
                     });
                 };
-                angular.element($window).bind("scroll", function () {
-                    scope.setNavColor();
-                    scope.setActiveMenuItem();
-                    scope.animateElements();
-                });
-                angular.element($window).bind("resize", function () {
-                    scope.setNavColor();
-                    scope.setActiveMenuItem();
-                });
+            }
+            scroll.factory = function () {
+                var directive = function ($window, $location, $rootScope) { return new scroll($window, $location, $rootScope); };
+                directive.$inject = ['$window', '$location', '$rootScope'];
+                return directive;
             };
-        });
+            return scroll;
+        }());
+        angular
+            .module('meldgraphics')
+            .directive('scroll', scroll.factory());
     })(scroll = app.scroll || (app.scroll = {}));
 })(app || (app = {}));
 var app;
 (function (app) {
     var selectField;
-    (function (selectField) {
-        angular
-            .module('meldgraphics')
-            .directive('selectField', function () {
-            return {
-                restrict: 'A',
-                templateUrl: '/templates/directives/selectField.html',
-                replace: false,
-                scope: {
+    (function (selectField_1) {
+        var selectField = (function () {
+            function selectField() {
+                this.restrict = 'A';
+                this.templateUrl = '/templates/directives/selectField.html';
+                this.replace = false;
+                this.scope = {
                     list: '=',
                     name: '@',
                     placeholder: '@'
-                },
-                link: function (scope, element, attrs) {
+                };
+                this.link = function (scope, element, attrs, ctrl) {
                     scope.showList = false;
                     scope.openList = function () {
                         scope.showList = !scope.showList;
@@ -365,29 +392,35 @@ var app;
                         scope.selectValue = item;
                         scope.showList = false;
                     };
-                }
+                };
+            }
+            selectField.factory = function () {
+                var directive = function () { return new selectField(); };
+                return directive;
             };
-        });
+            return selectField;
+        }());
+        angular
+            .module('meldgraphics').directive('selectField', selectField.factory());
     })(selectField = app.selectField || (app.selectField = {}));
 })(app || (app = {}));
 var app;
 (function (app) {
     var uploadFileField;
-    (function (uploadFileField) {
-        angular
-            .module('meldgraphics')
-            .directive('uploadFileField', function (FileUploader) {
-            var _this = this;
-            return {
-                restrict: 'E',
-                templateUrl: '/templates/directives/uploadFileField.html',
-                replace: false,
-                scope: {
+    (function (uploadFileField_1) {
+        var uploadFileField = (function () {
+            function uploadFileField(FileUploader) {
+                var _this = this;
+                this.FileUploader = FileUploader;
+                this.restrict = 'E';
+                this.templateUrl = '/templates/directives/uploadFileField.html';
+                this.replace = false;
+                this.scope = {
                     fileTypes: '=',
                     name: '@'
-                },
-                link: function (scope, element, attrs) {
-                    scope.uploader = new FileUploader();
+                };
+                this.link = function (scope, element, attrs, ctrl) {
+                    scope.uploader = new _this.FileUploader();
                     scope.formatBytes = function (bytes, decimals) {
                         if (bytes == 0)
                             return '0 Byte';
@@ -412,9 +445,18 @@ var app;
                         item.remove();
                         _this.value = '';
                     };
-                }
+                };
+            }
+            uploadFileField.factory = function () {
+                var directive = function (FileUploader) { return new uploadFileField(FileUploader); };
+                directive.$inject = ['FileUploader'];
+                return directive;
             };
-        });
+            return uploadFileField;
+        }());
+        angular
+            .module('meldgraphics')
+            .directive('uploadFileField', uploadFileField.factory());
     })(uploadFileField = app.uploadFileField || (app.uploadFileField = {}));
 })(app || (app = {}));
 var app;

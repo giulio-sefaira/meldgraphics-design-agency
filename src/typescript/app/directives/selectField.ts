@@ -1,29 +1,37 @@
 module app.selectField {
 
-  angular
-    .module('meldgraphics')
-    .directive('selectField', () => {
-      return {
-        restrict: 'A',
-        templateUrl: '/templates/directives/selectField.html',
-        replace: false,
-        scope: {
-          list: '=',
-          name: '@',
-          placeholder: '@'
-        },
-        link: (scope, element, attrs) => {
-          scope.showList = false;
+  class selectField implements ng.IDirective {
+    restrict = 'A';
+    templateUrl = '/templates/directives/selectField.html';
+    replace = false;
+    scope = {
+      list: '=',
+      name: '@',
+      placeholder: '@'
+    };
 
-          scope.openList = () => {
-            scope.showList = !scope.showList;
-          }
+    constructor() { }
 
-          scope.selectOption = item => {
-            scope.selectValue = item;
-            scope.showList = false;
-          }
-        }
+    link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+      scope.showList = false;
+
+      scope.openList = () => {
+        scope.showList = !scope.showList;
       }
-    });
+
+      scope.selectOption = item => {
+        scope.selectValue = item;
+        scope.showList = false;
+      }
+    }
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new selectField();
+      return directive;
+    }
+  }
+
+  angular
+    .module('meldgraphics').directive('selectField', selectField.factory());
+
 }
