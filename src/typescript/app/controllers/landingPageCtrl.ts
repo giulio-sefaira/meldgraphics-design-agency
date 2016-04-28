@@ -2,26 +2,29 @@ module app.landingPage {
   
   import IWindowService = angular.IWindowService;
   interface landingPageModel extends app.meldgraphics.meldgraphicsModel {
-    resolution: string,
-    retina: boolean,
-    cashValue: number,
-    defineResolution(): void,
-    desableCashing(): number
+    resolution: string;
+    retina: boolean;
+    cashValue: number;
+    features: any;
+    defineResolution(): void;
+    desableCashing(): number;
   }
 
    class landingPageCtrl extends app.meldgraphics.meldgraphicsCtrl {
 
-    static $inject = ['$window', '$document', '$rootScope', '$timeout'];
+    static $inject = ['$window', '$document', '$rootScope', '$timeout', 'dataAccessService'];
     constructor(private $window: IWindowService,
                 private $document: ng.IDocumentService,
                 private $rootScope: ng.IRootScopeService,
                 private $timeout: ng.ITimeoutService,
+                private dataAccessService: app.common.DataAccessService,
                 options: landingPageModel) {
       super(options);
 
       this.retina = (this.$window.devicePixelRatio > 1);
       this.resolution = 'desktop';
       this.cashValue = this.disableCashing();
+      this.features = this.dataAccessService.getFeatures();
 
       this.defineResolution();
 

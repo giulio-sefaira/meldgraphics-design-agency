@@ -163,6 +163,59 @@ body {
     }
   }
 
+  @include block('feature') {
+    @include hover(.3s);
+    @include transition-property(all);
+
+    &:hover {
+
+      .feature__title {
+        border-color: $header-line;
+      }
+    }
+
+    @include modifier('active') {
+      background-color: $nav-item;
+      height: 350px;
+      margin-top: -50px;
+
+      .feature__title {
+        color: $nav-bg;
+        border-color: $nav-item;
+      }
+
+      .feature__description-list {
+        @include opacity(1);
+      }
+    }
+
+    @include element('image') {
+      @include hover(.2s);
+      @include transition-property(opacity);
+
+      &.ng-enter {
+        @include opacity(0);
+
+        &-active {
+          @include opacity(1);
+        }
+      }
+
+      &.ng-leave {
+        @include opacity(1);
+
+        &-active {
+          @include opacity(0);
+        }
+      }
+    }
+
+    @include element('title') {
+      @include hover(.2s);
+      @include transition-property(color, border-color);
+    }
+  }
+
   @include block('triangles') {
 
     @include element('item') {
@@ -199,7 +252,14 @@ body {
 }
 
 @include block('services') {
-  
+
+  @include element('feature') {
+
+    @include modifier('active') {
+      z-index: 222;
+    }
+  }
+
   @include element('panel-top') {
     
     // from 200px to 1919px

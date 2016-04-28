@@ -16,9 +16,11 @@
 	}
 
 	@include element('feature') {
-		width: percentage(($desktop / 6) / $desktop);
+		@include size(percentage(($desktop / 6) / $desktop), 229px);
+		position: relative;
 		display: inline-block;
 		text-align: center;
+		vertical-align: top;
 	}
 
 	@include element('feature-image') {

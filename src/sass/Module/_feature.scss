@@ -1,0 +1,39 @@
+@include block('feature') {
+  @include size(206px, 100%);
+  position: absolute;
+  display: block;
+  @include center-block;
+  cursor: pointer;
+  left: 50%;
+  @include translateX(-50%);
+
+  @include element('description-list') {
+    display: block;
+    @include opacity(0);
+    margin-top: 20px;
+  }
+
+  @include element('description-item') {
+    @include center-block;
+    @include fontsize(16);
+    margin-bottom: 2px;
+  }
+
+  @include element('image-wrap') {
+    @include size(100%, 174px);
+    display: block;
+    position: relative;
+  }
+
+  @include element('image') {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    @include translateX(-50%);
+  }
+
+  @include element('title') {
+    display: inline-block;
+    border-bottom: 1px solid $header-text;
+  }
+}

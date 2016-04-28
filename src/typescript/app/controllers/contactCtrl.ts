@@ -23,12 +23,12 @@ module app.contact {
       public brandingStrategyOptions: any,
       public projectDeadlineOptions: any) {
 
-        this.projectBudgetValues = dataAccessService.getProjectBudgetResource();
-        this.designDevelopmentOptions = dataAccessService.getDesignDevelopmentOptions();
-        this.printIllustrationOptions = dataAccessService.getPrintIllustrationOptions();
-        this.uploadFileTypes = dataAccessService.getUploadFileTypes();
-        this.brandingStrategyOptions = dataAccessService.getBrandingStrategyOptions();
-        this.projectDeadlineOptions = dataAccessService.getProjectDeadlineOptions();
+        this.projectBudgetValues = this.dataAccessService.getProjectBudgetResource();
+        this.designDevelopmentOptions = this.dataAccessService.getDesignDevelopmentOptions();
+        this.printIllustrationOptions = this.dataAccessService.getPrintIllustrationOptions();
+        this.uploadFileTypes = this.dataAccessService.getUploadFileTypes();
+        this.brandingStrategyOptions = this.dataAccessService.getBrandingStrategyOptions();
+        this.projectDeadlineOptions = this.dataAccessService.getProjectDeadlineOptions();
     }
     
   }

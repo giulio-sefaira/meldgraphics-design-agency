@@ -38,7 +38,7 @@ var app;
     var meldgraphics;
     (function (meldgraphics) {
         var meldgraphicsCtrl = (function () {
-            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, dataAccessService, showNav, features, scrollTopValue, scrollDurationValue, scrollOffset) {
+            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, showNav, features, scrollTopValue, scrollDurationValue, scrollOffset) {
                 var _this = this;
                 if (showNav === void 0) { showNav = false; }
                 if (scrollTopValue === void 0) { scrollTopValue = 0; }
@@ -48,7 +48,6 @@ var app;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
                 this.$timeout = $timeout;
-                this.dataAccessService = dataAccessService;
                 this.showNav = showNav;
                 this.features = features;
                 this.scrollTopValue = scrollTopValue;
@@ -58,7 +57,6 @@ var app;
                     if (_this.$window.innerWidth > 768)
                         _this.showNav = false;
                 });
-                this.features = dataAccessService.getFeatures();
             }
             meldgraphicsCtrl.prototype.toggleNav = function () {
                 this.showNav = !this.showNav;
@@ -76,7 +74,7 @@ var app;
                     _this.$rootScope.activeSectionClass = elementSelector;
                 }, 10);
             };
-            meldgraphicsCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout', 'dataAccessService'];
+            meldgraphicsCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout'];
             return meldgraphicsCtrl;
         }());
         meldgraphics.meldgraphicsCtrl = meldgraphicsCtrl;
@@ -102,12 +100,12 @@ var app;
                 this.uploadFileTypes = uploadFileTypes;
                 this.brandingStrategyOptions = brandingStrategyOptions;
                 this.projectDeadlineOptions = projectDeadlineOptions;
-                this.projectBudgetValues = dataAccessService.getProjectBudgetResource();
-                this.designDevelopmentOptions = dataAccessService.getDesignDevelopmentOptions();
-                this.printIllustrationOptions = dataAccessService.getPrintIllustrationOptions();
-                this.uploadFileTypes = dataAccessService.getUploadFileTypes();
-                this.brandingStrategyOptions = dataAccessService.getBrandingStrategyOptions();
-                this.projectDeadlineOptions = dataAccessService.getProjectDeadlineOptions();
+                this.projectBudgetValues = this.dataAccessService.getProjectBudgetResource();
+                this.designDevelopmentOptions = this.dataAccessService.getDesignDevelopmentOptions();
+                this.printIllustrationOptions = this.dataAccessService.getPrintIllustrationOptions();
+                this.uploadFileTypes = this.dataAccessService.getUploadFileTypes();
+                this.brandingStrategyOptions = this.dataAccessService.getBrandingStrategyOptions();
+                this.projectDeadlineOptions = this.dataAccessService.getProjectDeadlineOptions();
             }
             contactCtrl.$inject = ['dataAccessService'];
             return contactCtrl;
@@ -123,16 +121,18 @@ var app;
     (function (landingPage) {
         var landingPageCtrl = (function (_super) {
             __extends(landingPageCtrl, _super);
-            function landingPageCtrl($window, $document, $rootScope, $timeout, options) {
+            function landingPageCtrl($window, $document, $rootScope, $timeout, dataAccessService, options) {
                 var _this = this;
                 _super.call(this, options);
                 this.$window = $window;
                 this.$document = $document;
                 this.$rootScope = $rootScope;
                 this.$timeout = $timeout;
+                this.dataAccessService = dataAccessService;
                 this.retina = (this.$window.devicePixelRatio > 1);
                 this.resolution = 'desktop';
                 this.cashValue = this.disableCashing();
+                this.features = this.dataAccessService.getFeatures();
                 this.defineResolution();
                 angular.element(this.$window).bind("resize", function () {
                     _this.defineResolution();
@@ -149,7 +149,7 @@ var app;
                     this.resolution = 'mobile';
                 }
             };
-            landingPageCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout'];
+            landingPageCtrl.$inject = ['$window', '$document', '$rootScope', '$timeout', 'dataAccessService'];
             return landingPageCtrl;
         }(app.meldgraphics.meldgraphicsCtrl));
         angular
@@ -292,22 +292,41 @@ var app;
     var feature;
     (function (feature_1) {
         var feature = (function () {
-            function feature() {
-                this.restrict = 'E';
+            function feature($timeout) {
+                var _this = this;
+                this.$timeout = $timeout;
+                this.restrict = 'C';
                 this.templateUrl = '/templates/directives/feature.html';
                 this.replace = false;
                 this.scope = {
                     name: '=',
-                    title: '@',
-                    description: '@',
-                    retina: '='
+                    title: '=',
+                    description: '=',
+                    retina: '=',
+                    active: '='
                 };
                 this.link = function (scope, element, attrs, ctrl) {
+                    scope.startAnimation = false;
+                    scope.endAnimation = true;
+                    scope.runAnimation = function (state) {
+                        if (!state && !scope.startAnimation && scope.endAnimation) {
+                            scope.startAnimation = true;
+                            scope.endAnimation = false;
+                            scope.disableCashing(0, 1000000);
+                            _this.$timeout(function () {
+                                scope.endAnimation = true;
+                            }, 2800);
+                        }
+                    };
+                    scope.cash = 1;
+                    scope.disableCashing = function (min, max) {
+                        scope.cash = Math.round(Math.random() * (max - min) + min);
+                    };
                 };
             }
             feature.factory = function () {
-                var directive = function () { return new app.uploadFileField(); };
-                directive.$inject = [];
+                var directive = function ($timeout) { return new feature($timeout); };
+                directive.$inject = ['$timeout'];
                 return directive;
             };
             return feature;

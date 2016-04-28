@@ -91,47 +91,8 @@
       </li>
     </ul>
     <ul class="services__features">
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent">
-        <figure>
-          <img class="feature-image feature-image--1" src="img/icons/services/1.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--1" src="img/icons/servicesRetina/1.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">UX/UI DESIGN</figcaption>
-        </figure>
-      </li>
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="200">
-        <figure>
-          <img class="feature-image feature-image--2" src="img/icons/services/2.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--2" src="img/icons/servicesRetina/2.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">STRATEGY</figcaption>
-        </figure>
-      </li>
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="400">
-        <figure>
-          <img class="feature-image feature-image--3" src="img/icons/services/3.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--3" src="img/icons/servicesRetina/3.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">DEVELOPMENT</figcaption>
-        </figure>
-      </li>
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="600">
-        <figure>
-          <img class="feature-image feature-image--4" src="img/icons/services/4.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--4" src="img/icons/servicesRetina/4.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">BRANDING</figcaption>
-        </figure>
-      </li>
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="800">
-        <figure>
-          <img class="feature-image feature-image--5" src="img/icons/services/5.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--5" src="img/icons/servicesRetina/5.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">PRINT DESIGN</figcaption>
-        </figure>
-      </li>
-      <li class="services__feature animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="1000">
-        <figure>
-          <img class="feature-image feature-image--6" src="img/icons/services/6.gif" ng-if="!vm.retina"  title="" alt="" />
-          <img class="feature-image feature-image--6" src="img/icons/servicesRetina/6.gif" ng-if="vm.retina" title="" alt="" />
-          <figcaption class="services__feature-title">ILLUSTRATION</figcaption>
-        </figure>
+      <li class="services__feature animated" ng-class="{ 'services__feature--active': feature.active }" ng-repeat="feature in vm.features" data-animation="fadeInUp" data-compare-element="parent">
+        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="feature.active = !feature.active" data-active="feature.active" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
       </li>
     </ul>
   </div>

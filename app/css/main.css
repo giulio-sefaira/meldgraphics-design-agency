@@ -8253,6 +8253,9 @@ hr {
   -o-background-size: auto 100%;
   background-size: auto 100%; }
 
+.feature__description-item {
+  color: #fff; }
+
 .triangles__item:nth-child(1) {
   background-color: #292933; }
 
@@ -9710,6 +9713,58 @@ body .dropdown-choose-list__list {
     padding-top: 25px;
     max-height: 500px; }
 
+body .feature {
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all; }
+  body .feature:hover .feature__title {
+    border-color: #81cfd3; }
+  body .feature--active {
+    background-color: #292933;
+    height: 350px;
+    margin-top: -50px; }
+    body .feature--active .feature__title {
+      color: #fff;
+      border-color: #292933; }
+    body .feature--active .feature__description-list {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+      opacity: 1; }
+  body .feature__image {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity; }
+    body .feature__image.ng-enter {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0; }
+      body .feature__image.ng-enter-active {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1; }
+    body .feature__image.ng-leave {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+      opacity: 1; }
+      body .feature__image.ng-leave-active {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0; }
+  body .feature__title {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition-property: color, border-color;
+    -moz-transition-property: color, border-color;
+    -o-transition-property: color, border-color;
+    transition-property: color, border-color; }
+
 body .triangles__item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -9754,6 +9809,9 @@ body .header__go-next {
   body .header__go-next:hover {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1; }
+
+.services__feature--active {
+  z-index: 222; }
 
 @media (min-width: 769px) and (max-width: 1919px) {
   .services__panel-top {
@@ -10385,8 +10443,11 @@ body .header__go-next {
     margin-bottom: 110px; }
   .services__feature {
     width: 16.66667%;
+    height: 229px;
+    position: relative;
     display: inline-block;
-    text-align: center; }
+    text-align: center;
+    vertical-align: top; }
   .services__feature-image {
     width: 143px;
     height: 150px;
@@ -10983,6 +11044,51 @@ body .header__go-next {
   .advantages__title {
     text-transform: uppercase;
     font-weight: 700; }
+
+.feature {
+  width: 206px;
+  height: 100%;
+  position: absolute;
+  display: block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+  .feature__description-list {
+    display: block;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    margin-top: 20px; }
+  .feature__description-item {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    font-size: 1rem;
+    margin-bottom: 2px; }
+  .feature__image-wrap {
+    width: 100%;
+    height: 174px;
+    display: block;
+    position: relative; }
+  .feature__image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .feature__title {
+    display: inline-block;
+    border-bottom: 1px solid #fff; }
 
 .project {
   position: relative;

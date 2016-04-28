@@ -14,6 +14,13 @@
   }
 }
 
+@include block('feature') {
+
+  @include element('description-item') {
+    color: $nav-bg;
+  }
+}
+
 @include block('triangles') {
 
   @include element('item') {
