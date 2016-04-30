@@ -14,7 +14,6 @@ module app.portfolio {
       public pageClass: string = 'portfolio',
       public projectFilter: string = '',
       public projectsList: any) {
-
         this.projectsList = dataAccessService.getPortfolioResource();
     }
 
@@ -23,6 +22,6 @@ module app.portfolio {
   angular
     .module('meldgraphics')
     .controller('portfolioCtrl',
-      portfolioCtrl);
+                 portfolioCtrl);
 
 }

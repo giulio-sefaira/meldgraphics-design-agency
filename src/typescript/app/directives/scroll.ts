@@ -101,6 +101,7 @@ module app.scroll {
 
   angular
     .module('meldgraphics')
-    .directive('scroll', scroll.factory());
+    .directive('scroll',
+                scroll.factory());
 
 }

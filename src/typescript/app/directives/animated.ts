@@ -52,6 +52,7 @@ module app.animatedElement {
 
   angular
     .module('meldgraphics')
-    .directive('animated', animated.factory());
+    .directive('animated',
+                animated.factory());
 
 }

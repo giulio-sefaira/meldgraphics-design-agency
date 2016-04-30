@@ -52,6 +52,7 @@ module app.uploadFileField {
 
   angular
     .module('meldgraphics')
-    .directive('uploadFileField', uploadFileField.factory());
+    .directive('uploadFileField',
+                uploadFileField.factory());
 
 }

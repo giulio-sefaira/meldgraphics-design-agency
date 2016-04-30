@@ -14,6 +14,7 @@ module app.selectField {
     constructor() { }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+
       scope.showList = false;
 
       scope.openList = () => {
@@ -25,6 +26,7 @@ module app.selectField {
         scope.selectValue = item;
         scope.showList = false;
       }
+
     }
 
     static factory(): ng.IDirectiveFactory {
@@ -35,6 +37,7 @@ module app.selectField {
 
   angular
     .module('meldgraphics')
-    .directive('selectField', selectField.factory());
+    .directive('selectField',
+                selectField.factory());
 
 }

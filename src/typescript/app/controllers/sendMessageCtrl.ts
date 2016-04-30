@@ -16,5 +16,6 @@ module app.sendMessage {
   angular
     .module('meldgraphics')
     .controller('sendMessageCtrl',
-      sendMessageCtrl);
+                 sendMessageCtrl);
+
 }

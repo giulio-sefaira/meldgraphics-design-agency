@@ -7,8 +7,8 @@
     "meldgraphics": "npm install && bower install && tsd install",
     "start": "parallelshell \"gulp browser-sync\" \"gulp watch\"",
     "serve": "gulp browser-sync",
-    "build:dev": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && gulp base64 && gulp dev:scripts dev:styles dev:html",
-    "build:prod": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && gulp base64 && gulp prod:scripts prod:styles prod:html",
+    "build:dev": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && copyfiles -f ./src/php/* ./app && copyfiles -f ./src/upload_files/* ./app/upload_files && gulp base64 && gulp dev:scripts dev:styles dev:html",
+    "build:prod": "gulp clean && copyfiles -f ./src/video/* ./app/video && copyfiles -f ./src/fonts/* ./app/fonts && copyfiles -f ./src/php/* ./app && copyfiles -f ./src/upload_files/* ./app/upload_files && gulp base64 && gulp prod:scripts prod:styles prod:html",
     "start:dev": "npm run build:dev && npm start",
     "start:prod": "npm run build:prod && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
