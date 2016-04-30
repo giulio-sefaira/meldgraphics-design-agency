@@ -42,6 +42,7 @@ module app.feature {
 
   angular
     .module('meldgraphics')
-    .directive('feature', feature.factory());
+    .directive('feature',
+                feature.factory());
 
 }

@@ -12,12 +12,13 @@ module app.contact {
 
   class contactCtrl implements contactModel {
 
-    static $inject = ['dataAccessService', '$scope', '$http', '$q'];
+    static $inject = ['dataAccessService', '$scope', '$http', '$q', '$location'];
     constructor(
       private dataAccessService: app.common.DataAccessService,
-      private $scope:ng.IScopeService,
-      private $http:ng.IHttpService,
-      private $q:ng.IQService,
+      private $scope: ng.IScopeService,
+      private $http: ng.IHttpService,
+      private $q: ng.IQService,
+      private $location: ng.ILocationService,
       public pageClass: string = 'contact',
       public projectBudgetValues: any,
       public designDevelopmentOptions: any,
@@ -39,59 +40,59 @@ module app.contact {
     }
 
       submitForm(form, $event): void {
-          $event.preventDefault();
-    
-          this.sendData(this.formData).then(function(data) {
-              console.log('Success data', data);
-          }, function() {
-              console.log('Error');
-          });
+        $event.preventDefault();
+
+        this.sendData(this.formData).then(data => {
+          this.$location.path('/cantact/sendMessage');
+        }, () => {
+          console.log('Error');
+        });
     
       }
     
       sendData(formData): Promise {
-          let self = this;
-          return self.$q((resolve, reject) => {
-              this.sendFiles(formData.files).then(function(uploadFiles) {
-    
-                  let sendData = angular.copy(formData);
-                  sendData.files = uploadFiles;
-    
-                  self.$http.post('/handler.php', sendData)
-                    .success(function (data) {
-                        resolve(data);
-                    })
-                    .error(function (data, status) {
-                        reject(data, status);
-                    });
-    
-              }, function(error) {
-                  reject(error)
+        let self = this;
+        return self.$q((resolve, reject) => {
+          this.sendFiles(formData.files).then(uploadFiles => {
+
+            let sendData = angular.copy(formData);
+            sendData.files = uploadFiles;
+
+            self.$http.post('/handler.php', sendData)
+              .success(data => {
+                resolve(data);
+              })
+              .error((data, status) => {
+                reject(data, status);
               });
+
+          }, error => {
+            reject(error);
           });
+        });
       }
     
       sendFiles(files): Promise {
-          let self = this;
-          return self.$q((resolve, reject) => {
-    
-              var formData = new FormData();
-              angular.forEach(files, function (value, key) {
-                  formData.append('upload' + key, value._file);
-              });
-    
-              self.$http.post('/handler.php', formData, {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                })
-                .success(function (data) {
-                    resolve(data);
-                })
-                .error(function (data, status) {
-                    reject(data, status);
-                });
-    
+        let self = this;
+        return self.$q((resolve, reject) => {
+
+          let formData = new FormData();
+          angular.forEach(files, (value, key) => {
+              formData.append('upload' + key, value._file);
           });
+
+          self.$http.post('/handler.php', formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+            .success(data => {
+                resolve(data);
+            })
+            .error((data, status) => {
+                reject(data, status);
+            });
+
+        });
       }
     
   }
@@ -99,5 +100,5 @@ module app.contact {
   angular
     .module('meldgraphics')
     .controller('contactCtrl',
-      contactCtrl);
+                 contactCtrl);
 }
