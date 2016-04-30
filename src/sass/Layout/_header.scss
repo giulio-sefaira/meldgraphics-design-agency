@@ -51,6 +51,10 @@
     width: 100%;
   }
 
+	@include element('video-bg') {
+		@include size(auto, 100%);
+	}
+
 	@include element('subtitle') {
 		@include fontsize(90);
 		display: block;

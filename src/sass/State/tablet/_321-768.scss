@@ -2,6 +2,16 @@
 
   @include layout($tablet-layout);
 
+  html body {
+
+    @include block('header') {
+
+      @include element('video-bg') {
+        @include size(100%, auto);
+      }
+    }
+  }
+
   body {
 
     .wrapper {
