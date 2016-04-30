@@ -6,17 +6,20 @@ module app.dropdownChooseList {
     replace = false;
     scope = {
       title: "@",
-      list: "="
+      list: "=",
+      checked: '='
     };
 
     constructor() { }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
       scope.camelize = str => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) =>
-          index == 0 ? letter.toLowerCase() : letter.toUpperCase()
+        index == 0 ? letter.toLowerCase() : letter.toUpperCase()
       ).replace(/\s+/g, '');
 
       scope.showList = false;
+
+      scope.checked = {};
 
       scope.openList = () => {
         scope.showList = !scope.showList;

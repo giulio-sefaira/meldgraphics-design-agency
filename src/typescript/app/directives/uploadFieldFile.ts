@@ -6,13 +6,17 @@ module app.uploadFileField {
     replace = false;
     scope = {
       fileTypes: '=',
-      name: '@'
+      name: '@',
+      selectFiles: '='
     };
 
     constructor(private FileUploader) { }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+      
       scope.uploader = new this.FileUploader();
+      scope.selectFiles = scope.uploader.queue;
+      
       scope.formatBytes = (bytes, decimals) => {
         if(bytes == 0) return '0 Byte';
         let k = 1000;

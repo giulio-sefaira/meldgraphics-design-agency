@@ -5,14 +5,14 @@
 <ul ng-class="{'dropdown-choose-list__list--expanded' : showList}" class="dropdown-choose-list__list">
   <li class="dropdown-choose-list__item" ng-repeat="item in list">
     <span class="checkbox">
-      <input type="checkbox" class="checkbox__field" ng-model="category" id="option-{{ camelize(item.title) }}" name="option-{{ camelize(item.title) }}">
+      <input type="checkbox" class="checkbox__field" ng-model="checked[item.title]['selected']" id="option-{{ camelize(item.title) }}" name="option-{{ camelize(item.title) }}">
       <label class="checkbox__label" for="option-{{ camelize(item.title) }}">
         <i class="checkbox__icon"></i>{{ item.title }}
       </label>
     </span>
     <ul class="dropdown-choose-list__sublist">
       <li ng-repeat="option in item.options" class="checkbox dropdown-choose-list__subitem">
-          <input type="checkbox" ng-checked="category" class="checkbox__field" id="option-{{ camelize(option) }}" name="option-{{ camelize(option) }}">
+          <input type="checkbox" ng-checked="checked[item.title][option]" ng-model="checked[item.title][option]" class="checkbox__field" id="option-{{ camelize(option) }}" name="option-{{ camelize(option) }}">
           <label class="checkbox__label" for="option-{{ camelize(option) }}">
             <i class="checkbox__icon"></i>{{ option }}
           </label>
