@@ -249,6 +249,16 @@ body {
       }
     }
   }
+
+  @include block('send-message') {
+
+    @include breakpoint($tablet-max-width $tablet-max-width) {
+
+      @include element('title') {
+        width: 100% !important;
+      }
+    }
+  }
 }
 
 @include block('services') {

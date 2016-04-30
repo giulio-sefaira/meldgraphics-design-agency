@@ -1,0 +1,19 @@
+body {
+
+  @include block('send-message') {
+    margin-top: 163px;
+
+    @include element('title') {
+      @extend .contact__title;
+      @include fontsize(50);
+      padding-bottom: 14px;
+    }
+
+    @include element('description') {
+      @extend .contact__description;
+      @include fontsize(28);
+      margin-top: 50px;
+      margin-bottom: 290px;
+    }
+  }
+}

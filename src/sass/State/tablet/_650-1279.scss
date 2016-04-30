@@ -1,5 +1,7 @@
 @include breakpoint($tablet-interim-width $desktop-max-width) {
 
+  @include layout($tablet-layout);
+
   body {
 
     @include block('portfolio') {

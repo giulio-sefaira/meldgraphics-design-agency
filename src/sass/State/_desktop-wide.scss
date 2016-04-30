@@ -8,6 +8,24 @@ $step: 365px;
 
   @include layout($wide-layout);
 
+  html body {
+
+    @include block('send-message') {
+      margin-top: 259px;
+
+      @include element('title') {
+        @include fontsize(60);
+        padding-bottom: 10px;
+      }
+
+      @include element('description') {
+        @include fontsize(30);
+        margin-top: 70px;
+        margin-bottom: 416px;
+      }
+    }
+  }
+
   body {
     .wrapper {
       @include container($desktop-wide);

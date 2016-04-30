@@ -1,5 +1,7 @@
 @include breakpoint($mobile-min-width $tablet-interim-width - 1) {
 
+  @include layout($mobile-layout);
+
   body {
 
     @include block('portfolio') {

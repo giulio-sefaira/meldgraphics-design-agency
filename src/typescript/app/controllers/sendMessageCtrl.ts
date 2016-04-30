@@ -6,7 +6,8 @@ module app.sendMessage {
 
   class sendMessageCtrl implements sendMessageModel {
 
-    constructor(public pageClass: string = 'sendMessage') {
+    static $inject = [];
+    constructor(public pageClass: string = 'send-message') {
 
     }
 

@@ -8207,9 +8207,9 @@ hr {
     background-color: #fff;
     color: #292933; }
 
-.about-us__title, .services__title, .process__title, .projects__title, .contact__title {
+.about-us__title, .services__title, .process__title, .projects__title, .contact__title, body .send-message__title {
   color: #81cfd3;
-  border-color: #a1a1a1; }
+  border-color: #a1a1a1 !important; }
 
 .about-us__panel-bottom {
   background-color: #f4f4f4; }
@@ -8333,7 +8333,7 @@ hr {
 .front-layer {
   background: url(../img/downloading-icon.gif) center center no-repeat #fff; }
 
-.contact__description {
+.contact__description, body .send-message__description {
   color: #292933; }
 
 .info__title, .detail__title {
@@ -8614,7 +8614,7 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
       margin-right: -100%; }
     body .contact {
       padding-top: 50px; }
-      body .contact__description {
+      body .contact__description, body .send-message__description {
         clear: both;
         font-size: 20px;
         font-size: 1.25rem;
@@ -8751,6 +8751,17 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     float: none; } }
 
 @media (min-width: 768px) and (max-width: 1090px) {
+  html body .send-message {
+    margin-top: 172px; }
+    html body .send-message__title {
+      font-size: 40px;
+      font-size: 2.5rem;
+      padding-bottom: 16px; }
+    html body .send-message__description {
+      font-size: 24px;
+      font-size: 1.5rem;
+      margin-top: 16px;
+      margin-bottom: 329px; }
   body .nav__item, body .nav__lang-item {
     margin: 0;
     padding: 0 0.625em; }
@@ -8828,7 +8839,7 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
       margin-left: 5.58659%;
       margin-top: -21px;
       clear: both; }
-  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title {
+  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title, body .send-message__title {
     font-size: 50px;
     font-size: 3.125rem;
     width: 100%;
@@ -8983,6 +8994,18 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     font-size: 1.375rem; } }
 
 @media (min-width: 200px) and (max-width: 767px) {
+  html body .send-message {
+    margin-top: 37px; }
+    html body .send-message__title {
+      font-size: 28px;
+      font-size: 1.75rem;
+      padding-bottom: 7px; }
+    html body .send-message__description {
+      font-size: 16px;
+      font-size: 1rem;
+      padding-top: 16px;
+      margin-top: 0;
+      margin-bottom: 114px; }
   body .header__title {
     font-size: 32px;
     font-size: 2rem;
@@ -9006,7 +9029,7 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     height: 42px;
     margin-top: 56px;
     margin-bottom: 30px; }
-  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title {
+  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title, body .send-message__title {
     width: auto;
     float: none;
     margin-left: 3.97878%;
@@ -9157,7 +9180,7 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
         color: #fff; } }
 
 @media (min-width: 200px) and (max-width: 550px) {
-  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title {
+  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title, body .send-message__title {
     width: 100%;
     float: left;
     margin-left: 0;
@@ -9395,7 +9418,7 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     background-size: 100%, 100%; }
   body .portfolio .projects__list {
     margin-bottom: 0; }
-  body .contact__description {
+  body .contact__description, body .send-message__description {
     font-size: 16px;
     font-size: 1rem;
     margin-bottom: 12px; }
@@ -9810,6 +9833,10 @@ body .header__go-next {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1; }
 
+@media (min-width: 768px) and (max-width: 768px) {
+  body .send-message__title {
+    width: 100% !important; } }
+
 .services__feature--active {
   z-index: 222; }
 
@@ -10030,6 +10057,17 @@ body .header__go-next {
   line-height: 1.3; }
 
 @media (min-width: 1920px) {
+  html body .send-message {
+    margin-top: 259px; }
+    html body .send-message__title {
+      font-size: 60px;
+      font-size: 3.75rem;
+      padding-bottom: 10px; }
+    html body .send-message__description {
+      font-size: 30px;
+      font-size: 1.875rem;
+      margin-top: 70px;
+      margin-bottom: 416px; }
   body .wrapper {
     max-width: 1868px;
     margin-left: auto;
@@ -10058,7 +10096,7 @@ body .header__go-next {
   body .header__underline {
     width: 11.7773%;
     height: 4px; }
-  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title {
+  body .about-us__title, body .services__title, body .process__title, body .projects__title, body .contact__title, body .send-message__title {
     margin-bottom: 50px;
     padding-top: 103px; }
   body .article {
@@ -10264,14 +10302,14 @@ body .header__go-next {
       margin-right: 1.5625em; }
   body .contact {
     padding-top: 156px; }
-    body .contact__title {
+    body .contact__title, body .send-message__title {
       font-size: 80px;
       font-size: 5rem;
       width: 100%;
       font-weight: 800;
       margin-right: 0;
       margin-left: 0; }
-    body .contact__description {
+    body .contact__description, body .send-message__description {
       font-size: 27px;
       font-size: 1.6875rem;
       margin-top: 65px;
@@ -10386,7 +10424,7 @@ body .header__go-next {
     height: 1px;
     border: none; }
 
-.about-us__title, .services__title, .process__title, .projects__title, .contact__title {
+.about-us__title, .services__title, .process__title, .projects__title, .contact__title, body .send-message__title {
   width: 89.50749%;
   float: left;
   margin-right: 1.04822%;
@@ -10618,7 +10656,7 @@ body .header__go-next {
 
 .contact {
   padding-top: 60px; }
-  .contact__description {
+  .contact__description, body .send-message__description {
     font-size: 25px;
     font-size: 1.5625rem;
     text-align: center;
@@ -10662,6 +10700,18 @@ body .header__go-next {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px; }
+
+body .send-message {
+  margin-top: 163px; }
+  body .send-message__title {
+    font-size: 50px;
+    font-size: 3.125rem;
+    padding-bottom: 14px; }
+  body .send-message__description {
+    font-size: 28px;
+    font-size: 1.75rem;
+    margin-top: 50px;
+    margin-bottom: 290px; }
 
 .checkbox__field {
   display: none; }

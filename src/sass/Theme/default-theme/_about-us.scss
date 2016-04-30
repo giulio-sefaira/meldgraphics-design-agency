@@ -2,7 +2,7 @@
 
   @include element('title') {
     color: $section-header;
-    border-color: $section-line;
+    border-color: $section-line !important;
   }
 
   @include element('panel-bottom') {

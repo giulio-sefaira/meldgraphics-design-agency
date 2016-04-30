@@ -2,6 +2,25 @@
 
   @include layout($mobile-layout);
 
+  html body {
+
+    @include block('send-message') {
+      margin-top: 37px;
+
+      @include element('title') {
+        @include fontsize(28);
+        padding-bottom: 7px;
+      }
+
+      @include element('description') {
+        @include fontsize(16);
+        padding-top: 16px;
+        margin-top: 0;
+        margin-bottom: 114px;
+      }
+    }
+  }
+
   body {
 
     @include block('header') {

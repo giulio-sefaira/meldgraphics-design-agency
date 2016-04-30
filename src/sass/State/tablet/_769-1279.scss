@@ -1,5 +1,7 @@
 @include breakpoint($tablet-max-width + 1 $desktop-max-width) {
 
+  @include layout($tablet-layout);
+
   body {
 
     @include block('categories') {

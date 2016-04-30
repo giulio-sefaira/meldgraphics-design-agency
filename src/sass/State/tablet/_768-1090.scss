@@ -1,5 +1,25 @@
 @include breakpoint($tablet-max-width $desktop-min-width) {
 
+  @include layout($tablet-layout);
+
+  html body {
+
+    @include block('send-message') {
+      margin-top: 172px;
+
+      @include element('title') {
+        @include fontsize(40);
+        padding-bottom: 16px;
+      }
+
+      @include element('description') {
+        @include fontsize(24);
+        margin-top: 16px;
+        margin-bottom: 329px;
+      }
+    }
+  }
+
   body {
 
     @include block('nav') {

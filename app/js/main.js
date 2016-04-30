@@ -185,9 +185,10 @@ var app;
     (function (sendMessage) {
         var sendMessageCtrl = (function () {
             function sendMessageCtrl(pageClass) {
-                if (pageClass === void 0) { pageClass = 'sendMessage'; }
+                if (pageClass === void 0) { pageClass = 'send-message'; }
                 this.pageClass = pageClass;
             }
+            sendMessageCtrl.$inject = [];
             return sendMessageCtrl;
         }());
         angular
