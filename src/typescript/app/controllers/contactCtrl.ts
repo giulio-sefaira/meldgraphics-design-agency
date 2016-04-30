@@ -38,62 +38,65 @@ module app.contact {
         this.$q = $q;
         this.formData = {};
     }
-
-      submitForm(form, $event): void {
-        $event.preventDefault();
-
-        this.sendData(this.formData).then(data => {
-          this.$location.path('/cantact/sendMessage');
-        }, () => {
-          console.log('Error');
-        });
     
-      }
-    
-      sendData(formData): Promise {
-        let self = this;
-        return self.$q((resolve, reject) => {
-          this.sendFiles(formData.files).then(uploadFiles => {
+    submitForm(form, $event): void {
+      $event.preventDefault();
+      form.$submitted = true;
 
-            let sendData = angular.copy(formData);
-            sendData.files = uploadFiles;
+      if (form.$invalid) return false;
+      
+      this.sendData(this.formData).then(data => {
+        this.$location.path('/cantact/sendMessage');
+      }, () => {
+        console.log('Error');
+      });
+  
+    }
+  
+    sendData(formData): Promise {
+      let self = this;
+      return self.$q((resolve, reject) => {
+        this.sendFiles(formData.files).then(uploadFiles => {
 
-            self.$http.post('/handler.php', sendData)
-              .success(data => {
-                resolve(data);
-              })
-              .error((data, status) => {
-                reject(data, status);
-              });
+          let sendData = angular.copy(formData);
+          sendData.files = uploadFiles;
 
-          }, error => {
-            reject(error);
-          });
-        });
-      }
-    
-      sendFiles(files): Promise {
-        let self = this;
-        return self.$q((resolve, reject) => {
-
-          let formData = new FormData();
-          angular.forEach(files, (value, key) => {
-              formData.append('upload' + key, value._file);
-          });
-
-          self.$http.post('/handler.php', formData, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-            })
+          self.$http.post('/handler.php', sendData)
             .success(data => {
-                resolve(data);
+              resolve(data);
             })
             .error((data, status) => {
-                reject(data, status);
+              reject(data, status);
             });
 
+        }, error => {
+          reject(error);
         });
-      }
+      });
+    }
+  
+    sendFiles(files): Promise {
+      let self = this;
+      return self.$q((resolve, reject) => {
+
+        let formData = new FormData();
+        angular.forEach(files, (value, key) => {
+            formData.append('upload' + key, value._file);
+        });
+
+        self.$http.post('/handler.php', formData, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined}
+          })
+          .success(data => {
+              resolve(data);
+          })
+          .error((data, status) => {
+              reject(data, status);
+          });
+
+      });
+    }
     
   }
 

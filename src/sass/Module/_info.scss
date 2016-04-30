@@ -48,6 +48,8 @@
     left: 0;
     bottom: 0;
     color: red;
+    @include fontsize(16);
+    margin-left: 6px;
   }
 
   p {

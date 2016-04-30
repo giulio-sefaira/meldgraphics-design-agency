@@ -4,7 +4,8 @@ module app {
                                'duScroll',
                                'ngRoute',
                                'common.services',
-                               'angularFileUpload']);
+                               'angularFileUpload',
+                               'ngSanitize']);
 
   main.config(routeConfig);
 

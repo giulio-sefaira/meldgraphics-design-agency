@@ -95,7 +95,7 @@
     </ul>
     <ul class="services__features">
       <li class="services__feature animated" ng-class="{ 'services__feature--active': feature.active }" ng-repeat="feature in vm.features" data-animation="fadeInUp" data-compare-element="parent">
-        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="feature.active = !feature.active" data-active="feature.active" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
+        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="vm.setActiveFeature(feature)" data-active="feature.active" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
       </li>
     </ul>
   </div>

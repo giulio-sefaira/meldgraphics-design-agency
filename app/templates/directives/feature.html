@@ -1,8 +1,8 @@
 <figure ng-mouseover="runAnimation(active)" ng-mouseleave="startAnimation = false">
   <span class="feature__image-wrap">
     <img class="feature__image feature__image--{{ name }}" ng-src="img/icons/services/{{ name }}.png" title="{{ title }}" alt="{{ title }}" />
-    <img class="feature__image feature__image--{{ name }}" ng-src="img/icons/services/{{ name }}.gif?{{ cash }}" ng-if="!retina && !active && !endAnimation"  title="{{ title }}" alt="{{ title }}" />
-    <img class="feature__image feature__image--{{ name }}" ng-src="img/icons/servicesRetina/{{ name }}.gif?{{ cash }}" ng-if="retina && !active && !endAnimation" title="{{ title }}" alt="{{ title }}" />
+    <img class="feature__image feature__image--{{ name }}" ng-src="img/icons/services/{{ name }}.gif?{{ cash }}" ng-if="!retina && !active && !endAnimation && !vm.mobileDevice"  title="{{ title }}" alt="{{ title }}" />
+    <img class="feature__image feature__image--{{ name }}" ng-src="img/icons/servicesRetina/{{ name }}.gif?{{ cash }}" ng-if="retina && !active && !endAnimation && !vm.mobileDevice" title="{{ title }}" alt="{{ title }}" />
   </span>
   <br>
   <figcaption class="services__feature-title feature__title">{{ title }}</figcaption>

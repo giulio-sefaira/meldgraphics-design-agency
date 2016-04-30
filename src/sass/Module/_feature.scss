@@ -23,6 +23,7 @@
     @include size(100%, 174px);
     display: block;
     position: relative;
+    overflow: hidden;
   }
 
   @include element('image') {
