@@ -24,7 +24,8 @@ var gulp				  = require('gulp'),
 var config = new Config();
 
 gulp.task('clean', function () {
-  return gulp.src(config.sourceApp, {read: false})
+  return gulp.src([config.sourceApp + '*',
+                   '!' + config.sourceApp + 'upload_files'], {read: false})
     .pipe(clean());
 });
 

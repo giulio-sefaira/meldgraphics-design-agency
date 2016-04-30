@@ -49,12 +49,12 @@
       <p>
         <label for="" class="info__subtitle">How can we contact you? <span class="info__required">(required)</span></label>
         <input type="email" name="email" required class="info__field" placeholder="Your email" ng-model="vm.formData.email">
-        <div role="alert">
-        <span class="error" ng-show="contactForm.email.$error.required">
-          Required!</span>
-        <span class="error" ng-show="contactForm.email.$error.email">
-          Not valid email!</span>
-        </div>
+        <span role="alert">
+          <span class="error" ng-show="contactForm.email.$error.required">
+            Required!</span>
+          <span class="error" ng-show="contactForm.email.$error.email">
+            Not valid email!</span>
+        </span>
       </p>
       <p>
         <label for="" class="info__subtitle">How do you call your project?</label>

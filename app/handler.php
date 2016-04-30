@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die();
 }
 $upload_path = dirname(__FILE__) . '/upload_files';
-$email = 'wgetus@gmail.com';
+$email = 'katia.yanichek@gmail.com';
 if (!file_exists($upload_path)) {
     mkdir($upload_path);
 }

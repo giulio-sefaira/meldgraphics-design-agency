@@ -1,3 +1,11 @@
+input,
+textarea {
+
+  &.ng-invalid {
+    border-color: red;
+  }
+}
+
 .wrapper {
   
   // from 769px to 1919px

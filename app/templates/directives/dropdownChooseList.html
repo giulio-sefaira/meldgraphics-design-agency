@@ -12,7 +12,7 @@
     </span>
     <ul class="dropdown-choose-list__sublist">
       <li ng-repeat="option in item.options" class="checkbox dropdown-choose-list__subitem">
-          <input type="checkbox" ng-checked="checked[item.title][option]" ng-model="checked[item.title][option]" class="checkbox__field" id="option-{{ camelize(option) }}" name="option-{{ camelize(option) }}">
+          <input type="checkbox" ng-checked="checked[item.title]['selected']" ng-model="checked[item.title][option]" class="checkbox__field" id="option-{{ camelize(option) }}" name="option-{{ camelize(option) }}">
           <label class="checkbox__label" for="option-{{ camelize(option) }}">
             <i class="checkbox__icon"></i>{{ option }}
           </label>

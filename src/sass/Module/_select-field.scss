@@ -1,5 +1,5 @@
 $option-height: 34px;
-$select-field-bottom-offset: 58px;
+$select-field-bottom-offset: 38px;
 
 @include block('select-field') {
   height: $field-height;
