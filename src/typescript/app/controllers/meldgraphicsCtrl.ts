@@ -34,7 +34,7 @@ module app.meldgraphics {
       this.showNav = !this.showNav;
     }
 
-    scrollTop(duration: string = this.scrollDurationValue): void {
+    scrollTop(duration: number = this.scrollDurationValue): void {
       this.$document.scrollTop(this.scrollTopValue, duration);
     }
 

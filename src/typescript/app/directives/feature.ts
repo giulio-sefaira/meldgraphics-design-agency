@@ -9,7 +9,8 @@ module app.feature {
       title: '=',
       description: '=',
       retina: '=',
-      active: '='
+      active: '=',
+      size: '='
     };
 
     constructor(private $timeout: ng.ITimeoutService) { }

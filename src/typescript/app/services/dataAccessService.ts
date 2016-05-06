@@ -90,32 +90,56 @@ module app.common {
       return [{
         name: '2',
         title: 'UX/UI Design',
-        description: ['Website design', 'Application design']
+        description: ['Website design', 'Application design'],
+        size: {
+          width: 150,
+          height: 160
+        }
       },
       {
         name: '5',
         title: 'Strategy',
-        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis']
+        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis'],
+        size: {
+          width: 150,
+          height: 130
+        }
       },
       {
         name: '6',
         title: 'Development',
-        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment']
+        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment'],
+        size: {
+          width: 145,
+          height: 140
+        }
       },
       {
         name: '3',
         title: 'Branding',
-        description: ['Naming', 'Logo Development', 'Corporate Identity']
+        description: ['Naming', 'Logo Development', 'Corporate Identity'],
+        size: {
+          width: 90,
+          height: 110
+        }
       },
       {
         name: '1',
         title: 'Print Design',
-        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging']
+        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging'],
+        size: {
+          width: 140,
+          height: 130
+        }
       },
       {
         name: '4',
         title: 'Illustration',
-        description: ['Sketches', 'Book Illustration']
+        description: ['Sketches', 'Book Illustration'],
+        size: {
+          width: 150,
+          height: 110
+        }
       }];
     }
 

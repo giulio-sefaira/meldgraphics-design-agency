@@ -35,6 +35,10 @@ module app.landingPage {
         this.defineResolution();
       });
 
+      angular.element(this.$window).bind("scroll", () => {
+        this.setActiveFeature({});
+      });
+
     }
 
     setActiveFeature(activeFeature) {
