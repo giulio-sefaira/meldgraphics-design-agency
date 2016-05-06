@@ -126,14 +126,6 @@
         padding-top: 38px;
         padding-bottom: 16px;
       }
-
-      @include element('go-top') {
-        @include fontsize(12);
-        background-image: url(../img/go-top-mobile.png);
-        background-position: center 14px;
-        height: 60px;
-        padding-top: 30px;
-      }
     }
 
     @include block('social-icons') {

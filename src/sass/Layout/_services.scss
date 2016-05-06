@@ -36,6 +36,11 @@
 	}
 
 	@include element('panel-bottom') {
-		height: rem-calc(480);
+		padding-top: 50px;
+		padding-bottom: 35px;
+
+		img {
+			@include size(100%, auto);
+		}
 	}
 }

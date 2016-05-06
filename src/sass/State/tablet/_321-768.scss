@@ -10,6 +10,16 @@
         @include size(100%, auto);
       }
     }
+
+    @include block('footer') {
+
+      @include element('go-top') {
+        height: 80px;
+        @include fontsize(16);
+        padding-top: 40px;
+        background: url(../img/go-top-tablet.png) center 18px no-repeat;
+      }
+    }
   }
 
   body {
@@ -20,12 +30,13 @@
 
     @include block('nav') {
 
-      height: 70px;
+      height: $nav-height-tablet;
+      padding-top: $nav-padding-tablet;
 
       @include element('logo') {
-        @include size(120px, 120px);
+        @include size(94px, 94px);
         margin-left: percentage(40px / $tablet);
-        margin-top: -21px;
+        margin-top: -12px;
         @include break;
       }
     }
@@ -109,15 +120,6 @@
 
       @include element('title') {
         width: 100%;
-      }
-    }
-
-    @include block('services') {
-
-      @include element('panel-bottom') {
-        @include background-size(120% auto);
-        background-position: center center;
-        height: rem-calc(300);
       }
     }
 
@@ -206,6 +208,13 @@
 
       @include element('step-description') {
         @include fontsize(16);
+      }
+    }
+
+    @include block('services') {
+
+      @include element('panel-bottom') {
+        padding: 0;
       }
     }
 

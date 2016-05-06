@@ -46,10 +46,6 @@
         @include break;
         margin-bottom: 0;
       }
-
-      @include element('panel-bottom') {
-        background-position: center center;
-      }
     }
 
     @include block('projects') {

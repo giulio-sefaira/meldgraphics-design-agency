@@ -99,7 +99,12 @@
       </li>
     </ul>
   </div>
-  <div class="services__panel-bottom"></div>
+  <div class="services__panel-bottom">
+    <img src="img/table_320.jpg" ng-if="vm.resolution == 'mobile' && !vm.retina" alt="Table">
+    <img src="img/table_320_retina.jpg" ng-if="vm.resolution == 'mobile' && vm.retina" alt="Table">
+    <img src="img/table_768.jpg" ng-if="vm.resolution == 'tablet' && !vm.retina" alt="Table">
+    <img src="img/table.jpg" ng-if="vm.resolution == 'tablet' && vm.retina || vm.resolution == 'desktop'" alt="Table">
+  </div>
 </section>
 <section id="how-we-work" class="process">
   <div class="wrapper">

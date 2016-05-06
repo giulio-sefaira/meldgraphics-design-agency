@@ -118,12 +118,6 @@ gulp.task('images', function () {
       .pipe(gulp.dest(config.imageOutputPath));
 });
 
-gulp.task('dev:images', function () {
-  return gulp.src(config.images)
-      .pipe(changed(config.imageOutputPath))
-      .pipe(gulp.dest(config.imageOutputPath));
-});
-
 // Base64 code images into stylesheet file
 gulp.task('base64', ['images'], function () {
   return gulp.src(config.sourceApp + 'css/*.css')
@@ -155,7 +149,7 @@ gulp.task('watch', function() {
 	gulp.watch(config.typescript, ['dev:scripts'], browserSync.reload);
 	gulp.watch(config.scss, ['dev:styles'], browserSync.reload);
 	gulp.watch(config.html, ['dev:html'], browserSync.reload);
-	gulp.watch(config.images, ['dev:images'], browserSync.reload);
+	gulp.watch(config.images, ['images'], browserSync.reload);
 });
 
 

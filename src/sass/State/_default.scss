@@ -89,6 +89,10 @@ body {
 
   @include block('select-field') {
 
+    @include modifier('on-top') {
+      z-index: 333;
+    }
+
     @include element('placeholder') {
 
       @include modifier('active') {
@@ -261,6 +265,16 @@ body {
   }
 }
 
+@include block('social-icons') {
+
+  @include element('item') {
+
+    &:last-child {
+      width: 32%;
+    }
+  }
+}
+
 @include block('services') {
 
   @include element('feature') {
@@ -398,17 +412,17 @@ body {
 
   @include modifier('grey') {
     background-color: $color-dark;
-    height: 75px;
-    padding-top: 20px;
+    height: $nav-height-desktop - 18 !important;
+    padding-top: $nav-padding-desktop - 10 !important;
 
     @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
-      height: $nav-height-tablet;
-      padding-top: 30px;
+      height: $nav-height-tablet !important;
+      padding-top: $nav-padding-tablet !important;
     }
 
     @include breakpoint($mobile-min-width $mobile-max-width) {
-      height: $nav-height-mobile;
-      padding-top: 30px;
+      height: $nav-height-mobile !important;
+      padding-top: $nav-padding-desktop !important;
     }
 
     .nav__item {
@@ -427,7 +441,7 @@ body {
     .nav__logo {
 
       @include breakpoint($tablet-max-width + 1) {
-        margin-top: -20px;
+        margin-top: -12px;
       }
     }
   }

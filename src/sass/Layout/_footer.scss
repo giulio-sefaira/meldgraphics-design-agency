@@ -22,12 +22,12 @@
   @include element('go-top') {
     text-align: center;
     cursor: pointer;
-    @include size(100%, 105px);
+    @include size(100%, 70px);
     text-decoration: none;
     display: block;
-    padding-top: 56px;
+    padding-top: 40px;
     @include box-sizing('border-box');
-    @include fontsize(18);
+    @include fontsize(16);
     font-weight: normal;
     font-family: $merriweather;
   }

@@ -17,12 +17,11 @@
   }
 
   @include element('submit') {
-    @include span(5 of 7);
+    @include span(2 of 5 wide);
     height: $submit-button-height;
     line-height: $submit-button-height;
-    text-transform: uppercase;
     text-align: center;
-    @include fontsize(25);
+    @include fontsize(20);
     font-weight: $semi-bold;
     border: none;
     margin-top: 12px;

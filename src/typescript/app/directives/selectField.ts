@@ -11,7 +11,7 @@ module app.selectField {
       placeholder: '@'
     };
 
-    constructor() { }
+    constructor(private $document: ng.IDocumentService) { }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
 
@@ -30,7 +30,8 @@ module app.selectField {
     }
 
     static factory(): ng.IDirectiveFactory {
-      const directive = () => new selectField();
+      const directive = ($document: ng.IDocumentService) => new selectField($document);
+      directive.$inject = ['$document'];
       return directive;
     }
   }

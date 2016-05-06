@@ -1,7 +1,7 @@
 @include block('nav') {
 	height: $nav-height-desktop;
 	position: relative;
-	padding-top: 30px;
+	padding-top: $nav-padding-desktop;
 	@include box-sizing(border-box);
   position: fixed;
   z-index: 555;
@@ -42,8 +42,8 @@
 
 	@include element('logo') {
 		float: left;
-		@include size(149px, 149px);
-		margin: -15px 0 -100px percentage(70px / $desktop);
+		@include size(120px, 120px);
+		margin: -3px 0 -100px percentage(70px / $desktop);
 	}
 
 	@include element('list') {

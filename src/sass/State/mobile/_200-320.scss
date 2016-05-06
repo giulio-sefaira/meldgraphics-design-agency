@@ -15,7 +15,7 @@
       @include element('logo') {
         @include size(73px, 73px);
         margin-left: 2px;
-        margin-top: -17px;
+        margin-top: -20px;
       }
 
       @include element('control') {
@@ -52,6 +52,22 @@
 
       @include element('title') {
         padding-top: 28px;
+      }
+
+      @include element('panel-bottom') {
+        padding-top: 60px;
+        padding-bottom: 0;
+      }
+    }
+
+    @include block('footer') {
+
+      @include element('go-top') {
+        @include fontsize(12);
+        background-image: url(../img/go-top-mobile.png);
+        background-position: center 14px;
+        height: 60px;
+        padding-top: 30px;
       }
     }
 

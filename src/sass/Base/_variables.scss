@@ -15,7 +15,7 @@ $merriweather:		'Merriweather', serif;
 
 // Form elements
 $field-height:          50px;
-$submit-button-height:  70px;
+$submit-button-height:  55px;
 
 
 // Colors
@@ -47,9 +47,11 @@ $padding-edge-mobile: 15px;
 
 
 // Navigation heights during different resolutions
-$nav-height-desktop:  90px;
-$nav-height-tablet:   70px;
-$nav-height-mobile:   50px;
+$nav-height-desktop:  80px;
+$nav-padding-desktop: 23px;
+$nav-height-tablet:   55px;
+$nav-padding-tablet:  20px;
+$nav-height-mobile:   40px;
 
 
 // Screen resolutions

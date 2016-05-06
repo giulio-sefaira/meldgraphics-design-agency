@@ -181,12 +181,6 @@
         margin-top: 10px;
         margin-bottom: 0;
       }
-
-      @include element('panel-bottom') {
-        @include background-size(130%, auto);
-        background-position: center center;
-        height: rem-calc(250);
-      }
     }
 
     @include block('advantages') {
