@@ -4,10 +4,6 @@
     color: $section-header;
     border-color: $section-line !important;
   }
-
-  @include element('panel-bottom') {
-    background-color: $article-panel;
-  }
 }
 
 @include block('article') {
@@ -23,8 +19,15 @@
   @include element('quote') {
     color: $article-content;
   }
+}
 
-  @include element('brain-title') {
+@include block('brain') {
+
+  @include element('title') {
     color: $article-cite;
+  }
+
+  @include element('panel-bottom') {
+    background-color: $article-panel;
   }
 }

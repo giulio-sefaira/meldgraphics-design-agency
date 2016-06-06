@@ -48,7 +48,6 @@
   }
 
   @include element('item') {
-    background-color: $nav-bg;
     color: $nav-item;
   }
 }

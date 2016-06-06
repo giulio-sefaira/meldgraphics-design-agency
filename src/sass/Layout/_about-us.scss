@@ -1,4 +1,5 @@
 @include block('about-us') {
+	overflow-x: hidden;
 
 	@include element('title') {
 		@include span(14 wider);
@@ -11,10 +12,5 @@
 		text-transform: uppercase;
 		margin-bottom: 20px;
 		padding-top: 80px;
-	}
-
-	@include element('panel-bottom') {
-		@include size(100%, 150px);
-		margin-top: -113px;
 	}
 }

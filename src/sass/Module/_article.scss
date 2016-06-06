@@ -20,7 +20,7 @@
 		@include span(7 of 14);
 		@include break;
 		font-family: $merriweather;
-		font-weight: normal;
+		font-weight: $light;
 		@include fontsize(22);
 	}
 
@@ -52,21 +52,5 @@
 
 	@include element('sidebar') {
 		@include span(4 of 14 at 11);
-	}
-
-	@include element('brain') {
-		text-align: center;
-		margin: auto;
-
-		img {
-			@include size(100%, auto);
-			max-width: 100%;
-			margin-right: -14%;
-		}
-	}
-
-	@include element('brain-title') {
-		text-transform: uppercase;
-		@include fontsize(40);
 	}
 }

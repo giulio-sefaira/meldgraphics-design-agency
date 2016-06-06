@@ -1,0 +1,27 @@
+@include block('brain') {
+  text-align: center;
+  @include span(4 of 14 at 11);
+  margin-top: 195px;
+
+  @include element('pict') {
+    @include size(100%, auto);
+    max-width: 100%;
+    margin-right: -14%;
+  }
+
+  @include element('motion') {
+    @extend .brain__pict;
+  }
+
+  @include element('title') {
+    text-transform: uppercase;
+    @include fontsize(29);
+  }
+
+  @include element('panel-bottom') {
+    display: block;
+    @include size(1000%, 110px);
+    margin-top: -80px;
+    margin-left: -500%;
+  }
+}

@@ -31,6 +31,7 @@
       @include element('container') {
         width: $nav-offset-mobile;
         right: -$nav-offset-mobile;
+        margin-right: 0;
       }
 
       @include element('control') {
@@ -58,6 +59,17 @@
         padding-top: 60px;
         padding-bottom: 0;
       }
+    }
+
+    @include block('go-back') {
+      @include fontsize(13);
+      @include span(3);
+      float: none;
+      @include center-block;
+      min-width: auto;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 35px;
     }
 
     @include block('footer') {

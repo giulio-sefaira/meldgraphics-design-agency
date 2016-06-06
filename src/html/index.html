@@ -12,11 +12,11 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!--<link rel="stylesheet" href="/css/main.css">-->
-        <link rel="stylesheet" href="/css/main.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <!--<link rel="stylesheet" href="/css/main.min.css">-->
 
     </head>
-    <body ng-controller="meldgraphicsCtrl as main" scroll>
+    <body ng-controller="meldgraphicsCtrl as main" scroll class="{{lang}}">
         <nav class="nav" ng-class="{'nav--moved' : main.showNav, 'nav--grey' : navGrey}">
             <div class="wrapper">
                 <a ng-href="#/" ng-click="main.scrollTop()" class="nav__logo">
@@ -25,15 +25,25 @@
                 <div class="nav__container">
                     <a class="nav__close" ng-click="main.toggleNav()"></a>
                     <ul class="nav__list">
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': activeSectionClass == '.about-us'}" ng-click="main.scrollToSection('.about-us')">about us</a></li>
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">services</a></li>
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">process</a></li>
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">projects</a></li>
-                        <li><a class="nav__item" ng-href="#/" ng-class="{'nav__item--active': activeSectionClass == '.footer'}" ng-click="main.scrollToSection('.footer')">contact</a></li>
+                        <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.about-us'}" ng-click="main.scrollToSection('.about-us')">
+                            {{(lang == 'en') ? 'about us' : 'о нас'}}
+                        </a></li>
+                        <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.services'}" ng-click="main.scrollToSection('.services')">
+                            {{(lang == 'en') ? 'services' : 'услуги'}}
+                        </a></li>
+                        <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.process'}" ng-click="main.scrollToSection('.process')">
+                            {{(lang == 'en') ? 'process' : 'процесс'}}
+                        </a></li>
+                        <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.projects'}" ng-click="main.scrollToSection('.projects')">
+                            {{(lang == 'en') ? 'projects' : 'проекты'}}
+                        </a></li>
+                        <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.footer'}" ng-click="main.scrollToSection('.footer')">
+                            {{(lang == 'en') ? 'contact' : 'контакты'}}
+                        </a></li>
                     </ul>
                     <ul class="nav__lang-list">
-                        <li><a class="nav__lang-item nav__lang-item--active" href="/">ru</a></li>
-                        <li><a class="nav__lang-item" href="/">en</a></li>
+                        <li><a class="nav__lang-item" ng-class="{'nav__lang-item--active': lang == 'ru'}" ng-href="#/ru">ru</a></li>
+                        <li><a class="nav__lang-item" ng-class="{'nav__lang-item--active': lang == 'en'}" ng-href="#/en">en</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,10 +52,10 @@
 
             <div ng-view ng-class="vm.pageClass" autoscroll="true"></div>
 
-            <a ng-href="#contact" id="make-order" ng-if="url.indexOf('/contact') == -1">Let's start working together <i class="fa fa-long-arrow-right"></i></a>
+            <a ng-href="#contact" id="make-order" ng-if="url.indexOf('/contact') == -1">{{(lang == 'en') ? 'Let\'s start working together ' : 'Давайте работать вместе'}}<i class="fa fa-long-arrow-right"></i></a>
             <footer class="footer">
                 <div class="wrapper footer__wrapper">
-                    <header class="footer__title">Contact.</header>
+                    <header class="footer__title">{{(lang == 'en') ? 'Contact.' : 'Контакты.'}}</header>
                     <aside class="footer__phones phones">
                         <ul class="phones__list">
                             <li><a class="phones__item" href="tel:+37067621123">+370&nbsp;&nbsp;676 21&nbsp;&nbsp;123</a></li>
@@ -59,27 +69,33 @@
                     </aside>
                     <aside class="footer__social-icons social-icons">
                         <ul class="social-icons__list">
-                              <li class="social-icons__item"><a href=""></a></li>
-                            <li class="social-icons__item"><a href=""></a></li>
-                            <li class="social-icons__item"><a href=""></a></li>
-                            <li class="social-icons__item"><a href=""></a></li>
+                              <li class="social-icons__item"><a href="https://www.pinterest.com/" target="_blank"></a></li>
+                            <li class="social-icons__item"><a href="https://www.facebook.com/" target="_blank"></a></li>
+                            <li class="social-icons__item"><a href="" target="_blank"></a></li>
+                            <li class="social-icons__item"><a href="https://www.behance.net/" target="_blank"></a></li>
                         </ul>
                     </aside>
                 </div>
                 <hr class="footer__underline">
                 <a ng-click="main.scrollTop()" class="footer__go-top">
-                    <span>Go to top</span>
+                    <span>{{(lang == 'en') ? 'Go to top' : 'Вверх.'}}</span>
                 </a>
             </footer>
         </div>
-        <div class="front-layer" ng-show="frontLayer"></div>
+        <div class="front-layer" ng-show="frontLayer" ng-style="{zIndex: frontLayerPosition}"></div>
         <!-- build:js /js/vendor.js -->
         <!-- bower:js -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!--<script src="/js/main.js"></script>-->
-        <script src="/js/main.min.js"></script>
+        <script src="/js/main.js"></script>
+        <!--<script src="/js/main.min.js"></script>-->
+
+        <script>
+            window.onresize = function() {
+                console.log(window.innerWidth);
+            }
+        </script>
 
     </body>
 </html>

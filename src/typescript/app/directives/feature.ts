@@ -23,11 +23,15 @@ module app.feature {
           scope.startAnimation = true;
           scope.endAnimation = false;
           scope.disableCashing(0, 1000000);
-          this.$timeout(() => {
+          /*this.$timeout(() => {
             scope.endAnimation = true;
-          }, 2800);
+          }, 2800);*/
         }
       }
+      scope.stopAnimation = () => {
+        scope.startAnimation = false;
+        scope.endAnimation = true;
+      }      
       scope.cash = 1;
       scope.disableCashing = (min, max) => {
         scope.cash = Math.round(Math.random() * (max - min) + min);

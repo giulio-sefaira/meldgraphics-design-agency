@@ -1,0 +1,14 @@
+@include block('go-back') {
+  @include span(4);
+  @include radius(5px);
+  @include center-block;
+  float: none;
+  height: 55px;
+  min-width: 250px;
+  line-height: 55px;
+  @include fontsize(18);
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 50px;
+}

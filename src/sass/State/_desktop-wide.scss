@@ -77,6 +77,19 @@ $step: 365px;
       }
     }
 
+    @include block('brain') {
+      @include span(3 of 12 at 10);
+      margin-top: 278px;
+
+      @include element('title') {
+        @include fontsize(30);
+      }
+
+      @include element('panel-bottom') {
+        margin-top: -83px;
+      }
+    }
+
     @include block('article') {
       @include span(12);
       @include center-block;
@@ -113,10 +126,6 @@ $step: 365px;
         line-height: 1.3;
         margin-bottom: 42px;
         padding-left: 0;
-      }
-
-      @include element('brain-title') {
-        @include fontsize(42);
       }
 
       p {
@@ -324,6 +333,13 @@ $step: 365px;
         @include fontsize(20);
         margin-right: rem-calc(25);
       }
+    }
+
+    @include block('go-back') {
+      @include span(2.2 wider);
+      float: none;
+      @include center-block;
+      margin-top: 74px;
     }
 
     @include block('contact') {

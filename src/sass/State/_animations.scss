@@ -21,3 +21,16 @@
     @include translateX(20px)
   }
 }
+
+[ng-view] {
+
+  &.ng-leave {
+    @include opacity(1);
+    @include hover(.5s);
+    @include transition-property(opacity);
+  }
+
+  &.ng-leave-active {
+    @include opacity(0);
+  }
+}

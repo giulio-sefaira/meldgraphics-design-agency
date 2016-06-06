@@ -39,6 +39,10 @@
         margin-top: -12px;
         @include break;
       }
+
+      @include element('container') {
+        margin-right: 0;
+      }
     }
 
     @include block('about-us') {
@@ -46,11 +50,6 @@
       @include element('title') {
         @include fontsize(50);
         @include span(8);
-      }
-
-      @include element('panel-bottom') {
-        @include size(100%, 80px);
-        margin-top: -74px;
       }
     }
 
@@ -97,15 +96,22 @@
         @include break;
         @include span(4 at 3);
       }
+    }
 
-      @include element('brain') {
-        width: 83%;
+    @include block('brain') {
+      @include break;
+      @include span(4 at 3);
+      margin-top: 0;
+
+      @include element('title') {
+        @include fontsize(30);
+        font-weight: $light;
+        line-height: 1.1;
       }
 
-      @include element('brain-title') {
-        @include fontsize(30);
-        font-weight: $semi-bold;
-        line-height: 1.1;
+      @include element('panel-bottom') {
+        height: 80px;
+        margin-top: -73px;
       }
     }
 
@@ -155,6 +161,13 @@
           width: percentage(190px / $tablet);
         }
       }
+    }
+
+    @include block('go-back') {
+      @include span(3.2 wider);
+      @include center-block;
+      float: none;
+      margin-top: 55px;
     }
 
     @include block('process') {

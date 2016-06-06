@@ -22,7 +22,7 @@
     line-height: $submit-button-height;
     text-align: center;
     @include fontsize(20);
-    font-weight: $semi-bold;
+    font-weight: normal;
     border: none;
     margin-top: 12px;
     cursor: pointer;

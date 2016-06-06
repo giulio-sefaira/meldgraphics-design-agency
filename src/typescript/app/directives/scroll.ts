@@ -4,7 +4,8 @@ module app.scroll {
 
     constructor(private $window: ng.IWindowService,
                 private $location: ng.ILocationService,
-                private $rootScope: ng.IRootScopeService) {
+                private $rootScope: ng.IRootScopeService,
+                private $timeout: ng.ITimoutService) {
     }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
@@ -32,18 +33,32 @@ module app.scroll {
       scope.url = this.$location.path();
       scope.navGrey = (scope.url != '/');
 
+      scope.$on('$routeChangeStart', (next, current) => {
+        scope.frontLayer = true;
+      });
+
+      scope.$on('$routeChangeSuccess', (next, current) => {
+        this.$timeout(() => {
+          scope.frontLayer = false;
+        }, 100);
+      });
+
       scope.$on('$viewContentLoaded', () => {
         aboutUs = element[0].querySelector('.about-us');
         services = element[0].querySelector('.services');
         process = element[0].querySelector('.process');
         projects = element[0].querySelector('.projects');
         footer = element[0].querySelector('.footer');
-        brain = element[0].querySelector('.article__brain');
+        brain = element[0].querySelector('.brain');
         triangles = element[0].querySelector('.triangles');
-        scope.frontLayer = false;
         scope.url = this.$location.path();
-        scope.navGrey = (scope.url != '/');
+        scope.navGrey = ((scope.url != '/ru') && (scope.url != '/en'));
+        scope.lang = (~scope.url.indexOf('/en')) ? 'en' : 'ru';
       });
+
+      this.$timeout(() => {
+        scope.frontLayerPosition = 222;
+      }, 4000);
 
       scope.setActiveMenuItem = () => {
         this.$rootScope.activeSectionClass = (footerTop < navBottom) ? '.footer' :
@@ -59,7 +74,7 @@ module app.scroll {
         if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
           scope.brainAnimateionRun = true;
         }
-        if ((trianglesTop < (windowHeight - windowHeight * 0.15)) && !scope.trianglesAnimationRun) {
+        if ((trianglesTop < (windowHeight - windowHeight * 0.4)) && !scope.trianglesAnimationRun) {
           scope.trianglesAnimationRun = true;
         }
       }
@@ -76,7 +91,7 @@ module app.scroll {
         footerTop = footer.getBoundingClientRect().top;
         trianglesTop = triangles.getBoundingClientRect().top;
         scope.$apply(() => {
-          scope.navGrey = (aboutUsTop < navBottom);
+          scope.navGrey = ((scope.url == '/en') || (scope.url == '/ru')) ? (aboutUsTop < navBottom) : true;
         });
       }
 
@@ -93,8 +108,8 @@ module app.scroll {
     }
 
     static factory(): ng.IDirectiveFactory {
-      const directive = ($window: ng.IWindowService, $location: ng.ILocationService, $rootScope: ng.IRootScopeService) => new scroll($window, $location, $rootScope);
-      directive.$inject = ['$window', '$location', '$rootScope'];
+      const directive = ($window: ng.IWindowService, $location: ng.ILocationService, $rootScope: ng.IRootScopeService, $timeout: ng.ITimeoutService) => new scroll($window, $location, $rootScope, $timeout);
+      directive.$inject = ['$window', '$location', '$rootScope', '$timeout'];
       return directive;
     }
   }

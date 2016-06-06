@@ -49,12 +49,15 @@
         margin-bottom: 30px;
       }
 
-      @include element('brain-title') {
-        @include fontsize(35);
-      }
-
       p {
         @include fontsize(17);
+      }
+    }
+
+    @include block('brain') {
+
+      @include element('title') {
+        @include fontsize(29);
       }
     }
 
@@ -62,13 +65,6 @@
 
       @include element('inner') {
         @include fontsize(34);
-      }
-    }
-
-    @include block('about-us') {
-
-      @include element('panel-bottom') {
-        margin-top: -85px;
       }
     }
 

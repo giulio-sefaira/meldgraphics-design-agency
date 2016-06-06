@@ -19,8 +19,8 @@ module app.common {
       implements IdataAccessService {
 
     static $inject = ['$resource'];
-    constructor(private $resource: ng.resource.IResourceService) {
 
+    constructor(private $resource: ng.resource.IResourceService) {
     }
 
     getProjectBudgetResource(): any {

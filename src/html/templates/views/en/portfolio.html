@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <header class="projects__title">Projects</header>
+  <div class="categories">
+    <ul class="categories__list">
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = ''" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == ''}">All</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'branding'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'branding'}">Branding</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'design ui/ux'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'design ui/ux'}">Design UI/UX</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'print design & illustration'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'print design & illustration'}">Print design & illustration</a></li>
+    </ul>
+  </div>
+</div>
+<div class="wrapper projects__wrapper">
+  <ul class="projects__list">
+    <li class="projects__item" ng-repeat="project in vm.projectsList | filter: vm.projectFilter">
+      <figure class="project">
+        <img ng-src="{{ project.imageUrl }}" class="project__thumb" title="" alt="">
+        <figcaption class="project__description">
+          <span class="project__title">{{ project.title }}</span>
+          <a href="{{ project.url }}" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</div>

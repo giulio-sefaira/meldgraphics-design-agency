@@ -5,14 +5,16 @@ module app.animatedElement {
     scope = {
       animation: '@',
       animationDelay: '@',
-      compareElement: '@'
+      compareElement: '@',
+      animationRunPoint: '@'
     };
 
     constructor(private $window: ng.IWindowService, private $timeout: ng.ITimeoutService) { }
 
     link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+
       element.addClass(`${scope.animation}--before`);
-      let restrictLine = this.$window.innerHeight - this.$window.innerHeight * 0.12;
+      let restrictLine = this.$window.innerHeight - this.$window.innerHeight * ((scope.animationRunPoint || 12) / 100);
       let previousElement = element[0].previousSibling;
       let elementParent = element[0].parentNode;
       let comparePoint;

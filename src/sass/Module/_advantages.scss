@@ -25,6 +25,6 @@
 
   @include element('title') {
     text-transform: uppercase;
-    font-weight: $semi-bold;
+    font-weight: normal;
   }
 }

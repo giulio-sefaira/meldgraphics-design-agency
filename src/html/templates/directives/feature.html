@@ -1,4 +1,4 @@
-<figure ng-mouseover="runAnimation(active)" ng-mouseleave="startAnimation = false">
+<figure ng-mouseover="runAnimation(active)" ng-mouseleave="stopAnimation()">
   <span class="feature__image-wrap">
     <img class="feature__image feature__image--{{ name }}" width="{{ size.width }}" height="{{ size.height }}" ng-src="img/icons/services/{{ name }}.png" title="{{ title }}" alt="{{ title }}" />
     <img class="feature__image feature__image--{{ name }}" width="{{ size.width }}" height="{{ size.height }}" ng-src="img/icons/services/{{ name }}.gif?{{ cash }}" ng-if="!retina && !active && !endAnimation && !vm.mobileDevice"  title="{{ title }}" alt="{{ title }}" />

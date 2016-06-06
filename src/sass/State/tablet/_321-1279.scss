@@ -7,6 +7,7 @@
 
     @include block('triangles') {
       margin-top: -58px;
+      margin-left: -100px;
 
       @include element('item') {
         @include size($figure-size, $figure-size);
@@ -65,7 +66,7 @@
 
       @include element('view-all') {
         width: percentage(332px / $tablet);
-        @include fontsize(22);
+        @include fontsize(25);
         margin: 25px auto 45px;
         float: none;
         display: block;

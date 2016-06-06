@@ -12,26 +12,46 @@ module app {
   routeConfig.$inject = ['$routeProvider'];
   function routeConfig($routeProvider: ng.route.IRouteProvider): void {
     $routeProvider
-      .when('/',
+      .when('/en',
         {
-          templateUrl: '/templates/views/landingPage.html',
+          templateUrl: '/templates/views/en/landingPage.html',
           controller: 'landingPageCtrl as vm'
         })
-      .when('/portfolio',
+      .when('/en/portfolio',
         {
-          templateUrl: '/templates/views/portfolio.html',
+          templateUrl: '/templates/views/en/portfolio.html',
           controller: 'portfolioCtrl as vm'
         })
-      .when('/contact',
+      .when('/en/contact',
         {
-          templateUrl: '/templates/views/contact.html',
+          templateUrl: '/templates/views/en/contact.html',
           controller: 'contactCtrl as vm'
         })
-      .when('/contact/sendMessage',
+      .when('/en/contact/sendMessage',
         {
-          templateUrl: '/templates/views/sendMessage.html',
+          templateUrl: '/templates/views/en/sendMessage.html',
           controller: 'sendMessageCtrl as vm'
         })
-      .otherwise('/');
+      .when('/ru',
+        {
+          templateUrl: '/templates/views/ru/landingPage.html',
+          controller: 'landingPageCtrl as vm'
+        })
+      .when('/ru/portfolio',
+        {
+          templateUrl: '/templates/views/ru/portfolio.html',
+          controller: 'portfolioCtrl as vm'
+        })
+      .when('/ru/contact',
+        {
+          templateUrl: '/templates/views/ru/contact.html',
+          controller: 'contactCtrl as vm'
+        })
+      .when('/ru/contact/sendMessage',
+        {
+          templateUrl: '/templates/views/ru/sendMessage.html',
+          controller: 'sendMessageCtrl as vm'
+        })
+      .otherwise('/en');
   }
 }

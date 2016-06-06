@@ -4,7 +4,7 @@
 
   @include element('item') {
     text-decoration: none;
-    @include fontsize(25);
+    @include fontsize(22);
     margin-top: 15px;
     display: block;
   }

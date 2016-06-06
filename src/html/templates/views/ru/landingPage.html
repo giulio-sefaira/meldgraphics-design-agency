@@ -1,0 +1,192 @@
+<header class="header">
+  <div class="header__video-wrap">
+    <div class="header__video-box">
+      <img class="header__video header__video-bg" src="img/video-bg_320.jpg" ng-if="vm.resolution == 'mobile' && !vm.retina && vm.mobileDevice" alt="Meldgraphics Дизайн Агенство">
+      <img class="header__video header__video-bg" src="img/retina/video-bg_320_retina.jpg" ng-if="vm.resolution == 'mobile' && vm.retina && vm.mobileDevice" alt="Meldgraphics Дизайн Агенство">
+      <img class="header__video header__video-bg" src="img/video-bg_768.jpg" ng-if="vm.resolution == 'tablet' && !vm.retina && vm.mobileDevice" alt="Meldgraphics Дизайн Агенство">
+      <img class="header__video header__video-bg" src="img/retina/video-bg_768_retina.jpg" ng-if="(vm.resolution == 'tablet' && vm.retina && vm.mobileDevice) || (vm.resolution == 'desktop' && vm.mobileDevice)" alt="Meldgraphics Дизайн Агенство">
+      <video class="header__video" loop autoplay ng-if="!vm.mobileDevice">
+        <source src="video/meldgraphics.mp4" type="video/mp4">
+        <source src="video/meldgraphics.webm" type="video/webm">
+        <source src="video/meldgraphics.ogg" type="video/ogg">
+      </video>
+    </div>
+  </div>
+  <div class="wrapper header__wrapper">
+    <h1 class="header__title">Meldgraphics<span class="header__subtitle">Дизайн Агенство</span></h1>
+    <hr class="header__underline">
+    <div class="header__slogan">Мы разрабатываем дизайн<br>графических продуктов и брендов.</div>
+    <button ng-click="vm.scrollToSection('.about-us')" class="header__go-next"></button>
+  </div>
+  <hr class="header__panel-bottom">
+</header>
+<section id="who-we-are" class="about-us">
+  <div class="wrapper">
+    <header class="about-us__title animated" data-animation="fadeInUp">Кто мы.</header>
+    <article class="article">
+      <header class="article__title animated" data-animation="fadeInUp">Мы предлагаем только лучшие решения.</header>
+      <blockquote class="article__quote animated" data-animation="fadeInUp">
+        Мы стремимся создавать уникальный графический дизайн и практичные пользовательские интерфейсы.
+      </blockquote>
+      <section class="article__content">
+        <div class="article__column-1 animated" data-animation="fadeInUp">
+          <p>Meldgraphics - дизайн агенство, основанное в Вильнюсе. Мы - команда дизайнеров, разработчиков и стратегов, которые с энтузиазмом выполняют поставленные задачи. Наши возможности включают в себя не только новые дизайн продукты и разработки, но и возможность дать вторую жизнь уже существующим. Наш опыт позволяет принимать наиболее эффективные и оригинальные решения при создании брендинга, веб-дизайна, при разработке приложений и в онлайн маркетинге.</p>
+          <p>Логотип студии в виде хамелеона иллюстрирует способность наших специалистов находить индивидуальный подход к каждому новому заказчику, чтобы четко понимать поставленные бизнес цели. При работе с клиентами наша команда старается находить наиболее оптимальные решения поставленным задачам. Мы ответственно относимся к требованиям клиентов, проведению исследований и стараемся максимально быстро и качественно создать прототип, исходя из утвержденных идей.</p>
+        </div>
+        <div class="article__column-2 animated" data-compare-element="parent" data-animation-delay="200" data-animation="fadeInUp">
+          <p>Фокусируясь на поиске индивидуального подхода для каждого клиента, наша команда стремится разработать наиболее подходящие решения. Мы верим, что лучшие бренды создаются за счет сочетания ярко выраженной индивидуальности, инновационного подхода и продуманной брендинг стратегии. Совмещая опыт и страсть к своей работе, наши специалисты стремятся к созданию четкого и уникального решения. Это является отличительной чертой Meldgraphics. Если Вы открытый и свободный от стереотипов клиент - мы свернем горы, чтобы работвать с Вами!</p>
+        </div>
+        <aside class="article__sidebar animated" data-compare-element="parent" data-animation-delay="400" data-animation="fadeInUp">
+          <blockquote class="article__cite">
+            Агенство Meldgraphics не испытывает страха перед трудностями и всегда готово к сотрудничеству даже с самыми требовательными клиентами. Мы гарантируем высокое качество нашей работы, поскольку нами движет постоянное стремление к совершенству.
+          </blockquote>
+        </aside>
+        <figure class="brain">
+          <img class="brain__pict" src="img/brain_320.png" ng-if="vm.resolution == 'mobile' && !brainAnimateionRun" alt="Brain">
+          <img class="brain__pict" src="img/brain_768.png" ng-if="vm.resolution == 'tablet' && !vm.retina && !brainAnimateionRun" alt="Brain">
+          <img class="brain__pict" src="img/retina/brain_768_retina.png" ng-if="vm.resolution == 'tablet' && vm.retina && !brainAnimateionRun" alt="Brain">
+          <img class="brain__pict" src="img/brain_1280.png" ng-if="vm.resolution == 'desktop' && !vm.retina && !brainAnimateionRun" alt="Brain">
+          <img class="brain__pict" src="img/retina/brain_1280_retina.png" ng-if="vm.resolution == 'desktop' && vm.retina && !brainAnimateionRun" alt="Brain">
+
+          <img class="brain__motion" src="img/icons/brain_320.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'mobile' && brainAnimateionRun" alt="Brain">
+          <img class="brain__motion" src="img/icons/brain_768.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'tablet' && !vm.retina && brainAnimateionRun" alt="Brain">
+          <img class="brain__motion" src="img/icons/brain_768_retina.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'tablet' && vm.retina && brainAnimateionRun" alt="Brain">
+          <img class="brain__motion" src="img/icons/brain_1280.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'desktop' && !vm.retina && brainAnimateionRun" alt="Brain">
+          <img class="brain__motion" src="img/icons/brain_1280_retina.gif?{{ vm.cashValue }}" ng-if="vm.resolution == 'desktop' && vm.retina && brainAnimateionRun" alt="Brain">
+          <figcaption class="brain__title">У нас есть<br><span class="color--blue">идеи для<br> каждого</span></figcaption>
+          <span class="brain__panel-bottom"></span>
+        </figure>
+      </section>
+    </article>
+  </div>
+</section>
+<section id="we-love-what-we-do" class="love-it">
+  <div class="love-it__inner">
+    <header class="love-it__title">
+      Мы любим то, что мы делаем!
+    </header>
+  </div>
+</section>
+<section id="our-services" class="services">
+  <div class="wrapper services__panel-top">
+    <ul class="services__triangles triangles">
+      <li class="triangles__item" ng-class="{ 'triangles__item--start' : !trianglesAnimationRun }"></li>
+      <li class="triangles__item" ng-class="{ 'triangles__item--start' : !trianglesAnimationRun }"></li>
+      <li class="triangles__item" ng-class="{ 'triangles__item--start' : !trianglesAnimationRun }"></li>
+      <li class="triangles__item" ng-class="{ 'triangles__item--start' : !trianglesAnimationRun }"></li>
+      <li class="triangles__item" ng-class="{ 'triangles__item--start' : !trianglesAnimationRun }"></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="services__title animated" data-animation="fadeInUp">Услуги.</header>
+    <ul class="services__advantages advantages">
+      <li class="services__advantage advantages__item animated" data-animation="fadeInUp" data-compare-element="parent">
+        <header class="advantages__title">UX/UI ДИЗАЙН И РАЗРАБОТКА</header>
+        <p class="advantages__content">Web стал частью нашей жизни, и мы считаем: функциональные потребности и эмоциональная составляющая требуют равного внимания. Front / back -end специалисты компании используют передовые технологии, чтобы все решения воплотились в жизнь.</p>
+      </li>
+      <li class="services__advantage advantages__item animated" data-animation="fadeInUp" data-animation-delay="200" data-compare-element="parent">
+        <header class="advantages__title">ПОЛИГРАФИЯ И ИЛЛЮСТРАЦИИ</header>
+        <p class="advantages__content">Графический дизайн, типографика, иллюстрации и цветовые решения - составляющая ДНК нашей компании. Мы готовы предложить наши услуги любому бренду.</p>
+      </li>
+      <li class="services__advantage advantages__item animated" data-animation="fadeInUp" data-animation-delay="400" data-compare-element="parent">
+        <header class="advantages__title">БРЕНДИНГ И СТРАТЕГИЯ</header>
+        <p class="advantages__content">Брендинг должен быть отображением индивидуальности и статуса Вашей компании. Используя стратегию и продуманный дизайн, работая вплотную с клиентом, мы создаем бренд, который будет узнаваем онлайн и оффлайн.</p>
+      </li>
+    </ul>
+    <ul class="services__features">
+      <li class="services__feature animated" ng-class="{ 'services__feature--active': feature.active }" ng-repeat="feature in vm.features" data-animation="fadeInUp" data-animation-run-point="40" data-compare-element="parent">
+        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="vm.setActiveFeature(feature)" data-active="feature.active" data-size="feature.size" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="services__panel-bottom">
+    <img src="img/table_320.jpg" ng-if="vm.resolution == 'mobile' && !vm.retina" alt="Table">
+    <img src="img/table_320_retina.jpg" ng-if="vm.resolution == 'mobile' && vm.retina" alt="Table">
+    <img src="img/table_768.jpg" ng-if="vm.resolution == 'tablet' && !vm.retina" alt="Table">
+    <img src="img/table.jpg" ng-if="vm.resolution == 'tablet' && vm.retina || vm.resolution == 'desktop'" alt="Table">
+  </div>
+</section>
+<section id="how-we-work" class="process">
+  <div class="wrapper">
+    <header class="process__title animated" data-animation="fadeInUp">Как мы работаем.</header>
+  </div>
+  <div class="wrapper process__wrapper">
+    <div class="process__description animated" data-animation="fadeInUp">Довольный клиент - наша маркетинговая стратегия.&nbsp;<br>В процессе работы мы постоянно анализируем, изучаем и реагируем на меняющиеся обстоятельства.</div>
+    <ul class="process__steps">
+      <li class="process__step animated" data-animation="fadeInUp" data-compare-element="parent">
+        <img src="img/step-1.png" alt="">
+        <div class="process__step-details">
+          <header class="process__step-title">ИНТЕРВЬЮ</header>
+          <p class="process__step-description">Мы обсуждаем ваши желания. Предоставляем наш план решений задач с четкими временными рамками и ценой.</p>
+        </div>
+      </li>
+      <li class="process__step animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="200">
+        <img src="img/step-2.png" alt="">
+        <div class="process__step-details">
+          <header class="process__step-title">ПЛАНИРОВАНИЕ</header>
+          <p class="process__step-description">На основе переговоров мы строим план для реализации Ваших требований.</p>
+        </div>
+      </li>
+      <li class="process__step animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="400">
+        <img src="img/step-3.png" alt="">
+        <div class="process__step-details">
+          <header class="process__step-title">ДИЗАЙН</header>
+          <p class="process__step-description">Мы создаем скетчи, шаблоны и интерактивные прототипы.</p>
+        </div>
+      </li>
+      <li class="process__step animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="600">
+        <img src="img/step-4.png" alt="">
+        <div class="process__step-details">
+          <header class="process__step-title">РАЗРАБОТКА</header>
+          <p class="process__step-description">Мы реализовываем проект, предоставляя варианты прототипов.</p>
+        </div>
+      </li>
+      <li class="process__step animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="800">
+        <img src="img/step-5.png" alt="">
+        <div class="process__step-details">
+          <header class="process__step-title">ЗАПУСК</header>
+          <p class="process__step-description">Запускаем Ваш проект.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section id="projects" class="projects">
+  <div class="wrapper">
+    <header class="projects__title animated" data-animation="fadeInUp">Проекты.</header>
+  </div>
+  <div class="wrapper projects__wrapper">
+    <ul class="projects__list">
+      <li class="projects__item animated" data-animation="fadeInUp" data-compare-element="parent">
+        <figure class="project">
+          <img src="img/thumb-1.jpg" class="project__thumb" title="" alt="">
+          <figcaption class="project__description">
+            <span class="project__title">Life Lines</span>
+            <a href="" class="project__view">Просмотр <i class="fa fa-long-arrow-right"></i></a>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="projects__item animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="300">
+        <figure class="project">
+          <img src="img/thumb-2.jpg" class="project__thumb" title="" alt="">
+          <figcaption class="project__description">
+            <span class="project__title">Horizon Advisor</span>
+            <a href="" class="project__view">Просмотр <i class="fa fa-long-arrow-right"></i></a>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="projects__item animated" data-animation="fadeInUp" data-compare-element="parent" data-animation-delay="600">
+        <figure class="project">
+          <img src="img/thumb-3.jpg" class="project__thumb" title="" alt="">
+          <figcaption class="project__description">
+            <span class="project__title">VegFit</span>
+            <a href="" class="project__view">Просмотр <i class="fa fa-long-arrow-right"></i></a>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <div class="projects__view-all-container">
+      <a class="projects__view-all" ng-href="#portfolio">Все проекты <i class="fa fa-long-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
