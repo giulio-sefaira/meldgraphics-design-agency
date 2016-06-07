@@ -44,13 +44,6 @@ module app.scroll {
       });
 
       scope.$on('$viewContentLoaded', () => {
-        aboutUs = element[0].querySelector('.about-us');
-        services = element[0].querySelector('.services');
-        process = element[0].querySelector('.process');
-        projects = element[0].querySelector('.projects');
-        footer = element[0].querySelector('.footer');
-        brain = element[0].querySelector('.brain');
-        triangles = element[0].querySelector('.triangles');
         scope.url = this.$location.path();
         scope.navGrey = ((scope.url != '/ru') && (scope.url != '/en'));
         scope.lang = (~scope.url.indexOf('/en')) ? 'en' : 'ru';
@@ -70,7 +63,7 @@ module app.scroll {
       };
 
       scope.animateElements = () => {
-        brainTop = brain.getBoundingClientRect().top;
+        brainTop = element[0].querySelector('.brain').getBoundingClientRect().top;
         if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
           scope.brainAnimateionRun = true;
         }
@@ -83,20 +76,20 @@ module app.scroll {
 
       scope.activeSectionClass = this.$rootScope.activeSectionClass;
 
-      scope.setNavColor = () => {
-        aboutUsTop = aboutUs.getBoundingClientRect().top;
-        servicesTop = services.getBoundingClientRect().top;
-        processTop = process.getBoundingClientRect().top;
-        projectsTop = projects.getBoundingClientRect().top;
-        footerTop = footer.getBoundingClientRect().top;
-        trianglesTop = triangles.getBoundingClientRect().top;
+      scope.setNavColor = (element) => {
+        aboutUsTop = element[0].querySelector('.about-us').getBoundingClientRect().top;
+        servicesTop = element[0].querySelector('.services').getBoundingClientRect().top;
+        processTop = element[0].querySelector('.process').getBoundingClientRect().top;
+        projectsTop = element[0].querySelector('.projects').getBoundingClientRect().top;
+        footerTop = element[0].querySelector('.footer').getBoundingClientRect().top;
+        trianglesTop = element[0].querySelector('.triangles').getBoundingClientRect().top;
         scope.$apply(() => {
           scope.navGrey = ((scope.url == '/en') || (scope.url == '/ru')) ? (aboutUsTop < navBottom) : true;
         });
       }
 
       angular.element(this.$window).bind("scroll", () => {
-        scope.setNavColor();
+        scope.setNavColor(element);
         scope.setActiveMenuItem();
         scope.animateElements();
       });

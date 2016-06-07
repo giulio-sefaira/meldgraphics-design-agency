@@ -2,6 +2,7 @@ module app.meldgraphics {
   
   export interface meldgraphicsModel {
     showNav: boolean;
+    lang: string;
     scrollTopValue: number;
     scrollDurationValue: number;
     scrollOffset: number;
@@ -20,6 +21,7 @@ module app.meldgraphics {
       private $rootScope: ng.IRootScopeService,
       private $timeout: ng.ITimeoutService,
       public showNav: boolean = false,
+      public lang: string,
       public features: any,
       public scrollTopValue: number = 0,
       public scrollDurationValue: number = 2000,
@@ -29,6 +31,10 @@ module app.meldgraphics {
         if (this.$window.innerWidth > 768) this.showNav = false;
       });
 
+    }
+
+    setLang(lang): string {
+      return this.lang = lang;
     }
 
     toggleNav(): void {

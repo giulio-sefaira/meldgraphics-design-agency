@@ -1,36 +1,36 @@
 <div class="wrapper">
-  <header class="contact__title">Talk to us!</header>
-  <div class="contact__description">Tell about your business, project <br>or idea and we wil get back to you</div>
+  <header class="contact__title">Начать проект!</header>
+  <div class="contact__description">Расскажите о Вашем бизнесе, проекте <br>или идее, и мы ответим Вам</div>
 </div>
 <section class="talk-to-us">
-  <h2 class="talk-to-us__title">What can we do for you?</h2>
-  <p class="talk-to-us__description">Please fill in as much information as possible so we can create correct estimate. You can fill the form and/or attach     prepared brief. Feel free to tell us about your project and how we can help bringing it to life.</p>
+  <h2 class="talk-to-us__title">Что мы можем для Вас разработать?</h2>
+  <p class="talk-to-us__description">Пожалуйста, предоставьте как можно больше информации, чтобы мы смогли корректно оценить задачи. Вы можете заполнить форму и/или добавить бриф. Чувствуйте себя свободно, описывая свой проект и то, как мы можем его реализовать.</p>
   <form action="/" ng-submit="vm.submitForm(contactForm, $event)" class="talk-to-us__contact-form" name="contactForm" novalidate>
     <aside class="detail">
-      <h3 class="detail__title">How we can help you</h3>
+      <h3 class="detail__title">Чем мы можем Вам помочь</h3>
       <div
               dropdown-choose-list
               class="detail__dropdown-choose-list dropdown-choose-list"
-              data-title="Branding / Strategy"
+              data-title="Брендинг / Стратегия"
               data-list="vm.brandingStrategyOptions"
               data-checked="vm.formData.selectedBrandingStrategy"
               ></div>
       <div
               dropdown-choose-list
               class="detail__dropdown-choose-list dropdown-choose-list"
-              data-title="Ui/Ux Design / Development"
+              data-title="UI/UX Дизайн / Разработка"
               data-list="vm.designDevelopmentOptions"
               data-checked="vm.formData.selectedDesignDevelopment"
               ></div>
       <div
               dropdown-choose-list
               class="detail__dropdown-choose-list dropdown-choose-list"
-              data-title="Print design / Illustration"
+              data-title="Полиграфия / Иллюстрация"
               data-list="vm.printIllustrationOptions"
               data-checked="vm.formData.selectedPrintIllustration"
               ></div>
       <div class="detail__add-brief">
-        <h3 class="detail__title">You can add your brief</h3>
+        <h3 class="detail__title">Вы можете добавить Ваш бриф</h3>
         <upload-file-field
                 class="detail__upload-file-field upload-file-field"
                 data-name="uploadFilesTypes"
@@ -41,54 +41,56 @@
       </div>
     </aside>
     <aside class="info">
-      <h3 class="info__title">Your info</h3>
+      <h3 class="info__title">Ваша информация</h3>
       <p>
-        <label for="" class="info__subtitle">How do we call you?</label>
-        <input type="text" class="info__field" placeholder="Your name" value="" ng-model="vm.formData.name">
+        <label for="" class="info__subtitle">Как нам обращаться к Вам?</label>
+        <input type="text" class="info__field" placeholder="Ваше имя" value="" ng-model="vm.formData.name">
       </p>
       <p>
-        <label for="" class="info__subtitle">How can we contact you? <span class="info__required">(required)</span></label>
-        <input type="email" name="email" required class="info__field" placeholder="Your email" ng-model="vm.formData.email" ng-class="{'info__error' : (contactForm.$submitted && contactForm.email.$invalid)}">
+        <label for="" class="info__subtitle">Как Вы можете связаться с нами? <span class="info__required">(обязательно)</span></label>
+        <input type="email" name="email" required class="info__field" placeholder="Ваш адрес эл. почты" ng-model="vm.formData.email" ng-class="{'info__error' : (contactForm.$submitted && contactForm.email.$invalid)}">
         <span role="alert">
           <span class="error" ng-show="contactForm.$submitted && contactForm.email.$error.required">
-            Required!</span>
+            Required!
+          </span>
           <span class="error" ng-show="contactForm.$submitted && contactForm.email.$error.email">
-            Not valid email!</span>
+            Not valid email!
+          </span>
         </span>
       </p>
       <p>
-        <label for="" class="info__subtitle">How do you call your project?</label>
-        <input type="text" class="info__field" placeholder="Project name" ng-model="vm.formData.projectName">
+        <label for="" class="info__subtitle">Как называется Ваш проект?</label>
+        <input type="text" class="info__field" placeholder="Название проекта" ng-model="vm.formData.projectName">
       </p>
       <p>
-        <label for="" class="info__subtitle">How much money do you want to spend?</label>
+        <label for="" class="info__subtitle">Какую сумму Вы готовы потратить?</label>
         <span
                 select-field
                 data-list="vm.projectBudgetValues"
                 data-name="projectBudgetValues"
-                data-placeholder="Project budget..."
+                data-placeholder="Бюджет проекта..."
                 class="info__select select-field select-field--on-top"
                 data-selected="vm.formData.selectedMoney"
                 >
         </span>
       </p>
       <p>
-        <label for="" class="info__subtitle">When it has to be done?</label>
+        <label for="" class="info__subtitle">Когда проект должен быть готов?</label>
         <span
                 select-field
                 data-list="vm.projectDeadlineOptions"
                 data-name="projectDeadlineOptions"
-                data-placeholder="Project deadline..."
+                data-placeholder="Срок выполнения..."
                 class="info__select select-field"
                 data-selected="vm.formData.selectedDeadline"
                 ></span>
       </p>
       <p>
-        <label for="" class="info__subtitle">What do you want to accomplish?</label>
-        <textarea name="" id="" cols="30" rows="10" class="info__textarea"  ng-model="vm.formData.projectDescribe">Describe your project...</textarea>
+        <label for="" class="info__subtitle">Что бы Вы хотели дополнить?</label>
+        <textarea name="" id="" cols="30" rows="10" class="info__textarea"  ng-model="vm.formData.projectDescribe">Опишите проект...</textarea>
       </p>
       <p>
-        <button type="submit" class="talk-to-us__submit">Submit</button>
+        <button type="submit" class="talk-to-us__submit">Отправить</button>
       </p>
     </aside>
   </form>

@@ -5,8 +5,9 @@
     <img class="feature__image feature__image--{{ name }}" width="{{ (name == '3') ? '75' : (name == '2') ? '140' : size.width }}" height="{{ size.height }}" ng-src="img/icons/servicesRetina/{{ name }}.gif?{{ cash }}" ng-if="retina && !active && !endAnimation && !vm.mobileDevice" title="{{ title }}" alt="{{ title }}" />
   </span>
   <br>
-  <figcaption class="services__feature-title feature__title">{{ title }}</figcaption>
+  <figcaption class="services__feature-title feature__title">{{ (lang == 'ru') ? title.ru : title.en }}</figcaption>
   <ul class="feature__description-list">
-    <li class="feature__description-item" ng-repeat="item in description">{{ item }}</li>
+    <li class="feature__description-item" ng-if="lang == 'en'" ng-repeat="item in description.en">{{ item }}</li>
+    <li class="feature__description-item" ng-if="lang == 'ru'" ng-repeat="item in description.ru">{{ item }}</li>
   </ul>
 </figure>

@@ -16,10 +16,10 @@
         <!--<link rel="stylesheet" href="/css/main.min.css">-->
 
     </head>
-    <body ng-controller="meldgraphicsCtrl as main" scroll class="{{lang}}">
+    <body ng-controller="meldgraphicsCtrl as main" scroll ng-class="main.setLang(lang)">
         <nav class="nav" ng-class="{'nav--moved' : main.showNav, 'nav--grey' : navGrey}">
             <div class="wrapper">
-                <a ng-href="#/" ng-click="main.scrollTop()" class="nav__logo">
+                <a ng-href="#/{{main.lang}}" ng-click="main.scrollTop()" class="nav__logo">
                 </a>
                 <a ng-click="main.toggleNav()" class="nav__control"></a>
                 <div class="nav__container">
@@ -42,8 +42,8 @@
                         </a></li>
                     </ul>
                     <ul class="nav__lang-list">
-                        <li><a class="nav__lang-item" ng-class="{'nav__lang-item--active': lang == 'ru'}" ng-href="#/ru">ru</a></li>
-                        <li><a class="nav__lang-item" ng-class="{'nav__lang-item--active': lang == 'en'}" ng-href="#/en">en</a></li>
+                        <li><a class="nav__lang-item" ng-click="main.setLang(lang)" ng-class="{'nav__lang-item--active': lang == 'ru'}" ng-href="#/ru">ru</a></li>
+                        <li><a class="nav__lang-item" ng-click="main.setLang(lang)" ng-class="{'nav__lang-item--active': lang == 'en'}" ng-href="#/en">en</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 
             <div ng-view ng-class="vm.pageClass" autoscroll="true"></div>
 
-            <a ng-href="#contact" id="make-order" ng-if="url.indexOf('/contact') == -1">{{(lang == 'en') ? 'Let\'s start working together ' : 'Давайте работать вместе'}}<i class="fa fa-long-arrow-right"></i></a>
+            <a ng-href="#/{{lang}}/contact" id="make-order" ng-if="url.indexOf('/contact') == -1">{{(lang == 'en') ? 'Let\'s start working together ' : 'Давайте работать вместе'}}<i class="fa fa-long-arrow-right"></i></a>
             <footer class="footer">
                 <div class="wrapper footer__wrapper">
                     <header class="footer__title">{{(lang == 'en') ? 'Contact.' : 'Контакты.'}}</header>

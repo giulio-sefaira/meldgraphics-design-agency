@@ -1,11 +1,11 @@
 <div class="wrapper">
-  <header class="projects__title">Projects</header>
+  <header class="projects__title">Проекты.</header>
   <div class="categories">
     <ul class="categories__list">
-      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = ''" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == ''}">All</a></li>
-      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'branding'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'branding'}">Branding</a></li>
-      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'design ui/ux'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'design ui/ux'}">Design UI/UX</a></li>
-      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'print design & illustration'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'print design & illustration'}">Print design & illustration</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = ''" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == ''}">Все проекты</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'branding'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'branding'}">Брендинг</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'design ui/ux'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'design ui/ux'}">Дизайн UI/UX</a></li>
+      <li class="categories__item-wrap"><a ng-click="vm.projectFilter = 'print design & illustration'" class="categories__item" ng-class="{'categories__item--active' : vm.projectFilter == 'print design & illustration'}">Печатный дизайн & иллюстрация</a></li>
     </ul>
   </div>
 </div>
@@ -16,7 +16,7 @@
         <img ng-src="{{ project.imageUrl }}" class="project__thumb" title="" alt="">
         <figcaption class="project__description">
           <span class="project__title">{{ project.title }}</span>
-          <a href="{{ project.url }}" class="project__view">View work <i class="fa fa-long-arrow-right"></i></a>
+          <a href="{{ project.url }}" class="project__view">Просмотр <i class="fa fa-long-arrow-right"></i></a>
         </figcaption>
       </figure>
     </li>

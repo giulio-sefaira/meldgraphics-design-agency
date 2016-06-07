@@ -55,7 +55,7 @@ var app;
     var meldgraphics;
     (function (meldgraphics) {
         var meldgraphicsCtrl = (function () {
-            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, showNav, features, scrollTopValue, scrollDurationValue, scrollOffset) {
+            function meldgraphicsCtrl($window, $document, $rootScope, $timeout, showNav, lang, features, scrollTopValue, scrollDurationValue, scrollOffset) {
                 var _this = this;
                 if (showNav === void 0) { showNav = false; }
                 if (scrollTopValue === void 0) { scrollTopValue = 0; }
@@ -66,6 +66,7 @@ var app;
                 this.$rootScope = $rootScope;
                 this.$timeout = $timeout;
                 this.showNav = showNav;
+                this.lang = lang;
                 this.features = features;
                 this.scrollTopValue = scrollTopValue;
                 this.scrollDurationValue = scrollDurationValue;
@@ -75,6 +76,9 @@ var app;
                         _this.showNav = false;
                 });
             }
+            meldgraphicsCtrl.prototype.setLang = function (lang) {
+                return this.lang = lang;
+            };
             meldgraphicsCtrl.prototype.toggleNav = function () {
                 this.showNav = !this.showNav;
             };
@@ -398,7 +402,8 @@ var app;
                     description: '=',
                     retina: '=',
                     active: '=',
-                    size: '='
+                    size: '=',
+                    lang: '='
                 };
                 this.link = function (scope, element, attrs, ctrl) {
                     scope.startAnimation = false;
@@ -462,13 +467,6 @@ var app;
                         }, 100);
                     });
                     scope.$on('$viewContentLoaded', function () {
-                        aboutUs = element[0].querySelector('.about-us');
-                        services = element[0].querySelector('.services');
-                        process = element[0].querySelector('.process');
-                        projects = element[0].querySelector('.projects');
-                        footer = element[0].querySelector('.footer');
-                        brain = element[0].querySelector('.brain');
-                        triangles = element[0].querySelector('.triangles');
                         scope.url = _this.$location.path();
                         scope.navGrey = ((scope.url != '/ru') && (scope.url != '/en'));
                         scope.lang = (~scope.url.indexOf('/en')) ? 'en' : 'ru';
@@ -485,7 +483,7 @@ var app;
                         scope.activeSectionClass = _this.$rootScope.activeSectionClass;
                     };
                     scope.animateElements = function () {
-                        brainTop = brain.getBoundingClientRect().top;
+                        brainTop = element[0].querySelector('.brain').getBoundingClientRect().top;
                         if ((brainTop < (windowHeight - windowHeight * 0.2)) && !scope.brainAnimateionRun) {
                             scope.brainAnimateionRun = true;
                         }
@@ -495,19 +493,19 @@ var app;
                     };
                     scope.setActiveMenuItem();
                     scope.activeSectionClass = _this.$rootScope.activeSectionClass;
-                    scope.setNavColor = function () {
-                        aboutUsTop = aboutUs.getBoundingClientRect().top;
-                        servicesTop = services.getBoundingClientRect().top;
-                        processTop = process.getBoundingClientRect().top;
-                        projectsTop = projects.getBoundingClientRect().top;
-                        footerTop = footer.getBoundingClientRect().top;
-                        trianglesTop = triangles.getBoundingClientRect().top;
+                    scope.setNavColor = function (element) {
+                        aboutUsTop = element[0].querySelector('.about-us').getBoundingClientRect().top;
+                        servicesTop = element[0].querySelector('.services').getBoundingClientRect().top;
+                        processTop = element[0].querySelector('.process').getBoundingClientRect().top;
+                        projectsTop = element[0].querySelector('.projects').getBoundingClientRect().top;
+                        footerTop = element[0].querySelector('.footer').getBoundingClientRect().top;
+                        trianglesTop = element[0].querySelector('.triangles').getBoundingClientRect().top;
                         scope.$apply(function () {
                             scope.navGrey = ((scope.url == '/en') || (scope.url == '/ru')) ? (aboutUsTop < navBottom) : true;
                         });
                     };
                     angular.element(_this.$window).bind("scroll", function () {
-                        scope.setNavColor();
+                        scope.setNavColor(element);
                         scope.setActiveMenuItem();
                         scope.animateElements();
                     });
@@ -701,8 +699,14 @@ var app;
             DataAccessService.prototype.getFeatures = function () {
                 return [{
                         name: '2',
-                        title: 'UX/UI Design',
-                        description: ['Website design', 'Application design'],
+                        title: {
+                            en: 'UX/UI Design',
+                            ru: 'UX/UI Дизайн'
+                        },
+                        description: {
+                            en: ['Website design', 'Application design'],
+                            ru: ['Веб-дизайн', 'Веб-разработка']
+                        },
                         size: {
                             width: 150,
                             height: 160
@@ -710,8 +714,14 @@ var app;
                     },
                     {
                         name: '5',
-                        title: 'Strategy',
-                        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis'],
+                        title: {
+                            en: 'Strategy',
+                            ru: 'Бизнес Стратегия'
+                        },
+                        description: {
+                            en: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis'],
+                            ru: ['Исследование объекта', 'Коммуникационная стратегия', 'Исследование рынка', 'Бизнес-анализ']
+                        },
                         size: {
                             width: 150,
                             height: 130
@@ -719,8 +729,14 @@ var app;
                     },
                     {
                         name: '6',
-                        title: 'Development',
-                        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment'],
+                        title: {
+                            en: 'Development',
+                            ru: 'Разработка'
+                        },
+                        description: {
+                            en: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment'],
+                            ru: ['Front-end разработка', 'Мобильные приложения', 'Техническое планирование', 'Контент-менеджмент']
+                        },
                         size: {
                             width: 145,
                             height: 140
@@ -728,8 +744,14 @@ var app;
                     },
                     {
                         name: '3',
-                        title: 'Branding',
-                        description: ['Naming', 'Logo Development', 'Corporate Identity'],
+                        title: {
+                            en: 'Branding',
+                            ru: 'Брендинг'
+                        },
+                        description: {
+                            en: ['Naming', 'Logo Development', 'Corporate Identity'],
+                            ru: ['Нейминг', 'Разработка логотипов', 'Корпоративная айдентика']
+                        },
                         size: {
                             width: 90,
                             height: 110
@@ -737,8 +759,14 @@ var app;
                     },
                     {
                         name: '1',
-                        title: 'Print Design',
-                        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging'],
+                        title: {
+                            en: 'Print Design',
+                            ru: 'Печатный дизайн'
+                        },
+                        description: {
+                            en: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging'],
+                            ru: ['Наружная реклама', 'Полиграфия', 'Журналы и книги', 'Упаковки']
+                        },
                         size: {
                             width: 140,
                             height: 130
@@ -746,8 +774,14 @@ var app;
                     },
                     {
                         name: '4',
-                        title: 'Illustration',
-                        description: ['Sketches', 'Book Illustration'],
+                        title: {
+                            en: 'Illustration',
+                            ru: 'Иллюстрация'
+                        },
+                        description: {
+                            en: ['Sketches', 'Book Illustration'],
+                            ru: ['Скетчи', 'Иллюстрации к книгам']
+                        },
                         size: {
                             width: 150,
                             height: 110

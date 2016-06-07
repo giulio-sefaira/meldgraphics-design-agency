@@ -95,7 +95,7 @@
     </ul>
     <ul class="services__features">
       <li class="services__feature animated" ng-class="{ 'services__feature--active': feature.active }" ng-repeat="feature in vm.features" data-animation="fadeInUp" data-animation-run-point="40" data-compare-element="parent">
-        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="vm.setActiveFeature(feature)" data-active="feature.active" data-size="feature.size" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
+        <a class="feature" ng-class="{ 'feature--active': feature.active }" ng-click="vm.setActiveFeature(feature)" data-lang="main.lang" data-active="feature.active" data-size="feature.size" data-name="feature.name" data-title="feature.title" data-description="feature.description" data-retina="vm.retina"></a>
       </li>
     </ul>
   </div>
@@ -186,7 +186,7 @@
       </li>
     </ul>
     <div class="projects__view-all-container">
-      <a class="projects__view-all" ng-href="#portfolio">Все проекты <i class="fa fa-long-arrow-right"></i></a>
+      <a class="projects__view-all" ng-href="#/ru/portfolio">Все проекты <i class="fa fa-long-arrow-right"></i></a>
     </div>
   </div>
 </section>

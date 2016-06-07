@@ -10,7 +10,8 @@ module app.feature {
       description: '=',
       retina: '=',
       active: '=',
-      size: '='
+      size: '=',
+      lang: '='
     };
 
     constructor(private $timeout: ng.ITimeoutService) { }

@@ -89,8 +89,14 @@ module app.common {
     getFeatures(): any {
       return [{
         name: '2',
-        title: 'UX/UI Design',
-        description: ['Website design', 'Application design'],
+        title: {
+          en: 'UX/UI Design',
+          ru: 'UX/UI Дизайн'
+        },
+        description: {
+          en: ['Website design', 'Application design'],
+          ru: ['Веб-дизайн', 'Веб-разработка']
+        },
         size: {
           width: 150,
           height: 160
@@ -98,8 +104,14 @@ module app.common {
       },
       {
         name: '5',
-        title: 'Strategy',
-        description: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis'],
+        title: {
+          en: 'Strategy',
+          ru: 'Бизнес Стратегия'
+        },
+        description: {
+          en: ['Research facility', 'Content strategy', 'Market research', 'Business Analysis'],
+          ru: ['Исследование объекта', 'Коммуникационная стратегия', 'Исследование рынка', 'Бизнес-анализ']
+        },
         size: {
           width: 150,
           height: 130
@@ -107,8 +119,14 @@ module app.common {
       },
       {
         name: '6',
-        title: 'Development',
-        description: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment'],
+        title: {
+          en: 'Development',
+          ru: 'Разработка'
+        },
+        description: {
+          en: ['Front-end Development', 'Mobile Development', 'Technical Planning', 'Content Managment'],
+          ru: ['Front-end разработка', 'Мобильные приложения', 'Техническое планирование', 'Контент-менеджмент']
+        },
         size: {
           width: 145,
           height: 140
@@ -116,8 +134,14 @@ module app.common {
       },
       {
         name: '3',
-        title: 'Branding',
-        description: ['Naming', 'Logo Development', 'Corporate Identity'],
+        title: {
+          en: 'Branding',
+          ru: 'Брендинг'
+        },
+        description: {
+          en: ['Naming', 'Logo Development', 'Corporate Identity'],
+          ru: ['Нейминг', 'Разработка логотипов', 'Корпоративная айдентика']
+        },
         size: {
           width: 90,
           height: 110
@@ -125,8 +149,14 @@ module app.common {
       },
       {
         name: '1',
-        title: 'Print Design',
-        description: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging'],
+        title: {
+          en: 'Print Design',
+          ru: 'Печатный дизайн'
+        },
+        description: {
+          en: ['Outdoor Advertising', 'Polygraphy', 'Magazines & Books', 'Packaging'],
+          ru: ['Наружная реклама', 'Полиграфия', 'Журналы и книги', 'Упаковки']
+        },
         size: {
           width: 140,
           height: 130
@@ -134,8 +164,14 @@ module app.common {
       },
       {
         name: '4',
-        title: 'Illustration',
-        description: ['Sketches', 'Book Illustration'],
+        title: {
+          en: 'Illustration',
+          ru: 'Иллюстрация'
+        },
+        description: {
+          en: ['Sketches', 'Book Illustration'],
+          ru: ['Скетчи', 'Иллюстрации к книгам']
+        },
         size: {
           width: 150,
           height: 110
