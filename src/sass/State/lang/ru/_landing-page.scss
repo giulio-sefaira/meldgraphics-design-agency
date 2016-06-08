@@ -1,0 +1,429 @@
+html {
+  @include block('ru') {
+    font-family: $opensans;
+    font-weight: $light;
+
+    p,
+    div {
+      font-family: $opensans;
+      font-weight: $light;
+    }
+
+    .header__title {
+      font-family: $proxima;
+    }
+
+    .header__subtitle {
+      @include fontsize(80);
+      letter-spacing: -0.09em;
+
+      @include breakpoint($tablet-max-width $desktop-max-width) {
+        @include fontsize(57);
+        letter-spacing: -0.04em;
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(29);
+      }
+    }
+
+    .nav__item,
+    .nav__lang-item {
+      @include fontsize(17);
+
+      @include breakpoint($mobile-min-width $tablet-max-width) {
+        @include fontsize(14);
+      }
+    }
+
+    .nav__lang-item {
+
+      @include breakpoint($mobile-min-width $tablet-max-width) {
+        @include fontsize(16);
+      }
+
+      @include breakpoint($mobile-min-width $mobile-max-width) {
+        @include fontsize(14);
+      }
+    }
+
+    .about-us__title,
+    .services__title,
+    .process__title,
+    .projects__title {
+      font-family: $gotham-black;
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(48);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(26);
+      }
+    }
+
+    .header__slogan,
+    .header__subtitle,
+    .article__title{
+      font-family: $gotham;
+      font-weight: $medium;
+    }
+
+    .header__slogan {
+      @include fontsize(28);
+      font-weight: $light;
+
+      @include breakpoint($tablet-max-width $desktop-max-width) {
+        @include fontsize(23);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(16);
+      }
+    }
+
+    .brain {
+
+      @include breakpoint($tablet-max-width $desktop-max-width) {
+        margin-top: 400px;
+      }
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        margin-top: 370px;
+      }
+
+      @include breakpoint($tablet-max-width $tablet-max-width + 150) {
+        margin-top: 450px;
+      }
+
+      @include breakpoint($tablet-max-width $tablet-max-width + 80) {
+        margin-top: 510px;
+      }
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        margin-top: 0;
+      }
+    }
+
+    .brain__panel-bottom {
+      margin-top: -77px;
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        margin-top: -64px;
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        margin-top: -41px;
+      }
+    }
+
+    .article__title {
+      @include fontsize(35);
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(40);
+        letter-spacing: -0.07em;
+      }
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(33);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(20);
+      }
+    }
+
+    .article__quote {
+      @include fontsize(20);
+      @include span(6 of 12 wide);
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(18);
+        width: 100%;
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(15);
+        width: 100%;
+      }
+    }
+
+    .article__column-1,
+    .article__column-2 {
+
+      p {
+        @include fontsize(18);
+
+        @include breakpoint($desktop-wide-min-width) {
+          line-height: 1.4;
+        }
+      }
+    }
+
+    .article p {
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        @include fontsize(15);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(15);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(13);
+      }
+    }
+
+    .article__cite {
+      @include fontsize(16);
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(18);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(17);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(11);
+      }
+    }
+
+    .brain__title {
+      @include fontsize(28);
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(18);
+      }
+    }
+
+    .love-it__title {
+      font-family: $gotham;
+      @include fontsize(34);
+      font-weight: $medium;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(48);
+      }
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        @include fontsize(33);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(25);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(17);
+      }
+    }
+
+    .advantages__title {
+      font-family: $opensans;
+      font-weight: $semi-bold;
+      @include fontsize(20);
+    }
+
+    .advantages__content {
+      font-family: $opensans;
+      @include fontsize(17);
+      font-weight: $light;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(18);
+      }
+    }
+
+    .advantages__item {
+
+      &:nth-child(1),
+      &:nth-child(3) {
+        width: percentage(450px / ($desktop-wide - $column-wide*2));
+      }
+
+      &:nth-child(1) {
+        text-align: left;
+      }
+
+      &:nth-child(2) {
+        margin: 0 percentage(125px / ($desktop-wide - $column-wide*2));
+        width: percentage(500px / ($desktop-wide - $column-wide*2));
+
+        @include breakpoint($tablet-max-width $tablet-max-width + 140) {
+          width: percentage(490px / ($desktop-wide - $column-wide*2));
+        }
+      }
+
+      &:nth-child(3) {
+        text-align: right;
+      }
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+
+        .advantages__content {
+          padding: 0;
+        }
+      }
+
+      @include breakpoint($mobile-min-width $desktop-min-width) {
+
+        .advantages__title {
+          @include fontsize(14);
+        }
+
+        .advantages__content {
+          @include fontsize(14);
+        }
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        text-align: center !important;
+
+        .advantages__content {
+          margin: 8px 0 23px;
+        }
+      }
+    }
+
+    .services__feature-title {
+      font-weight: $semi-bold;
+      @include fontsize(18);
+    }
+
+    .process__description {
+      font-family: $opensans;
+      @include fontsize(18);
+      font-weight: $light;
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(16);
+      }
+
+      @include breakpoint($mobile-min-width $mobile-max-width) {
+        @include fontsize(14);
+      }
+    }
+
+    .process__step-title {
+      font-family: $opensans;
+      @include fontsize(15);
+      font-weight: $semi-bold;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(17);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-interim-width - 1) {
+        @include fontsize(14);
+      }
+    }
+
+    .process__step-description {
+      font-family: $opensans;
+      @include fontsize(15);
+      font-weight: normal;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(17);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-interim-width - 1) {
+        @include fontsize(12);
+      }
+    }
+
+    .project__title {
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(24);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include pad(15px);
+      }
+    }
+
+    .phones {
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include span(9 at 4.5);
+      }
+    }
+
+    .footer__title {
+      font-family: $gotham-black;
+      @include fontsize(38);
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(28);
+      }
+
+      @include breakpoint($mobile-min-width $mobile-max-width) {
+        @include fontsize(28);
+      }
+    }
+
+    .project__view {
+      font-family: $opensans;
+      @include fontsize(16);
+      font-weight: $light;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(22);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(19);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(15);
+      }
+    }
+
+    .projects__view-all {
+      font-family: $opensans;
+      @include fontsize(20);
+      font-weight: $light;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(22);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(20);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(17);
+      }
+    }
+
+    #make-order {
+      font-family: $opensans;
+      @include fontsize(22);
+      font-weight: $light;
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(20);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(17);
+      }
+    }
+
+    .feature__description-item {
+      font-family: $opensans;
+      @include fontsize(15);
+      font-weight: $light;
+    }
+  }
+}

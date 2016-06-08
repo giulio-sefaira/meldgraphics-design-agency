@@ -9,6 +9,8 @@
       @include element('title') {
         @include span(6 wider at 2);
         @include fontsize(69);
+        float: none;
+        @include center-block;
         letter-spacing: 0.045em;
         padding-top: 188px;
         margin-bottom: 110px;

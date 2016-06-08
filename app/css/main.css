@@ -8831,6 +8831,10 @@ body .select-field__placeholder--active.select-field__placeholder, .info__field:
     margin-right: -100%;
     font-size: 69px;
     font-size: 4.3125rem;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     letter-spacing: 0.045em;
     padding-top: 188px;
     margin-bottom: 110px; }
@@ -10529,160 +10533,363 @@ body .header__go-next {
     margin-left: 56.85225%;
     margin-right: -100%; } }
 
-.ru {
+html .ru {
   font-family: "Open Sans", sans-serif;
   font-weight: 300; }
-  .ru p,
-  .ru div {
+  html .ru p,
+  html .ru div {
     font-family: "Open Sans", sans-serif;
     font-weight: 300; }
-  .ru .header__title {
+  html .ru .header__title {
     font-family: "Proxima Nova"; }
-  .ru .nav__item, .ru .nav__lang-item,
-  .ru .nav__lang-item {
+  html .ru .header__subtitle {
+    font-size: 80px;
+    font-size: 5rem;
+    letter-spacing: -0.09em; }
+    @media (min-width: 768px) and (max-width: 1279px) {
+      html .ru .header__subtitle {
+        font-size: 57px;
+        font-size: 3.5625rem;
+        letter-spacing: -0.04em; } }
+    @media (min-width: 200px) and (max-width: 767px) {
+      html .ru .header__subtitle {
+        font-size: 29px;
+        font-size: 1.8125rem; } }
+  html .ru .nav__item, html .ru .nav__lang-item,
+  html .ru .nav__lang-item {
     font-size: 17px;
     font-size: 1.0625rem; }
-  .ru .about-us__title, .ru .services__title, .ru .process__title, .ru .projects__title, .ru .contact__title, .ru body .send-message__title, body .ru .send-message__title,
-  .ru .services__title,
-  .ru .process__title,
-  .ru .projects__title,
-  .ru .projects__title {
+    @media (min-width: 200px) and (max-width: 768px) {
+      html .ru .nav__item, html .ru .nav__lang-item,
+      html .ru .nav__lang-item {
+        font-size: 14px;
+        font-size: 0.875rem; } }
+  @media (min-width: 200px) and (max-width: 768px) {
+    html .ru .nav__lang-item {
+      font-size: 16px;
+      font-size: 1rem; } }
+  @media (min-width: 200px) and (max-width: 320px) {
+    html .ru .nav__lang-item {
+      font-size: 14px;
+      font-size: 0.875rem; } }
+  html .ru .about-us__title, html .ru .services__title, html .ru .process__title, html .ru .projects__title, html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title,
+  html .ru .services__title,
+  html .ru .process__title,
+  html .ru .projects__title,
+  html .ru .projects__title {
     font-family: "Gotham Black"; }
-  .ru .header__slogan,
-  .ru .header__subtitle,
-  .ru .article__title {
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .about-us__title, html .ru .services__title, html .ru .process__title, html .ru .projects__title, html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title,
+      html .ru .services__title,
+      html .ru .process__title,
+      html .ru .projects__title,
+      html .ru .projects__title {
+        font-size: 48px;
+        font-size: 3rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .about-us__title, html .ru .services__title, html .ru .process__title, html .ru .projects__title, html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title,
+      html .ru .services__title,
+      html .ru .process__title,
+      html .ru .projects__title,
+      html .ru .projects__title {
+        font-size: 26px;
+        font-size: 1.625rem; } }
+  html .ru .header__slogan,
+  html .ru .header__subtitle,
+  html .ru .article__title {
     font-family: "Gotham";
     font-weight: 500; }
-  @media (min-width: 1920px) {
-    .ru .brain__panel-bottom {
-      margin-top: -77px; } }
-  .ru .article__title {
+  html .ru .header__slogan {
+    font-size: 28px;
+    font-size: 1.75rem;
+    font-weight: 300; }
+    @media (min-width: 768px) and (max-width: 1279px) {
+      html .ru .header__slogan {
+        font-size: 23px;
+        font-size: 1.4375rem; } }
+    @media (min-width: 200px) and (max-width: 767px) {
+      html .ru .header__slogan {
+        font-size: 16px;
+        font-size: 1rem; } }
+  @media (min-width: 768px) and (max-width: 1279px) {
+    html .ru .brain {
+      margin-top: 400px; } }
+  @media (min-width: 768px) and (max-width: 1090px) {
+    html .ru .brain {
+      margin-top: 370px; } }
+  @media (min-width: 768px) and (max-width: 918px) {
+    html .ru .brain {
+      margin-top: 450px; } }
+  @media (min-width: 768px) and (max-width: 848px) {
+    html .ru .brain {
+      margin-top: 510px; } }
+  @media (min-width: 321px) and (max-width: 768px) {
+    html .ru .brain {
+      margin-top: 0; } }
+  html .ru .brain__panel-bottom {
+    margin-top: -77px; }
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .brain__panel-bottom {
+        margin-top: -64px; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .brain__panel-bottom {
+        margin-top: -41px; } }
+  html .ru .article__title {
     font-size: 35px;
     font-size: 2.1875rem; }
     @media (min-width: 1920px) {
-      .ru .article__title {
+      html .ru .article__title {
         font-size: 40px;
         font-size: 2.5rem;
         letter-spacing: -0.07em; } }
-  .ru .article__quote {
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .article__title {
+        font-size: 33px;
+        font-size: 2.0625rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .article__title {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+  html .ru .article__quote {
     font-size: 20px;
     font-size: 1.25rem;
     width: 50.71633%;
     float: left;
     margin-right: 1.41243%; }
-  .ru .article__column-1 p,
-  .ru .article__column-2 p {
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .article__quote {
+        font-size: 18px;
+        font-size: 1.125rem;
+        width: 100%; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .article__quote {
+        font-size: 15px;
+        font-size: 0.9375rem;
+        width: 100%; } }
+  html .ru .article__column-1 p,
+  html .ru .article__column-2 p {
     font-size: 18px;
     font-size: 1.125rem; }
     @media (min-width: 1920px) {
-      .ru .article__column-1 p,
-      .ru .article__column-2 p {
+      html .ru .article__column-1 p,
+      html .ru .article__column-2 p {
         line-height: 1.4; } }
-  .ru .article__cite {
+  @media (min-width: 768px) and (max-width: 1090px) {
+    html .ru .article p {
+      font-size: 15px;
+      font-size: 0.9375rem; } }
+  @media (min-width: 321px) and (max-width: 768px) {
+    html .ru .article p {
+      font-size: 15px;
+      font-size: 0.9375rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .article p {
+      font-size: 13px;
+      font-size: 0.8125rem; } }
+  html .ru .article__cite {
     font-size: 16px;
     font-size: 1rem; }
     @media (min-width: 1920px) {
-      .ru .article__cite {
+      html .ru .article__cite {
         font-size: 18px;
         font-size: 1.125rem; } }
-  .ru .brain__title {
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .article__cite {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .article__cite {
+        font-size: 11px;
+        font-size: 0.6875rem; } }
+  html .ru .brain__title {
     font-size: 28px;
     font-size: 1.75rem; }
-  .ru .header__slogan {
-    font-size: 28px;
-    font-size: 1.75rem;
-    font-weight: 300; }
-  .ru .header__subtitle {
-    font-size: 80px;
-    font-size: 5rem;
-    letter-spacing: -0.09em; }
-  .ru .love-it__title {
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .brain__title {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+  html .ru .love-it__title {
     font-family: "Gotham";
     font-size: 34px;
     font-size: 2.125rem;
     font-weight: 500; }
     @media (min-width: 1920px) {
-      .ru .love-it__title {
+      html .ru .love-it__title {
         font-size: 48px;
         font-size: 3rem; } }
-  .ru .advantages__title {
+    @media (min-width: 768px) and (max-width: 1090px) {
+      html .ru .love-it__title {
+        font-size: 33px;
+        font-size: 2.0625rem; } }
+    @media (min-width: 200px) and (max-width: 767px) {
+      html .ru .love-it__title {
+        font-size: 25px;
+        font-size: 1.5625rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .love-it__title {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+  html .ru .advantages__title {
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
     font-size: 20px;
     font-size: 1.25rem; }
-  .ru .advantages__content {
+  html .ru .advantages__content {
     font-family: "Open Sans", sans-serif;
     font-size: 17px;
     font-size: 1.0625rem;
     font-weight: 300; }
     @media (min-width: 1920px) {
-      .ru .advantages__content {
+      html .ru .advantages__content {
         font-size: 18px;
         font-size: 1.125rem; } }
-  .ru .advantages__item:nth-child(1), .ru .advantages__item:nth-child(3) {
-    width: 24.82057%; }
-  .ru .advantages__item:nth-child(1) {
+  html .ru .advantages__item:nth-child(1), html .ru .advantages__item:nth-child(3) {
+    width: 26.91388%; }
+  html .ru .advantages__item:nth-child(1) {
     text-align: left; }
-  .ru .advantages__item:nth-child(2) {
-    margin: 0 11.96172%;
-    width: 25.41866%; }
-  .ru .advantages__item:nth-child(3) {
+  html .ru .advantages__item:nth-child(2) {
+    margin: 0 7.47608%;
+    width: 29.90431%; }
+    @media (min-width: 768px) and (max-width: 908px) {
+      html .ru .advantages__item:nth-child(2) {
+        width: 29.30622%; } }
+  html .ru .advantages__item:nth-child(3) {
     text-align: right; }
-  .ru .services__feature-title {
+  @media (min-width: 768px) and (max-width: 1090px) {
+    html .ru .advantages__item .advantages__content {
+      padding: 0; } }
+  @media (min-width: 200px) and (max-width: 1090px) {
+    html .ru .advantages__item .advantages__title {
+      font-size: 14px;
+      font-size: 0.875rem; }
+    html .ru .advantages__item .advantages__content {
+      font-size: 14px;
+      font-size: 0.875rem; } }
+  @media (min-width: 200px) and (max-width: 767px) {
+    html .ru .advantages__item {
+      width: 100% !important;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      text-align: center !important; }
+      html .ru .advantages__item .advantages__content {
+        margin: 8px 0 23px; } }
+  html .ru .services__feature-title {
     font-weight: 700;
     font-size: 18px;
     font-size: 1.125rem; }
-  .ru .process__description {
+  html .ru .process__description {
     font-family: "Open Sans", sans-serif;
     font-size: 18px;
     font-size: 1.125rem;
     font-weight: 300; }
-  .ru .process__step-title {
+    @media (min-width: 321px) and (max-width: 768px) {
+      html .ru .process__description {
+        font-size: 16px;
+        font-size: 1rem; } }
+    @media (min-width: 200px) and (max-width: 320px) {
+      html .ru .process__description {
+        font-size: 14px;
+        font-size: 0.875rem; } }
+  html .ru .process__step-title {
     font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-size: 0.9375rem;
     font-weight: 700; }
     @media (min-width: 1920px) {
-      .ru .process__step-title {
+      html .ru .process__step-title {
         font-size: 17px;
         font-size: 1.0625rem; } }
-  .ru .process__step-description {
+    @media (min-width: 200px) and (max-width: 649px) {
+      html .ru .process__step-title {
+        font-size: 14px;
+        font-size: 0.875rem; } }
+  html .ru .process__step-description {
     font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-size: 0.9375rem;
     font-weight: normal; }
     @media (min-width: 1920px) {
-      .ru .process__step-description {
+      html .ru .process__step-description {
         font-size: 17px;
         font-size: 1.0625rem; } }
+    @media (min-width: 200px) and (max-width: 649px) {
+      html .ru .process__step-description {
+        font-size: 12px;
+        font-size: 0.75rem; } }
   @media (min-width: 1920px) {
-    .ru .project__title {
+    html .ru .project__title {
       font-size: 24px;
       font-size: 1.5rem; } }
-  .ru .project__view {
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .project__title {
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (min-width: 200px) and (max-width: 767px) {
+    html .ru .phones {
+      width: 55.78158%;
+      float: left;
+      margin-left: 22.10921%;
+      margin-right: -100%; } }
+  html .ru .footer__title {
+    font-family: "Gotham Black";
+    font-size: 38px;
+    font-size: 2.375rem; }
+    @media (min-width: 321px) and (max-width: 1279px) {
+      html .ru .footer__title {
+        font-size: 28px;
+        font-size: 1.75rem; } }
+    @media (min-width: 200px) and (max-width: 320px) {
+      html .ru .footer__title {
+        font-size: 28px;
+        font-size: 1.75rem; } }
+  html .ru .project__view {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-size: 1rem;
     font-weight: 300; }
     @media (min-width: 1920px) {
-      .ru .project__view {
+      html .ru .project__view {
         font-size: 22px;
         font-size: 1.375rem; } }
-  .ru .projects__view-all {
+    @media (min-width: 321px) and (max-width: 1279px) {
+      html .ru .project__view {
+        font-size: 19px;
+        font-size: 1.1875rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .project__view {
+        font-size: 15px;
+        font-size: 0.9375rem; } }
+  html .ru .projects__view-all {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     font-size: 1.25rem;
     font-weight: 300; }
     @media (min-width: 1920px) {
-      .ru .projects__view-all {
+      html .ru .projects__view-all {
         font-size: 22px;
         font-size: 1.375rem; } }
-  .ru #make-order {
+    @media (min-width: 321px) and (max-width: 1279px) {
+      html .ru .projects__view-all {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru .projects__view-all {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+  html .ru #make-order {
     font-family: "Open Sans", sans-serif;
     font-size: 22px;
     font-size: 1.375rem;
     font-weight: 300; }
-  .ru .feature__description-item {
+    @media (min-width: 321px) and (max-width: 1279px) {
+      html .ru #make-order {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+    @media (min-width: 200px) and (max-width: 550px) {
+      html .ru #make-order {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+  html .ru .feature__description-item {
     font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-size: 0.9375rem;
