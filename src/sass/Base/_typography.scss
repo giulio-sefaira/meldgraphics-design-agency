@@ -1,6 +1,16 @@
 // Merriweather font
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300&subset=latin,cyrillic-ext);
 
+// Open Sans font
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic&subset=latin,cyrillic-ext);
+
+// Gotham font
+@include font-face('Gotham', '../fonts/GothamPro-Medium',               $medium,      normal, eot woff woff2 ttf svg);
+@include font-face('Gotham', '../fonts/GothamPro-Light',                $light,       normal, eot woff woff2 ttf svg);
+
+// Gotham black font
+@include font-face('Gotham Black', '../fonts/GothamPro-Black',          normal,       normal, eot woff woff2 ttf svg);
+
 // Proxima Nova black font
 @include font-face('Proxima Nova black', '../fonts/proximanova-black',  normal,       normal, eot woff woff2 ttf);
 

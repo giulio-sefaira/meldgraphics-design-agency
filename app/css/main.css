@@ -47,6 +47,7 @@ Mixins available:
 /* CENTERING BLOCKS ELEMENTS, HORIZONTAL, VERTICAL, BOTH */
 /* CLEARFIX */
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300&subset=latin,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic&subset=latin,cyrillic-ext);
 .projects, .projects__list, .talk-to-us, .article__content {
   *zoom: 1; }
   .projects:before, .projects__list:before, .talk-to-us:before, .article__content:before, .projects:after, .projects__list:after, .talk-to-us:after, .article__content:after {
@@ -8020,6 +8021,24 @@ Mixins available:
   animation-name: rollOut; }
 
 @font-face {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/GothamPro-Medium.eot?") format("eot"), url("../fonts/GothamPro-Medium.woff") format("woff"), url("../fonts/GothamPro-Medium.woff2") format("woff2"), url("../fonts/GothamPro-Medium.ttf") format("truetype"), url('../fonts/GothamPro-Medium.svg#str-replace("Gotham", " ", "_")') format("svg"); }
+
+@font-face {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/GothamPro-Light.eot?") format("eot"), url("../fonts/GothamPro-Light.woff") format("woff"), url("../fonts/GothamPro-Light.woff2") format("woff2"), url("../fonts/GothamPro-Light.ttf") format("truetype"), url('../fonts/GothamPro-Light.svg#str-replace("Gotham", " ", "_")') format("svg"); }
+
+@font-face {
+  font-family: "Gotham Black";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/GothamPro-Black.eot?") format("eot"), url("../fonts/GothamPro-Black.woff") format("woff"), url("../fonts/GothamPro-Black.woff2") format("woff2"), url("../fonts/GothamPro-Black.ttf") format("truetype"), url('../fonts/GothamPro-Black.svg#str-replace("Gotham Black", " ", "_")') format("svg"); }
+
+@font-face {
   font-family: "Proxima Nova black";
   font-style: normal;
   font-weight: normal;
@@ -10509,6 +10528,165 @@ body .header__go-next {
     float: left;
     margin-left: 56.85225%;
     margin-right: -100%; } }
+
+.ru {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300; }
+  .ru p,
+  .ru div {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300; }
+  .ru .header__title {
+    font-family: "Proxima Nova"; }
+  .ru .nav__item, .ru .nav__lang-item,
+  .ru .nav__lang-item {
+    font-size: 17px;
+    font-size: 1.0625rem; }
+  .ru .about-us__title, .ru .services__title, .ru .process__title, .ru .projects__title, .ru .contact__title, .ru body .send-message__title, body .ru .send-message__title,
+  .ru .services__title,
+  .ru .process__title,
+  .ru .projects__title,
+  .ru .projects__title {
+    font-family: "Gotham Black"; }
+  .ru .header__slogan,
+  .ru .header__subtitle,
+  .ru .article__title {
+    font-family: "Gotham";
+    font-weight: 500; }
+  @media (min-width: 1920px) {
+    .ru .brain__panel-bottom {
+      margin-top: -77px; } }
+  .ru .article__title {
+    font-size: 35px;
+    font-size: 2.1875rem; }
+    @media (min-width: 1920px) {
+      .ru .article__title {
+        font-size: 40px;
+        font-size: 2.5rem;
+        letter-spacing: -0.07em; } }
+  .ru .article__quote {
+    font-size: 20px;
+    font-size: 1.25rem;
+    width: 50.71633%;
+    float: left;
+    margin-right: 1.41243%; }
+  .ru .article__column-1 p,
+  .ru .article__column-2 p {
+    font-size: 18px;
+    font-size: 1.125rem; }
+    @media (min-width: 1920px) {
+      .ru .article__column-1 p,
+      .ru .article__column-2 p {
+        line-height: 1.4; } }
+  .ru .article__cite {
+    font-size: 16px;
+    font-size: 1rem; }
+    @media (min-width: 1920px) {
+      .ru .article__cite {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+  .ru .brain__title {
+    font-size: 28px;
+    font-size: 1.75rem; }
+  .ru .header__slogan {
+    font-size: 28px;
+    font-size: 1.75rem;
+    font-weight: 300; }
+  .ru .header__subtitle {
+    font-size: 80px;
+    font-size: 5rem;
+    letter-spacing: -0.09em; }
+  .ru .love-it__title {
+    font-family: "Gotham";
+    font-size: 34px;
+    font-size: 2.125rem;
+    font-weight: 500; }
+    @media (min-width: 1920px) {
+      .ru .love-it__title {
+        font-size: 48px;
+        font-size: 3rem; } }
+  .ru .advantages__title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-size: 1.25rem; }
+  .ru .advantages__content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+    font-size: 1.0625rem;
+    font-weight: 300; }
+    @media (min-width: 1920px) {
+      .ru .advantages__content {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+  .ru .advantages__item:nth-child(1), .ru .advantages__item:nth-child(3) {
+    width: 24.82057%; }
+  .ru .advantages__item:nth-child(1) {
+    text-align: left; }
+  .ru .advantages__item:nth-child(2) {
+    margin: 0 11.96172%;
+    width: 25.41866%; }
+  .ru .advantages__item:nth-child(3) {
+    text-align: right; }
+  .ru .services__feature-title {
+    font-weight: 700;
+    font-size: 18px;
+    font-size: 1.125rem; }
+  .ru .process__description {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 300; }
+  .ru .process__step-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    font-weight: 700; }
+    @media (min-width: 1920px) {
+      .ru .process__step-title {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+  .ru .process__step-description {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    font-weight: normal; }
+    @media (min-width: 1920px) {
+      .ru .process__step-description {
+        font-size: 17px;
+        font-size: 1.0625rem; } }
+  @media (min-width: 1920px) {
+    .ru .project__title {
+      font-size: 24px;
+      font-size: 1.5rem; } }
+  .ru .project__view {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 300; }
+    @media (min-width: 1920px) {
+      .ru .project__view {
+        font-size: 22px;
+        font-size: 1.375rem; } }
+  .ru .projects__view-all {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 300; }
+    @media (min-width: 1920px) {
+      .ru .projects__view-all {
+        font-size: 22px;
+        font-size: 1.375rem; } }
+  .ru #make-order {
+    font-family: "Open Sans", sans-serif;
+    font-size: 22px;
+    font-size: 1.375rem;
+    font-weight: 300; }
+  .ru .feature__description-item {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    font-weight: 300; }
 
 .header {
   padding-bottom: 3px;
