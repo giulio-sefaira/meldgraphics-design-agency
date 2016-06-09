@@ -649,52 +649,97 @@ var app;
                 ];
             };
             DataAccessService.prototype.getDesignDevelopmentOptions = function () {
-                return [
-                    {
-                        title: 'Ui/Ux Design',
-                        options: ['Website design', 'Application design']
-                    },
-                    {
-                        title: 'Development',
-                        options: ['Front-end development', 'Mobile development', 'Technical planning', 'Content management']
-                    }
-                ];
+                return {
+                    ru: [
+                        {
+                            title: 'Ui/Ux Дизайн',
+                            options: ['Веб-дизайн', 'Веб-разработка']
+                        },
+                        {
+                            title: 'Разработка',
+                            options: ['Front-end разработка', 'Мобильные приложения', 'Техническое планирование', 'Контент-менеджмент']
+                        }
+                    ],
+                    en: [
+                        {
+                            title: 'Ui/Ux Design',
+                            options: ['Website design', 'Application design']
+                        },
+                        {
+                            title: 'Development',
+                            options: ['Front-end development', 'Mobile development', 'Technical planning', 'Content management']
+                        }
+                    ]
+                };
             };
             DataAccessService.prototype.getPrintIllustrationOptions = function () {
-                return [
-                    {
-                        title: 'Print Design',
-                        options: ['Outdoor advertising', 'Polygraphy', 'Magazines and books', 'Packaging']
-                    },
-                    {
-                        title: 'Illustration',
-                        options: ['Sketches', 'Book illustration']
-                    }
-                ];
+                return {
+                    ru: [
+                        {
+                            title: 'Печатный дизайн',
+                            options: ['Наружная реклама', 'Полиграфия', 'Журналы и книги', 'Упаковки']
+                        },
+                        {
+                            title: 'Иллюстрация',
+                            options: ['Скетчи', 'Иллюстрации к книгам']
+                        }
+                    ],
+                    en: [
+                        {
+                            title: 'Print Design',
+                            options: ['Outdoor advertising', 'Polygraphy', 'Magazines and books', 'Packaging']
+                        },
+                        {
+                            title: 'Illustration',
+                            options: ['Sketches', 'Book illustration']
+                        }
+                    ]
+                };
             };
             DataAccessService.prototype.getUploadFileTypes = function () {
                 return ['pdf', 'zip', 'doc', 'jpg'];
             };
             DataAccessService.prototype.getBrandingStrategyOptions = function () {
-                return [
-                    {
-                        title: 'Branding',
-                        options: ['Naming', 'Logo development', 'Corporate identity']
-                    },
-                    {
-                        title: 'Strategy',
-                        options: ['Research facility', 'Content strategy', 'Market research', 'Business analysis']
-                    }
-                ];
+                return {
+                    ru: [
+                        {
+                            title: 'Брендинг',
+                            options: ['Нейминг', 'Разработка логотипа', 'Корпоративная айдентика']
+                        },
+                        {
+                            title: 'Стратегия',
+                            options: ['Исследование объекта', 'Коммуникационная стратегия', 'Исследование рынка', 'Бизнес-анализ']
+                        }
+                    ],
+                    en: [
+                        {
+                            title: 'Branding',
+                            options: ['Naming', 'Logo development', 'Corporate identity']
+                        },
+                        {
+                            title: 'Strategy',
+                            options: ['Research facility', 'Content strategy', 'Market research', 'Business analysis']
+                        }
+                    ]
+                };
             };
             DataAccessService.prototype.getProjectDeadlineOptions = function () {
-                return [
-                    'Can you make it yesterday?',
-                    'In a week',
-                    'in a month',
-                    '2-3 months',
-                    'I have more time'
-                ];
+                return {
+                    ru: [
+                        'Уже должен быть готов!',
+                        'Неделя',
+                        'Месяц',
+                        '2-3 месяца',
+                        'У меня есть больше времени'
+                    ],
+                    en: [
+                        'Can you make it yesterday?',
+                        'In a week',
+                        'in a month',
+                        '2-3 months',
+                        'I have more time'
+                    ]
+                };
             };
             DataAccessService.prototype.getFeatures = function () {
                 return [{

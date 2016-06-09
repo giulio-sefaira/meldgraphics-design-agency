@@ -1,5 +1,60 @@
 html {
   @include block('ru') {
 
+    .contact__description {
+      @include fontsize(24);
+    }
+
+    .talk-to-us__title {
+      font-family: $opensans;
+      font-weight: $semi-bold;
+    }
+
+    .info__title,
+    .detail__title {
+      @include fontsize(22);
+      font-family: $opensans;
+    }
+
+    .info__field,
+    .select-field__placeholder,
+    .talk-to-us__submit,
+    .talk-to-us__description {
+      @include fontsize(18);
+      font-family: $opensans;
+    }
+
+    .info__field,
+    .select-field__placeholder {
+      font-weight: $light;
+    }
+
+    .select-field__placeholder {
+      color: $color-text-field;
+    }
+
+    .dropdown-choose-list__title,
+    .upload-file-field__title,
+    .select-field__item,
+    .info__subtitle {
+      @include fontsize(20);
+      font-family: $opensans;
+      font-weight: $light;
+    }
+
+    .checkbox__label {
+      @include fontsize(20);
+      font-family: $opensans;
+      font-weight: $semi-bold;
+    }
+
+    .dropdown-choose-list__subitem {
+
+      .checkbox__label {
+        @include fontsize(18);
+        font-weight: $normal;
+      }
+    }
+
   }
 }
