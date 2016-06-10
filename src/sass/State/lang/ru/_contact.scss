@@ -1,19 +1,81 @@
 html {
   @include block('ru') {
 
+    .contact__title {
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(60);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+        @include fontsize(45);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(28);
+      }
+    }
+
     .contact__description {
       @include fontsize(24);
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(20);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(18);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(14);
+      }
     }
 
     .talk-to-us__title {
       font-family: $opensans;
       font-weight: $semi-bold;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(35);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(26);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(17);
+      }
+    }
+
+    .talk-to-us__description {
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(16);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(13);
+      }
     }
 
     .info__title,
     .detail__title {
       @include fontsize(22);
       font-family: $opensans;
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(23);
+      }
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(20);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(16);
+      }
     }
 
     .info__field,
@@ -22,6 +84,10 @@ html {
     .talk-to-us__description {
       @include fontsize(18);
       font-family: $opensans;
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(15);
+      }
     }
 
     .info__field,
@@ -40,12 +106,24 @@ html {
       @include fontsize(20);
       font-family: $opensans;
       font-weight: $light;
+
+      @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+        @include fontsize(18);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(15);
+      }
     }
 
     .checkbox__label {
       @include fontsize(20);
       font-family: $opensans;
       font-weight: $semi-bold;
+
+      @include breakpoint($mobile-min-width $tablet-min-width) {
+        @include fontsize(15);
+      }
     }
 
     .dropdown-choose-list__subitem {
@@ -53,6 +131,14 @@ html {
       .checkbox__label {
         @include fontsize(18);
         font-weight: $normal;
+
+        @include breakpoint($desktop-wide-min-width) {
+          @include fontsize(20);
+        }
+
+        @include breakpoint($mobile-min-width $tablet-min-width) {
+          @include fontsize(14);
+        }
       }
     }
 

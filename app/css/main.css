@@ -10895,19 +10895,83 @@ html .ru {
     font-size: 0.9375rem;
     font-weight: 300; }
 
+@media (min-width: 1920px) {
+  html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title {
+    font-size: 60px;
+    font-size: 3.75rem; } }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title {
+    font-size: 45px;
+    font-size: 2.8125rem; } }
+
+@media (min-width: 200px) and (max-width: 550px) {
+  html .ru .contact__title, html .ru body .send-message__title, body html .ru .send-message__title {
+    font-size: 28px;
+    font-size: 1.75rem; } }
+
 html .ru .contact__description, html .ru body .send-message__description, body html .ru .send-message__description {
   font-size: 24px;
   font-size: 1.5rem; }
+  @media (min-width: 1920px) {
+    html .ru .contact__description, html .ru body .send-message__description, body html .ru .send-message__description {
+      font-size: 20px;
+      font-size: 1.25rem; } }
+  @media (min-width: 321px) and (max-width: 1279px) {
+    html .ru .contact__description, html .ru body .send-message__description, body html .ru .send-message__description {
+      font-size: 18px;
+      font-size: 1.125rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .contact__description, html .ru body .send-message__description, body html .ru .send-message__description {
+      font-size: 14px;
+      font-size: 0.875rem; } }
 
 html .ru .talk-to-us__title {
   font-family: "Open Sans", sans-serif;
   font-weight: 700; }
+  @media (min-width: 1920px) {
+    html .ru .talk-to-us__title {
+      font-size: 35px;
+      font-size: 2.1875rem; } }
+  @media (min-width: 321px) and (max-width: 1279px) {
+    html .ru .talk-to-us__title {
+      font-size: 26px;
+      font-size: 1.625rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .talk-to-us__title {
+      font-size: 17px;
+      font-size: 1.0625rem; } }
+
+@media (min-width: 321px) and (max-width: 1279px) {
+  html .ru .talk-to-us__description {
+    font-size: 16px;
+    font-size: 1rem; } }
+
+@media (min-width: 200px) and (max-width: 550px) {
+  html .ru .talk-to-us__description {
+    font-size: 13px;
+    font-size: 0.8125rem; } }
 
 html .ru .info__title, html .ru .detail__title,
 html .ru .detail__title {
   font-size: 22px;
   font-size: 1.375rem;
   font-family: "Open Sans", sans-serif; }
+  @media (min-width: 1920px) {
+    html .ru .info__title, html .ru .detail__title,
+    html .ru .detail__title {
+      font-size: 23px;
+      font-size: 1.4375rem; } }
+  @media (min-width: 321px) and (max-width: 1279px) {
+    html .ru .info__title, html .ru .detail__title,
+    html .ru .detail__title {
+      font-size: 20px;
+      font-size: 1.25rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .info__title, html .ru .detail__title,
+    html .ru .detail__title {
+      font-size: 16px;
+      font-size: 1rem; } }
 
 html .ru .info__field, html .ru .select-field__placeholder, html .ru .info__textarea,
 html .ru .select-field__placeholder,
@@ -10916,6 +10980,13 @@ html .ru .talk-to-us__description {
   font-size: 18px;
   font-size: 1.125rem;
   font-family: "Open Sans", sans-serif; }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .info__field, html .ru .select-field__placeholder, html .ru .info__textarea,
+    html .ru .select-field__placeholder,
+    html .ru .talk-to-us__submit,
+    html .ru .talk-to-us__description {
+      font-size: 15px;
+      font-size: 0.9375rem; } }
 
 html .ru .info__field, html .ru .select-field__placeholder, html .ru .info__textarea,
 html .ru .select-field__placeholder {
@@ -10932,17 +11003,43 @@ html .ru .info__subtitle {
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 300; }
+  @media (min-width: 321px) and (max-width: 1279px) {
+    html .ru .dropdown-choose-list__title, html .ru .upload-file-field__title,
+    html .ru .upload-file-field__title,
+    html .ru .select-field__item,
+    html .ru .info__subtitle {
+      font-size: 18px;
+      font-size: 1.125rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .dropdown-choose-list__title, html .ru .upload-file-field__title,
+    html .ru .upload-file-field__title,
+    html .ru .select-field__item,
+    html .ru .info__subtitle {
+      font-size: 15px;
+      font-size: 0.9375rem; } }
 
 html .ru .checkbox__label {
   font-size: 20px;
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 700; }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .checkbox__label {
+      font-size: 15px;
+      font-size: 0.9375rem; } }
 
 html .ru .dropdown-choose-list__subitem .checkbox__label {
   font-size: 18px;
   font-size: 1.125rem;
   font-weight: 400; }
+  @media (min-width: 1920px) {
+    html .ru .dropdown-choose-list__subitem .checkbox__label {
+      font-size: 20px;
+      font-size: 1.25rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .dropdown-choose-list__subitem .checkbox__label {
+      font-size: 14px;
+      font-size: 0.875rem; } }
 
 .header {
   padding-bottom: 3px;
