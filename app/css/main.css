@@ -11041,6 +11041,63 @@ html .ru .dropdown-choose-list__subitem .checkbox__label {
       font-size: 14px;
       font-size: 0.875rem; } }
 
+@media (min-width: 1920px) {
+  html .ru .portfolio .projects__title {
+    font-size: 60px;
+    font-size: 3.75rem; } }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  html .ru .portfolio .projects__title {
+    font-size: 45px;
+    font-size: 2.8125rem; } }
+
+@media (min-width: 200px) and (max-width: 320px) {
+  html .ru .portfolio .projects__title {
+    font-size: 26px;
+    font-size: 1.625rem; } }
+
+html .ru .portfolio .categories__item {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400; }
+  @media (min-width: 1920px) {
+    html .ru .portfolio .categories__item {
+      font-size: 18px;
+      font-size: 1.125rem; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .portfolio .categories__item {
+      font-size: 14px;
+      font-size: 0.875rem;
+      letter-spacing: -0.05em; } }
+
+html .ru .portfolio .project__title {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  font-weight: 300; }
+  @media (min-width: 1920px) {
+    html .ru .portfolio .project__title {
+      font-size: 24px;
+      font-size: 1.5rem;
+      padding-top: 23px; } }
+  @media (min-width: 200px) and (max-width: 550px) {
+    html .ru .portfolio .project__title {
+      font-size: 16px;
+      font-size: 1rem; } }
+
+@media (min-width: 1920px) {
+  html .ru .portfolio .project__view {
+    padding-top: 23px; } }
+
+@media (min-width: 321px) and (max-width: 1279px) {
+  html .ru .portfolio .project__view {
+    font-size: 16px;
+    font-size: 1rem; } }
+
+@media (min-width: 200px) and (max-width: 320px) {
+  html .ru .portfolio .project__view {
+    font-size: 15px;
+    font-size: 0.9375rem; } }
+
 .header {
   padding-bottom: 3px;
   position: relative;

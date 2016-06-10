@@ -1,5 +1,66 @@
 html {
+
   @include block('ru') {
 
+    .portfolio {
+
+      .projects__title {
+
+        @include breakpoint($desktop-wide-min-width) {
+          @include fontsize(60);
+        }
+
+        @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
+          @include fontsize(45);
+        }
+
+        @include breakpoint($mobile-min-width $mobile-max-width) {
+          @include fontsize(26);
+        }
+      }
+
+      .categories__item {
+        @include fontsize(16);
+        font-weight: $normal;
+
+        @include breakpoint($desktop-wide-min-width) {
+          @include fontsize(18);
+        }
+
+        @include breakpoint($mobile-min-width $tablet-min-width) {
+          @include fontsize(14);
+          letter-spacing: -0.05em;
+        }
+      }
+
+      .project__title {
+        @include fontsize(19);
+        font-weight: $light;
+
+        @include breakpoint($desktop-wide-min-width) {
+          @include fontsize(24);
+          padding-top: 23px;
+        }
+
+        @include breakpoint($mobile-min-width $tablet-min-width) {
+          @include fontsize(16);
+        }
+      }
+
+      .project__view {
+
+        @include breakpoint($desktop-wide-min-width) {
+          padding-top: 23px;
+        }
+
+        @include breakpoint($mobile-max-width + 1 $desktop-max-width) {
+          @include fontsize(16);
+        }
+
+        @include breakpoint($mobile-min-width $mobile-max-width) {
+          @include fontsize(15);
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 html {
+
   @include block('ru') {
 
     .contact__title {
@@ -141,6 +142,5 @@ html {
         }
       }
     }
-
   }
 }
