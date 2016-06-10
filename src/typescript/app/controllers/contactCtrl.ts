@@ -46,7 +46,8 @@ module app.contact {
       if (form.$invalid) return false;
       
       this.sendData(this.formData).then(data => {
-        this.$location.path('/cantact/sendMessage');
+        let lang = (this.$location.path().indexOf('/ru/')) ? 'ru' : 'en';
+        this.$location.path(`/${lang}/contact/sendMessage`);
       }, () => {
         console.log('Error');
       });

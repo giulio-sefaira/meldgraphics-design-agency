@@ -50,7 +50,7 @@ module app.scroll {
       });
 
       this.$timeout(() => {
-        scope.frontLayerPosition = 222;
+        scope.frontLayerPosition = 333;
       }, 4000);
 
       scope.setActiveMenuItem = () => {

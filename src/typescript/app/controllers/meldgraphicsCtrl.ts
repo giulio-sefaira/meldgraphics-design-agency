@@ -14,12 +14,13 @@ module app.meldgraphics {
 
   export class meldgraphicsCtrl implements meldgraphicsModel {
 
-    static $inject = ['$window', '$document', '$rootScope', '$timeout'];
+    static $inject = ['$window', '$document', '$rootScope', '$timeout', '$location'];
     constructor(
       private $window: ng.IWindowService,
       private $document: ng.IDocumentService,
       private $rootScope: ng.IRootScopeService,
       private $timeout: ng.ITimeoutService,
+      private $location: ng.ILocationService,
       public showNav: boolean = false,
       public lang: string,
       public features: any,
@@ -31,6 +32,10 @@ module app.meldgraphics {
         if (this.$window.innerWidth > 768) this.showNav = false;
       });
 
+    }
+
+    getUrlPath():string {
+      return this.$location.path().substring(3);
     }
 
     setLang(lang): string {
