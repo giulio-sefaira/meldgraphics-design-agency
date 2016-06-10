@@ -2,5 +2,50 @@ html {
 
   @include block('ru') {
 
+    .send-message__title {
+      font-family: $gotham-black;
+      @include fontsize(48);
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(60);
+      }
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        @include fontsize(40);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(26);
+      }
+    }
+
+    .send-message__description {
+      @include fontsize(24);
+
+      @include breakpoint($desktop-wide-min-width) {
+        @include fontsize(28);
+      }
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        @include fontsize(22);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(14);
+      }
+    }
+
+    .go-back {
+      @include fontsize(18);
+      font-weight: $normal;
+
+      @include breakpoint($tablet-max-width $desktop-min-width) {
+        @include fontsize(17);
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        @include fontsize(13);
+      }
+    }
   }
 }
