@@ -12,6 +12,15 @@ html {
 
     .header__title {
       font-family: $proxima;
+      line-height: 1.1em;
+
+      @include breakpoint($mobile-min-width $desktop-max-width) {
+        line-height: 0.8em;
+      }
+
+      @include breakpoint($mobile-min-width $tablet-max-width - 1) {
+        letter-spacing: 0.06em;
+      }
     }
 
     .header__subtitle {
@@ -67,7 +76,7 @@ html {
     .header__subtitle,
     .article__title{
       font-family: $gotham;
-      font-weight: $medium;
+      font-weight: $semi;
     }
 
     .header__slogan {
@@ -138,6 +147,7 @@ html {
     .article__quote {
       @include fontsize(20);
       @include span(6 of 12 wide);
+      font-weight: $normal;
 
       @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
         @include fontsize(18);
@@ -195,6 +205,7 @@ html {
 
     .brain__title {
       @include fontsize(28);
+      font-weight: $normal;
 
       @include breakpoint($mobile-min-width $tablet-min-width) {
         @include fontsize(18);
@@ -225,7 +236,7 @@ html {
 
     .advantages__title {
       font-family: $opensans;
-      font-weight: $semi-bold;
+      font-weight: $semi;
       @include fontsize(20);
     }
 
@@ -294,7 +305,7 @@ html {
     }
 
     .services__feature-title {
-      font-weight: $semi-bold;
+      font-weight: $semi;
       @include fontsize(18);
     }
 
@@ -315,7 +326,7 @@ html {
     .process__step-title {
       font-family: $opensans;
       @include fontsize(15);
-      font-weight: $semi-bold;
+      font-weight: $semi;
 
       @include breakpoint($desktop-wide-min-width) {
         @include fontsize(17);

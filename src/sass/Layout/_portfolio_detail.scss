@@ -1,7 +1,10 @@
 @include block('portfolio-detail') {
   text-align: center;
   padding: 20px 0;
+
   img {
+    display: block;
+    margin: 0 auto;
     max-width: 90%;
     height: auto;
   }
