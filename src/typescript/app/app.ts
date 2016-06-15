@@ -52,9 +52,14 @@ module app {
           templateUrl: '/templates/views/ru/sendMessage.html',
           controller: 'sendMessageCtrl as vm'
         })
-      .when('/portfolio/presentHorizon',
+      .when('/ru/portfolio/presentHorizon',
         {
-          templateUrl: '/templates/views/portfolio/horizonAdvisor.html',
+          templateUrl: '/templates/views/ru/portfolio/horizonAdvisor.html',
+          controller: 'portfolioDetailCtrl as vm'
+        })
+      .when('/en/portfolio/presentHorizon',
+        {
+          templateUrl: '/templates/views/en/portfolio/horizonAdvisor.html',
           controller: 'portfolioDetailCtrl as vm'
         })
       .otherwise('/en');

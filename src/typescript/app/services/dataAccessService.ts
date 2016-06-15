@@ -228,55 +228,55 @@ module app.common {
       return [{
         title: 'Life Lines',
         imageUrl: 'img/thumb-1.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'branding'
       },
       {
         title: 'Horizon Advisor',
         imageUrl: 'img/thumb-2.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'design ui/ux'
       },
       {
         title: 'VegFit',
         imageUrl: 'img/thumb-3.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'print design & illustration'
       },
       {
         title: 'Life Lines',
         imageUrl: 'img/thumb-1.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'print design & illustration'
       },
       {
         title: 'Horizon Advisor',
         imageUrl: 'img/thumb-2.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'design ui/ux'
       },
       {
         title: 'VegFit',
         imageUrl: 'img/thumb-3.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'branding'
       },
       {
         title: 'Life Lines',
         imageUrl: 'img/thumb-1.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'branding'
       },
       {
         title: 'Horizon Advisor',
         imageUrl: 'img/thumb-2.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'print design & illustration'
       },
       {
         title: 'VegFit',
         imageUrl: 'img/thumb-3.jpg',
-        url: '#/portfolio/presentHorizon',
+        url: '/portfolio/presentHorizon',
         type: 'design ui/ux'
       }];
     }

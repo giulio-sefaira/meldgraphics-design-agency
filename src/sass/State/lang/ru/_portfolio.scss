@@ -5,6 +5,7 @@ html {
     .portfolio {
 
       .projects__title {
+        @include fontsize(50);
 
         @include breakpoint($desktop-wide-min-width) {
           @include fontsize(60);
@@ -14,7 +15,7 @@ html {
           @include fontsize(45);
         }
 
-        @include breakpoint($mobile-min-width $mobile-max-width) {
+        @include breakpoint($mobile-min-width $tablet-min-width) {
           @include fontsize(26);
         }
       }

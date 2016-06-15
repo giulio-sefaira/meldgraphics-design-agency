@@ -19,13 +19,13 @@
 
     </head>
     <body scroll ng-class="main.setLang(lang)">
-        <nav class="nav" ng-class="{'nav--moved' : main.showNav, 'nav--grey' : navGrey}">
+        <nav class="nav" ng-class="{'nav--moved' : showNav, 'nav--grey' : navGrey}">
             <div class="wrapper">
                 <a ng-href="#/{{main.lang}}" ng-click="main.scrollTop()" class="nav__logo">
                 </a>
-                <a ng-click="main.toggleNav()" class="nav__control"></a>
+                <a ng-click="toggleNav()" class="nav__control"></a>
                 <div class="nav__container">
-                    <a class="nav__close" ng-click="main.toggleNav()"></a>
+                    <a class="nav__close" ng-click="toggleNav()"></a>
                     <ul class="nav__list">
                         <li><a class="nav__item" ng-href="#/{{lang}}" ng-class="{'nav__item--active': activeSectionClass == '.about-us'}" ng-click="scrollToSection('.about-us')">
                             {{(lang == 'en') ? 'about us' : 'о нас'}}
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </nav>
-        <div id="wrap-all" ng-class="main.showNav ? 'document--moved' : ''">
+        <div id="wrap-all" ng-class="showNav ? 'document--moved' : ''">
 
             <div ng-view ng-class="vm.pageClass" autoscroll="true"></div>
 
@@ -89,6 +89,12 @@
         <!-- bower:js -->
         <!-- endbower -->
         <!-- endbuild -->
+
+        <script>
+              window.onresize = function() {
+                       console.log(window.innerWidth);
+                   }
+        </script>
 
         <!--<script src="/js/main.js"></script>-->
         <script src="/js/main.min.js"></script>

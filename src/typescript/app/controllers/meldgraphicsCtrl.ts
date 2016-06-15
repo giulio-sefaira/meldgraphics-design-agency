@@ -1,10 +1,8 @@
 module app.meldgraphics {
   
   export interface meldgraphicsModel {
-    showNav: boolean;
     lang: string;
     features: any;
-    toggleNav(): void;
     scrollTop(duration: string): void;
     scrollToSection(elementSelector: string): void
   }
@@ -15,7 +13,6 @@ module app.meldgraphics {
     constructor(
       private $window: ng.IWindowService,
       private $location: ng.ILocationService,
-      public showNav: boolean = false,
       public lang: string,
       public features: any) {
 
@@ -31,10 +28,6 @@ module app.meldgraphics {
 
     setLang(lang): string {
       return this.lang = lang;
-    }
-
-    toggleNav(): void {
-      this.showNav = !this.showNav;
     }
 
   }

@@ -36,6 +36,7 @@ module app.scroll {
       scope.frontLayer = true;
       scope.url = this.$location.path();
       scope.navGrey = (scope.url != '/');
+      scope.showNav = false;
 
       scope.$on('$routeChangeStart', (next, current) => {
         scope.frontLayer = true;
@@ -72,6 +73,10 @@ module app.scroll {
                   (aboutUsTop < navBottom) ? '.about-us' : '';
         }
       };
+      
+      scope.toggleNav = () => {
+        scope.showNav = !scope.showNav;
+      }
 
       scope.animateElements = () => {
         if (scope.homePage) {
@@ -97,6 +102,9 @@ module app.scroll {
   
       scope.scrollToSection = (elementSelector: string) => {
         scope.selectedItemClass = elementSelector;
+        if (this.$window.innerWidth < 550) {
+          scope.toggleNav();
+        }
         if (scope.homePage) {
           scope.scrollMotion();
         }
