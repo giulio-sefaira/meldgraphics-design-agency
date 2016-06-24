@@ -282,8 +282,16 @@
 
         img {
           @include size(39px, auto);
-          margin-left: percentage(134px / $mobile);
-          display: block;
+          margin-right: percentage(117px / $mobile);
+          float: right;
+          margin-bottom: 4px;
+        }
+
+        &:nth-child(3) {
+
+          img {
+            margin-right: percentage(105px / $mobile);
+          }
         }
 
         &:before {

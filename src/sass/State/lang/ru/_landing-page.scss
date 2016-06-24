@@ -65,10 +65,12 @@ html {
 
       @include breakpoint($mobile-max-width + 1 $tablet-max-width) {
         @include fontsize(48);
+        letter-spacing: 0.02em;
       }
 
       @include breakpoint($mobile-min-width $tablet-min-width) {
         @include fontsize(26);
+        letter-spacing: 0.02em;
       }
     }
 
