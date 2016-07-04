@@ -103,7 +103,7 @@
       }
 
       @include element('wrapper') {
-        @include container($tablet);
+        @include container(90%);
       }
     }
 

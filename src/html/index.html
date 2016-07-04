@@ -14,8 +14,8 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!--<link rel="stylesheet" href="/css/main.css">-->
-        <link rel="stylesheet" href="/css/main.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <!--<link rel="stylesheet" href="/css/main.min.css">-->
 
     </head>
     <body scroll ng-class="main.setLang(lang)">
@@ -44,8 +44,8 @@
                         </a></li>
                     </ul>
                     <ul class="nav__lang-list">
-                        <li><a class="nav__lang-item" ng-click="main.setLang(lang)" ng-class="{'nav__lang-item--active': lang == 'ru'}" ng-href="#/ru{{ main.getUrlPath() }}">ru</a></li>
-                        <li><a class="nav__lang-item" ng-click="main.setLang(lang)" ng-class="{'nav__lang-item--active': lang == 'en'}" ng-href="#/en{{ main.getUrlPath() }}">en</a></li>
+                        <li><a class="nav__lang-item" ng-click="main.setLang(lang); onLangChange()" ng-class="{'nav__lang-item--active': lang == 'ru'}" ng-href="#/ru{{ main.getUrlPath() }}">ru</a></li>
+                        <li><a class="nav__lang-item" ng-click="main.setLang(lang); onLangChange()" ng-class="{'nav__lang-item--active': lang == 'en'}" ng-href="#/en{{ main.getUrlPath() }}">en</a></li>
                     </ul>
                 </div>
             </div>
@@ -96,8 +96,8 @@
                    }
         </script>
 
-        <!--<script src="/js/main.js"></script>-->
-        <script src="/js/main.min.js"></script>
+        <script src="/js/main.js"></script>
+        <!--<script src="/js/main.min.js"></script>-->
 
     </body>
 </html>

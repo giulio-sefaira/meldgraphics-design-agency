@@ -76,7 +76,7 @@ module app.scroll {
       
       scope.toggleNav = () => {
         scope.showNav = !scope.showNav;
-      }
+      };
 
       scope.animateElements = () => {
         if (scope.homePage) {
@@ -88,17 +88,23 @@ module app.scroll {
             scope.trianglesAnimationRun = true;
           }
         }
-      }
+      };
 
       scope.scrollMotion = () => {
         let scrollOffset = element[0].querySelector('.nav').offsetHeight - 20;
         let targetElement = element[0].querySelector(scope.selectedItemClass);
         this.$document.scrollToElement(targetElement, scrollOffset, scrollDurationValue / 2);
-      }
+      };
   
       scope.scrollTop = (duration: number = scrollDurationValue) => {
         this.$document.scrollTop(scrollTopValue, duration);
-      }
+      };
+
+      scope.onLangChange = () => {
+        if (this.$window.innerWidth < 550) {
+          scope.toggleNav();
+        }
+      };
   
       scope.scrollToSection = (elementSelector: string) => {
         scope.selectedItemClass = elementSelector;
@@ -108,7 +114,7 @@ module app.scroll {
         if (scope.homePage) {
           scope.scrollMotion();
         }
-      }
+      };
 
       scope.setActiveMenuItem();
 
@@ -124,7 +130,7 @@ module app.scroll {
         scope.$apply(() => {
           scope.navGrey = (scope.homePage) ? (aboutUsTop < navBottom) : true;
         });
-      }
+      };
 
       angular.element(this.$window).bind("scroll", () => {
         scope.setNavColor(element);
@@ -136,7 +142,7 @@ module app.scroll {
         scope.setNavColor(element);
         scope.setActiveMenuItem();
       });
-    }
+    };
 
     static factory(): ng.IDirectiveFactory {
       const directive = ($window: ng.IWindowService, $document: ng.IDocumentService, $location: ng.ILocationService, $rootScope: ng.IRootScopeService, $timeout: ng.ITimeoutService) => new scroll($window, $document, $location, $rootScope, $timeout);

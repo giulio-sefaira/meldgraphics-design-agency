@@ -3,8 +3,6 @@ module app.meldgraphics {
   export interface meldgraphicsModel {
     lang: string;
     features: any;
-    scrollTop(duration: string): void;
-    scrollToSection(elementSelector: string): void
   }
 
   export class meldgraphicsCtrl implements meldgraphicsModel {

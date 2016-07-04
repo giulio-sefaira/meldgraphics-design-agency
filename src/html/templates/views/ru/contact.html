@@ -47,7 +47,7 @@
         <input type="text" class="info__field" placeholder="Ваше имя" value="" ng-model="vm.formData.name">
       </p>
       <p>
-        <label for="" class="info__subtitle">Как Вы можете связаться с нами? <span class="info__required">(обязательно)</span></label>
+        <label for="" class="info__subtitle">Как мы можем связаться с Вами? <span class="info__required">(обязательно)</span></label>
         <input type="email" name="email" required class="info__field" placeholder="Ваш адрес эл. почты" ng-model="vm.formData.email" ng-class="{'info__error' : (contactForm.$submitted && contactForm.email.$invalid)}">
         <span role="alert">
           <span class="error" ng-show="contactForm.$submitted && contactForm.email.$error.required">

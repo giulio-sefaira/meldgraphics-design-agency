@@ -20,3 +20,13 @@ $submit-button-height: 55px;
 
 // from 321px to 768px
 @import "tablet/321-768";
+
+@include breakpoint($tablet-max-width $tablet-max-width + 1) {
+
+  @include block('footer') {
+
+    @include element('wrapper') {
+      @include container($tablet);
+    }
+  }
+}
