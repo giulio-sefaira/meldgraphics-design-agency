@@ -26,7 +26,7 @@ module app.uploadFileField {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
       }
 
-      scope.selectedFileType = item => item.file.name.match(/\.(.+)$/)[1];
+      scope.selectedFileType = item => item.file.name.match(/(?:\.([^.]+))?$/)[1];
 
       scope.uploader.onAfterAddingFile = item => {
         let selectedFileType = scope.selectedFileType(item);

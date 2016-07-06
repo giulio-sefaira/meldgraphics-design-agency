@@ -31,7 +31,7 @@ module app.feature {
       }
       scope.stopAnimation = () => {
         scope.startAnimation = false;
-        scope.endAnimation = true;
+        scope.endAnimation = false;
       }      
       scope.cash = 1;
       scope.disableCashing = (min, max) => {

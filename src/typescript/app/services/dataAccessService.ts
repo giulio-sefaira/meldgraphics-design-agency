@@ -84,7 +84,7 @@ module app.common {
     }
 
     getUploadFileTypes(): any {
-      return ['pdf', 'zip', 'doc', 'jpg'];
+      return ['pdf', 'zip', 'doc', 'docx', 'jpg', 'jpeg'];
     }
 
     getBrandingStrategyOptions(): any {
