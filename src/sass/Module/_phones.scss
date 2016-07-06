@@ -8,4 +8,11 @@
     margin-top: 15px;
     display: block;
   }
+
+  li:nth-child(2) {
+
+    .phones__item {
+      letter-spacing: 0.025em;
+    }
+  }
 }

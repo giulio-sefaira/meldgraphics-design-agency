@@ -47,7 +47,7 @@ module app.scroll {
           scope.frontLayer = false;
         }, 100);
         this.$timeout(() => {
-          if (scope.homePage) {
+          if ((scope.homePage) && (this.$window.innerWidth > 550)) {
             scope.scrollMotion();
           }
         }, 1000);

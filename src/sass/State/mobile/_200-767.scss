@@ -63,6 +63,35 @@
       }
     }
 
+    @include block('advantages') {
+      margin: 0;
+      width: 100%;
+
+      @include element('item') {
+        @include break;
+        @include pad(percentage(32px / $mobile));
+        @include box-sizing('border-box');
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      @include element('title') {
+        @include fontsize(14);
+        margin-top: 12px;
+      }
+
+      @include element('content') {
+        @include fontsize(14);
+        line-height: 1.5;
+        margin: 8px 0 23px;
+      }
+    }
+
     @include block('project') {
 
       @include element('thumb') {

@@ -224,35 +224,6 @@
       }
     }
 
-    @include block('advantages') {
-      margin: 0;
-      width: 100%;
-
-      @include element('item') {
-        @include break;
-        @include pad(percentage(32px / $mobile));
-        @include box-sizing('border-box');
-
-        &:nth-child(1),
-        &:nth-child(2),
-        &:nth-child(3) {
-          width: 100%;
-          margin: 0;
-        }
-      }
-
-      @include element('title') {
-        @include fontsize(14);
-        margin-top: 12px;
-      }
-
-      @include element('content') {
-        @include fontsize(14);
-        line-height: 1.5;
-        margin: 8px 0 23px;
-      }
-    }
-
     @include block('process') {
 
       @include element('wrapper') {
@@ -273,7 +244,7 @@
 
       @include element('steps') {
         background: none;
-        margin: 0 0 6px 0;
+        margin: 0 auto 6px auto;
       }
 
       @include element('step') {
@@ -282,15 +253,43 @@
 
         img {
           @include size(39px, auto);
-          margin-right: percentage(117px / $mobile);
+          margin-right: percentage(111px / $mobile);
           float: right;
-          margin-bottom: 4px;
+          margin-bottom: 5px;
+        }
+
+        &:nth-child(1) {
+
+          img {
+            margin-right: percentage(115px / $mobile);
+          }
+        }
+
+        &:nth-child(2) {
+
+          img {
+            margin-right: percentage(112px / $mobile);
+          }
         }
 
         &:nth-child(3) {
 
           img {
-            margin-right: percentage(105px / $mobile);
+            margin-right: percentage(97px / $mobile);
+          }
+        }
+
+        &:nth-child(4) {
+
+          img {
+            margin-bottom: -1px;
+          }
+        }
+
+        &:nth-child(5) {
+
+          img {
+            margin-bottom: 6px;
           }
         }
 

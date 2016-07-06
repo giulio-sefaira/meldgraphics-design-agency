@@ -70,6 +70,10 @@
 
     @include block('advantages') {
 
+      @include element('title') {
+        @include fontsize(18);
+      }
+
       @include element('item') {
 
         &:nth-child(2) {

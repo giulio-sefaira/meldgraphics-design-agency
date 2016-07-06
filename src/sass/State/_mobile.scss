@@ -17,3 +17,40 @@ $submit-button-height: 60px;
 
 // from 200px to 320px
 @import "mobile/200-320";
+
+@include breakpoint($mobile-max-width + 1 $tablet-min-width) {
+
+  body {
+
+    @include block('process') {
+
+      @include element('step') {
+
+        img {
+          margin-right: percentage(117px / $mobile);
+        }
+
+        &:nth-child(1) {
+
+          img {
+            margin-right: percentage(121px / $mobile);
+          }
+        }
+
+        &:nth-child(2) {
+
+          img {
+            margin-right: percentage(118px / $mobile);
+          }
+        }
+
+        &:nth-child(3) {
+
+          img {
+            margin-right: percentage(105px / $mobile);
+          }
+        }
+      }
+    }
+  }
+}

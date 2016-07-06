@@ -30,3 +30,20 @@ $submit-button-height: 55px;
     }
   }
 }
+
+body {
+
+  @include block('advantages') {
+
+    @include element('title') {
+
+      @include breakpoint($tablet-max-width $tablet-max-width + 200) {
+        @include fontsize(16);
+      }
+
+      @include breakpoint($tablet-max-width $tablet-max-width + 80) {
+        @include fontsize(14);
+      }
+    }
+  }
+}
